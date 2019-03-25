@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">My Study</string>
+
+    <!-- HomePage start -->
+    <string name="register">註冊</string>
+    <string name="login">登入</string>
+    <!-- HomePage end -->
+
+    <!-- RegisterPage start -->
+    <string name="register_username">帳號</string>
+    <string name="register_password">密碼</string>
+    <string name="register_group">組別</string>
+    <string name="test_username">測試帳號</string>
+    <!-- RegisterPage end -->
+
+    <!-- LoginPage start -->
+    <string name="login_username">帳號</string>
+    <string name="login_password">密碼</string>
+    <!-- LoginPage end -->
+
+    <!-- ContactList start -->
+    <string name="contactlist_profile_row_text">您目前的狀態是</string>
+    <string name="editProfile">編輯</string>
+    <!-- ContactList end -->
+
+</resources>

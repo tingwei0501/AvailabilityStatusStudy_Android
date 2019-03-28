@@ -3,6 +3,7 @@ package com.example.mystudy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -36,7 +37,7 @@ public class LoginPage extends Activity {
         setContentView(R.layout.login_page);
         mContext = getApplicationContext();
 
-        Button loginSubmit = (Button) findViewById(R.id.login_submit);
+        Button loginSubmit = findViewById(R.id.login_submit);
         loginSubmit.setOnClickListener(loginSubmitListener);
     }
 
@@ -46,8 +47,8 @@ public class LoginPage extends Activity {
         private Intent failedIntent;
         @Override
         public void onClick(View v) {
-            EditText username = (EditText) findViewById(R.id.editText_login_username);
-            EditText password = (EditText) findViewById(R.id.editText_login_password);
+            EditText username = findViewById(R.id.editText_login_username);
+            EditText password = findViewById(R.id.editText_login_password);
             id = username.getText().toString();
             pwd = password.getText().toString();
 
@@ -58,7 +59,17 @@ public class LoginPage extends Activity {
             failedIntent.setClass(LoginPage.this, RegisterPage.class);
 
             if (id != null && pwd != null) {
+
+                // pass to next Activity
                 successIntent.putExtra("id", id);
+                // pass to next Activity
+
+                // store to sharedPreference
+                SharedPreferences user = getSharedPreferences("user", MODE_PRIVATE);
+                user.edit()
+                        .putString("id", id)
+                        .commit();
+                // store to sharedPreference
 
                 JSONObject data = new JSONObject();
                 try {
@@ -68,7 +79,6 @@ public class LoginPage extends Activity {
                     e.printStackTrace();
                 }
                 mQueue = Volley.newRequestQueue(mContext);
-
                 mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, loginUrl, data,
                         new Response.Listener<JSONObject>() {
                             @Override

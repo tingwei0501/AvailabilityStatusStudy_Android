@@ -23,4 +23,63 @@
     <string name="editProfile">編輯</string>
     <!-- ContactList end -->
 
+    <!-- Question1 start -->
+    <string name="questionnaire_title">問卷</string>
+    <string name="previous_page">上一頁</string>
+    <string name="next_page">下一頁</string>
+    <!-- Question1 end -->
+
+    <!-- Question1 start -->
+    <string name="question1">1. 請問您當時在哪裡?</string>
+    <string name="home">家裡</string>
+    <string name="dorm">宿舍</string>
+    <string name="classroom">教室</string>
+    <string name="lab">實驗室</string>
+    <string name="library">圖書館</string>
+    <string name="outdoor">室外</string>
+    <!-- Question1 end -->
+
+    <!-- Question2 start -->
+    <string name="question2">2. 請問接到通知前，您當時正在做甚麼?</string>
+    <string name="work">工作</string>
+    <string name="study">讀書</string>
+    <string name="inclass">上課</string>
+    <string name="meeting">開會</string>
+    <string name="eat">吃飯</string>
+    <string name="exercising">運動</string>
+    <string name="phone">滑手機</string>
+    <!-- Question2 end -->
+
+    <!-- Question3 start -->
+    <string name="question3">3. 請問您目前的狀態，是您理想中的呈現方式嗎?</string>
+    <string name="strongly_agree">非常同意</string>
+    <string name="agree">同意</string>
+    <string name="neither">無意見</string>
+    <string name="disagree">不同意</string>
+    <string name="strongly_disagree">非常不同意</string>
+    <!-- Question3 end -->
+
+    <!-- Question4 start -->
+    <string name="question4">4. 請問您理想中的呈現方式是?</string>
+    <string name="ideal_way_text">文字表示</string>
+    <string name="ideal_way_digit">數字表示</string>
+    <string name="ideal_way_graphic">圖像化表示</string>
+    <!-- Question4 end -->
+
+    <!-- Question5 start -->
+    <string name="question5">5. 請問您想要改變您目前的呈現方式嗎?</string>
+    <string name="go_change_status">好</string>
+    <string name="no_thanks">先不用，謝謝</string>
+    <!-- Question5 end -->
+
+    <!-- Question6 start -->
+    <string name="question6">6. 想要改變的原因是?</string>
+    <string name="change_status_high">目前呈現的回覆率太高</string>
+    <string name="change_status_low">目前呈現的回覆率太低</string>
+    <string name="change_status_way">想要改變呈現方式</string>
+    <string name="change_status_blurred">目前呈現的回覆率太模糊</string>
+    <string name="change_status_accurate">目前呈現的回覆率太精確</string>
+    <string name="change_other">其他</string>
+    <!-- Question6 end -->
+
 </resources>

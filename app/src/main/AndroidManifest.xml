@@ -22,6 +22,8 @@
         <activity android:name=".LoginPage"></activity>
         <activity android:name=".ContactList"></activity>
         <activity android:name=".StatusExample"></activity>
+        <activity android:name=".EditProfilePage"></activity>
+        <activity android:name=".Questionnaire"></activity>
     </application>
 
 </manifest>

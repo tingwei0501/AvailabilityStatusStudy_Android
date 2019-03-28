@@ -37,6 +37,8 @@ public class ContactList extends Activity {
     private ArrayList<String> userList;
     private String id;
     private ListView listView;
+//    private MyAdapter myAdapter;
+//    private RecyclerView recyclerView;
     private SimpleAdapter simpleAdapter;
 
     @Override
@@ -45,13 +47,26 @@ public class ContactList extends Activity {
         setContentView(R.layout.contact_list);
         mContext = getApplicationContext();
         listView = findViewById(R.id.contact_list);
+//        recyclerView = findViewById(R.id.recyclerView);
         id = getIntent().getStringExtra("id");
         getData();
 
+        Button editProfile = findViewById(R.id.edit_profile_button);
+        editProfile.setOnClickListener(editProfileListener);
         Button statusExample = findViewById(R.id.status_example);
         statusExample.setOnClickListener(statusExampleListener);
+        Button questionnaire = findViewById(R.id.questionnaire);
+        questionnaire.setOnClickListener(questionnaireListener);
     }
 
+    private Button.OnClickListener questionnaireListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(ContactList.this, Questionnaire.class);
+            startActivity(intent);
+        }
+    };
     private Button.OnClickListener statusExampleListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -60,7 +75,16 @@ public class ContactList extends Activity {
             startActivity(intent);
         }
     };
-    // TODO: maybe need to return list
+
+    private Button.OnClickListener editProfileListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(ContactList.this, EditProfilePage.class);
+            startActivity(intent);
+        }
+    };
+
     private void getData() {
         userList = new ArrayList<>();
         JSONObject data = new JSONObject();
@@ -87,6 +111,13 @@ public class ContactList extends Activity {
                                 }
                                 // TODO: render List
                                 renderList();
+//                                myAdapter = new MyAdapter(userList);
+//                                recyclerView = findViewById(R.id.recyclerView);
+//                                final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+//                                layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+//                                recyclerView.setLayoutManager(layoutManager);
+//                                recyclerView.setAdapter(myAdapter);
+
                             } else {
                                 Log.d(TAG, "getList error");
                             }
@@ -104,10 +135,53 @@ public class ContactList extends Activity {
 
     }
 
-    private void renderList() {
-//        for (int i=0;i<userList.size();i++) {
-//            Log.d(TAG, userList.get(i));
+//    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+//
+//        private ArrayList<String> mData;
+//        public class ViewHolder extends RecyclerView.ViewHolder {
+//            public TextView mTextView;
+//            public ViewHolder(View v) {
+//                super(v);
+//                mTextView = v.findViewById(R.id.contact_list_row_text);
+//            }
 //        }
+//        public MyAdapter(ArrayList<String> data) {
+//            mData = data;
+//        }
+//        @Override
+//        public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//            View v = LayoutInflater.from(parent.getContext())
+//                    .inflate(R.layout.contact_list_row, parent, false);
+//            ViewHolder vh = new ViewHolder(v);
+//            return vh;
+//        }
+//        @Override
+//        public void onBindViewHolder(ViewHolder holder, final int position) {
+//            holder.mTextView.setText(mData.get(position));
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(ContactList.this, "Item " + position + " is clicked.", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+//                @Override
+//                public boolean onLongClick(View v) {
+//                    Toast.makeText(ContactList.this, "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//            });
+//        }
+//
+//        @Override
+//        public int getItemCount() {
+//            return mData.size();
+//        }
+//    }
+    private void renderList() {
+        for (int i=0;i<userList.size();i++) {
+            Log.d(TAG, userList.get(i));
+        }
         List<Map<String, Object>> items = new ArrayList<>();
         for (int i=0;i<userList.size();i++) {
             Map<String, Object> item = new HashMap<>();
@@ -118,7 +192,7 @@ public class ContactList extends Activity {
                                           items,
                                           R.layout.contact_list_row,
                                           new String[]{"id"},
-                                          new int[]{R.id.contact_list_row_textview});
+                                          new int[]{R.id.contact_list_row_text});
         listView.setAdapter(simpleAdapter);
         listView.setOnItemClickListener(onClickListView);
     }

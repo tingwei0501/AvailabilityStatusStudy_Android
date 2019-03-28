@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -48,7 +50,13 @@ public class Questionnaire extends Activity {
     //
     //Q6: change
     private TextView change_question6;
-    private RadioGroup radioGroupChange;
+    private CheckBox change_status_high;
+    private CheckBox change_status_low;
+    private CheckBox change_status_way;
+    private CheckBox change_status_blurred;
+    private CheckBox change_status_accurate;
+    private CheckBox change_other;
+    private EditText change_other_text;
 
 
     @Override
@@ -100,7 +108,13 @@ public class Questionnaire extends Activity {
 
         // Q6: change
         change_question6 = findViewById(R.id.change_question6);
-        radioGroupChange = findViewById(R.id.change_reason);
+        change_status_high = findViewById(R.id.change_status_high);
+        change_status_low = findViewById(R.id.change_status_low);
+        change_status_way = findViewById(R.id.change_status_way);
+        change_status_blurred = findViewById(R.id.change_status_blurred);
+        change_status_accurate = findViewById(R.id.change_status_accurate);
+        change_other = findViewById(R.id.change_other);
+        change_other_text = findViewById(R.id.change_other_text);
 //        radioGroupChange.setOnCheckedChangeListener(new changeListener());
 //        button1to2 = findViewById(R.id.button_1to2);
 //        button1to2.setOnClickListener(button1to2Listener);
@@ -153,7 +167,13 @@ public class Questionnaire extends Activity {
             switch (checkedId) {
                 case R.id.go_change_status:
                     change_question6.setVisibility(View.VISIBLE);
-                    radioGroupChange.setVisibility(View.VISIBLE);
+                    change_status_high.setVisibility(View.VISIBLE);
+                    change_status_low.setVisibility(View.VISIBLE);
+                    change_status_way.setVisibility(View.VISIBLE);
+                    change_status_blurred.setVisibility(View.VISIBLE);
+                    change_status_accurate.setVisibility(View.VISIBLE);
+                    change_other.setVisibility(View.VISIBLE);
+                    change_other_text.setVisibility(View.VISIBLE);
                     break;
                 case R.id.no_thanks:
 

@@ -6,5 +6,6 @@
     <color name="colorLightOrange">#FFE083</color>
     <color name="colorDarkPink">#D81B60</color>
     <color name="colorLightPink">#D77186</color>
+    <color name="colorGray">#B5B5B3</color>
     <color name="colorWhite">#FFFFFF</color>
 </resources>

@@ -1,9 +1,19 @@
 package com.example.mystudy;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,9 +33,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
 
 public class ContactList extends Activity {
 
@@ -37,19 +50,24 @@ public class ContactList extends Activity {
     private ArrayList<String> userList;
     private String id;
     private ListView listView;
-//    private MyAdapter myAdapter;
-//    private RecyclerView recyclerView;
     private SimpleAdapter simpleAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.contact_list);
+
         mContext = getApplicationContext();
+
+        // TODO: 只需要做一次，但是app被滑掉的話，又會再做一次
+        // notification
+//        NotificationHelper.scheduleDailyNotification(mContext);
+        NotificationHelper.scheduleRepeatingRTCNotification(mContext);
+        //
         listView = findViewById(R.id.contact_list);
-//        recyclerView = findViewById(R.id.recyclerView);
         id = getIntent().getStringExtra("id");
         getData();
+
 
         Button editProfile = findViewById(R.id.edit_profile_button);
         editProfile.setOnClickListener(editProfileListener);

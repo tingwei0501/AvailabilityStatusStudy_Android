@@ -26,10 +26,15 @@
     <!-- EditPage start -->
     <string name="editPage_title">編輯您的個人狀態</string>
     <string name="editPage_submit">確定</string>
+    <string name="editPage_cancel">取消</string>
     <string name="editPage_presentWay_title">呈現方式</string>
     <string name="editPage_present_text">文字呈現</string>
     <string name="editPage_present_digit">數字呈現</string>
     <string name="editPage_present_graphic">圖像呈現</string>
+    <string name="editPage_present_digit_title1">回覆率</string>
+    <string name="editPage_present_digit_title2">%</string>
+    <string name="textStatus_ratio_low">回覆率低</string>
+    <string name="textStatus_ratio_high">回覆率高</string>
     <!-- EditPage end -->
 
     <!-- Question1 start -->

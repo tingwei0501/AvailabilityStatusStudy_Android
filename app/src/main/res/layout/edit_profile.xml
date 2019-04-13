@@ -18,6 +18,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <Button
+            android:id="@+id/edit_profile_cancel"
+            android:layout_width="76dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/editPage_cancel"
+            app:layout_constraintBottom_toBottomOf="@+id/textView6"
+            app:layout_constraintEnd_toStartOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.246"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.481" />
+
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
@@ -33,7 +46,7 @@
             app:layout_constraintVertical_bias="0.842" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/edit_profile_done"
             android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -98,9 +111,119 @@
     </RadioGroup>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayoutGraphic"
+        android:id="@+id/constraintLayoutText"
         android:layout_width="223dp"
         android:layout_height="232dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPage_presentWay">
+
+        <RadioGroup
+            android:id="@+id/radioGroupTextStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <RadioButton
+                android:id="@+id/textStatus_ratio_low"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textStatus_ratio_low" />
+
+            <RadioButton
+                android:id="@+id/textStatus_ratio_high"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textStatus_ratio_high" />
+
+        </RadioGroup>
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutDigit"
+        android:layout_width="299dp"
+        android:layout_height="232dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPage_presentWay">
+
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/editPage_present_digit_title1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.224"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/editPage_digit_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/editPage_present_digit_title2"
+            app:layout_constraintBottom_toBottomOf="@+id/editPage_digit_rate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editPage_digit_rate"
+            app:layout_constraintTop_toTopOf="@+id/editPage_digit_rate" />
+
+        <com.warkiz.widget.IndicatorSeekBar
+            android:id="@+id/seekBarProgressDigit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="76dp"
+            android:layout_marginEnd="8dp"
+            app:isb_max="100"
+            app:isb_show_tick_texts="true"
+            app:isb_tick_texts_size="9dp"
+            app:isb_thumb_color="@color/colorDarkPink"
+            app:isb_ticks_count="11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editPage_digit_rate" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayoutGraphic"
+        android:layout_width="223dp"
+        android:layout_height="249dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
@@ -126,7 +249,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <SeekBar
-            android:id="@+id/seekBarProgress"
+            android:id="@+id/seekBarProgressGraphic"
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_marginStart="8dp"
@@ -142,15 +265,14 @@
             android:id="@+id/shadeslider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBarProgress" />
+            app:layout_constraintTop_toBottomOf="@+id/seekBarProgressGraphic" />
 
     </android.support.constraint.ConstraintLayout>
-
 
 
 </android.support.constraint.ConstraintLayout>

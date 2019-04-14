@@ -3,6 +3,7 @@ package com.example.mystudy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
@@ -44,7 +45,8 @@ public class EditProfilePage extends Activity {
     private CircularProgressBar circularProgressBar;
     private float initialProgress;
     private int selectedGraphicStatus;
-    private String selectedColor;
+    private int selectedColor;
+//    private int selectedBackgroundColor;
     //
     // done button
     private Button done;
@@ -56,6 +58,7 @@ public class EditProfilePage extends Activity {
         setContentView(R.layout.edit_profile);
         mContext = getApplicationContext();
         initialProgress = 65;
+        selectedPresentWay = "text";
 
         // choose present way
         radioGroupPresentWay = findViewById(R.id.editPage_presentWay);
@@ -123,32 +126,35 @@ public class EditProfilePage extends Activity {
             @Override
             public void onColorChanged(int color) {
                 circularProgressBar.setColor(color);
-                circularProgressBar.setBackgroundColor(adjustAlpha(color, 0.3f));
+//                circularProgressBar.setBackgroundColor(adjustAlpha(color, 0.3f));
             }
 
             @Override
             public void onColorSelected(int color) {
                 Log.d(TAG, "selected color: " + color);
-                switch (color) {
-                    case -7617718:
-                        selectedColor = "green";
-                        break;
-                    case -16728876:
-                        selectedColor = "lightBlue";
-                        break;
-                    case -5317:
-                        selectedColor = "yellow";
-                        break;
-                    case -2937298:
-                        selectedColor = "red";
-                        break;
-                    case -10011977:
-                        selectedColor = "purple";
-                        break;
-                    case -12627531:
-                        selectedColor = "darkBlue";
-                        break;
-                }
+                selectedColor = color;
+//                selectedBackgroundColor = adjustAlpha(color, 0.3f);
+//                Log.d(TAG, "selectedBackgroundColor: " + selectedBackgroundColor);
+//                switch (color) {
+//                    case -7617718:
+//                        selectedColor = "green";
+//                        break;
+//                    case -16728876:
+//                        selectedColor = "lightBlue";
+//                        break;
+//                    case -5317:
+//                        selectedColor = "yellow";
+//                        break;
+//                    case -2937298:
+//                        selectedColor = "red";
+//                        break;
+//                    case -10011977:
+//                        selectedColor = "purple";
+//                        break;
+//                    case -12627531:
+//                        selectedColor = "darkBlue";
+//                        break;
+//                }
             }
         });
     }
@@ -159,14 +165,41 @@ public class EditProfilePage extends Activity {
         public void onClick(View v) {
             // TODO: send data to database
             // TODO: send questionnaire
+
+            Intent intent = new Intent(EditProfilePage.this, ContactList.class);
+//            intent.putExtra("from", "EditProfilePage");
+//            intent.putExtra("presentWay", selectedPresentWay);
+
+            SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
+
             if (selectedPresentWay.equals("text")) {
                 Log.d(TAG, "selectedTextStatus: " + selectedTextStatus);
+                preferences.edit()
+                        .putString("way", "text")
+                        .putString("status", selectedTextStatus)
+                        .commit();
+//                intent.putExtra("selectedTextStatus", selectedTextStatus);
             } else if (selectedPresentWay.equals("digit")) {
                 Log.d(TAG, "selectedDigitStatus: " + selectedDigitStatus);
+                preferences.edit()
+                        .putString("way", "digit")
+                        .putString("status", String.valueOf(selectedDigitStatus))
+                        .commit();
+//                intent.putExtra("selectedDigitStatus", String.valueOf(selectedDigitStatus));
             } else if (selectedPresentWay.equals("graphic")) {
                 Log.d(TAG, "selectedGraphicStatus: " + selectedGraphicStatus);
                 Log.d(TAG, "selectedColor: " + selectedColor);
+                preferences.edit()
+                        .putString("way", "graphic")
+                        .putString("status", String.valueOf(selectedGraphicStatus))
+                        .putInt("color", selectedColor)
+//                        .putInt("backgroundColor", selectedBackgroundColor)
+                        .commit();
+//                intent.putExtra("selectedGraphicStatus", String.valueOf(selectedGraphicStatus));
+//                intent.putExtra("selectedColor", String.valueOf(selectedColor));
+//                intent.putExtra("selectedBackgroundColor", String.valueOf(selectedBackgroundColor));
             }
+            startActivity(intent);
         }
     };
 
@@ -175,6 +208,8 @@ public class EditProfilePage extends Activity {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent(EditProfilePage.this, ContactList.class);
+            intent.putExtra("from", "EditProfilePage");
+
             startActivity(intent);
         }
     };
@@ -186,11 +221,11 @@ public class EditProfilePage extends Activity {
             switch (checkedId) {
                 case R.id.textStatus_ratio_low:
                     Log.d(TAG, "textStatus_ratio_low");
-                    selectedTextStatus = "textStatus_ratio_low";
+                    selectedTextStatus = "回覆率低";
                     break;
                 case R.id.textStatus_ratio_high:
                     Log.d(TAG, "textStatus_ratio_high");
-                    selectedTextStatus = "textStatus_ratio_high";
+                    selectedTextStatus = "回覆率高";
                     break;
             }
         }
@@ -225,6 +260,7 @@ public class EditProfilePage extends Activity {
                     constraintLayoutText.setVisibility(View.INVISIBLE);
                     constraintLayoutDigit.setVisibility(View.INVISIBLE);
                     constraintLayoutGraphic.setVisibility(View.VISIBLE);
+                    break;
             }
         }
     }

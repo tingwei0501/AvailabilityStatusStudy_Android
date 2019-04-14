@@ -19,15 +19,22 @@
     <!-- LoginPage end -->
 
     <!-- ContactList start -->
-    <string name="contactlist_profile_row_text">您目前的狀態是</string>
+    <string name="contactList_profile_row_text">您目前的狀態是</string>
     <string name="editProfile">編輯</string>
     <!-- ContactList end -->
+
+    <!-- contact people status start -->
+    <string name="contactList_status1_title">a.</string>
+    <string name="contactList_status2_title">b.</string>
+    <!-- contact people status end -->
 
     <!-- EditPage start -->
     <string name="editPage_title">編輯您的個人狀態</string>
     <string name="editPage_submit">確定</string>
     <string name="editPage_cancel">取消</string>
     <string name="editPage_presentWay_title">呈現方式</string>
+    <string name="editPage_graphic_subtitle1">調整您的比率</string>
+    <string name="editPage_graphic_subtitle2">調整顏色</string>
     <string name="editPage_present_text">文字呈現</string>
     <string name="editPage_present_digit">數字呈現</string>
     <string name="editPage_present_graphic">圖像呈現</string>

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent();
             intent.setClass(MainActivity.this, ContactList.class);
+            intent.putExtra("from", "login");
             intent.putExtra("id", id);
             startActivity(intent);
         }

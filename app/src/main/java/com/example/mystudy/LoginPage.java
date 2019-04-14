@@ -61,6 +61,7 @@ public class LoginPage extends Activity {
             if (id != null && pwd != null) {
 
                 // pass to next Activity
+                successIntent.putExtra("from", "login");
                 successIntent.putExtra("id", id);
                 // pass to next Activity
 
@@ -68,6 +69,10 @@ public class LoginPage extends Activity {
                 SharedPreferences user = getSharedPreferences("user", MODE_PRIVATE);
                 user.edit()
                         .putString("id", id)
+                        .putString("way", "text")
+                        .putString("status", "")
+                        .putInt("color", 0)
+//                        .putInt("backgroundColor", 0)
                         .commit();
                 // store to sharedPreference
 

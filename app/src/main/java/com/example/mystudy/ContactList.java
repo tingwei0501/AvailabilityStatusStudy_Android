@@ -9,6 +9,7 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -27,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,8 +52,21 @@ public class ContactList extends Activity {
     private JsonObjectRequest mJsonObjectRequest;
     private ArrayList<String> userList;
     private String id;
+
+    // present way
+    private String presentWay;
+    private String selfStatus;
+    private int circleProgressColor;
+//    private int circleProgressBackgroundColor;
+    private TextView selfStatusText;
+    private CircularProgressBar selfStatusProgressBar;
+    //
+    // contact list
     private ListView listView;
     private SimpleAdapter simpleAdapter;
+    //
+    // each person
+    private View cover;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,22 +75,71 @@ public class ContactList extends Activity {
 
         mContext = getApplicationContext();
 
-        // TODO: 只需要做一次，但是app被滑掉的話，又會再做一次
+        // TODO: 只需要做一次，但是app被滑掉的話，又會再做一次(activity重新產生又會再做)
         // notification
 //        NotificationHelper.scheduleDailyNotification(mContext);
         NotificationHelper.scheduleRepeatingRTCNotification(mContext);
         //
+        // contact list
+        cover = findViewById(R.id.contactList_cover);
         listView = findViewById(R.id.contact_list);
-        id = getIntent().getStringExtra("id");
-        getData();
 
-
+        // self status
+        selfStatusText = findViewById(R.id.contactList_self_status);
+        selfStatusProgressBar = findViewById(R.id.contactList_progressCircle);
+        // buttons
         Button editProfile = findViewById(R.id.edit_profile_button);
         editProfile.setOnClickListener(editProfileListener);
         Button statusExample = findViewById(R.id.status_example);
         statusExample.setOnClickListener(statusExampleListener);
         Button questionnaire = findViewById(R.id.questionnaire);
         questionnaire.setOnClickListener(questionnaireListener);
+
+        SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
+        id = preferences.getString("id", "");
+        // already login
+        if (!id.equals("")) {
+            presentWay = preferences.getString("way", "text");
+            switch (presentWay) {
+                case "text":
+                    selfStatus = preferences.getString("status", "0");
+                    Log.d(TAG, "selfStatus: " + selfStatus);
+                    break;
+                case "digit":
+                    selfStatus = preferences.getString("status", "0");
+                    Log.d(TAG, "selfStatus: " + selfStatus);
+                    break;
+                case "graphic":
+                    selfStatus = preferences.getString("status", "0");
+                    Log.d(TAG, "selfStatus: " + selfStatus);
+                    circleProgressColor = preferences.getInt("color", -7617718);
+                    Log.d(TAG, "circleProgressColor: " + circleProgressColor);
+//                    circleProgressBackgroundColor = preferences.getInt("backgroundColor", 0);
+//                    Log.d(TAG, "circleProgressBackgroundColor: " + circleProgressBackgroundColor);
+                    break;
+            }
+                renderSelfStatus();
+        }
+
+        getData();
+    }
+
+    private void renderSelfStatus() {
+        if (presentWay.equals("text")) {
+            selfStatusText.setText(selfStatus);
+            selfStatusText.setVisibility(View.VISIBLE);
+            selfStatusProgressBar.setVisibility(View.INVISIBLE);
+        } else if (presentWay.equals("digit")) {
+            selfStatusText.setText("回覆率" + selfStatus + "%");
+            selfStatusText.setVisibility(View.VISIBLE);
+            selfStatusProgressBar.setVisibility(View.INVISIBLE);
+        } else if (presentWay.equals("graphic")) {
+            selfStatusProgressBar.setProgressWithAnimation(Float.valueOf(selfStatus), 1500);
+            selfStatusProgressBar.setColor(circleProgressColor);
+//            selfStatusProgressBar.setBackgroundColor(circleProgressBackgroundColor);
+            selfStatusText.setVisibility(View.INVISIBLE);
+            selfStatusProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 
     private Button.OnClickListener questionnaireListener = new Button.OnClickListener() {
@@ -85,6 +150,7 @@ public class ContactList extends Activity {
             startActivity(intent);
         }
     };
+
     private Button.OnClickListener statusExampleListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -104,6 +170,7 @@ public class ContactList extends Activity {
     };
 
     private void getData() {
+        Log.d(TAG, "get data");
         userList = new ArrayList<>();
         JSONObject data = new JSONObject();
         try {
@@ -120,21 +187,13 @@ public class ContactList extends Activity {
                         Log.d(TAG, response.toString());
                         try {
                             if (response.getString("response").equals("success")) {
-
                                 JSONArray list = response.getJSONArray("list");
                                 for (int i=0;i<list.length();i++) {
                                     JSONObject user = list.getJSONObject(i);
                                     String userId = user.getString("id");
                                     userList.add(userId);
                                 }
-                                // TODO: render List
                                 renderList();
-//                                myAdapter = new MyAdapter(userList);
-//                                recyclerView = findViewById(R.id.recyclerView);
-//                                final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-//                                layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//                                recyclerView.setLayoutManager(layoutManager);
-//                                recyclerView.setAdapter(myAdapter);
 
                             } else {
                                 Log.d(TAG, "getList error");
@@ -150,61 +209,19 @@ public class ContactList extends Activity {
             }
         });
         mQueue.add(mJsonObjectRequest);
-
     }
 
-//    public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-//
-//        private ArrayList<String> mData;
-//        public class ViewHolder extends RecyclerView.ViewHolder {
-//            public TextView mTextView;
-//            public ViewHolder(View v) {
-//                super(v);
-//                mTextView = v.findViewById(R.id.contact_list_row_text);
-//            }
-//        }
-//        public MyAdapter(ArrayList<String> data) {
-//            mData = data;
-//        }
-//        @Override
-//        public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//            View v = LayoutInflater.from(parent.getContext())
-//                    .inflate(R.layout.contact_list_row, parent, false);
-//            ViewHolder vh = new ViewHolder(v);
-//            return vh;
-//        }
-//        @Override
-//        public void onBindViewHolder(ViewHolder holder, final int position) {
-//            holder.mTextView.setText(mData.get(position));
-//            holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Toast.makeText(ContactList.this, "Item " + position + " is clicked.", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//            holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-//                @Override
-//                public boolean onLongClick(View v) {
-//                    Toast.makeText(ContactList.this, "Item " + position + " is long clicked.", Toast.LENGTH_SHORT).show();
-//                    return true;
-//                }
-//            });
-//        }
-//
-//        @Override
-//        public int getItemCount() {
-//            return mData.size();
-//        }
-//    }
     private void renderList() {
         for (int i=0;i<userList.size();i++) {
             Log.d(TAG, userList.get(i));
         }
         List<Map<String, Object>> items = new ArrayList<>();
         for (int i=0;i<userList.size();i++) {
-            Map<String, Object> item = new HashMap<>();
-            item.put("id", userList.get(i));
-            items.add(item);
+            if (!userList.get(i).equals(id)) {
+                Map<String, Object> item = new HashMap<>();
+                item.put("id", userList.get(i));
+                items.add(item);
+            }
         }
         simpleAdapter = new SimpleAdapter(mContext,
                                           items,
@@ -219,7 +236,9 @@ public class ContactList extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Log.d(TAG, "press"+position);
-            Log.d(TAG, "press"+id);
+
+            cover.setVisibility(View.VISIBLE);
+            Log.d(TAG, "user: " + userList.get(position));
         }
     };
 }

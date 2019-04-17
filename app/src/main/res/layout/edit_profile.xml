@@ -240,7 +240,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
-            app:cpb_background_progressbar_color="@color/colorWhite"
+            app:cpb_background_progressbar_color="@color/colorGray"
             app:cpb_background_progressbar_width="24dp"
             app:cpb_progress="0"
             app:cpb_progress_max="100"

@@ -20,7 +20,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "rexeive 111111111111111111111111111111111111111111111");
-        Intent questionnaire_intent = new Intent(context, Questionnaire.class);
+        Intent questionnaire_intent = new Intent(context, SelfQuestionnaire.class);
         PendingIntent pending = PendingIntent.getActivity(context, NOTIFY_REQUEST_ID, questionnaire_intent, PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
 

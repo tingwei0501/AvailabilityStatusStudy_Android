@@ -180,7 +180,7 @@ public class EditProfilePage extends Activity {
         @Override
         public void onClick(View v) {
 
-            // TODO: send questionnaire
+            // TODO: send self_questionnaire
 
             final Intent intent = new Intent(EditProfilePage.this, ContactList.class);
 

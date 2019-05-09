@@ -106,12 +106,11 @@ public class SelfQuestionnaire extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.questionnaire);
+        setContentView(R.layout.self_questionnaire);
         mContext = getApplicationContext();
 
         mInputMethodManager = (InputMethodManager) getSystemService(mContext.INPUT_METHOD_SERVICE);
 
-//        Log.d(TAG, String.valueOf(TextUtils.isEmpty(selectedLocation)));
 //        if(!TextUtils.isEmpty(selectedLocation)){
 //            setRadioButtonState();
 //        }

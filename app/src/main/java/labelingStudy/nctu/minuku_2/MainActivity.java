@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
             toggleNotificationListenerService();
         }
 
+        // TODO: 判斷是否login過 //
+
+
         int sdk_int = Build.VERSION.SDK_INT;
         if (sdk_int>=23) {
             checkAndRequestPermissions();

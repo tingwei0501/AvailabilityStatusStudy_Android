@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollbars="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:id="@+id/questionnaire_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/questionnaire_title"
+                android:textColor="@color/wineBerry"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.036"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.014" />
+            <TextView
+                android:id="@+id/self_questionnaire_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="@+id/questionnaire_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.23"
+                app:layout_constraintStart_toEndOf="@+id/questionnaire_title"
+                app:layout_constraintTop_toTopOf="@+id/questionnaire_title" />
+
+            <TextView
+                android:id="@+id/question1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/location_question"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.437"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionnaire_title" />
+
+
+            <RadioGroup
+                android:id="@+id/location1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question1"
+                app:layout_constraintVertical_bias="1.0">
+
+                <RadioButton
+                    android:id="@+id/home"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/home" />
+
+                <RadioButton
+                    android:id="@+id/dorm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/dorm" />
+
+                <RadioButton
+                    android:id="@+id/lab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/lab" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/location2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/location1"
+                app:layout_constraintStart_toStartOf="@+id/location1"
+                app:layout_constraintTop_toBottomOf="@+id/location1">
+
+                <RadioButton
+                    android:id="@+id/classroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/classroom" />
+
+                <RadioButton
+                    android:id="@+id/library"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/library" />
+
+                <RadioButton
+                    android:id="@+id/outdoor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/outdoor" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/location3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location2">
+
+                <RadioButton
+                    android:id="@+id/transportation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/transportation" />
+
+                <RadioButton
+                android:id="@+id/mall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/mall" />
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/location_other"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/location_other" />-->
+
+                <!--<EditText-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--/>-->
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/location4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location3">
+
+                <RadioButton
+                    android:id="@+id/location_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/other" />
+
+                <EditText
+                    android:id="@+id/location_other_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"/>
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/activity_question"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/location4" />
+
+
+            <RadioGroup
+                android:id="@+id/activity1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question2">
+
+                <RadioButton
+                    android:id="@+id/work"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/work" />
+
+                <RadioButton
+                    android:id="@+id/study"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/study" />
+
+                <RadioButton
+                    android:id="@+id/class_meeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/class_meeting" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/activity2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity1">
+
+                <RadioButton
+                    android:id="@+id/eat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/eat" />
+
+                <RadioButton
+                    android:id="@+id/sleep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/sleep" />
+
+                <RadioButton
+                    android:id="@+id/exercising"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/exercising" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/activity3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity2">
+
+                <RadioButton
+                    android:id="@+id/take_a_break"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/take_a_break" />
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/activity4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity3">
+
+                <RadioButton
+                    android:id="@+id/shopping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/shopping" />
+
+                <RadioButton
+                    android:id="@+id/moving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/moving" />
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/activity_other"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/activity_other" />-->
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/activity5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity4">
+
+                <RadioButton
+                    android:id="@+id/activity_other"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/other" />
+
+                <EditText
+                    android:id="@+id/activity_other_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"/>
+
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/question3"
+                android:layout_width="311dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/ideal_rate_question"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/activity5" />
+
+            <RadioGroup
+                android:id="@+id/ideal_or_not"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question3">
+
+                <RadioButton
+                    android:id="@+id/strongly_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/strongly_agree" />
+
+                <RadioButton
+                    android:id="@+id/agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/agree" />
+
+                <RadioButton
+                    android:id="@+id/neither"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/neither" />
+
+                <RadioButton
+                    android:id="@+id/disagree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/disagree" />
+
+                <RadioButton
+                    android:id="@+id/strongly_disagree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/strongly_disagree" />
+
+            </RadioGroup>
+
+            <!--<TextView-->
+                <!--android:id="@+id/question4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="44dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="@string/question4"-->
+                <!--android:textSize="18sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.496"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/ideal_or_not" />-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/ideal_way"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:orientation="vertical"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.498"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/question4">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/ideal_way_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/ideal_way_text" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/ideal_way_digit"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/ideal_way_digit" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/ideal_way_graphic"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/ideal_way_graphic" />-->
+
+            <!--</RadioGroup>-->
+
+            <TextView
+                android:id="@+id/question5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/change_or_nor_question"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ideal_or_not" />
+
+            <RadioGroup
+                android:id="@+id/change_status_or_not"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/question5">
+
+                <RadioButton
+                    android:id="@+id/go_change_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/go_change_status" />
+
+                <RadioButton
+                    android:id="@+id/no_thanks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/no_thanks" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/change_question6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/change_question6"
+                android:textSize="18sp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.553"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_or_not" />
+
+            <CheckBox
+                android:id="@+id/change_status_ratio"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/change_status_ratio"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_question6" />
+
+            <!--<CheckBox-->
+                <!--android:id="@+id/change_status_low"-->
+                <!--android:layout_width="200dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:visibility="invisible"-->
+                <!--android:text="@string/change_status_low"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/change_status_high" />-->
+
+            <CheckBox
+                android:id="@+id/change_status_way"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/change_status_way"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_ratio" />
+            <CheckBox
+                android:id="@+id/change_status_blurred"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/change_status_blurred"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_way" />
+
+            <CheckBox
+                android:id="@+id/change_status_accurate"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/change_status_accurate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_blurred" />
+            <CheckBox
+                android:id="@+id/change_status_hide"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/change_status_hide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_accurate" />
+            <CheckBox
+                android:id="@+id/change_other"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="visible"
+                android:text="@string/other"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_hide" />
+
+            <EditText
+                android:id="@+id/change_other_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="visible"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.261"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_other" />
+
+            <TextView
+                android:id="@+id/not_change_question6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="28dp"
+                android:text="@string/not_change_question6"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.553"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_status_or_not" />
+
+            <CheckBox
+                android:id="@+id/not_change_status_fit"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                android:text="@string/not_change_status_fit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/not_change_question6" />
+            <CheckBox
+                android:id="@+id/not_change_notime"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                android:text="@string/not_change_notime"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/not_change_status_fit" />
+
+            <CheckBox
+                android:id="@+id/not_change_hide"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                android:text="@string/not_change_hide"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/not_change_notime" />
+            <CheckBox
+                android:id="@+id/not_change_other"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="invisible"
+                android:text="@string/other"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/not_change_hide" />
+
+            <EditText
+                android:id="@+id/not_change_other_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:visibility="invisible"
+                android:singleLine="true"
+                android:imeOptions="actionDone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.261"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/not_change_other" />
+
+            <Button
+                android:id="@+id/self_questionnaire_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/corners_gray"
+                android:text="@string/submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/change_other_text" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

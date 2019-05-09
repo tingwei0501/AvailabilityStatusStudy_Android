@@ -126,6 +126,7 @@
     <!-- Contact Status -->
     <string name="contact_status_text">目前狀態</string>
     <string name="contact_status_ok_button_text">知道了，去填寫問卷!</string>
+    <string name="contact_status_latter_button_text">問卷晚點再填</string>
     <!-- Contact Status -->
 
     <!-- contact people status start -->
@@ -221,7 +222,7 @@
     <!-- look contactList-Questionnaire start -->
     <string name="sender_question_title">對方目前的狀態</string>
     <!-- Question1 start -->
-    <string name="sender_question1">1. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在是否是個好時機」傳訊息給對方?</string>
+    <string name="sender_question1">4. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在是否是個好時機」傳訊息給對方?</string>
     <string name="a">a</string>
     <string name="b">b</string>
     <string name="both_ab">兩者皆可以</string>
@@ -229,22 +230,23 @@
     <!-- Question1 end -->
 
     <!-- Question2 start -->
-    <string name="sender_question2">2. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在傳訊息給對方是否會打擾到他」?</string>
+    <string name="sender_question2">5. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在傳訊息給對方是否會打擾到他」?</string>
     <!-- Question2 end -->
 
     <!-- Question3 start -->
-    <string name="sender__question_location">3. 請問你目前的地點是在哪裡?</string>
+    <string name="sender__question_location">1. 請問你當時的地點是在哪裡?</string>
     <!-- Question3 end -->
 
     <!-- Question4 start -->
-    <string name="sender__question_using_purpose">4. 請問你查看對方的狀態的目的是?</string>
-    <string name="communicate">要和對方溝通(需回答下一題)</string>
+    <string name="sender__question_using_purpose">2. 請問你查看對方的狀態的目的是?</string>
+    <string name="communicate">要和對方溝通</string>
+    <string name="communicate_notation">若選擇「要和對方溝通」請繼續回答下一題，否則請跳過下一題</string>
     <string name="curious">純粹好奇對方狀態</string>
     <string name="boring">無聊打發時間</string>
     <!-- Question4 end -->
 
     <!-- Question5: want to communicate start -->
-    <string name="sender__question_purpose">5. 請問你的溝通目的是?</string>
+    <string name="sender__question_purpose">3. 請問你的溝通目的是?</string>
     <string name="inform">只是要告知他事情</string>
     <string name="short_answer">僅需要對方簡短的回覆</string>
     <string name="long_time">要長時間與他溝通(聊天、討論...)</string>

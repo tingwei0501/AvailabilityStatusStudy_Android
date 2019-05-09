@@ -73,6 +73,7 @@
         <activity android:name=".ContactList"/>
         <activity android:name=".EditProfilePage"/>
         <activity android:name=".Questionnaire.SelfQuestionnaire"/>
+        <activity android:name=".Questionnaire.ContactStatusQuestionnaire"/>
 
         <!--<activity-->
             <!--android:name="labelingStudy.nctu.minuku_2.controller.Dispatch"-->

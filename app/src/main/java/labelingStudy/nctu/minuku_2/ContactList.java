@@ -51,11 +51,11 @@ import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku_2.Questionnaire.ContactStatusQuestionnaire;
 import labelingStudy.nctu.minuku_2.Questionnaire.SelfQuestionnaire;
 
+import static labelingStudy.nctu.minuku_2.manager.renderManager.renderStatus;
+
 public class ContactList extends Activity {
 
     private static final String TAG = "ContactList";
-    private static final String fetchDataUrl = "http://13.59.255.194:5000/getList";
-    private static final String getContactStatusUrl = "http://13.59.255.194:5000/getContactStatus";
     private Context mContext;
 
     private RequestQueue mQueue;
@@ -64,13 +64,13 @@ public class ContactList extends Activity {
     private ArrayList<String> contactList;
     private String id;
     private SharedPreferences sharedPrefs;
-
+    private Button editProfile;
 
     // present way
     private String presentWay;
     private int selfStatus;
     private long updateTime;
-    private int circleProgressColor;
+    private TextView selfStatusProgressBarTitle;
     private TextView selfStatusText;
     private TextView selfStatusUpdateText;
     private CircularProgressBar selfStatusProgressBar;
@@ -82,12 +82,20 @@ public class ContactList extends Activity {
 
     // each person: self_questionnaire
     private View cover;
-//    private ConstraintLayout questionnaire;
     private ConstraintLayout contactStatusLayout;
+    private Button contactStatusClose;
     private TextView contactStatusText;
     private CircularProgressBar contactStatusProgressBar;
     private TextView contactName;
     private TextView contactStatusUpdateText;
+    // contact information
+    private String contactId;
+    private long checkContactStatusTime;
+    private String contactStatusString;
+    private String contactStatusWay;
+    private int contactStatusRate;
+    private int contactStatusColor;
+
     private Button contactStatusOkButton;
     private Button contactStatusCancelButton;
 
@@ -101,14 +109,6 @@ public class ContactList extends Activity {
         initFab();
         mContext = getApplicationContext();
         sharedPrefs = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
-
-        // TODO: 只需要做一次，但是app被滑掉的話，又會再做一次(activity重新產生又會再做)
-        // notification
-//        NotificationHelper.scheduleDailyNotification(mContext);
-        ///////////////////////////////////////////////////////////////
-//        NotificationHelper.scheduleRepeatingRTCNotification(mContext);
-        /////////////////////////////////////////////////////////////////
-        //
 
         // contact list
         listView = findViewById(R.id.contact_list);
@@ -126,12 +126,15 @@ public class ContactList extends Activity {
         selfStatusText = findViewById(R.id.contactList_self_status);
         selfStatusUpdateText = findViewById(R.id.contactList_profile_updateTime);
         selfStatusProgressBar = findViewById(R.id.contactList_progressCircle);
-        Button editProfile = findViewById(R.id.edit_profile_button);
+        selfStatusProgressBarTitle = findViewById(R.id.contactList_progressCircle_title);
+        editProfile = findViewById(R.id.edit_profile_button);
         editProfile.setOnClickListener(editProfileListener);
 
         // contact person status
         cover = findViewById(R.id.contactList_cover);
         contactStatusLayout = findViewById(R.id.contact_status);
+        contactStatusClose = findViewById(R.id.contact_status_close);
+        contactStatusClose.setOnClickListener(contactStatusCloseListener);
         contactName = findViewById(R.id.contact_status_name);
         contactStatusText = findViewById(R.id.contact_status_rate);
         contactStatusProgressBar = findViewById(R.id.contact_status_circle);
@@ -139,11 +142,9 @@ public class ContactList extends Activity {
         contactStatusOkButton = findViewById(R.id.contact_status_ok_button);
         contactStatusOkButton.setOnClickListener(contactStatusOkListener);
         contactStatusCancelButton = findViewById(R.id.contact_status_cancel_button);
-        contactStatusCancelButton.setOnClickListener(contactStatusCancleListener);
+        contactStatusCancelButton.setOnClickListener(contactStatusCancelListener);
 
         // buttons
-//        Button statusExample = findViewById(R.id.status_example);
-//        statusExample.setOnClickListener(statusExampleListener);
         Button questionnaire = findViewById(R.id.questionnaire);
         questionnaire.setOnClickListener(questionnaireListener);
 
@@ -157,14 +158,7 @@ public class ContactList extends Activity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ContactList.this, ContactStatusQuestionnaire.class);
-                startActivity(intent);
-//                try {
-//                    Thread.sleep(1000);
-//                    Toast.makeText(ContactList.this, "FAB Clicked", Toast.LENGTH_SHORT).show();
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                sendContactDataToQuestionnaire();
             }
         });
     }
@@ -179,37 +173,26 @@ public class ContactList extends Activity {
             updateTime = sharedPrefs.getLong("updateTime", 0);
             selfStatus = sharedPrefs.getInt("status", 0);
 
-            renderStatus(selfStatusUpdateText, selfStatusText, selfStatusProgressBar,
-                         updateTime, selfStatus, presentWay,
+            selfStatusUpdateText.setText(ScheduleAndSampleManager.getMinSecStringFromMillis(updateTime));
+
+            // TODO: to be checked
+            if (presentWay.equals(Constants.PRESENT_IN_GRAPHIC)) selfStatusProgressBarTitle.setVisibility(View.VISIBLE);
+            else selfStatusProgressBarTitle.setVisibility(View.INVISIBLE);
+
+            renderStatus(selfStatusText, selfStatusProgressBar,
+                         selfStatus, presentWay,
                          sharedPrefs.getString("statusText", ""),
                          sharedPrefs.getInt("statusColor", -1));
             getData();
         }
     }
 
-    private void renderStatus(TextView updateTimeText, TextView statusText, CircularProgressBar circle,
-                              long time, int status, String way, String textStatusText, int color) {
-
-        updateTimeText.setText(ScheduleAndSampleManager.getMinSecStringFromMillis(time));
-
-        if (way.equals("text")) {
-            statusText.setText(textStatusText);
-            statusText.setVisibility(View.VISIBLE);
-            circle.setVisibility(View.INVISIBLE);
-        } else if (way.equals("digit")) {
-            statusText.setText("回覆率" + status + "%");
-            statusText.setVisibility(View.VISIBLE);
-            circle.setVisibility(View.INVISIBLE);
-        } else if (way.equals("graphic")) {
-//            int color = Color.rgb(51, 102, 153);
-//            Log.d(TAG, "color: " + color);
-            circle.setProgressWithAnimation(Float.valueOf(status), 1500);
-            circle.setColor(color);
-//            selfStatusProgressBar.setBackgroundColor(circleProgressBackgroundColor);
-            statusText.setVisibility(View.INVISIBLE);
-            circle.setVisibility(View.VISIBLE);
+    private Button.OnClickListener contactStatusCloseListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            ContactStatusLayout(true, View.INVISIBLE);
         }
-    }
+    };
 
     private Button.OnClickListener questionnaireListener = new Button.OnClickListener() {
         @Override
@@ -220,24 +203,22 @@ public class ContactList extends Activity {
         }
     };
 
+    // 去填寫問卷按鈕
     private Button.OnClickListener contactStatusOkListener = new Button.OnClickListener() {
 
         @Override
         public void onClick(View view) {
-            contactStatusLayout.setVisibility(View.INVISIBLE);
-            cover.setVisibility(View.INVISIBLE);
-            Intent intent = new Intent(ContactList.this, ContactStatusQuestionnaire.class);
-            startActivity(intent);
+            ContactStatusLayout(true, View.INVISIBLE);
+            sendContactDataToQuestionnaire();
         }
     };
 
-    private Button.OnClickListener contactStatusCancleListener = new Button.OnClickListener() {
+    private Button.OnClickListener contactStatusCancelListener = new Button.OnClickListener() {
 
         @Override
         public void onClick(View view) {
-            contactStatusLayout.setVisibility(View.INVISIBLE);
-            cover.setVisibility(View.INVISIBLE);
-            // TODO: 跳出問卷按鈕
+            ContactStatusLayout(true, View.INVISIBLE);
+            // 跳出問卷按鈕
             try {
                 Thread.sleep(1000);
                 mFab.setVisibility(View.VISIBLE);
@@ -246,6 +227,21 @@ public class ContactList extends Activity {
             }
         }
     };
+
+    private void sendContactDataToQuestionnaire() {
+        Intent intent = new Intent(ContactList.this, ContactStatusQuestionnaire.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("id", contactId);
+        bundle.putInt("status", contactStatusRate);
+        bundle.putLong("checkTime", checkContactStatusTime);
+        bundle.putString("way", contactStatusWay);
+        bundle.putInt("color", contactStatusColor);
+        bundle.putString("statusString", contactStatusString);
+
+        intent.putExtras(bundle);
+        startActivity(intent);
+//        ContactList.this.finish();
+    }
 
 //    private Button.OnClickListener statusExampleListener = new Button.OnClickListener() {
 //        @Override
@@ -262,6 +258,7 @@ public class ContactList extends Activity {
             Intent intent = new Intent();
             intent.setClass(ContactList.this, EditProfilePage.class);
             startActivity(intent);
+//            ContactList.this.finish();
         }
     };
 
@@ -275,8 +272,8 @@ public class ContactList extends Activity {
             e.printStackTrace();
         }
         mQueue = Volley.newRequestQueue(mContext);
-        // TODO: handle if no network...
-        mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, fetchDataUrl, data,
+        // handle if no network...
+        mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.fetchDataUrl, data,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -334,37 +331,32 @@ public class ContactList extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-//            locationOtherText.setText("");
-//            locationOtherText.clearFocus();
-//            usingPurposeOtherText.setText("");
-//            usingPurposeOtherText.clearFocus();
-//            selectedContactPerson = contactList.get(position);
-
-            // 問卷先隱藏
-//            self_questionnaire.setVisibility(View.VISIBLE);
-            // 問卷先隱藏
-
             // 對方的狀態
-            String contact = contactList.get(position);
-            contactStatusLayout.setVisibility(View.VISIBLE);
-            contactName.setText(contact);
+            ContactStatusLayout(false, View.VISIBLE);
+
+            contactId = contactList.get(position);
+            checkContactStatusTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+            contactName.setText(contactId);
             JSONObject data = new JSONObject();
             try {
-                data.put("id", contact);
+                data.put("id", contactId);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
             mQueue = Volley.newRequestQueue(mContext);
-            mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, getContactStatusUrl, data,
+            mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.getContactStatusUrl, data,
                     new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d(TAG, response.toString());
                             try {
-                                renderStatus(contactStatusUpdateText, contactStatusText, contactStatusProgressBar,
-                                        response.getLong("createdTime"), response.getInt("status"),
-                                        response.getString("presentWay"), response.getString("statusText"),
-                                        response.getInt("statusColor"));
+                                contactStatusRate = response.getInt("status");
+                                contactStatusString = response.getString("statusText");
+                                contactStatusColor = response.getInt("statusColor");
+                                contactStatusWay = response.getString("presentWay");
+                                contactStatusUpdateText.setText(ScheduleAndSampleManager.getMinSecStringFromMillis(response.getLong("createdTime")));
+                                renderStatus(contactStatusText, contactStatusProgressBar, contactStatusRate,
+                                        contactStatusWay, contactStatusString, contactStatusColor);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -378,9 +370,18 @@ public class ContactList extends Activity {
             mQueue.add(mJsonObjectRequest);
             // 對方的狀態
 
-            cover.setVisibility(View.VISIBLE);
+
             Log.d(TAG, "user: " + contactList.get(position));
         }
     };
+
+    private void ContactStatusLayout(boolean click, int visibility) {
+        cover.setVisibility(visibility);
+        contactStatusLayout.setVisibility(visibility);
+        contactStatusClose.setVisibility(visibility);
+
+        listView.setEnabled(click);        // 後面聯絡人不能按
+        editProfile.setEnabled(click);     // 編輯的按鈕
+    }
 
 }

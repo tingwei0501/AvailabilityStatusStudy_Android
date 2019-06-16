@@ -2,6 +2,7 @@ package labelingStudy.nctu.minuku.service;
 
 import android.accessibilityservice.AccessibilityService;
 import android.accessibilityservice.AccessibilityServiceInfo;
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 
@@ -22,6 +23,10 @@ public class MobileAccessibilityService extends AccessibilityService {
 
     private final String TAG="MobileAccessibilityService";
 
+    private static long typingTime = -1;
+    private static String currentPackage = "NA";
+    private static long currentPackageDetectedTime = -1;
+
     private static AccessibilityStreamGenerator accessibilityStreamGenerator;
 
     public MobileAccessibilityService(){
@@ -40,6 +45,14 @@ public class MobileAccessibilityService extends AccessibilityService {
         }
     }
 
+    public static long getTypingTime() {
+        return typingTime;
+    }
+
+    public static String getCurrentPackage() {
+        return currentPackage;
+    }
+
     @Override
     protected void onServiceConnected() {
 
@@ -51,6 +64,7 @@ public class MobileAccessibilityService extends AccessibilityService {
         setServiceInfo(accessibilityServiceInfo);
     }
 
+    @SuppressLint("LongLogTag")
     @Override
     public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
 
@@ -66,6 +80,8 @@ public class MobileAccessibilityService extends AccessibilityService {
         if(accessibilityEvent.getPackageName()!=null){
             pack=accessibilityEvent.getPackageName().toString();
             Log.d(TAG,"pack : "+ pack);
+            currentPackage = pack;
+            currentPackageDetectedTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
         }
 
         if (accessibilityEvent.getClassName()!=null ) {
@@ -86,10 +102,10 @@ public class MobileAccessibilityService extends AccessibilityService {
 
         switch (eventType) {
 
-            case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
-                type = "TYPE_WINDOW_STATE_CHANGED";
-                Log.d(TAG,type);
-                break;
+//            case AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED:
+//                type = "TYPE_WINDOW_STATE_CHANGED";
+//                Log.d(TAG,type);
+//                break;
 //            case AccessibilityEvent.TYPE_ANNOUNCEMENT:
 //                type = "TYPE_WINDOW_STATE_CHANGED";
 //                Log.d(TAG,type);
@@ -101,10 +117,10 @@ public class MobileAccessibilityService extends AccessibilityService {
 //            case AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED:
 //                type = "TYPE_WINDOW_CONTENT_CHANGED";
 //                break;
-            case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
-                type = "TYPE_WINDOWS_CHANGED";
-                Log.d(TAG,type);
-                break;
+//            case AccessibilityEvent.TYPE_WINDOWS_CHANGED:
+//                type = "TYPE_WINDOWS_CHANGED";
+//                Log.d(TAG,type);
+//                break;
 //            case AccessibilityEvent.TYPE_TOUCH_EXPLORATION_GESTURE_START:
 //                type="TYPE_TOUCH_EXPLORATION_GESTURE_START";
 //                Log.d(TAG,type);
@@ -122,19 +138,19 @@ public class MobileAccessibilityService extends AccessibilityService {
 //                Log.d(TAG,type);
 //                break;
 
-            case AccessibilityEvent.TYPE_TOUCH_INTERACTION_END:
-                type="TYPE_TOUCH_INTERACTION_END";
-                Log.d(TAG,type);
-                break;
-            case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
-                type="TYPE_TOUCH_INTERACTION_START";
-                Log.d(TAG,type);
-                break;
-
-            case AccessibilityEvent.TYPE_VIEW_FOCUSED:
-                type="TYPE_VIEW_FOCUSED";
-                Log.d(TAG,type);
-                break;
+//            case AccessibilityEvent.TYPE_TOUCH_INTERACTION_END:
+//                type="TYPE_TOUCH_INTERACTION_END";
+//                Log.d(TAG,type);
+//                break;
+//            case AccessibilityEvent.TYPE_TOUCH_INTERACTION_START:
+//                type="TYPE_TOUCH_INTERACTION_START";
+//                Log.d(TAG,type);
+//                break;
+//
+//            case AccessibilityEvent.TYPE_VIEW_FOCUSED:
+//                type="TYPE_VIEW_FOCUSED";
+//                Log.d(TAG,type);
+//                break;
 //            case AccessibilityEvent.TYPE_VIEW_HOVER_ENTER:
 //                type="TYPE_VIEW_HOVER_ENTER";
 //                Log.d(TAG,type);
@@ -144,29 +160,30 @@ public class MobileAccessibilityService extends AccessibilityService {
 //                Log.d(TAG,type);
 //                break;
 
-            case AccessibilityEvent.TYPE_VIEW_CLICKED:
-                type="TYPE_VIEW_CLICKED";
-                Log.d(TAG,type);
-                break;
-            case AccessibilityEvent.TYPE_VIEW_CONTEXT_CLICKED:
-                type="TYPE_VIEW_CONTEXT_CLICKED";
-                Log.d(TAG,type);
-                break;
-            case AccessibilityEvent.TYPE_VIEW_LONG_CLICKED:
-                type="TYPE_VIEW_LONG_CLICKED";
-                Log.d(TAG,type);
-                break;
-            case AccessibilityEvent.TYPE_VIEW_SCROLLED:
-                type="TYPE_VIEW_SCROLLED";
-                Log.d(TAG,type);
-                break;
-            case AccessibilityEvent.TYPE_VIEW_SELECTED:
-                type="TYPE_VIEW_SELECTED";
-                Log.d(TAG,type);
-                break;
+//            case AccessibilityEvent.TYPE_VIEW_CLICKED:
+//                type="TYPE_VIEW_CLICKED";
+//                Log.d(TAG,type);
+//                break;
+//            case AccessibilityEvent.TYPE_VIEW_CONTEXT_CLICKED:
+//                type="TYPE_VIEW_CONTEXT_CLICKED";
+//                Log.d(TAG,type);
+//                break;
+//            case AccessibilityEvent.TYPE_VIEW_LONG_CLICKED:
+//                type="TYPE_VIEW_LONG_CLICKED";
+//                Log.d(TAG,type);
+//                break;
+//            case AccessibilityEvent.TYPE_VIEW_SCROLLED:
+//                type="TYPE_VIEW_SCROLLED";
+//                Log.d(TAG,type);
+//                break;
+//            case AccessibilityEvent.TYPE_VIEW_SELECTED:
+//                type="TYPE_VIEW_SELECTED";
+//                Log.d(TAG,type);
+//                break;
             case AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED:
                 type="TYPE_VIEW_TEXT_CHANGED";
                 Log.d(TAG,type);
+                typingTime = time;
                 break;
         }
 

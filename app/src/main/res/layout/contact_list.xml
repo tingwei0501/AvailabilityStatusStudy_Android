@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="31dp"
+            android:layout_height="wrap_content"
             android:layout_alignStart="@+id/view3"
             android:layout_alignBottom="@+id/view3"
             android:layout_alignParentTop="true"
@@ -76,13 +76,13 @@
             android:layout_alignTop="@+id/view3"
             android:layout_alignBottom="@+id/view3"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="18dp"
+            android:layout_marginStart="15dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toStartOf="@+id/edit_profile_button"
             android:textColor="@color/colorWhite"
-            android:textSize="25dp"
+            android:textSize="22sp"
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/view3"
@@ -91,21 +91,47 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.529" />
 
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contactList_profile_row_description"
+            android:textColor="@color/colorWhite"
+            android:textSize="9dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+        <TextView
+            android:id="@+id/contactList_progressCircle_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/editPage_present_digit_title1"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/contactList_progressCircle"
+            app:layout_constraintEnd_toStartOf="@+id/contactList_progressCircle" />
+
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/contactList_progressCircle"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:visibility="invisible"
             app:cpb_background_progressbar_color="@color/colorWhite"
             app:cpb_background_progressbar_width="20dp"
             app:cpb_progress="0"
             app:cpb_progress_max="100"
             app:cpb_progressbar_width="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.596"
+            app:layout_constraintHorizontal_bias="0.647"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -156,6 +182,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/corners_gray"
             android:text="@string/editProfile"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -173,7 +200,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="8dp">
-
 
         <ListView
             android:id="@+id/contact_list"
@@ -207,14 +233,14 @@
         android:id="@+id/questionnaire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="165dp"
-        android:layout_marginBottom="88dp"
+        android:layout_below="@+id/contact_status_close"
+        android:layout_alignStart="@+id/refresh_layout"
+        android:layout_alignEnd="@+id/refresh_layout"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="167dp"
         android:text="問卷"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
@@ -234,18 +260,14 @@
     <!-- 對方的狀態 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/contact_status"
-        android:layout_width="230dp"
-        android:layout_height="350dp"
-        android:layout_marginLeft="65dp"
-        android:layout_marginRight="65dp"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="80dp"
-        android:gravity="center_horizontal"
         android:background="@drawable/corners_white"
+        android:gravity="center_horizontal"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.432">
 
@@ -253,12 +275,11 @@
             android:id="@+id/contact_status_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="8dp"
-            android:textSize="20dp"
+            android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.316"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -266,56 +287,58 @@
             android:id="@+id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/contact_status_text"
+            app:layout_constraintBottom_toBottomOf="@+id/contact_status_name"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.083"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contact_status_name" />
+            app:layout_constraintStart_toEndOf="@+id/contact_status_name"
+            app:layout_constraintTop_toTopOf="@+id/contact_status_name" />
 
         <TextView
             android:id="@+id/contact_status_rate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="25dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="8dp"
+            android:textSize="20dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/textView24"
-            app:layout_constraintStart_toEndOf="@+id/textView24"
-            app:layout_constraintTop_toTopOf="@+id/textView24"
-            app:layout_constraintVertical_bias="0.466" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/contact_status_circle"
             android:layout_width="83dp"
             android:layout_height="83dp"
-            android:layout_marginStart="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
             android:visibility="invisible"
             app:cpb_background_progressbar_color="@color/colorAccentLight"
             app:cpb_background_progressbar_width="20dp"
             app:cpb_progress="0"
             app:cpb_progress_max="100"
             app:cpb_progressbar_width="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView24"
-            app:layout_constraintStart_toEndOf="@+id/textView24"
-            app:layout_constraintTop_toTopOf="@+id/textView24"
-            app:layout_constraintVertical_bias="0.453" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <TextView
             android:id="@+id/textView26"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="@string/contactList_profile_update_text"
             android:textSize="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintHorizontal_bias="0.345"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            app:layout_constraintTop_toBottomOf="@+id/contact_status_circle" />
 
         <TextView
             android:id="@+id/contact_status_updateTime"
@@ -331,12 +354,12 @@
             android:id="@+id/contact_status_ok_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="44dp"
+            android:layout_marginRight="8dp"
             android:background="@drawable/corners_pink"
             android:text="@string/contact_status_ok_button_text"
             android:textColor="@color/colorWhite"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -346,11 +369,13 @@
             android:id="@+id/contact_status_cancel_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/corners_white"
-            android:text="@string/contact_status_latter_button_text"
-            android:textColor="@color/hippiePink"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/corners_white"
+            android:text="@string/contact_status_latter_button_text"
+            android:textColor="@color/contactListBar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -365,6 +390,8 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="56dp"
         android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginStart="280dp"
         android:layout_marginTop="500dp"
         android:clickable="true"
@@ -372,603 +399,15 @@
         app:backgroundTint="@color/hippiePink"
         app:srcCompat="@drawable/letterq64" />
 
-    <!-- 問卷 -->
-    <!--<android.support.constraint.ConstraintLayout-->
-        <!--android:id="@+id/sender_questionnaire"-->
-        <!--android:layout_width="400dp"-->
-        <!--android:layout_height="500dp"-->
-        <!--android:layout_marginLeft="30dp"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:layout_marginRight="30dp"-->
-        <!--android:visibility="visible"-->
-        <!--android:background="@drawable/corners_white"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="1.0"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent"-->
-        <!--app:layout_constraintVertical_bias="0.432">-->
-
-        <!--<ScrollView-->
-            <!--android:id="@+id/sender_questionnaire_scrollview"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:layout_marginStart="0dp"-->
-            <!--android:layout_marginTop="0dp"-->
-            <!--android:layout_marginEnd="0dp"-->
-            <!--android:layout_marginBottom="0dp"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent">-->
-
-            <!--<android.support.constraint.ConstraintLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView22"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/sender_question_title"-->
-                    <!--android:textStyle="bold"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                <!--<View-->
-                    <!--android:id="@+id/view5"-->
-                    <!--android:layout_width="129dp"-->
-                    <!--android:layout_height="144dp"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--android:background="@drawable/corners_gray"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.042"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView22" />-->
-
-                <!--<View-->
-                    <!--android:id="@+id/view6"-->
-                    <!--android:layout_width="129dp"-->
-                    <!--android:layout_height="144dp"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="24dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:layout_marginBottom="8dp"-->
-                    <!--android:background="@drawable/corners_gray"-->
-                    <!--app:layout_constraintBottom_toBottomOf="@+id/view5"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.466"-->
-                    <!--app:layout_constraintStart_toEndOf="@+id/view5"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/view5"-->
-                    <!--app:layout_constraintVertical_bias="0.75" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView15"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/a"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.076"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                <!--<com.mikhaellopez.circularprogressbar.CircularProgressBar-->
-                    <!--android:id="@+id/contactList_peopleStatus_progressCircle1"-->
-                    <!--android:layout_width="83dp"-->
-                    <!--android:layout_height="83dp"-->
-                    <!--android:layout_marginTop="44dp"-->
-                    <!--android:visibility="visible"-->
-                    <!--app:cpb_background_progressbar_color="@color/colorWhite"-->
-                    <!--app:cpb_background_progressbar_width="20dp"-->
-                    <!--app:cpb_progress="0"-->
-                    <!--app:cpb_progress_max="100"-->
-                    <!--app:cpb_progressbar_width="15dp"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/view5"-->
-                    <!--app:layout_constraintHorizontal_bias="0.586"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/view5"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/view5" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView16"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/b"-->
-                    <!--app:layout_constraintBottom_toBottomOf="@+id/textView15"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.519"-->
-                    <!--app:layout_constraintStart_toEndOf="@+id/textView15"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/textView15"-->
-                    <!--app:layout_constraintVertical_bias="0.0" />-->
-
-                <!--<com.mikhaellopez.circularprogressbar.CircularProgressBar-->
-                    <!--android:id="@+id/contactList_peopleStatus_progressCircle2"-->
-                    <!--android:layout_width="83dp"-->
-                    <!--android:layout_height="83dp"-->
-                    <!--android:layout_marginTop="44dp"-->
-                    <!--android:visibility="visible"-->
-                    <!--app:cpb_background_progressbar_color="@color/colorWhite"-->
-                    <!--app:cpb_background_progressbar_width="20dp"-->
-                    <!--app:cpb_progress="0"-->
-                    <!--app:cpb_progress_max="100"-->
-                    <!--app:cpb_progressbar_width="15dp"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/view6"-->
-                    <!--app:layout_constraintHorizontal_bias="0.586"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/view6"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/view6" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView17"-->
-                    <!--android:layout_width="300dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:text="@string/sender_question1"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/view5" />-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_question1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="vertical"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.497"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView17">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question1a"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/a" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question1b"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/b" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question1both"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/both_ab" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question1neither"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/neither_ab" />-->
-
-
-                <!--</RadioGroup>-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView18"-->
-                    <!--android:layout_width="300dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:text="@string/sender_question2"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.514"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_question1" />-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_question2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="vertical"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.497"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView18">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question2a"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/a" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question2b"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/b" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question2both"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/both_ab" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_question2neither"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/neither_ab" />-->
-
-                <!--</RadioGroup>-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView19"-->
-                    <!--android:layout_width="300dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:text="@string/sender__question_location"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/textView18"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/textView18"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_question2" />-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_location1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:layout_marginBottom="8dp"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView19"-->
-                    <!--app:layout_constraintVertical_bias="1.0">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_home"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/home" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_dorm"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/dorm" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_lab"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/lab" />-->
-
-                <!--</RadioGroup>-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_location2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginBottom="8dp"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/sender_location1"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/sender_location1"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_location1">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_classroom"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/classroom" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_library"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/library" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_outdoor"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/outdoor" />-->
-
-                <!--</RadioGroup>-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_location3"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_location2">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_transportation"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/transportation" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_mall"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/mall" />-->
-
-                    <!--&lt;!&ndash;<RadioButton&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:id="@+id/location_other"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_marginLeft="5dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_marginRight="5dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:text="@string/location_other" />&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;<EditText&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;/>&ndash;&gt;-->
-                <!--</RadioGroup>-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/sender_location4"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_location3">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/sender_location_other"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/other" />-->
-
-                    <!--<EditText-->
-                        <!--android:id="@+id/sender_location_other_text"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:imeOptions="actionDone"-->
-                        <!--android:singleLine="true"/>-->
-                <!--</RadioGroup>-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView20"-->
-                    <!--android:layout_width="300dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:text="@string/sender__question_using_purpose"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/textView19"-->
-                    <!--app:layout_constraintHorizontal_bias="0.375"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/textView19"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/sender_location4" />-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/using_purpose"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="vertical"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView20">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/communicate"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/communicate" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/curious"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/curious" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/boring"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/boring" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/using_purpose_other"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/other" />-->
-
-                <!--</RadioGroup>-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/communicate"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/communicate"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView20" />-->
-                <!--<CheckBox-->
-                    <!--android:id="@+id/curious"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/curious"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/communicate" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/boring"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/boring"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/curious" />-->
-                <!--<CheckBox-->
-                    <!--android:id="@+id/using_purpose_other"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/other"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/boring" />-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/using_purpose_other_text"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="20dp"-->
-                    <!--android:singleLine="true"-->
-                    <!--android:imeOptions="actionDone"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.261"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/using_purpose" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView21"-->
-                    <!--android:layout_width="300dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:layout_marginLeft="10dp"-->
-                    <!--android:text="@string/sender__question_purpose"-->
-                    <!--app:layout_constraintEnd_toEndOf="@+id/textView20"-->
-                    <!--app:layout_constraintHorizontal_bias="0.375"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/textView20"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/using_purpose_other_text" />-->
-
-                <!--<RadioGroup-->
-                    <!--android:id="@+id/communication_purpose"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:orientation="vertical"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/textView21">-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/inform"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/inform" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/short_answer"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/short_answer" />-->
-
-                    <!--<RadioButton-->
-                        <!--android:id="@+id/long_time"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_marginLeft="5dp"-->
-                        <!--android:layout_marginRight="5dp"-->
-                        <!--android:text="@string/long_time" />-->
-
-                <!--</RadioGroup>-->
-
-                <!--<Button-->
-                    <!--android:id="@+id/sender_questionnaire_submit"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:layout_marginTop="40dp"-->
-                    <!--android:text="@string/submit"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.534"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--tools:layout_editor_absoluteY="1334dp"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/communication_purpose"/>-->
-
-
-            <!--</android.support.constraint.ConstraintLayout>-->
-        <!--</ScrollView>-->
-    <!--</android.support.constraint.ConstraintLayout>-->
-    <!-- 問卷 -->
+    <Button
+        android:id="@+id/contact_status_close"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="440dp"
+        android:background="@drawable/error"
+        android:visibility="invisible"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="141dp" />
 
 </RelativeLayout>

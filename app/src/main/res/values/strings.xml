@@ -119,6 +119,7 @@
 
     <!-- ContactList start -->
     <string name="contactList_profile_row_text">你目前的狀態</string>
+    <string name="contactList_profile_row_description">【根據手機使用狀況運算】</string>
     <string name="contactList_profile_update_text">更新時間</string>
     <string name="editProfile">編輯</string>
     <!-- ContactList end -->
@@ -139,6 +140,10 @@
     <string name="editPage_submit">確定</string>
     <string name="editPage_cancel">取消</string>
     <string name="editPage_presentWay_title">呈現方式</string>
+    <string name="editPage_text_title">選擇你的狀態</string>
+    <string name="editPage_timeperiod_title">你想要這個狀態持續多久</string>
+    <string name="hour">小時</string>
+    <string name="minute">分鐘</string>
     <string name="editPage_graphic_subtitle1">調整你的比率</string>
     <string name="editPage_graphic_subtitle2">調整顏色</string>
     <string name="editPage_present_text">文字呈現</string>
@@ -146,29 +151,45 @@
     <string name="editPage_present_graphic">圖像呈現</string>
     <string name="editPage_present_digit_title1">回覆率</string>
     <string name="editPage_present_digit_title2">%</string>
-    <string name="textStatus_ratio_low">回覆率低</string>
-    <string name="textStatus_ratio_high">回覆率高</string>
+    <!--<string name="textStatus_ratio_low">回覆率低</string>-->
+    <!--<string name="textStatus_ratio_high">回覆率高</string>-->
+    <!--<string name="textStatus_ratio_super_high">回覆率極高</string>-->
+    <!--<string name="textStatus_ratio_super_low">回覆率極低</string>-->
+    <!--<string name="textStatus_ratio_medium">回覆率中等</string>-->
+    <!--<string name="textStatus1">可能不會回覆</string>-->
+    <!--<string name="textStatus2">可能不會回覆</string>-->
     <!-- EditPage end -->
+
+    <!-- self edit Questionnaire start -->
+    <string name="self_edit_question_title">你的回覆狀態為</string>
+    <string name="self_edit_location_question">> 請問你主要的地點在哪裡?</string>
+    <string name="self_edit_notFitReason">> 請問你改變呈現狀態的原因是?</string>
+    <string name="self_edit_questionnaire_title">~修改完你的狀態，請填寫問卷~</string>
+    <string name="self_edit_questionnaire_timePeriod_title">狀態將持續</string>
+    <string name="self_edit_reason1">想改變呈現方式</string>
+    <!-- self edit Questionnaire end -->
 
     <!-- self-Questionnaire start -->
     <string name="questionnaire_title">問卷</string>
+    <string name="self_question_title">系統偵測你的回覆狀態為</string>
     <!-- self-Questionnaire end -->
 
     <!-- Question1 start -->
-    <string name="location_question">1. 請問你當時主要地點在哪裡?</string>
+    <string name="location_question">> 請問你當時主要地點在哪裡?</string>
     <string name="home">家裡</string>
     <string name="dorm">宿舍/租屋處</string>
     <string name="lab">實驗室/辦公室</string>
     <string name="classroom">教室</string>
     <string name="library">圖書館</string>
     <string name="outdoor">室外</string>
+    <string name="restaurant">餐廳</string>
     <string name="transportation">交通工具裡</string>
     <string name="mall">商場/百貨</string>
     <string name="other">其他</string>
     <!-- Question1 end -->
 
     <!-- Question2 start -->
-    <string name="activity_question">2. 你當時主要的活動是?</string>
+    <string name="activity_question">> 你當時主要的活動是?</string>
     <string name="work">工作</string>
     <string name="study">讀書/寫作業</string>
     <string name="class_meeting">上課/開會</string>
@@ -181,12 +202,12 @@
     <!-- Question2 end -->
 
     <!-- Question3 start -->
-    <string name="ideal_rate_question">3. 目前呈現的狀態，是我理想中的呈現方式?</string>
-    <string name="strongly_agree">非常同意</string>
-    <string name="agree">同意</string>
-    <string name="neither">無意見</string>
-    <string name="disagree">不同意</string>
-    <string name="strongly_disagree">非常不同意</string>
+    <string name="ideal_rate_question">> 目前系統所提供的狀態，有多符合你真實的狀態?</string>
+    <string name="strongly_agree">非常符合</string>
+    <string name="agree">符合</string>
+    <string name="neither">一般</string>
+    <string name="disagree">不符合</string>
+    <string name="strongly_disagree">非常不符合</string>
     <!-- Question3 end -->
 
     <!-- Question4 start -->
@@ -197,48 +218,63 @@
     <!-- Question4 end -->
 
     <!-- Question5 start -->
-    <string name="change_or_nor_question">4. 請問你想要改變你目前的呈現方式嗎?</string>
-    <string name="go_change_status">好</string>
-    <string name="no_thanks">先不用，謝謝</string>
+    <string name="showOther_question">> 請問你想要聯絡人看到你的狀態是如何?</string>
+    <string name="asOriginal">同目前系統提供</string>
+    <string name="showOther_status">回覆狀態</string>
     <!-- Question5 end -->
 
     <!-- Question6: change start -->
-    <string name="change_question6">5. 想要改變的原因是?</string>
-    <string name="change_status_ratio">目前呈現的回覆率不準</string>
-    <string name="change_status_way">想要改變呈現方式</string>
-    <string name="change_status_blurred">目前呈現的回覆率太模糊</string>
-    <string name="change_status_accurate">目前呈現的回覆率太精確</string>
-    <string name="change_status_hide">不想讓對方知道我現在的狀態</string>
+    <string name="notFitReason_question">> 我們發現你覺得系統呈現的狀態與本身\n不符合，原因是? (可多選)</string>
+    <!-- 數字 --> <!-- 圖像 -->
+    <string name="notFitReason_high_digit">目前呈現的回覆率過高</string>
+    <string name="notFitReason_way">不喜歡現在的呈現方式</string>
+    <string name="notFitReason_low_digit">目前呈現的回覆率過低</string>
+    <!--<string name="notFitReason_hide">不想讓對方知道我現在的狀態</string>-->
+
+    <!-- 文字 -->
+    <string name="notFitReason_ratio_text">目前呈現的狀態不準</string>
     <!-- Question6: change end -->
 
     <!-- Question6: not change start -->
-    <string name="not_change_question6">5. 不想要改變的原因是?</string>
-    <string name="not_change_notime">沒有時間</string>
-    <string name="not_change_status_fit">目前的呈現方式很符合我的狀態</string>
-    <string name="not_change_hide">不想讓對方知道我現在的狀態</string>
+    <string name="showDifferent_question">> 請問為甚麼你想要聯絡人看到的狀態\n與系統呈現的不同呢? (可多選)</string>
+    <string name="showDifferent_high">想要讓回覆率高一點</string>
+    <string name="showDifferent_low">想要讓回覆率低一點</string>
+    <string name="showDifferent_accurate">想要讓狀態精準一點</string>
+    <string name="showDifferent_blurred">想要讓狀態模糊一些</string>
+    <string name="showDifferent_hide">不想讓別人知道我的狀態</string>
     <string name="submit">提交</string>
     <!-- Question6: not change end -->
 
     <!-- look contactList-Questionnaire start -->
-    <string name="sender_question_title">對方目前的狀態</string>
+    <string name="sender_status_question_title1">你查看</string>
+    <string name="sender_status_question_title2">的狀態為</string>
+    <string name="sender_question_title">假設對方的狀態呈現方式如下</string>
     <!-- Question1 start -->
-    <string name="sender_question1">4. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在是否是個好時機」傳訊息給對方?</string>
+    <!--<string name="sender_question1">> 請問哪種呈現方式較能幫助你判斷\n「對方現在有空或是沒空」?</string>-->
+    <string name="sender_question1">> 以上三種方式，請你根據能幫助你判斷「對方現在有空或是沒空」給予排序評分</string>
+    <string name="sender_question1_description">最能幫助你的給3分，依序給2分及1分(若覺得相同可給同分)</string>
     <string name="a">a</string>
     <string name="b">b</string>
+    <string name="c">c</string>
+    <string name="three">3</string>
+    <string name="two">2</string>
+    <string name="one">1</string>
     <string name="both_ab">兩者皆可以</string>
     <string name="neither_ab">兩者皆不行</string>
     <!-- Question1 end -->
 
     <!-- Question2 start -->
-    <string name="sender_question2">5. 請問以上兩種呈現畫面，哪種能幫助你判斷「現在傳訊息給對方是否會打擾到他」?</string>
+    <!--<string name="sender_question2">5. 請問哪種能幫助你判斷「現在傳訊息給對方是否會打擾到他」?</string>-->
+    <string name="sender_question2">> 請問你比較想要看到哪種呈現方式?\n請排序評分</string>
+    <string name="sender_question2_description">最想看到的給3分，依序給2分及1分(若覺得相同可給同分)</string>
     <!-- Question2 end -->
 
     <!-- Question3 start -->
-    <string name="sender__question_location">1. 請問你當時的地點是在哪裡?</string>
+    <string name="sender__question_location">> 請問你當時主要地點是在哪裡?</string>
     <!-- Question3 end -->
 
     <!-- Question4 start -->
-    <string name="sender__question_using_purpose">2. 請問你查看對方的狀態的目的是?</string>
+    <string name="sender__question_using_purpose">> 請問你查看對方的狀態的目的是?</string>
     <string name="communicate">要和對方溝通</string>
     <string name="communicate_notation">若選擇「要和對方溝通」請繼續回答下一題，否則請跳過下一題</string>
     <string name="curious">純粹好奇對方狀態</string>
@@ -246,7 +282,7 @@
     <!-- Question4 end -->
 
     <!-- Question5: want to communicate start -->
-    <string name="sender__question_purpose">3. 請問你的溝通目的是?</string>
+    <string name="sender__question_purpose">> 請問你的溝通目的是?</string>
     <string name="inform">只是要告知他事情</string>
     <string name="short_answer">僅需要對方簡短的回覆</string>
     <string name="long_time">要長時間與他溝通(聊天、討論...)</string>

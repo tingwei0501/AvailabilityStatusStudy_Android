@@ -23,7 +23,7 @@ ScheduleAndSampleManager {
     /**convert long to timestring**/
     public static String getTimeString(long time){
 
-        SimpleDateFormat sdf_now = new SimpleDateFormat(Constants.DATE_FORMAT_NOW_SLASH);
+        SimpleDateFormat sdf_now = new SimpleDateFormat(Constants.DATE_FORMAT_NOW_NO_ZONE_Slash);
         String currentTimeString = sdf_now.format(time);
 
         return currentTimeString;
@@ -65,7 +65,7 @@ ScheduleAndSampleManager {
     }
 
     public static String getMinSecStringFromMillis(long time) {
-        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT_24HOUR_MIN);
+        SimpleDateFormat sdf = new SimpleDateFormat(Constants.DATE_FORMAT_AMPM_HOUR_MIN);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(time);
         String timeString = sdf.format(calendar.getTime());

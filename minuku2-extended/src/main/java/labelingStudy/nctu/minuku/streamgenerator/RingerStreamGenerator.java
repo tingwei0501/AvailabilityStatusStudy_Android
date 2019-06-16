@@ -36,8 +36,6 @@ public class RingerStreamGenerator extends AndroidStreamGenerator<RingerDataReco
     private RingerStream mStream;
     private RingerDataRecordDAO ringerDataRecordDAO;
 
-    // needed data
-    public static String ringerMode;
 
     //audio and ringer
     public static final String RINGER_MODE_NORMAL = "Normal";
@@ -54,7 +52,7 @@ public class RingerStreamGenerator extends AndroidStreamGenerator<RingerDataReco
     //after api 23
     public static AudioDeviceInfo[] mAllAudioDevices;
 
-    private String mRingerMode = "NA";
+    private static String mRingerMode = "NA";
     private String mAudioMode = "NA";
     private int mStreamVolumeMusic = -9999;
     private int mStreamVolumeNotification = -9999;
@@ -124,8 +122,7 @@ public class RingerStreamGenerator extends AndroidStreamGenerator<RingerDataReco
         // also post an event.
         EventBus.getDefault().post(ringerDataRecord);
         try {
-            ringerMode = mRingerMode;
-            Log.d(TAG, "######## ringerMode: " + ringerMode);
+            Log.d(TAG, "######## ringerMode: " + mRingerMode);
 //            ringerDataRecordDAO.insertAll(ringerDataRecord);
 //
 //            List<RingerDataRecord> ringerDataRecords = ringerDataRecordDAO.getAll();
@@ -244,4 +241,7 @@ public class RingerStreamGenerator extends AndroidStreamGenerator<RingerDataReco
         mStream.add(ringerdataRecord);
     }
 
+    public static String getRingerMode() {
+        return mRingerMode;
+    }
 }

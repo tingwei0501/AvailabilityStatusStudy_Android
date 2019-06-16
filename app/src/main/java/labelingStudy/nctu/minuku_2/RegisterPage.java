@@ -3,6 +3,7 @@ package labelingStudy.nctu.minuku_2;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,17 +21,17 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import labelingStudy.nctu.minuku.config.Constants;
+
 public class RegisterPage extends Activity {
 
     private static final String TAG = "RegisterPage";
-    private static final String registerUrl = "http://13.59.255.194:5000/signUp";
-    private static final String testUsernameUrl = "http://13.59.255.194:5000/idCheck";
     private Context mContext;
     private RequestQueue mQueue;
     private JsonObjectRequest mJsonObjectRequest;
-    private String id;
-    private String pwd;
-    private String g;
+    private String id = "";
+    private String pwd = "";
+    private String g = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class RegisterPage extends Activity {
             EditText username = findViewById(R.id.editText_register_username);
             id = username.getText().toString();
 
-            if (id != null) {
+            if (!id.equals("")) {
 
                 JSONObject data = new JSONObject();
                 try {
@@ -64,7 +65,7 @@ public class RegisterPage extends Activity {
                 }
                 mQueue = Volley.newRequestQueue(mContext);
 
-                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, testUsernameUrl, data,
+                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.testUsernameUrl, data,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -88,6 +89,9 @@ public class RegisterPage extends Activity {
                     }
                 });
                 mQueue.add(mJsonObjectRequest);
+            } else {
+                Toast.makeText(RegisterPage.this,
+                        "請輸入帳號", Toast.LENGTH_SHORT).show();
             }
         }
     };
@@ -101,10 +105,16 @@ public class RegisterPage extends Activity {
 
             EditText password = findViewById(R.id.editText_register_password);
             EditText group = findViewById(R.id.editText_register_group);
+            EditText username = findViewById(R.id.editText_register_username);
+            id = username.getText().toString();
             pwd = password.getText().toString();
             g = group.getText().toString();
 
-            if (id != null && pwd != null && g != null) {
+            if (!id.equals("") && !pwd.equals("") && !g.equals("")) {
+                SharedPreferences user = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
+                user.edit()
+                        .putString("group", g)
+                        .commit();
                 JSONObject data = new JSONObject();
                 try {
                     data.put("id", id);
@@ -114,7 +124,7 @@ public class RegisterPage extends Activity {
                     e.printStackTrace();
                 }
                 mQueue = Volley.newRequestQueue(mContext);
-                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, registerUrl, data,
+                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.registerUrl, data,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -124,6 +134,7 @@ public class RegisterPage extends Activity {
                                         Toast.makeText(RegisterPage.this,
                                                 "帳號註冊成功!", Toast.LENGTH_SHORT).show();
                                         startActivity(intent);
+                                        RegisterPage.this.finish();
                                     } else if (response.getString("response").equals("failed")) {
                                         Toast.makeText(RegisterPage.this,
                                                 "註冊失敗，此帳號已存在", Toast.LENGTH_SHORT).show();

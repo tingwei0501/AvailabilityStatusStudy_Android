@@ -47,7 +47,7 @@
     <color name="custom">#eaeef7</color>
     <color name="stroke">#EF767A</color>
 
-    <color name="colorLightGreen">#008577</color>
+    <color name="colorLightGreen">#39C498</color>
     <color name="colorDarkGreen">#00574B</color>
     <color name="colorDarkPink">#D81B60</color>
     <color name="colorLightPink">#D77186</color>
@@ -60,5 +60,9 @@
     <color name="hippiePink">#AE4951</color>
     <color name="wineBerry">#57233A</color>
     <color name="smokyBlack">#161B1F</color>
+
+    <color name="contactListBar">#bd276c</color>
+    <color name="buttonGreen">#43e396</color>
+    <color name="buttonGreen1">#39C498</color>
 
 </resources>

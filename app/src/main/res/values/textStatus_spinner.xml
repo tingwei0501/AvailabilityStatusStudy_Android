@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="textStatus">
+        <item>回覆率高</item>
+        <item>回覆率中等</item>
+        <item>回覆率低</item>
+        <item>可能不會回覆</item>
+        <item>有可能會回覆</item>
+        <item>忙碌中</item>
+        <item>請勿打擾</item>
+        <item>有空</item>
+        <item>未知</item>
+    </string-array>
+</resources>

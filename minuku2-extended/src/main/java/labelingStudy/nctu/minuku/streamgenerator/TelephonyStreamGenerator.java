@@ -80,15 +80,15 @@ public class TelephonyStreamGenerator extends AndroidStreamGenerator<TelephonyDa
     public void register() {
         Log.d(TAG, "Registring with StreamManage");
 
-        try {
-            getInstance().register(mStream, TelephonyDataRecord.class, this);
-        } catch (StreamNotFoundException streamNotFoundException) {
-            Log.e(TAG, "One of the streams on which" +
-                    "RingerDataRecord/RingerStream depends in not found.");
-        } catch (StreamAlreadyExistsException streamAlreadyExsistsException) {
-            Log.e(TAG, "Another stream which provides" +
-                    " TelephonyDataRecord/TelephonyStream is already registered.");
-        }
+//        try {
+//            getInstance().register(mStream, TelephonyDataRecord.class, this);
+//        } catch (StreamNotFoundException streamNotFoundException) {
+//            Log.e(TAG, "One of the streams on which" +
+//                    "RingerDataRecord/RingerStream depends in not found.");
+//        } catch (StreamAlreadyExistsException streamAlreadyExsistsException) {
+//            Log.e(TAG, "Another stream which provides" +
+//                    " TelephonyDataRecord/TelephonyStream is already registered.");
+//        }
     }
 
     @Override
@@ -103,30 +103,30 @@ public class TelephonyStreamGenerator extends AndroidStreamGenerator<TelephonyDa
 
 //        int session_id = sharedPrefs.getInt("ongoingSessionid", Constants.INVALID_INT_VALUE);
 
-        TelephonyDataRecord telephonyDataRecord = new TelephonyDataRecord(mNetworkOperatorName, mCallState
-                , mPhoneSignalType, mGsmSignalStrength, mLTESignalStrength_dbm, mCdmaSignalStrengthLevel);
-        mStream.add(telephonyDataRecord);
-        Log.d(TAG, "Telephony to be sent to event bus" + telephonyDataRecord);
-        Log.d(TAG, "NetworkOperatorName: " + mNetworkOperatorName + ", GsmSignalStrength: " + mGsmSignalStrength);
-        //post an event
-        EventBus.getDefault().post(telephonyDataRecord);
-        try {
-//            telephonyDataRecordDAO.insertAll(telephonyDataRecord);
-//
-//            List<TelephonyDataRecord> telephonyDataRecords = telephonyDataRecordDAO.getAll();
-//
-//            for (TelephonyDataRecord t : telephonyDataRecords) {
-//                Log.d(TAG," NetworkOperatorName: "+ t.getNetworkOperatorName());
-//                Log.d(TAG," CallState: "+ String.valueOf(t.getCallState()));
-//                Log.d(TAG," CdmaSignalStrengthLevel: "+ String.valueOf(t.getCdmaSignalStrengthLevel()));
-//                Log.d(TAG," GsmSignalStrength: "+ String.valueOf(t.getGsmSignalStrength()));
-//                Log.d(TAG," LTESignalStrength: "+ String.valueOf(t.getLTESignalStrength()));
-//                Log.d(TAG," PhoneSignalType: "+ String.valueOf(t.getPhoneSignalType()));
-//            }
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            return false;
-        }
+//        TelephonyDataRecord telephonyDataRecord = new TelephonyDataRecord(mNetworkOperatorName, mCallState
+//                , mPhoneSignalType, mGsmSignalStrength, mLTESignalStrength_dbm, mCdmaSignalStrengthLevel);
+//        mStream.add(telephonyDataRecord);
+//        Log.d(TAG, "Telephony to be sent to event bus" + telephonyDataRecord);
+//        Log.d(TAG, "NetworkOperatorName: " + mNetworkOperatorName + ", GsmSignalStrength: " + mGsmSignalStrength);
+//        //post an event
+//        EventBus.getDefault().post(telephonyDataRecord);
+//        try {
+////            telephonyDataRecordDAO.insertAll(telephonyDataRecord);
+////
+////            List<TelephonyDataRecord> telephonyDataRecords = telephonyDataRecordDAO.getAll();
+////
+////            for (TelephonyDataRecord t : telephonyDataRecords) {
+////                Log.d(TAG," NetworkOperatorName: "+ t.getNetworkOperatorName());
+////                Log.d(TAG," CallState: "+ String.valueOf(t.getCallState()));
+////                Log.d(TAG," CdmaSignalStrengthLevel: "+ String.valueOf(t.getCdmaSignalStrengthLevel()));
+////                Log.d(TAG," GsmSignalStrength: "+ String.valueOf(t.getGsmSignalStrength()));
+////                Log.d(TAG," LTESignalStrength: "+ String.valueOf(t.getLTESignalStrength()));
+////                Log.d(TAG," PhoneSignalType: "+ String.valueOf(t.getPhoneSignalType()));
+////            }
+//        } catch (NullPointerException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
 
         return true;
     }
@@ -143,12 +143,12 @@ public class TelephonyStreamGenerator extends AndroidStreamGenerator<TelephonyDa
 
     @Override
     public void onStreamRegistration() {
-
-        telephonyManager = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
-        mNetworkOperatorName = telephonyManager.getNetworkOperatorName();
-
-        telephonyManager.listen(TelephonyStateListener,PhoneStateListener.LISTEN_CALL_STATE|PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
-
+////////////////////////////////////////////////////////
+//        telephonyManager = (TelephonyManager) mApplicationContext.getSystemService(Context.TELEPHONY_SERVICE);
+//        mNetworkOperatorName = telephonyManager.getNetworkOperatorName();
+//
+//        telephonyManager.listen(TelephonyStateListener,PhoneStateListener.LISTEN_CALL_STATE|PhoneStateListener.LISTEN_SIGNAL_STRENGTHS);
+/////////////////////////////////////////////////////////
     }
     private final PhoneStateListener TelephonyStateListener = new PhoneStateListener() {
 

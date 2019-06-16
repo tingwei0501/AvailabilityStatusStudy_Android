@@ -34,8 +34,19 @@ public class Constants {
 
     public static final String ONGOING_CHANNEL_NAME = "AS";
     public static final String ONGOING_CHANNEL_ID = "AvailabilityStudy_id";
-    public static final String SURVEY_CHANNEL_NAME = "AS";
+    public static final String SURVEY_CHANNEL_NAME = "【填寫問卷通知】";
     public static final String SURVEY_CHANNEL_ID = "Survey_id";
+
+    public static final String PORT = "8080"; // 8080, 5000
+    public static final String loginUrl = "http://13.59.255.194:" + PORT + "/signIn";
+    public static final String registerUrl = "http://13.59.255.194:" + PORT + "/signUp";
+    public static final String testUsernameUrl = "http://13.59.255.194:" + PORT + "/idCheck";
+    public static final String fetchDataUrl = "http://13.59.255.194:" + PORT + "/getList";
+////    public static final String getStatusUrl = "http://13.59.255.194:8080/getSelfStatus";
+    public static final String getContactStatusUrl = "http://13.59.255.194:" + PORT + "/getContactStatus";
+    public static final String storeSelfStatusUrl = "http://13.59.255.194:" + PORT + "/storeSelfStatus";
+    public static final String storeContactQuestionnaire = "http://13.59.255.194:" + PORT + "/storeQuestionnaire?collection=contactQuestionnaire";
+    public static final String storeSelfQuestionnaire = "http://13.59.255.194:" + PORT + "/storeQuestionnaire?collection=selfQuestionnaire";
 
     public static final String CHECK_SERVICE_ACTION = "checkService";
 
@@ -147,15 +158,24 @@ public class Constants {
 
     public static final int GET_STREAM_DATA_DELAY = 20;
     public static final int GET_STREAM_DATA_FREQUENCY = 20;
-    public static final int STREAM_DATA_CAPACITY = 5; // data in 5 minutes
+    public static final int STATUS_CAPACITY = 20; // data in 40 minutes
 
-    public static final int GET_AVAILABILITY_FROM_SERVER_DELAY = 20;
-    public static final int GET_AVAILABILITY_FROM_SERVER_FREQUENCY = 60;
+    public static final int GET_AVAILABILITY_FROM_SERVER_DELAY = 60; //TODO 60
+    public static final int GET_AVAILABILITY_FROM_SERVER_FREQUENCY = 120; //TODO 120
 
     public static final int ISALIVE_UPDATE_FREQUENCY = 1 * 60 * 60;
     public static final int ISALIVE_UPDATE_DELAY = 0;
 
     public static final String ACTIVITY_CONFIDENCE_CONNECTOR = ":";
 
+    public static final int STATUS_THRESHOLD = 22; //TODO 25
     public static int NOTIFICATION_UPDATE_THREAD_SIZE = 1;
+
+    // present way
+    public static final String PRESENT_IN_TEXT = "text";
+    public static final String PRESENT_IN_DIGIT = "digit";
+    public static final String PRESENT_IN_GRAPHIC = "graphic";
+
+    public static final int DEFAULT_COLOR = -13408615;
+    public static final int PROGRESS_ANIMATION_RATE = 1500;
 }

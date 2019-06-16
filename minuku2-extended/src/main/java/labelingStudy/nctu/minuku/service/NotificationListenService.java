@@ -1,32 +1,16 @@
 package labelingStudy.nctu.minuku.service;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.KeyguardManager;
 import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
-import com.google.gson.Gson;
-
-import java.util.ArrayList;
-
-import labelingStudy.nctu.minuku.R;
 import labelingStudy.nctu.minuku.Utilities.ScheduleAndSampleManager;
-import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku.manager.MinukuStreamManager;
 import labelingStudy.nctu.minuku.model.DataRecord.NotificationDataRecord;
 import labelingStudy.nctu.minuku.streamgenerator.NotificationStreamGenerator;
@@ -40,13 +24,13 @@ import labelingStudy.nctu.minukucore.exception.StreamNotFoundException;
 public class NotificationListenService extends NotificationListenerService {
     private static final String TAG = "NotificationListener";
 
-    private String title;
-    private String text;
-    private String subText;
-    private String tickerText;
-    public String pack;
-    private long detectedtime;
-//    private boolean notiRemoved;
+    private String title = "NA";
+    private String text = "NA";
+    private String subText = "NA";
+    private String tickerText = "NA";
+    public String pack = "NA";
+    private long detectedtime = -1;
+    private static long removeNotiTime = -1;
 
     private static NotificationStreamGenerator notificationStreamGenerator;
 
@@ -81,8 +65,7 @@ public class NotificationListenService extends NotificationListenerService {
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
         Log.d(TAG,"in posted");
-//        notiRemoved = false;  //在哪初始較好?
-//        Log.d(TAG, "noti removed: " + notiRemoved);
+
         Log.d(TAG, "Notification received: "+sbn.getPackageName()+":"+sbn.getNotification().tickerText);
 
         Notification notification = sbn.getNotification();
@@ -126,7 +109,7 @@ public class NotificationListenService extends NotificationListenerService {
             }
         }
 
-        Log.d(TAG,title+" "+text+" "+subText+" "+tickerText+" "+extra);
+//        Log.d(TAG,title + " " + text + " " + subText + " " + tickerText + " " + extra);
         try {
             this.notificationStreamGenerator = (NotificationStreamGenerator) MinukuStreamManager.getInstance().getStreamGeneratorFor(NotificationDataRecord.class);
         } catch (StreamNotFoundException e) {
@@ -144,8 +127,15 @@ public class NotificationListenService extends NotificationListenerService {
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
         super.onNotificationRemoved(sbn);
-        Log.d(TAG, "something removed.");
-//        notiRemoved = true;
+        Log.d(TAG, ">>>>> something removed. <<<<<");
+        if (pack.equals("com.facebook.orca") || pack.equals("jp.naver.line.android") ||
+            pack.equals("com.tencent.mm")) {
+            removeNotiTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+        }
+        Log.d(TAG, "removeNotiTime: " + removeNotiTime);
     }
 
+//    public static long getRemoveNotiTime() {
+//        return removeNotiTime;
+//    }
 }

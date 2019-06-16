@@ -193,14 +193,16 @@ public class TransportationModeStreamGenerator extends AndroidStreamGenerator<Tr
     @SuppressLint("LongLogTag")
     @Override
     public void register() {
-        Log.d(TAG, "Registering with StreamManager.");
-        try {
-            MinukuStreamManager.getInstance().register(mStream, TransportationModeDataRecord.class, this);
-        } catch (StreamNotFoundException streamNotFoundException) {
-            Log.e(TAG, "One of the streams on which LocationDataRecord depends in not found.");
-        } catch (StreamAlreadyExistsException streamAlreadyExistsException) {
-            Log.e(TAG, "Another stream which provides LocationDataRecord is already registered.");
-        }
+////////////////////////////////////////////////////////
+//        Log.d(TAG, "Registering with StreamManager.");
+//        try {
+//            MinukuStreamManager.getInstance().register(mStream, TransportationModeDataRecord.class, this);
+//        } catch (StreamNotFoundException streamNotFoundException) {
+//            Log.e(TAG, "One of the streams on which LocationDataRecord depends in not found.");
+//        } catch (StreamAlreadyExistsException streamAlreadyExistsException) {
+//            Log.e(TAG, "Another stream which provides LocationDataRecord is already registered.");
+//        }
+        /////////////////////////////////////////////////////////////
     }
 
     @Override
@@ -241,25 +243,25 @@ public class TransportationModeStreamGenerator extends AndroidStreamGenerator<Tr
 
 //        int session_id = sharedPrefs.getInt("ongoingSessionid", Constants.INVALID_INT_VALUE);
 
-        String suspectedStartActivity = getActivityNameFromType(getSuspectedStartActivityType());
-        String suspectedEndActivity = getActivityNameFromType(getSuspectedStopActivityType());
+/////        String suspectedStartActivity = getActivityNameFromType(getSuspectedStartActivityType());
+/////        String suspectedEndActivity = getActivityNameFromType(getSuspectedStopActivityType());
 
-        TransportationModeDataRecord transportationModeDataRecord =
-                new TransportationModeDataRecord(getConfirmedActivityString(), getSuspectTime(), suspectedStartActivity, suspectedEndActivity);
+/////        TransportationModeDataRecord transportationModeDataRecord =
+/////                new TransportationModeDataRecord(getConfirmedActivityString(), getSuspectTime(), suspectedStartActivity, suspectedEndActivity);
 
-        Log.d(TAG,"updateStream transportationModeDataRecord : " + getConfirmedActivityString());
+/////        Log.d(TAG,"updateStream transportationModeDataRecord : " + getConfirmedActivityString());
 
-        mStream.add(transportationModeDataRecord);
-        Log.d(TAG, "TransportationMode to be sent to event bus" + transportationModeDataRecord);
-        Log.d(TAG, "ConfirmedActivity: " + mConfirmedActivityType + ", SuspectedStartActivityString: " + mSuspectedStartActivityType
-                         + ", SuspectedStopActivityString: " + mSuspectedStopActivityType);
+        /////       mStream.add(transportationModeDataRecord);
+/////        Log.d(TAG, "TransportationMode to be sent to event bus" + transportationModeDataRecord);
+/////        Log.d(TAG, "ConfirmedActivity: " + mConfirmedActivityType + ", SuspectedStartActivityString: " + mSuspectedStartActivityType
+/////                         + ", SuspectedStopActivityString: " + mSuspectedStopActivityType);
         //TODO move to AR after examine the transportation
 //        MinukuStreamManager.getInstance().setTransportationModeDataRecord(transportationModeDataRecord, mContext, sharedPrefs);
 
         // also post an event.
-        EventBus.getDefault().post(transportationModeDataRecord);
+/////        EventBus.getDefault().post(transportationModeDataRecord);
 
-        try {
+        /////       try {
 //            transportationModeDataRecordDAO.insertAll(transportationModeDataRecord);
 //
 //            List<TransportationModeDataRecord> transportationModeDataRecords = transportationModeDataRecordDAO.getAll();
@@ -272,11 +274,11 @@ public class TransportationModeStreamGenerator extends AndroidStreamGenerator<Tr
 //                Log.d(TAG, "hour: "+t.getHour());
 //
 //            }
-        } catch (NullPointerException e) { //Sometimes no data is normal
+/////        } catch (NullPointerException e) { //Sometimes no data is normal
 
-            CSVHelper.storeToCSV(CSVHelper.CSV_ESM, "Transportation, update stream, NullPointerException");
-            CSVHelper.storeToCSV(CSVHelper.CSV_ESM, Utils.getStackTrace(e));
-        }
+/////            CSVHelper.storeToCSV(CSVHelper.CSV_ESM, "Transportation, update stream, NullPointerException");
+/////            CSVHelper.storeToCSV(CSVHelper.CSV_ESM, Utils.getStackTrace(e));
+/////        }
 
         return true;
     }

@@ -92,20 +92,20 @@ public class InstanceManager {
         // DAO initialization stuff
 
         DBHelper dBHelper = new DBHelper(getApplicationContext());
-
+//
         MinukuDAOManager daoManager = MinukuDAOManager.getInstance();
 
 
         // Create corresponding stream generators. Only to be created once in Main Activity
         // creating a new stream registers it with the stream manager
-        LocationStreamGenerator locationStreamGenerator =
-                new LocationStreamGenerator(getApplicationContext());
+//        LocationStreamGenerator locationStreamGenerator =
+//                new LocationStreamGenerator(getApplicationContext());
 
-        ActivityRecognitionStreamGenerator activityRecognitionStreamGenerator =
-                new ActivityRecognitionStreamGenerator(getApplicationContext());
+//        ActivityRecognitionStreamGenerator activityRecognitionStreamGenerator =
+//                new ActivityRecognitionStreamGenerator(getApplicationContext());
 
-        TransportationModeStreamGenerator transportationModeStreamGenerator =
-                new TransportationModeStreamGenerator(getApplicationContext());
+//        TransportationModeStreamGenerator transportationModeStreamGenerator =
+//                new TransportationModeStreamGenerator(getApplicationContext());
 
         ConnectivityStreamGenerator connectivityStreamGenerator =
                 new ConnectivityStreamGenerator(getApplicationContext());
@@ -119,8 +119,8 @@ public class InstanceManager {
         AppUsageStreamGenerator appUsageStreamGenerator =
                 new AppUsageStreamGenerator(getApplicationContext());
 
-        TelephonyStreamGenerator telephonyStreamGenerator =
-                new TelephonyStreamGenerator(getApplicationContext());
+//        TelephonyStreamGenerator telephonyStreamGenerator =
+//                new TelephonyStreamGenerator(getApplicationContext());
 
         AccessibilityStreamGenerator accessibilityStreamGenerator =
                 new AccessibilityStreamGenerator(getApplicationContext());

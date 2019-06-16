@@ -70,10 +70,12 @@
         <activity android:name="labelingStudy.nctu.minuku_2.controller.DeviceIdPage" />
         <activity android:name=".RegisterPage"/>
         <activity android:name=".LoginPage"/>
-        <activity android:name=".ContactList"/>
+        <activity android:name=".ContactList"
+            android:launchMode="singleTop"/>
         <activity android:name=".EditProfilePage"/>
         <activity android:name=".Questionnaire.SelfQuestionnaire"/>
         <activity android:name=".Questionnaire.ContactStatusQuestionnaire"/>
+        <activity android:name=".Questionnaire.SelfEditQuestionnaire"/>
 
         <!--<activity-->
             <!--android:name="labelingStudy.nctu.minuku_2.controller.Dispatch"-->
@@ -85,10 +87,13 @@
             <!--</intent-filter>-->
         <!--</activity>-->
         <activity
-            android:name="labelingStudy.nctu.minuku_2.MainActivity">
+            android:name="labelingStudy.nctu.minuku_2.MainActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
 
         </activity>

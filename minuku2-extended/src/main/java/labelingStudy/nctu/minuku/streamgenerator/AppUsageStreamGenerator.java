@@ -29,6 +29,7 @@ import labelingStudy.nctu.minuku.logger.Log;
 import labelingStudy.nctu.minuku.manager.MinukuDAOManager;
 import labelingStudy.nctu.minuku.manager.MinukuStreamManager;
 import labelingStudy.nctu.minuku.model.DataRecord.AppUsageDataRecord;
+import labelingStudy.nctu.minuku.service.MobileAccessibilityService;
 import labelingStudy.nctu.minuku.stream.AppUsageStream;
 import labelingStudy.nctu.minukucore.dao.DAOException;
 import labelingStudy.nctu.minukucore.exception.StreamAlreadyExistsException;
@@ -85,13 +86,17 @@ public class AppUsageStreamGenerator extends AndroidStreamGenerator<AppUsageData
 
     /**latest running app **/
     private static String mLastestForegroundActivity= "NA"; //Latest_Foreground_Activity
-    public static String mLastestForegroundPackage= "NA"; //Latest_Used_App
+    private static String mLastestForegroundPackage= "NA"; //Latest_Used_App
     private static String mLastestForegroundPackageTime= "NA";
     private static String mRecentUsedAppsInLastHour= "NA";
 
     //screen on and off
-    public static String Screen_Status;
-    public static long detectedTime;
+    private String Screen_Status;
+    private long detectedTime;
+
+    // needed data in AS
+    private static long latestUseIMTime = -1;
+    private static long screenInteractiveTime = -1;
 
     private static final String STRING_SCREEN_OFF = "Screen_off";
     private static final String STRING_SCREEN_ON = "Screen_on";
@@ -151,10 +156,24 @@ public class AppUsageStreamGenerator extends AndroidStreamGenerator<AppUsageData
         AppUsageDataRecord appUsageDataRecord = new AppUsageDataRecord(Screen_Status,mLastestForegroundPackage,mLastestForegroundActivity, detectedTime);
         Log.d(TAG, "detectedTime : "+ ScheduleAndSampleManager.getTimeString(detectedTime));
         Log.d(TAG, "Screen_Status: " + Screen_Status);
+        Log.d(TAG, "mLastestForegroundPackage " + mLastestForegroundPackage);
 
+        if (Screen_Status.equals("Interactive") && (MobileAccessibilityService.getCurrentPackage().equals("com.facebook.orca") ||
+                MobileAccessibilityService.getCurrentPackage().equals("jp.naver.line.android") ||
+                MobileAccessibilityService.getCurrentPackage().equals("com.tencent.mm"))) {
+            latestUseIMTime = detectedTime;
+            // TODO: 5/28 測試對不
+            Log.d(TAG, ">>> last use IM time >>> " + latestUseIMTime);
+        }
+
+        if (Screen_Status.equals("Interactive")) {
+            screenInteractiveTime = detectedTime;
+        }
+        Log.d(TAG, "screenInteractiveTime: " + screenInteractiveTime);
+
+        Log.d(TAG, "mLastestForegroundActivity " + mLastestForegroundActivity);  // NA
         //appUsageDataRecord.setCreationTime();
         if(appUsageDataRecord!=null) {
-
 
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
 
@@ -187,7 +206,7 @@ public class AppUsageStreamGenerator extends AndroidStreamGenerator<AppUsageData
                 //appUsageDataRecord.getUsers());
 
                 mStream.add(appUsageDataRecord);
-                Log.e(TAG, "AppUsage to be sent to event bus" + appUsageDataRecord);
+                Log.e(TAG, "AppUsage to be sent to event bus");
 
                 EventBus.getDefault().post(appUsageDataRecord);
 
@@ -447,7 +466,16 @@ public class AppUsageStreamGenerator extends AndroidStreamGenerator<AppUsageData
 
         Log.e(TAG, "test source being requested [testing app] SCREEN:  " + Screen_Status);
 
+
         return Screen_Status;
+    }
+
+    public static long getScreenInteractiveTime() {
+        return screenInteractiveTime;
+    }
+
+    public static long getLatestUseIMTime() {
+        return latestUseIMTime;
     }
 
 }

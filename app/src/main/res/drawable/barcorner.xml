@@ -34,8 +34,8 @@
 
         <gradient
             android:angle="270"
-            android:endColor="@color/hippiePink"
-            android:startColor="@color/hippiePink" />
+            android:endColor="@color/contactListBar"
+            android:startColor="@color/contactListBar" />
 
         <corners
             android:bottomLeftRadius="10dp"

@@ -26,12 +26,11 @@ import labelingStudy.nctu.minuku.config.Constants;
 public class LoginPage extends Activity {
 
     private static final String TAG = "LoginPage";
-    private static final String loginUrl = "http://13.59.255.194:5000/signIn";
     private Context mContext;
     private RequestQueue mQueue;
     private JsonObjectRequest mJsonObjectRequest;
-    private String id;
-    private String pwd;
+    private String id = "";
+    private String pwd = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,18 +53,10 @@ public class LoginPage extends Activity {
             id = username.getText().toString();
             pwd = password.getText().toString();
 
+            successIntent = new Intent(LoginPage.this, ContactList.class);
+            failedIntent = new Intent(LoginPage.this, RegisterPage.class);
 
-            successIntent = new Intent();
-            successIntent.setClass(LoginPage.this, ContactList.class);
-            failedIntent = new Intent();
-            failedIntent.setClass(LoginPage.this, RegisterPage.class);
-
-            if (id != null && pwd != null) {
-
-                // pass to next Activity
-                successIntent.putExtra("from", "login");
-                successIntent.putExtra("id", id);
-                // pass to next Activity
+            if (!id.equals("") && !pwd.equals("")) {
 
                 // store to sharedPreference
                 SharedPreferences user = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
@@ -74,7 +65,6 @@ public class LoginPage extends Activity {
                         .putString("way", "digit")
                         .putInt("status", 50)
                         .putInt("color", 0)
-//                        .putInt("backgroundColor", 0)
                         .commit();
                 // store to sharedPreference
 
@@ -86,7 +76,7 @@ public class LoginPage extends Activity {
                     e.printStackTrace();
                 }
                 mQueue = Volley.newRequestQueue(mContext);
-                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, loginUrl, data,
+                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.loginUrl, data,
                         new Response.Listener<JSONObject>() {
                             @Override
                             public void onResponse(JSONObject response) {
@@ -96,6 +86,7 @@ public class LoginPage extends Activity {
                                         Toast.makeText(LoginPage.this,
                                                 "登入成功!", Toast.LENGTH_SHORT).show();
                                         startActivity(successIntent);
+                                        LoginPage.this.finish();
                                     } else if (response.getString("response").equals("failed")) {
                                         Toast.makeText(LoginPage.this,
                                                 "密碼錯誤!", Toast.LENGTH_SHORT).show();
@@ -103,6 +94,7 @@ public class LoginPage extends Activity {
                                         Toast.makeText(LoginPage.this,
                                                 "此帳號不存在，請先註冊!", Toast.LENGTH_SHORT).show();
                                         startActivity(failedIntent);
+                                        LoginPage.this.finish();
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

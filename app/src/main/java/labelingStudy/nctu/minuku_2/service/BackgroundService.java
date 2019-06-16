@@ -29,6 +29,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -40,6 +41,8 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.TextView;
@@ -59,7 +62,9 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.TimeZone;
 import java.util.concurrent.Executors;
@@ -75,6 +80,8 @@ import labelingStudy.nctu.minuku.manager.MobilityManager;
 import labelingStudy.nctu.minuku.manager.SessionManager;
 import labelingStudy.nctu.minuku.model.DataRecord.ActivityRecognitionDataRecord;
 import labelingStudy.nctu.minuku.model.Session;
+import labelingStudy.nctu.minuku.service.MobileAccessibilityService;
+import labelingStudy.nctu.minuku.service.NotificationListenService;
 import labelingStudy.nctu.minuku.stream.AppUsageStream;
 import labelingStudy.nctu.minuku.streamgenerator.AccessibilityStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.ActivityRecognitionStreamGenerator;
@@ -85,6 +92,7 @@ import labelingStudy.nctu.minuku.streamgenerator.NotificationStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.RingerStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.SensorStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.TransportationModeStreamGenerator;
+import labelingStudy.nctu.minuku_2.Questionnaire.SelfQuestionnaire;
 import labelingStudy.nctu.minuku_2.R;
 import labelingStudy.nctu.minuku_2.Receiver.RestarterBroadcastReceiver;
 //import labelingStudy.nctu.minuku_2.Receiver.WifiReceiver;
@@ -92,11 +100,13 @@ import labelingStudy.nctu.minuku_2.Utils;
 import labelingStudy.nctu.minuku_2.controller.Dispatch;
 import labelingStudy.nctu.minuku_2.manager.InstanceManager;
 
+import static labelingStudy.nctu.minuku_2.manager.renderManager.randomPresentWay;
+import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetText;
+
 public class BackgroundService extends Service {
 
 
     private static final String TAG = "BackgroundService";
-    private static final String getStatusUrl = "http://13.59.255.194:5000/getSelfStatus";
     private Context mContext;
 
     final static String CHECK_RUNNABLE_ACTION = "checkRunnable";
@@ -108,72 +118,70 @@ public class BackgroundService extends Service {
     MinukuStreamManager streamManager;
 
     private ScheduledExecutorService mScheduledExecutorService;
-    ScheduledFuture<?> mScheduledFuture, mScheduledFutureData, mScheduledSendToServer;
+    ScheduledFuture<?> mScheduledFuture, mScheduledFutureData, mScheduledSendToServer, mScheduledAfterEdit;
 
     private int ongoingNotificationID = 42;
+    private int notifyNotificationID = 11;
+    private int notifyNotificationCode = 300;
     private String ongoingNotificationText = Constants.RUNNING_APP_DECLARATION;
 
     NotificationManager mNotificationManager;
 
     public static boolean isBackgroundServiceRunning = false;
     public static boolean isBackgroundRunnableRunning = false;
+    public static boolean isHandleAfterEdit = false;
+    public static int afterEditTimePeriod;
 
+    private int lastStatus;
     // data
+    private long typingTime;
+    private long latestUseIMTime;
+    private long screenInteractiveTime;
     private String ringerMode;
-    private Queue<String> ringerModes;
+    private float imUsage = 50;
 
-    private String networkType;
-    private Queue<String> networkTypes;
+    private ArrayList<Integer> statusList;
+    private int index = 0;
+//    private int minStatus = 101;
+//    private int maxStatus = -1;
 
-    private String activityRecognition;
-    private Queue<String> activityRecognitions;
+//    private String networkType;
+//    private Queue<String> networkTypes;
+//
+//    private int batteryLevel;
+//    private Queue<Integer> batteryLevels;
+//
+//    private float sensorProximity;
+//    private Queue<Float> sensorProximities;
 
-    private int batteryLevel;
-    private Queue<Integer> batteryLevels;
-    private String batteryChargingState;
-    private Queue<String> batteryChargingStates;
-
-    private float sensorProximity;
-    private Queue<Float> sensorProximities;
-
-    private long timestampOfScreenInteraction;
-    private long periodOfScreenInteraction;
-    private boolean isScreenInteractive1;
-    private boolean isScreenInteractive5;
-    private boolean isScreenInteractive10;
-    private boolean isScreenInteractive30;
-    private boolean isScreenInteractive60;
-
-    private long timestampOfOpenIMApp;
-    private long periodOfOpenIMApp;
-    private boolean isOpenIMApp1;
-    private boolean isOpenIMApp5;
-    private boolean isOpenIMApp10;
-    private boolean isOpenIMApp30;
-    private boolean isOpenIMApp60;
-
-    private long timestampOfIMNotification;
-    private long periodOfIMNotification;
-    private boolean isIMNoti1;
-    private boolean isIMNoti5;
-    private boolean isIMNoti10;
-    private boolean isIMNoti30;
-    private boolean isIMNoti60;
-
-    private long timestampOfActions;
-    private long periodOfActions;
-    private boolean hasAction1;
-    private boolean hasAction5;
-    private boolean hasAction10;
-    private boolean hasAction30;
-    private boolean hasAction60;
+//    private long timestampOfOpenIMApp;
+//    private long periodOfOpenIMApp;
+//    private boolean isOpenIMApp1;
+//    private boolean isOpenIMApp5;
+//    private boolean isOpenIMApp10;
+//    private boolean isOpenIMApp30;
+//    private boolean isOpenIMApp60;
 
     private RequestQueue mQueue;
     private JsonObjectRequest mJsonObjectRequest;
 
-    private int count = 0;
-
     private SharedPreferences sharedPrefs;
+
+    // user status: 系統算ㄉ
+    private int userStatus;
+    private long userShowTime;
+    private String userShowTimeString;
+    private String userWay;
+    private String userStatusText;
+    private int userColor;
+    // user status: 自行更改的狀態
+    private boolean afterEdit;
+    private int userStatusEdit;
+    private long userShowTimeEdit;
+    private String userShowTimeStringEdit;
+    private String userWayEdit;
+    private String userStatusTextEdit;
+    private int userColorEdit;
 
     public BackgroundService() {
         super();
@@ -186,6 +194,7 @@ public class BackgroundService extends Service {
         mContext = this;
         isBackgroundServiceRunning = false;
         isBackgroundRunnableRunning = false;
+        lastStatus = -1;
 
         streamManager = MinukuStreamManager.getInstance();
         mScheduledExecutorService = Executors.newScheduledThreadPool(Constants.NOTIFICATION_UPDATE_THREAD_SIZE);
@@ -195,33 +204,26 @@ public class BackgroundService extends Service {
         intentFilter.addAction(Constants.ACTION_CONNECTIVITY_CHANGE);
 //        mWifiReceiver = new WifiReceiver();
 
-        ringerModes = new LinkedList<>();
-        ringerMode = Constants.INVALID_STRING_VALUE; // NA
-        networkTypes = new LinkedList<>();
-        networkType = Constants.INVALID_STRING_VALUE; // NA
-        activityRecognitions = new LinkedList<>();
-        activityRecognition = Constants.INVALID_STRING_VALUE; // NA
-        batteryLevels = new LinkedList<>();
-        batteryLevel = Constants.INVALID_INT_VALUE; // -1
-        batteryChargingStates = new LinkedList<>();
-        batteryChargingState = Constants.INVALID_STRING_VALUE; // NA
-        sensorProximities = new LinkedList<>();
-        sensorProximity = Constants.INVAILD_FLOAT_VALUE; // -1
-        timestampOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
-        periodOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
-        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
+        latestUseIMTime = Constants.INVALID_TIME_VALUE;
+        typingTime = Constants.INVALID_TIME_VALUE;
+        screenInteractiveTime = Constants.INVALID_TIME_VALUE;
+        ringerMode = Constants.INVALID_STRING_VALUE;
 
-        timestampOfOpenIMApp = Constants.INVALID_TIME_VALUE; // -1
-        periodOfOpenIMApp = Constants.INVALID_TIME_VALUE; // -1
-        isOpenIMApp1 = isOpenIMApp5 = isOpenIMApp10 = isOpenIMApp30 = isOpenIMApp60 = false;
+        statusList = new ArrayList<>(Collections.nCopies(Constants.STATUS_CAPACITY, 50));
+//        ringerModes = new LinkedList<>();
+//        ringerMode = Constants.INVALID_STRING_VALUE; // NA
+//        networkTypes = new LinkedList<>();
+//        networkType = Constants.INVALID_STRING_VALUE; // NA
+//        batteryLevels = new LinkedList<>();
+//        batteryLevel = Constants.INVALID_INT_VALUE; // -1
+//        batteryChargingStates = new LinkedList<>();
+//        batteryChargingState = Constants.INVALID_STRING_VALUE; // NA
+//        sensorProximities = new LinkedList<>();
+//        sensorProximity = Constants.INVAILD_FLOAT_VALUE; // -1
+//        timestampOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
+//        periodOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
+//        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
 
-        timestampOfIMNotification = Constants.INVALID_TIME_VALUE; // -1
-        periodOfIMNotification = Constants.INVALID_TIME_VALUE; // -1
-        isIMNoti1 = isIMNoti5 = isIMNoti10 = isIMNoti30 = isIMNoti60 = false;
-
-        timestampOfActions = Constants.INVALID_TIME_VALUE; // -1
-        periodOfActions = Constants.INVALID_TIME_VALUE; // -1
-        hasAction1 = hasAction5 = hasAction10 = hasAction30 = hasAction60 = false;
     }
 
     @Override
@@ -232,7 +234,7 @@ public class BackgroundService extends Service {
 
         String onStart = "BackGround, start service";
         CSVHelper.storeToCSV(CSVHelper.CSV_ESM, onStart);
-        CSVHelper.storeToCSV(CSVHelper.CSV_CAR, onStart);
+//        CSVHelper.storeToCSV(CSVHelper.CSV_CAR, onStart);
 
         mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 
@@ -256,23 +258,24 @@ public class BackgroundService extends Service {
             isBackgroundServiceRunning = true;
 
             CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "Going to judge the condition is ? "+(!InstanceManager.isInitialized()));
-
+            //沒有進 runnable (fixed)
             if (!InstanceManager.isInitialized()) {
-
+                Log.d(TAG, "not Initialized");
                 CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "Going to start the runnable.");
 
                 InstanceManager.getInstance(this);
                 SessionManager.getInstance(this);
                 MobilityManager.getInstance(this);
 
-                updateNotificationAndStreamManagerThread();
             }
+            updateNotificationAndStreamManagerThread(); //
         }
 
         return START_REDELIVER_INTENT; //START_STICKY_COMPATIBILITY;
     }
 
     private void updateNotificationAndStreamManagerThread(){
+        Log.d(TAG, "in updateNotificationAndStreamManagerThread");
 
         mScheduledFuture = mScheduledExecutorService.scheduleAtFixedRate(
                 updateStreamManagerRunnable,
@@ -281,25 +284,47 @@ public class BackgroundService extends Service {
                 TimeUnit.SECONDS);
 
         mScheduledFutureData = mScheduledExecutorService.scheduleAtFixedRate(
-                getStreamDataRunnable,
+                getIMUsageDataRunnable,
                 Constants.GET_STREAM_DATA_DELAY,
                 Constants.GET_STREAM_DATA_FREQUENCY, // 20 sec
                 TimeUnit.SECONDS
         );
 
         mScheduledSendToServer = mScheduledExecutorService.scheduleAtFixedRate(
-                getAvailabilityFromServerRunnable,
+                updateAvailabilityStatusRunnable,
                 Constants.GET_AVAILABILITY_FROM_SERVER_DELAY, //TODO: should be longer:user need to register & login
-                Constants.GET_AVAILABILITY_FROM_SERVER_FREQUENCY, // 1 min
+//                Constants.GET_AVAILABILITY_FROM_SERVER_FREQUENCY, // 2 min
+                Constants.GET_AVAILABILITY_FROM_SERVER_FREQUENCY, // TODO: 測試時間會跟實際不同
                 TimeUnit.SECONDS
         );
     }
+
+    private void handleAfterEditThread(int afterEditTimePeriod) {
+        Log.d(TAG, "in handleAfterEditThread");
+        Log.d(TAG, "afterEditTimePeriod: " + afterEditTimePeriod);
+        mScheduledAfterEdit = mScheduledExecutorService.schedule(
+                handleAfterEditRunnable,
+                afterEditTimePeriod,
+                TimeUnit.MINUTES
+        );
+    }
+
+    Runnable handleAfterEditRunnable = new Runnable() {
+        @Override
+        public void run() {
+            Log.d(TAG, "in handleAfterEditRunnable");
+            sharedPrefs.edit()
+                    .putBoolean("afterEdit", false)
+                    .commit();
+            mScheduledAfterEdit.cancel(true);
+        }
+    };
 
     Runnable updateStreamManagerRunnable = new Runnable() {
         @Override
         public void run() {
 
-            Log.d(TAG, "--------- start updateStreamManagerRunnable ---------");
+//            Log.d(TAG, "--------- start updateStreamManagerRunnable ---------");
             try {
                 CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "isBackgroundServiceRunning ? "+isBackgroundServiceRunning);
                 CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "isBackgroundRunnableRunning ? "+isBackgroundRunnableRunning);
@@ -313,100 +338,252 @@ public class BackgroundService extends Service {
         }
     };
 
-    Runnable getStreamDataRunnable = new Runnable() {
+    Runnable getIMUsageDataRunnable = new Runnable() {
         @Override
         public void run() {
-            Log.d(TAG, "++++++++++ start getStreamDataRunnable +++++++++");
-            getRingerData();
-            getNetworkType();
-            getActivityRecognition();
-            getBatteryLevel();
-            getBatteryChargingState();
-            getSensorProximity();
-            getScreenInteraction();
-            getOpenIMApp();
-            getIsIMNoti();
-            getActions();
+            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+//            Log.d(TAG, ".........get IM Usage runnable.........");
+            latestUseIMTime = AppUsageStreamGenerator.getLatestUseIMTime();
+            typingTime = MobileAccessibilityService.getTypingTime();
+            Log.d(TAG, ">> typing time >> " + ScheduleAndSampleManager.getTimeString(typingTime));
+            Log.d(TAG, ">> latest use IM App time >> " + ScheduleAndSampleManager.getTimeString(latestUseIMTime));
+
+            typingTime = (currentTime - typingTime) / 1000;
+            latestUseIMTime = (currentTime - latestUseIMTime) / 1000;
+
+//            Log.d(TAG, "typing time: " + typingTime);
+//            Log.d(TAG, "use IM time: " + latestUseIMTime);
+            if (typingTime <= 30 && latestUseIMTime <= 30) {
+                if (imUsage < 100) {
+                    Log.d(TAG, "+ + +1.12");
+                    imUsage += 1.12;
+                }
+            } else if (latestUseIMTime <= 30) {
+                if (imUsage < 100) {
+                    Log.d(TAG, "+ + +0.56");
+                    imUsage += 0.56;
+                }
+            } else {
+                if (imUsage > 0) {
+                    Log.d(TAG, "- - -0.56");
+                    imUsage -= 0.56;
+                }
+            }
+//            Log.d(TAG, "IM Usage: " + imUsage);
         }
     };
 
-    Runnable getAvailabilityFromServerRunnable = new Runnable() {
+    Runnable updateAvailabilityStatusRunnable = new Runnable() {
         @Override
         public void run() {
-            Log.d(TAG, "!!!!!!!! Get Availability Status From Server !!!!!!!!");
-            if (!ringerMode.equals("NA") && !networkType.equals("NA") &&
-                !activityRecognition.equals("NA") && batteryLevel != -1 &&
-                !batteryChargingState.equals("NA") && sensorProximity != -1) {
+//            Log.d(TAG, "!!!!! Update Status !!!!!");
+            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+            userShowTime = currentTime;
+            afterEdit = sharedPrefs.getBoolean("afterEdit", false);
+//            Log.d(TAG, "afterEdit: " + afterEdit);
 
-                JSONObject data = getDataToServer();
+            userShowTimeString = ScheduleAndSampleManager.getTimeString(userShowTime);
+//            Log.d(TAG, "time string: " + userShowTimeString);
 
-                mQueue = Volley.newRequestQueue(mContext);
+//            int imUsage = getIMUsage();
+            int screenStatus = getScreenStatus();
+            int ringerMode = getRingerMode();
 
-                mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, getStatusUrl, data,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                Log.d(TAG, response.toString());
+            // 加上ringer mode
+            userStatus = (int) ((imUsage * 0.4) + (screenStatus * 0.5) + (ringerMode * 0.1));
 
-                                try {
-                                    sharedPrefs.edit()
-                                            .putInt("status", response.getInt("status"))
-                                            .putLong("updateTime", response.getLong("createdTime"))
-                                            .putString("way", response.getString("presentWay"))
-                                            .putString("statusText", response.getString("statusText"))
-                                            .putInt("statusColor", response.getInt("statusColor"))
-                                            .commit();
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
+            Log.d(TAG, "After [PART 1] status: " + userStatus);
 
-                        Log.d(TAG, "error response");
-                        Log.d(TAG, error.getMessage());
-                    }
-                });
-                mQueue.add(mJsonObjectRequest);
+            // random present way & color & status string
+            userWay = randomPresentWay();
+            userColor =  Color.rgb(51, 102, 153); // default color
+
+            userStatusText = statusGetText(userStatus);
+
+            if (isHandleAfterEdit) {
+                handleAfterEditThread(afterEditTimePeriod);
+                isHandleAfterEdit = false;
+            }
+            if (!afterEdit) {
+                // save to shared preference
+                sharedPrefs.edit()
+                        .putInt("status", userStatus)
+                        .putLong("updateTime", userShowTime)
+                        .putString("way", userWay)
+                        .putString("statusText", userStatusText)
+                        .putInt("statusColor", userColor)
+                        .commit();
+            } else {
+                // 如果有編輯過
+                userWayEdit = sharedPrefs.getString("way", "NA");
+                userStatusEdit = sharedPrefs.getInt("status", -1);
+                userStatusTextEdit = sharedPrefs.getString("statusText", "NA");
+                userShowTimeEdit = sharedPrefs.getLong("updateTime", -1);
+                userShowTimeStringEdit = ScheduleAndSampleManager.getTimeString(userShowTimeEdit);
+                userColorEdit = sharedPrefs.getInt("statusColor", Constants.DEFAULT_COLOR);
             }
 
+            // send to database
+            JSONObject data = getDataToServer();
+            mQueue = Volley.newRequestQueue(mContext);
+            mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfStatusUrl, data,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+//                            Log.d(TAG, response.toString());
+
+                            try {
+                                if (response.getString("response").equals("success insert")) {
+                                    Log.d(TAG, "insert SUCCESSFUL.");
+                                } else {
+                                    Log.d(TAG, "insert FAILED.");
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d(TAG, "error");
+                }
+            });
+            mQueue.add(mJsonObjectRequest);
+
+            // if 差距過大，跳出通知
+            //
+            // 有用IM ; 沒用:
+            if (index == Constants.STATUS_CAPACITY) index = 0;
+
+            statusList.set(index, userStatus);
+            for (int i=0;i<statusList.size();i++) {
+                Log.d(TAG, "status: " + statusList.get(i));
+            }
+            int max = Collections.max(statusList);
+            int min = Collections.min(statusList);
+//
+            Log.d(TAG, "MAX: " + max);
+            Log.d(TAG, "min: " + min);
+
+            if ((max-min) >= Constants.STATUS_THRESHOLD || userStatus < 20 || userStatus > 90) { // 25
+                Log.d(TAG, "in send Notification");
+                statusList.clear();
+                statusList = new ArrayList<>(Collections.nCopies(Constants.STATUS_CAPACITY, userStatus));
+                index = -1;
+                sendNotification();
+            }
+            index += 1;
+//            lastStatus = userStatus;
         }
     };
+
+    private int getRingerMode() {
+//        Log.d(TAG, "......... get Ringer Mode .......");
+        ringerMode = RingerStreamGenerator.getRingerMode();
+//        Log.d(TAG, ">> ringer mode >> " + ringerMode);
+
+        if (ringerMode.equals("Vibrate")) return (int) (Math.random()*11 + 90); // 90-100
+        else if (ringerMode.equals("Normal")) return (int) (Math.random()*11 + 50); // 50-60
+        else return (int) (Math.random()*11 + 10); // 10-20
+    }
+
+    private int getIMUsage() {
+//        Log.d(TAG, "......... get IM Usage .......");
+        long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+        latestUseIMTime = AppUsageStreamGenerator.getLatestUseIMTime();
+        typingTime = MobileAccessibilityService.getTypingTime();
+        Log.d(TAG, ">> typing time >> " + ScheduleAndSampleManager.getTimeString(typingTime));
+        Log.d(TAG, ">> latest use IM App time >> " + ScheduleAndSampleManager.getTimeString(latestUseIMTime));
+
+        // second
+        typingTime = (currentTime - typingTime) / 1000;
+        latestUseIMTime = (currentTime - latestUseIMTime) / 1000;
+
+        if (latestUseIMTime <= 60) { // < 1 min // 60-100
+            // 區間: 40 20 15 12 6 6 /
+            if (typingTime <= 60) return (int) (Math.random()*16 + 85); // 85-100 // < 1 min
+            else if (typingTime <= 300) return (int) (Math.random()*11 + 75); // 75-85
+            else if (typingTime <= 600) return (int) (Math.random()*6 + 70); // 70-75
+            else if (typingTime <= 1800) return (int) (Math.random()*6 + 65); // 65-70
+            else if (typingTime <= 3600) return (int) (Math.random()*3 + 63); // 63-65
+            else return (int) (Math.random()*3 + 60); // 60-62
+        } else if (latestUseIMTime <= 300) { // < 5 min // 40-60
+            if (typingTime <= 60) return (int) (Math.random()*8 + 53); // 53-60 // < 1 min
+            else if (typingTime <= 300) return (int) (Math.random()*4 + 50); // 50-53
+            else if (typingTime <= 600) return (int) (Math.random()*4 + 47); // 47-50
+            else if (typingTime <= 1800) return (int) (Math.random()*3 + 45); // 45-47
+            else if (typingTime <= 3600) return (int) (Math.random()*3 + 43); // 43-45
+            else return (int) (Math.random()*3 + 40); // 40-42
+        } else if (latestUseIMTime <= 600) { // < 10 min // 25-40
+            if (typingTime <= 60) return (int) (Math.random()*6 + 35); // 35-40 // < 1 min
+            else if (typingTime <= 300) return (int) (Math.random()*4 + 32); // 32-35
+            else if (typingTime <= 600) return (int) (Math.random()*3 + 30); // 30-32
+            else if (typingTime <= 1800) return (int) (Math.random()*3 + 28); // 28-30
+//            else if (typingTime <= 3600) return (int) (Math.random()* + ); // 83-100
+            else return (int) (Math.random()*4 + 25); // 25-28
+        } else if (latestUseIMTime <= 1800) { // < 30 min // 12-25
+            if (typingTime <= 60) return (int) (Math.random()*6 + 20); // 20-25 // < 1 min
+            else if (typingTime <= 300) return (int) (Math.random()*4 + 17); // 17-20
+            else if (typingTime <= 600) return (int) (Math.random()*3 + 15); // 15-17
+//            else if (typingTime <= 1800) return (int) (Math.random()* + ); // 83-100
+            else return (int) (Math.random()*3 + 12); // 12-14
+        } else if (latestUseIMTime <= 3600) { // < 60 min // 6-12
+            if (typingTime <= 60) return (int) (Math.random()*3 + 10); // 10-12 // < 1 min
+            else if (typingTime <= 300) return (int) (Math.random()*3 + 8); // 8-10
+//            else if (typingTime <= 600) return (int) (Math.random()* + ); // 83-100
+            else return (int) (Math.random()*2 + 6); // 6-7
+        } else { // 0-6
+            return (int) (Math.random()*7); // 0-6
+        }
+    }
+
+    private int getScreenStatus() {
+        long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+//        Log.d(TAG, "......... get Screen Status .......");
+        screenInteractiveTime = AppUsageStreamGenerator.getScreenInteractiveTime();
+        Log.d(TAG, ">> Screen interactive time >> " + ScheduleAndSampleManager.getTimeString(screenInteractiveTime));
+
+        screenInteractiveTime = (currentTime - screenInteractiveTime) / 1000;
+        if (screenInteractiveTime <= 60) return (int) (Math.random()*21 + 80); // 80-100
+        else if (screenInteractiveTime <= 300) return (int) (Math.random()*21 + 60); // 60-80
+        else if (screenInteractiveTime <= 600) return (int) (Math.random()*21 + 40); // 40-60
+        else if (screenInteractiveTime <= 1800) return (int) (Math.random()*21 + 20); // 20-40
+        else if (screenInteractiveTime <= 3600) return (int) (Math.random()*11 + 10); // 10-20
+        else return (int) (Math.random()*11); // 0-10
+    }
 
     private JSONObject getDataToServer() {
         JSONObject data = new JSONObject();
         try {
-            data.put("id", sharedPrefs.getString("id", ""));
+            data.put("id", sharedPrefs.getString("id", "NA"));
+            data.put("group", sharedPrefs.getString("group", "NA"));
+            data.put("afterEdit", sharedPrefs.getBoolean("afterEdit", false));
+            if (afterEdit) {
+                data.put("statusEdit", userStatusEdit);
+                data.put("createdTimeEdit", userShowTimeEdit);
+                data.put("timeStringEdit", userShowTimeStringEdit);
+                data.put("presentWayEdit", userWayEdit);
+                data.put("statusTextEdit", userStatusTextEdit);
+                data.put("statusColorEdit", userColorEdit);
+            }
+            data.put("typingTime", typingTime);
+            data.put("latestUseIMTime", latestUseIMTime);
+            data.put("screenInteractiveTime", screenInteractiveTime);
             data.put("ringerMode", ringerMode);
-            data.put("networkType", networkType);
-            data.put("activityRecognition", activityRecognition);
-            data.put("batteryLevel", batteryLevel);
-            data.put("batteryChargingState", batteryChargingState);
-            data.put("sensorProximity", sensorProximity);
-            data.put("isScreenInteractive1", isScreenInteractive1);
-            data.put("isScreenInteractive5", isScreenInteractive5);
-            data.put("isScreenInteractive10", isScreenInteractive10);
-            data.put("isScreenInteractive30", isScreenInteractive30);
-            data.put("isScreenInteractive60", isScreenInteractive60);
 
-            data.put("isOpenIMApp1", isOpenIMApp1);
-            data.put("isOpenIMApp5", isOpenIMApp5);
-            data.put("isOpenIMApp10", isOpenIMApp10);
-            data.put("isOpenIMApp30", isOpenIMApp30);
-            data.put("isOpenIMApp60", isOpenIMApp60);
+//            data.put("ringerMode", ringerMode);
+//            data.put("networkType", networkType);
+//            data.put("activityRecognition", activityRecognition);
+//            data.put("batteryLevel", batteryLevel);
+//            data.put("batteryChargingState", batteryChargingState);
+//            data.put("sensorProximity", sensorProximity);
 
-            data.put("isIMNoti1", isIMNoti1);
-            data.put("isIMNoti5", isIMNoti5);
-            data.put("isIMNoti10", isIMNoti10);
-            data.put("isIMNoti30", isIMNoti30);
-            data.put("isIMNoti60", isIMNoti60);
-
-            data.put("hasAction1", hasAction1);
-            data.put("hasAction5", hasAction5);
-            data.put("hasAction10", hasAction10);
-            data.put("hasAction30", hasAction30);
-            data.put("hasAction60", hasAction60);
+            data.put("status", userStatus);
+            data.put("createdTime", userShowTime);
+            data.put("timeString", userShowTimeString);
+            data.put("presentWay", userWay);
+            data.put("statusText", userStatusText);
+            data.put("statusColor", userColor);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -414,325 +591,235 @@ public class BackgroundService extends Service {
         return data;
     }
 
-    private void getRingerData() {
-
-//        Log.d(TAG, "ringerMode: " + RingerStreamGenerator.ringerMode);
-
-//        Log.d(TAG, "size1: " + ringerModes.size());
-        if (ringerModes.size() == Constants.STREAM_DATA_CAPACITY) {
-            ringerModes.poll();
-        }
-
-        if (ringerMode.equals(RingerStreamGenerator.ringerMode)) {
-            ringerModes.add(ringerMode);
-//            for (String r : ringerModes) {
-//                Log.d(TAG, "count: " + count++ + " " + r);
-//            }
-        } else {
-            ringerModes.add(RingerStreamGenerator.ringerMode);
-//            for (String r : ringerModes) {
-//                Log.d(TAG, "count: " + count++ + " " + r);
-//            }
-        }
-
-//        Log.d(TAG, "size2: " + ringerModes.size());
-        ringerMode = RingerStreamGenerator.ringerMode;
-    }
-
-    private void getNetworkType() {
-//        Log.d(TAG, "NetworkType: " + ConnectivityStreamGenerator.mNetworkType);
-        if (networkTypes.size() == Constants.STREAM_DATA_CAPACITY) {
-            networkTypes.poll();
-        }
-//        Log.d(TAG, "size1: " + networkTypes.size());
-        if (networkType.equals(ConnectivityStreamGenerator.mNetworkType)) {
-            networkTypes.add(networkType);
-//            for (String n : networkTypes) {
-//                Log.d(TAG, "count: " + count++ + " " + n);
-//            }
-        } else {
-            networkTypes.add(ConnectivityStreamGenerator.mNetworkType);
-//            for (String n : networkTypes) {
-//                Log.d(TAG, "count: " + count++ + " " + n);
-//            }
-        }
-//        Log.d(TAG, "size2: " + networkTypes.size());
-        networkType = ConnectivityStreamGenerator.mNetworkType;
-    }
-
-    private void getActivityRecognition() {
-//        Log.d(TAG, "Activity Recognition: " + ActivityRecognitionStreamGenerator.getActivityNameFromType(ActivityRecognitionStreamGenerator.sMostProbableActivity.getType()));
-        if (activityRecognitions.size() == Constants.STREAM_DATA_CAPACITY) {
-            activityRecognitions.poll();
-        }
-//        Log.d(TAG, "size1: " + activityRecognitions.size());
-        if (activityRecognition.equals(ActivityRecognitionStreamGenerator.getActivityNameFromType(ActivityRecognitionStreamGenerator.sMostProbableActivity.getType()))) {
-            activityRecognitions.add(activityRecognition);
-//            for (String a : activityRecognitions) {
-//                Log.d(TAG, "count " + count++ + " " + a);
-//            }
-        } else {
-            activityRecognitions.add(ActivityRecognitionStreamGenerator.getActivityNameFromType(ActivityRecognitionStreamGenerator.sMostProbableActivity.getType()));
-//            for (String a : activityRecognitions) {
-//                Log.d(TAG, "count " + count++ + " " + a);
-//            }
-        }
-
-//        Log.d(TAG, "size2: " + activityRecognitions.size());
-        activityRecognition = ActivityRecognitionStreamGenerator.getActivityNameFromType(ActivityRecognitionStreamGenerator.sMostProbableActivity.getType());
-    }
-
-    private void getBatteryLevel() {
-//        Log.d(TAG, "Battery Level: " + BatteryStreamGenerator.mBatteryLevel);
-        if (batteryLevels.size() == Constants.STREAM_DATA_CAPACITY) {
-            batteryLevels.poll();
-        }
-//        Log.d(TAG, "size1: " + batteryLevels.size());
-        if (batteryLevel == BatteryStreamGenerator.mBatteryLevel) {
-            batteryLevels.add(batteryLevel);
-//            for (Integer b : batteryLevels) {
-//                Log.d(TAG, "count " + count++ + " " + b);
-//            }
-        } else {
-            batteryLevels.add(BatteryStreamGenerator.mBatteryLevel);
-//            for (Integer b : batteryLevels) {
-//                Log.d(TAG, "count " + count++ + " " + b);
-//            }
-        }
-
-//        Log.d(TAG, "size2: " + batteryLevels.size());
-        batteryLevel = BatteryStreamGenerator.mBatteryLevel;
-    }
-
-    private void getBatteryChargingState() {
-//        Log.d(TAG, "Battery Charging State: " + BatteryStreamGenerator.mBatteryChargingState);
-        if (batteryChargingStates.size() == Constants.STREAM_DATA_CAPACITY) {
-            batteryChargingStates.poll();
-        }
-//        Log.d(TAG, "size1: " + batteryChargingStates.size());
-        if (batteryChargingState == BatteryStreamGenerator.mBatteryChargingState) {
-            batteryChargingStates.add(batteryChargingState);
-//            for (String b : batteryChargingStates) {
-//                Log.d(TAG, "count " + count++ + " " + b);
-//            }
-        } else {
-            batteryChargingStates.add(BatteryStreamGenerator.mBatteryChargingState);
-//            for (String b : batteryChargingStates) {
-//                Log.d(TAG, "count " + count++ + " " + b);
-//            }
-        }
-
-//        Log.d(TAG, "size2: " + batteryChargingStates.size());
-        batteryChargingState = BatteryStreamGenerator.mBatteryChargingState;
-
-    }
-
-    private void getSensorProximity() {
-//        Log.d(TAG, "Sensor Proximity: " + SensorStreamGenerator.proximity);
-        if (sensorProximities.size() == Constants.STREAM_DATA_CAPACITY) {
-            sensorProximities.poll();
-        }
-//        Log.d(TAG, "size1: " + sensorProximitys.size());
-        if (sensorProximity == SensorStreamGenerator.proximity) {
-            sensorProximities.add(sensorProximity);
-//            for (float s : sensorProximitys) {
-//                Log.d(TAG, "count " + count++ + " " + s);
-//            }
-        } else {
-            sensorProximities.add(SensorStreamGenerator.proximity);
-//            for (float s : sensorProximitys) {
-//                Log.d(TAG, "count " + count++ + " " + s);
-//            }
-        }
-
-//        Log.d(TAG, "size2: " + sensorProximitys.size());
-        sensorProximity = SensorStreamGenerator.proximity;
-    }
-
-    private void getScreenInteraction() {
-//        Log.d(TAG, "Screen Interaction: " + AppUsageStreamGenerator.Screen_Status);
-
+//    private void getNetworkType() {
+////        Log.d(TAG, "NetworkType: " + ConnectivityStreamGenerator.mNetworkType);
+//        if (networkTypes.size() == Constants.STREAM_DATA_CAPACITY) {
+//            networkTypes.poll();
+//        }
+////        Log.d(TAG, "size1: " + networkTypes.size());
+//        if (networkType.equals(ConnectivityStreamGenerator.mNetworkType)) {
+//            networkTypes.add(networkType);
+////            for (String n : networkTypes) {
+////                Log.d(TAG, "count: " + count++ + " " + n);
+////            }
+//        } else {
+//            networkTypes.add(ConnectivityStreamGenerator.mNetworkType);
+////            for (String n : networkTypes) {
+////                Log.d(TAG, "count: " + count++ + " " + n);
+////            }
+//        }
+////        Log.d(TAG, "size2: " + networkTypes.size());
+//        networkType = ConnectivityStreamGenerator.mNetworkType;
+//    }
 //
+//    private void getBatteryChargingState() {
+////        Log.d(TAG, "Battery Charging State: " + BatteryStreamGenerator.mBatteryChargingState);
+//        if (batteryChargingStates.size() == Constants.STREAM_DATA_CAPACITY) {
+//            batteryChargingStates.poll();
+//        }
+////        Log.d(TAG, "size1: " + batteryChargingStates.size());
+//        if (batteryChargingState == BatteryStreamGenerator.mBatteryChargingState) {
+//            batteryChargingStates.add(batteryChargingState);
+////            for (String b : batteryChargingStates) {
+////                Log.d(TAG, "count " + count++ + " " + b);
+////            }
+//        } else {
+//            batteryChargingStates.add(BatteryStreamGenerator.mBatteryChargingState);
+////            for (String b : batteryChargingStates) {
+////                Log.d(TAG, "count " + count++ + " " + b);
+////            }
+//        }
+//
+////        Log.d(TAG, "size2: " + batteryChargingStates.size());
+//        batteryChargingState = BatteryStreamGenerator.mBatteryChargingState;
+//
+//    }
+//
+//    private void getSensorProximity() {
+////        Log.d(TAG, "Sensor Proximity: " + SensorStreamGenerator.proximity);
+//        if (sensorProximities.size() == Constants.STREAM_DATA_CAPACITY) {
+//            sensorProximities.poll();
+//        }
+////        Log.d(TAG, "size1: " + sensorProximitys.size());
+//        if (sensorProximity == SensorStreamGenerator.proximity) {
+//            sensorProximities.add(sensorProximity);
+////            for (float s : sensorProximitys) {
+////                Log.d(TAG, "count " + count++ + " " + s);
+////            }
+//        } else {
+//            sensorProximities.add(SensorStreamGenerator.proximity);
+////            for (float s : sensorProximitys) {
+////                Log.d(TAG, "count " + count++ + " " + s);
+////            }
+//        }
+//
+////        Log.d(TAG, "size2: " + sensorProximitys.size());
+//        sensorProximity = SensorStreamGenerator.proximity;
+//    }
+
+//    private void getScreenInteraction() {
+////        Log.d(TAG, "Screen Interaction: " + AppUsageStreamGenerator.Screen_Status);
+//
+//        if (AppUsageStreamGenerator.Screen_Status.equals("Interactive")) {
+////            Log.d(TAG, "timestamp: " + ScheduleAndSampleManager.getTimeString(AppUsageStreamGenerator.detectedTime));
+//            timestampOfScreenInteraction = AppUsageStreamGenerator.detectedTime;
+//        }
 //        if (timestampOfScreenInteraction != -1) {
 //            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-//            periodOfScreenInteraction = (currentTime - timestampOfScreenInteraction)/1000; // seconds
-//            Log.d(TAG, "time period: " + periodOfScreenInteraction);
+//            periodOfScreenInteraction = (currentTime - timestampOfScreenInteraction) / 1000; // seconds
+////            Log.d(TAG, "time period: " + periodOfScreenInteraction);
 //        }
-        if (AppUsageStreamGenerator.Screen_Status.equals("Interactive")) {
-//            Log.d(TAG, "timestamp: " + ScheduleAndSampleManager.getTimeString(AppUsageStreamGenerator.detectedTime));
-            timestampOfScreenInteraction = AppUsageStreamGenerator.detectedTime;
-        }
-        if (timestampOfScreenInteraction != -1) {
-            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-            periodOfScreenInteraction = (currentTime - timestampOfScreenInteraction) / 1000; // seconds
-//            Log.d(TAG, "time period: " + periodOfScreenInteraction);
-        }
-        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
-        if (periodOfScreenInteraction != -1) {
-            if (periodOfScreenInteraction <= 60) {
-                isScreenInteractive1 = true;
-                isScreenInteractive5 = true;
-                isScreenInteractive10 = true;
-                isScreenInteractive30 = true;
-                isScreenInteractive60 = true;
-            } else if (periodOfScreenInteraction <= 300) {
-                isScreenInteractive5 = true;
-                isScreenInteractive10 = true;
-                isScreenInteractive30 = true;
-                isScreenInteractive60 = true;
-            } else if (periodOfScreenInteraction <= 600) {
-                isScreenInteractive10 = true;
-                isScreenInteractive30 = true;
-                isScreenInteractive60 = true;
-            } else if (periodOfScreenInteraction <= 1800) {
-                isScreenInteractive30 = true;
-                isScreenInteractive60 = true;
-            } else if (periodOfScreenInteraction <= 3600) {
-                isScreenInteractive60 = true;
+//        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
+//        if (periodOfScreenInteraction != -1) {
+//            if (periodOfScreenInteraction <= 60) {
+//                isScreenInteractive1 = true;
+//                isScreenInteractive5 = true;
+//                isScreenInteractive10 = true;
+//                isScreenInteractive30 = true;
+//                isScreenInteractive60 = true;
+//            } else if (periodOfScreenInteraction <= 300) {
+//                isScreenInteractive5 = true;
+//                isScreenInteractive10 = true;
+//                isScreenInteractive30 = true;
+//                isScreenInteractive60 = true;
+//            } else if (periodOfScreenInteraction <= 600) {
+//                isScreenInteractive10 = true;
+//                isScreenInteractive30 = true;
+//                isScreenInteractive60 = true;
+//            } else if (periodOfScreenInteraction <= 1800) {
+//                isScreenInteractive30 = true;
+//                isScreenInteractive60 = true;
+//            } else if (periodOfScreenInteraction <= 3600) {
+//                isScreenInteractive60 = true;
+//            }
+//        }
+//
+////        Log.d(TAG, "isScreenInteractive1: " + isScreenInteractive1);
+////        Log.d(TAG, "isScreenInteractive5: " + isScreenInteractive5);
+////        Log.d(TAG, "isScreenInteractive10: " + isScreenInteractive10);
+////        Log.d(TAG, "isScreenInteractive30: " + isScreenInteractive30);
+////        Log.d(TAG, "isScreenInteractive60: " + isScreenInteractive60);
+//    }
+
+    private void sendNotification() {
+        boolean send = false;
+
+        long lastNotiTime = sharedPrefs.getLong("lastNotificationTime", -1);
+        Log.d(TAG, "lastNotiTime: " + lastNotiTime);
+        Log.d(TAG, "lastNotiTime: " + ScheduleAndSampleManager.getTimeString(lastNotiTime));
+
+        Calendar current = Calendar.getInstance();
+        int currentHourIn24Format = current.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = current.get(Calendar.MINUTE);
+
+        if ((currentHourIn24Format >= 10 && currentHourIn24Format <= 22) ||
+            (currentHourIn24Format == 22 && currentMinute <= 30)) {
+            if (lastNotiTime != 0 && ((userShowTime - lastNotiTime) > 1800000)) {
+                send = true;
             }
         }
 
-//        Log.d(TAG, "isScreenInteractive1: " + isScreenInteractive1);
-//        Log.d(TAG, "isScreenInteractive5: " + isScreenInteractive5);
-//        Log.d(TAG, "isScreenInteractive10: " + isScreenInteractive10);
-//        Log.d(TAG, "isScreenInteractive30: " + isScreenInteractive30);
-//        Log.d(TAG, "isScreenInteractive60: " + isScreenInteractive60);
-    }
+        if (send) {
+            Log.d(TAG, "to send notification");
+            sharedPrefs.edit()
+                    .putLong("lastNotificationTime", userShowTime)
+                    .commit();
 
-    private void getOpenIMApp() {
-//        Log.d(TAG, "Latest Used App: " + AppUsageStreamGenerator.mLastestForegroundPackage);
-        if (AppUsageStreamGenerator.mLastestForegroundPackage.equals("com.facebook.orca") ||
-            AppUsageStreamGenerator.mLastestForegroundPackage.equals("jp.naver.line.android")) {
-//            Log.d(TAG, "timestamp: " + ScheduleAndSampleManager.getTimeString(AppUsageStreamGenerator.detectedTime));
-            timestampOfOpenIMApp = AppUsageStreamGenerator.detectedTime;
-        }
-        if (timestampOfOpenIMApp != -1) {
-            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-            periodOfOpenIMApp = (currentTime - timestampOfOpenIMApp) / 1000;
-//            Log.d(TAG, "time period: " + periodOfOpenIMApp);
-        }
-        isOpenIMApp1 = isOpenIMApp5 = isOpenIMApp10 = isOpenIMApp30 = isOpenIMApp60 = false;
-        if (periodOfOpenIMApp != -1) {
-            if (periodOfOpenIMApp <= 60) {
-                isOpenIMApp1 = true;
-                isOpenIMApp5 = true;
-                isOpenIMApp10 = true;
-                isOpenIMApp30 = true;
-                isOpenIMApp60 = true;
-            } else if (periodOfOpenIMApp <= 300) {
-                isOpenIMApp5 = true;
-                isOpenIMApp10 = true;
-                isOpenIMApp30 = true;
-                isOpenIMApp60 = true;
-            } else if (periodOfOpenIMApp <= 600) {
-                isOpenIMApp10 = true;
-                isOpenIMApp30 = true;
-                isOpenIMApp60 = true;
-            } else if (periodOfOpenIMApp <= 1800) {
-                isOpenIMApp30 = true;
-                isOpenIMApp60 = true;
-            } else if (periodOfOpenIMApp <= 3600) {
-                isOpenIMApp60 = true;
-            }
-//            Log.d(TAG, "isOpenIMApp1: " + isOpenIMApp1);
-//            Log.d(TAG, "isOpenIMApp5: " + isOpenIMApp5);
-//            Log.d(TAG, "isOpenIMApp10: " + isOpenIMApp10);
-//            Log.d(TAG, "isOpenIMApp30: " + isOpenIMApp30);
-//            Log.d(TAG, "isOpenIMApp60: " + isOpenIMApp60);
-        }
-    }
+            NotificationManager mNotificationManager =
+                    (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+            String notificationText = ScheduleAndSampleManager.getMinSecStringFromMillis(userShowTime) + "\n"
+                    + " 請點選通知查看您的狀態及填寫問卷!!";
+            Notification notification = getNotification(notificationText);
+            notification.defaults |= Notification.DEFAULT_VIBRATE;
 
-    private void getIsIMNoti() {
-//        Log.d(TAG, "Im notification: " + NotificationStreamGenerator.mNotificaitonPackageName);
-        if (NotificationStreamGenerator.mNotificaitonPackageName.equals("com.facebook.orca") ||
-                AppUsageStreamGenerator.mLastestForegroundPackage.equals("jp.naver.line.android")) {
-//            Log.d(TAG, "timestamp: " + ScheduleAndSampleManager.getTimeString(NotificationStreamGenerator.detectedTime));
-            timestampOfIMNotification = NotificationStreamGenerator.detectedTime;
-        }
-        if (timestampOfIMNotification != -1) {
-            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-            periodOfIMNotification = (currentTime - timestampOfIMNotification) / 1000;
-//            Log.d(TAG, "time period: " + periodOfIMNotification);
-        }
-        isIMNoti1 = isIMNoti5 = isIMNoti10 = isIMNoti30 = isIMNoti60 = false;
-        if (periodOfIMNotification != -1) {
-            if (periodOfIMNotification <= 60) {
-                isIMNoti1 = true;
-                isIMNoti5 = true;
-                isIMNoti10 = true;
-                isIMNoti30 = true;
-                isIMNoti60 = true;
-            } else if (periodOfIMNotification <= 300) {
-                isIMNoti5 = true;
-                isIMNoti10 = true;
-                isIMNoti30 = true;
-                isIMNoti60 = true;
-            } else if (periodOfIMNotification <= 600) {
-                isIMNoti10 = true;
-                isIMNoti30 = true;
-                isIMNoti60 = true;
-            } else if (periodOfIMNotification <= 1800) {
-                isIMNoti30 = true;
-                isIMNoti60 = true;
-            } else if (periodOfIMNotification <= 3600) {
-                isIMNoti60 = true;
+            mNotificationManager.notify(notifyNotificationID, notification);
+
+            // 紀錄送了多少通知
+            JSONObject noti = new JSONObject();
+            try {
+                noti.put("notificationSendTime", userShowTime);
+                noti.put("notificationSendTimeString", userShowTimeString);
+                noti.put("id", sharedPrefs.getString("id", "NA"));
+                noti.put("presentWay", userWay);
+                noti.put("statusText", userStatusText);
+                noti.put("status", userStatus);
+                noti.put("statusColor", userColor);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-//            Log.d(TAG, "isIMNoti1: " + isIMNoti1);
-//            Log.d(TAG, "isIMNoti5: " + isIMNoti5);
-//            Log.d(TAG, "isIMNoti10: " + isIMNoti10);
-//            Log.d(TAG, "isIMNoti30: " + isIMNoti30);
-//            Log.d(TAG, "isIMNoti60: " + isIMNoti60);
+            mQueue = Volley.newRequestQueue(mContext);
+            mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfQuestionnaire, noti,
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+//                            Log.d(TAG, response.toString());
+
+                            try {
+                                if (response.getString("response").equals("success insert")) {
+                                    Log.d(TAG, "record notification SUCCESSFUL.");
+                                } else {
+                                    Log.d(TAG, "insert FAILED.");
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d(TAG, "error");
+                }
+            });
+            mQueue.add(mJsonObjectRequest);
         }
     }
 
-    private void getActions() {
-//        Log.d(TAG, "Actions on phone: ");
-        if ((!AccessibilityStreamGenerator.type.equals("") && !AccessibilityStreamGenerator.type.equals("NA")) || 
-            (!AccessibilityStreamGenerator.extra.equals("") && !AccessibilityStreamGenerator.extra.equals("NA"))) {
-            timestampOfActions = AccessibilityStreamGenerator.detectedTime;
-        } else if (AppUsageStreamGenerator.Screen_Status.equals("Interactive")) {
-            timestampOfActions = AppUsageStreamGenerator.detectedTime;
+    private Notification getNotification(String text) {
+        Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
+        bigTextStyle.setBigContentTitle(Constants.SURVEY_CHANNEL_NAME);
+        bigTextStyle.bigText(text);
+
+        Intent resultIntent = new Intent();
+        resultIntent.setComponent(new ComponentName(this,SelfQuestionnaire.class));
+        resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        Bundle bundle = new Bundle();
+        bundle.putLong("showTime", userShowTime);
+        bundle.putInt("status", userStatus);
+        bundle.putString("way", userWay);
+        bundle.putString("statusString", userStatusText);
+        bundle.putInt("color", userColor);
+
+        resultIntent.putExtras(bundle);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, notifyNotificationCode,
+                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long[] v = {500,1000};
+        Notification.Builder noti = new Notification.Builder(this)
+                .setContentText(text)
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.smile)
+                .setStyle(bigTextStyle)
+                .setAutoCancel(true)
+                .setVibrate(v);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return noti
+                    .setChannelId(Constants.SURVEY_CHANNEL_ID)
+                    .build();
+        } else {
+            return noti
+                    .build();
         }
-        if (timestampOfActions != -1) {
-            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-            periodOfActions = (currentTime - timestampOfActions) / 1000;
-//            Log.d(TAG, "time period: " + periodOfActions);
-        }
-        hasAction1 = hasAction5 = hasAction10 = hasAction30 = hasAction60 = false;
-        if (periodOfActions != -1) {
-            if (periodOfActions <= 60) {
-                hasAction1 = true;
-                hasAction5 = true;
-                hasAction10 = true;
-                hasAction30 = true;
-                hasAction60 = true;
-            } else if (periodOfActions <= 300) {
-                hasAction5 = true;
-                hasAction10 = true;
-                hasAction30 = true;
-                hasAction60 = true;
-            } else if (periodOfActions <= 600) {
-                hasAction10 = true;
-                hasAction30 = true;
-                hasAction60 = true;
-            } else if (periodOfActions <= 1800) {
-                hasAction30 = true;
-                hasAction60 = true;
-            } else if (periodOfActions <= 3600) {
-                hasAction60 = true;
-            }
-//            Log.d(TAG, "hasAction1: " + hasAction1);
-//            Log.d(TAG, "hasAction5: " + hasAction5);
-//            Log.d(TAG, "hasAction10: " + hasAction10);
-//            Log.d(TAG, "hasAction30: " + hasAction30);
-//            Log.d(TAG, "hasAction60: " + hasAction60);
-        }
+
     }
 
     private Notification getOngoingNotification(String text){
 
         Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
-        bigTextStyle.setBigContentTitle(Constants.APP_NAME);
+        bigTextStyle.setBigContentTitle(Constants.APP_FULL_NAME);
         bigTextStyle.bigText(text);
 
         Intent resultIntent = new Intent(this, Dispatch.class);
@@ -745,6 +832,7 @@ public class BackgroundService extends Service {
                 .setContentIntent(pending)
                 .setAutoCancel(true)
                 .setOngoing(true);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return noti
@@ -771,46 +859,45 @@ public class BackgroundService extends Service {
 
     @Override
     public void onDestroy() {
-//        super.onDestroy();
 
 //        stopTheSessionByServiceClose();
 
+        Log.d(TAG, "onDestory");
         String onDestroy = "BackGround, onDestroy";
         CSVHelper.storeToCSV(CSVHelper.CSV_ESM, onDestroy);
-        CSVHelper.storeToCSV(CSVHelper.CSV_CAR, onDestroy);
+//        CSVHelper.storeToCSV(CSVHelper.CSV_CAR, onDestroy);
 
-        sendBroadcastToStartService();
-
-        checkingRemovedFromForeground();
-        removeRunnable();
-
+//        checkingRemovedFromForeground();
         isBackgroundServiceRunning = false;
+        isBackgroundRunnableRunning = false;
 
         mNotificationManager.cancel(ongoingNotificationID);
 
-        Log.d(TAG, "Destroying service. Your state might be lost!");
+//        Log.d(TAG, "Destroying service. Your state might be lost!");
 
-
+        removeRunnable();
+        sendBroadcastToStartService();
 //        unregisterReceiver(mWifiReceiver);
         unregisterReceiver(CheckRunnableReceiver);
     }
 
     @Override
     public void onTaskRemoved(Intent intent){
+        Log.d(TAG, "task removed");
         super.onTaskRemoved(intent);
+        mNotificationManager.cancel(ongoingNotificationID);
 
-        sendBroadcastToStartService();
-
-        checkingRemovedFromForeground();
-        removeRunnable();
+//        checkingRemovedFromForeground();
 
         isBackgroundServiceRunning = false;
+        isBackgroundRunnableRunning = false;
 
         mNotificationManager.cancel(ongoingNotificationID);
 
         String onTaskRemoved = "BackGround, onTaskRemoved";
         CSVHelper.storeToCSV(CSVHelper.CSV_CheckService_alive, onTaskRemoved);
-
+        removeRunnable();
+        sendBroadcastToStartService();
     }
 
     private void registerConnectivityNetworkMonitorForAPI21AndUp() {
@@ -828,38 +915,10 @@ public class BackgroundService extends Service {
                 new ConnectivityManager.NetworkCallback() {
 
                     @Override
-                    public void onAvailable(Network network) {
-                        /*sendBroadcast(
-                                getConnectivityIntent("onAvailable")
-                        );*/
-                    }
-
-                    @Override
                     public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities){
                         sendBroadcast(
                                 getConnectivityIntent("onCapabilitiesChanged : "+networkCapabilities.toString())
                         );
-                    }
-
-                    @Override
-                    public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
-                        /*sendBroadcast(
-                                getConnectivityIntent("onLinkPropertiesChanged : "+linkProperties.toString())
-                        );*/
-                    }
-
-                    @Override
-                    public void onLosing(Network network, int maxMsToLive) {
-                        /*sendBroadcast(
-                                getConnectivityIntent("onLosing")
-                        );*/
-                    }
-
-                    @Override
-                    public void onLost(Network network) {
-                        /*sendBroadcast(
-                                getConnectivityIntent("onLost")
-                        );*/
                     }
                 }
         );
@@ -903,7 +962,9 @@ public class BackgroundService extends Service {
 
     private void removeRunnable(){
 
+        Log.d(TAG, "remove");
         mScheduledFuture.cancel(true);
+        mScheduledSendToServer.cancel(true);
     }
 
     private void sendBroadcastToStartService(){
@@ -976,24 +1037,29 @@ public class BackgroundService extends Service {
                 if (!isBackgroundRunnableRunning) {
 
                     Log.d(TAG, "[check runnable] the runnable is not running, going to restart it.");
-
                     CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "the runnable is not running, going to restart it");
-
                     updateNotificationAndStreamManagerThread();
 
                     Log.d(TAG, "[check runnable] the runnable is restarted.");
-
                     CSVHelper.storeToCSV(CSVHelper.CSV_RUNNABLE_CHECK, "the runnable is restarted");
                 }
 
                 PendingIntent pi = PendingIntent.getBroadcast(BackgroundService.this, 0, new Intent(CHECK_RUNNABLE_ACTION), 0);
 
                 AlarmManager alarm = (AlarmManager) getSystemService(ALARM_SERVICE);
-                alarm.set(
-                        AlarmManager.RTC_WAKEUP,
-                        System.currentTimeMillis() + Constants.PROMPT_SERVICE_REPEAT_MILLISECONDS,
-                        pi
-                );
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    alarm.setAndAllowWhileIdle(
+                            AlarmManager.RTC_WAKEUP,
+                            System.currentTimeMillis() + Constants.PROMPT_SERVICE_REPEAT_MILLISECONDS,
+                            pi);
+                } else {
+                    alarm.set(
+                            AlarmManager.RTC_WAKEUP,
+                            System.currentTimeMillis() + Constants.PROMPT_SERVICE_REPEAT_MILLISECONDS,
+                            pi
+                    );
+                }
+
             }
         }
     };

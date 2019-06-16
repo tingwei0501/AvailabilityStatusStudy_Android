@@ -34,8 +34,11 @@ import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -47,6 +50,8 @@ import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku.logger.Log;
 import labelingStudy.nctu.minuku.service.NotificationListenService;
 import com.crashlytics.android.Crashlytics;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
+
 import io.fabric.sdk.android.Fabric;
 import labelingStudy.nctu.minuku_2.service.BackgroundService;
 
@@ -73,8 +78,11 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        sharedPrefs = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
+        sharedPrefs = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
+        id = sharedPrefs.getString("id", "");
         if (!isNotificationServiceEnabled()) {
             android.util.Log.d(TAG, "notification start!!");
             enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
@@ -82,10 +90,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             toggleNotificationListenerService();
         }
-
-        // TODO: 判斷是否login過 //
-
-
         int sdk_int = Build.VERSION.SDK_INT;
         if (sdk_int>=23) {
             checkAndRequestPermissions();
@@ -95,10 +99,47 @@ public class MainActivity extends AppCompatActivity {
         startService(new Intent(getBaseContext(), BackgroundService.class));
         startService(new Intent(getBaseContext(), NotificationListenService.class));
 
-        Button register = findViewById(R.id.register);
-        register.setOnClickListener(registerListener);
-        Button login = findViewById(R.id.login);
-        login.setOnClickListener(loginListener);
+        if (id.equals("")) {
+            // 沒loging過
+            Button register = findViewById(R.id.register);
+            register.setOnClickListener(registerListener);
+            Button login = findViewById(R.id.login);
+            login.setOnClickListener(loginListener);
+        } else {
+            // already login
+            Intent intent = new Intent(MainActivity.this, ContactList.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            MainActivity.this.finish();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_deviceid, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_permissions) {
+            int sdk_int = Build.VERSION.SDK_INT;
+            if(sdk_int >= Build.VERSION_CODES.M) {
+                checkAndRequestPermissions();
+            }
+            startPermission();
+            sharedPrefs.edit().putBoolean("firstTimeOrNot", false).apply();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private Button.OnClickListener registerListener = new Button.OnClickListener() {
@@ -175,12 +216,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startPermission() {
+        Log.d(TAG, "start permission");
         //Maybe useless in this project.
         startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));  // 協助工具
 
         startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)) ;  //usage
 
-        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//location
+//        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));	//location
     }
 
     private void checkAndRequestPermissions() {
@@ -239,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
         firstTimeOrNot = sharedPrefs.getBoolean("firstTimeOrNot", true);
         Log.d(TAG,"firstTimeOrNot : "+ firstTimeOrNot);
-
+//        startPermission();
         if (firstTimeOrNot) {
             startPermission();
             firstTimeOrNot = false;

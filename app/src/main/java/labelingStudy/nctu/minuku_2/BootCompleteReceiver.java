@@ -27,7 +27,6 @@ public class BootCompleteReceiver extends BroadcastReceiver {
         if(intent.getAction().equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
 
             Log.d(TAG,"boot_complete in first");
-
             try{
 
                 dbhelper = new DBHelper(context);

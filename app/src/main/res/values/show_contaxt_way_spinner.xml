@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="showContactWay_withhint">
+        <item>請選擇</item>
+        <item>文字顯示</item>
+        <item>數字顯示</item>
+        <item>圖像顯示</item>
+    </string-array>
+
+    <string-array name="showContactForm_withhint">
+        <item>請選擇狀態</item>
+        <item>回覆率</item>
+        <item>讀訊息率</item>
+        <item>干擾率</item>
+    </string-array>
+
+    <string-array name="textStatus_withhint">
+        <item>請選擇</item>
+        <item>回覆率高</item>
+        <item>回覆率中等</item>
+        <item>回覆率低</item>
+        <item>目前會回覆</item>
+        <item>有可能會回覆</item>
+        <item>可能不會回覆</item>
+        <item>目前不會回覆</item>
+        <item>目前不會看訊息</item>
+        <item>忙碌中</item>
+        <item>開會中</item>
+        <item>上線中</item>
+        <item>請勿打擾</item>
+        <item>有空</item>
+        <item>歡迎打擾</item>
+    </string-array>
+</resources>

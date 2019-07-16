@@ -9,6 +9,8 @@ import android.support.multidex.MultiDex;
 
 import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku.logger.Log;
+import labelingStudy.nctu.minuku_2.ContactList;
+import labelingStudy.nctu.minuku_2.HomePage;
 import labelingStudy.nctu.minuku_2.MainActivity;
 import labelingStudy.nctu.minuku_2.R;
 import labelingStudy.nctu.minuku_2.service.BackgroundService;
@@ -28,7 +30,7 @@ public class Dispatch extends Activity {
 
         MultiDex.install(this);
 
-        SharedPreferences sharedPrefs = getSharedPreferences(Constants.sharedPrefString, MODE_PRIVATE);
+        SharedPreferences sharedPrefs = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
 
         Class<?> activityClass;
 
@@ -37,28 +39,29 @@ public class Dispatch extends Activity {
 
         if(firstStartBackGround) {
 
+            Log.d(TAG, "firstStartBackGround");
             startBackgroundService();
 
             sharedPrefs.edit().putBoolean("firstStartBackGround", false).apply();
         }
 
         if(!firstStartBackGround && !BackgroundService.isBackgroundServiceRunning){
-
+            Log.d(TAG, "second if");
             startBackgroundService();
         }
 
-        try {
+//        try {
+//
+//            activityClass = Class.forName(
+//                    sharedPrefs.getString("lastActivity", MainActivity.class.getName()));
+//        } catch(ClassNotFoundException e) {
+//
+//            activityClass = MainActivity.class;
+//        }
 
-            activityClass = Class.forName(
-                    sharedPrefs.getString("lastActivity", MainActivity.class.getName()));
-        } catch(ClassNotFoundException e) {
-
-            activityClass = MainActivity.class;
-        }
-
-        Log.d(TAG, "Going to "+activityClass.getName());
-
-        Intent intent = new Intent(this, activityClass);
+//        Log.d(TAG, "Going to "+activityClass.getName());
+        // TODO: press onGoing notification
+        Intent intent = new Intent(this, HomePage.class); //or homePage
         intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
 

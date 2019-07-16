@@ -36,19 +36,14 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
-import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.NetworkError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -59,14 +54,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.TimeZone;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -78,30 +68,20 @@ import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku.manager.MinukuStreamManager;
 import labelingStudy.nctu.minuku.manager.MobilityManager;
 import labelingStudy.nctu.minuku.manager.SessionManager;
-import labelingStudy.nctu.minuku.model.DataRecord.ActivityRecognitionDataRecord;
-import labelingStudy.nctu.minuku.model.Session;
 import labelingStudy.nctu.minuku.service.MobileAccessibilityService;
-import labelingStudy.nctu.minuku.service.NotificationListenService;
-import labelingStudy.nctu.minuku.stream.AppUsageStream;
-import labelingStudy.nctu.minuku.streamgenerator.AccessibilityStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.ActivityRecognitionStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.AppUsageStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.BatteryStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.ConnectivityStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.NotificationStreamGenerator;
 import labelingStudy.nctu.minuku.streamgenerator.RingerStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.SensorStreamGenerator;
-import labelingStudy.nctu.minuku.streamgenerator.TransportationModeStreamGenerator;
+import labelingStudy.nctu.minuku_2.HomePage;
 import labelingStudy.nctu.minuku_2.Questionnaire.SelfQuestionnaire;
 import labelingStudy.nctu.minuku_2.R;
 import labelingStudy.nctu.minuku_2.Receiver.RestarterBroadcastReceiver;
-//import labelingStudy.nctu.minuku_2.Receiver.WifiReceiver;
 import labelingStudy.nctu.minuku_2.Utils;
 import labelingStudy.nctu.minuku_2.controller.Dispatch;
 import labelingStudy.nctu.minuku_2.manager.InstanceManager;
 
 import static labelingStudy.nctu.minuku_2.manager.renderManager.randomPresentWay;
-import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetText;
+import static labelingStudy.nctu.minuku_2.manager.renderManager.randomStatusForm;
+import static labelingStudy.nctu.minuku_2.manager.renderManager.rateGetText;
 
 public class BackgroundService extends Service {
 
@@ -142,8 +122,6 @@ public class BackgroundService extends Service {
 
     private ArrayList<Integer> statusList;
     private int index = 0;
-//    private int minStatus = 101;
-//    private int maxStatus = -1;
 
 //    private String networkType;
 //    private Queue<String> networkTypes;
@@ -172,6 +150,7 @@ public class BackgroundService extends Service {
     private long userShowTime;
     private String userShowTimeString;
     private String userWay;
+    private String userStatusForm;
     private String userStatusText;
     private int userColor;
     // user status: 自行更改的狀態
@@ -180,6 +159,7 @@ public class BackgroundService extends Service {
     private long userShowTimeEdit;
     private String userShowTimeStringEdit;
     private String userWayEdit;
+    private String userStatusFormEdit;
     private String userStatusTextEdit;
     private int userColorEdit;
 
@@ -199,9 +179,9 @@ public class BackgroundService extends Service {
         streamManager = MinukuStreamManager.getInstance();
         mScheduledExecutorService = Executors.newScheduledThreadPool(Constants.NOTIFICATION_UPDATE_THREAD_SIZE);
 
-        intentFilter = new IntentFilter();
-        intentFilter.addAction(CONNECTIVITY_ACTION);
-        intentFilter.addAction(Constants.ACTION_CONNECTIVITY_CHANGE);
+//        intentFilter = new IntentFilter();
+//        intentFilter.addAction(CONNECTIVITY_ACTION);
+//        intentFilter.addAction(Constants.ACTION_CONNECTIVITY_CHANGE);
 //        mWifiReceiver = new WifiReceiver();
 
         latestUseIMTime = Constants.INVALID_TIME_VALUE;
@@ -240,6 +220,7 @@ public class BackgroundService extends Service {
 
         createSurveyNotificationChannel();
         createOngoingNotificationChannel();
+        createEditNotificationChannel();
 
         //make the WifiReceiver start sending availSite to the server.
 //        registerReceiver(mWifiReceiver, intentFilter);
@@ -396,9 +377,14 @@ public class BackgroundService extends Service {
 
             // random present way & color & status string
             userWay = randomPresentWay();
+            userStatusForm = randomStatusForm();
+            Log.d(TAG, "userStatusForm: " + userStatusForm);
+
+//            if (!userWay.equals(Constants.PRESENT_IN_TEXT) &&
+//                    userStatusForm.equals(Constants.STATUS_FORM_DISTURB)) userStatus = 100 - userStatus;
             userColor =  Color.rgb(51, 102, 153); // default color
 
-            userStatusText = statusGetText(userStatus);
+            userStatusText = rateGetText(userStatus);
 
             if (isHandleAfterEdit) {
                 handleAfterEditThread(afterEditTimePeriod);
@@ -409,6 +395,7 @@ public class BackgroundService extends Service {
                 sharedPrefs.edit()
                         .putInt("status", userStatus)
                         .putLong("updateTime", userShowTime)
+                        .putString("statusForm", userStatusForm)
                         .putString("way", userWay)
                         .putString("statusText", userStatusText)
                         .putInt("statusColor", userColor)
@@ -416,6 +403,7 @@ public class BackgroundService extends Service {
             } else {
                 // 如果有編輯過
                 userWayEdit = sharedPrefs.getString("way", "NA");
+                userStatusFormEdit = sharedPrefs.getString("statusForm", "NA");
                 userStatusEdit = sharedPrefs.getInt("status", -1);
                 userStatusTextEdit = sharedPrefs.getString("statusText", "NA");
                 userShowTimeEdit = sharedPrefs.getLong("updateTime", -1);
@@ -450,21 +438,32 @@ public class BackgroundService extends Service {
             });
             mQueue.add(mJsonObjectRequest);
 
-            // if 差距過大，跳出通知
-            //
-            // 有用IM ; 沒用:
+            // TODO: if 差距過大，跳出通知
+
             if (index == Constants.STATUS_CAPACITY) index = 0;
 
             statusList.set(index, userStatus);
-            for (int i=0;i<statusList.size();i++) {
-                Log.d(TAG, "status: " + statusList.get(i));
-            }
             int max = Collections.max(statusList);
             int min = Collections.min(statusList);
-//
+
             Log.d(TAG, "MAX: " + max);
             Log.d(TAG, "min: " + min);
 
+            /** For Partial Subject */
+            // 有開想要接收通知
+//            Log.d(TAG, "open Notification: " + sharedPrefs.getBoolean("openNotification", false));
+//            if (sharedPrefs.getBoolean("openNotification", false)) {
+//                if ((max-min) >= Constants.STATUS_THRESHOLD || userStatus < 20 || userStatus > 90) { // 25
+//                    Log.d(TAG, "in send Notification");
+//                    statusList.clear();
+//                    statusList = new ArrayList<>(Collections.nCopies(Constants.STATUS_CAPACITY, userStatus));
+//                    index = -1;
+//                    sendNotification();
+//                }
+//            }
+            /** For Partial Subject */
+
+            /** For Main Subject */
             if ((max-min) >= Constants.STATUS_THRESHOLD || userStatus < 20 || userStatus > 90) { // 25
                 Log.d(TAG, "in send Notification");
                 statusList.clear();
@@ -472,74 +471,72 @@ public class BackgroundService extends Service {
                 index = -1;
                 sendNotification();
             }
+            /** For Main Subject */
+
             index += 1;
-//            lastStatus = userStatus;
         }
     };
 
     private int getRingerMode() {
-//        Log.d(TAG, "......... get Ringer Mode .......");
         ringerMode = RingerStreamGenerator.getRingerMode();
-//        Log.d(TAG, ">> ringer mode >> " + ringerMode);
 
         if (ringerMode.equals("Vibrate")) return (int) (Math.random()*11 + 90); // 90-100
         else if (ringerMode.equals("Normal")) return (int) (Math.random()*11 + 50); // 50-60
         else return (int) (Math.random()*11 + 10); // 10-20
     }
 
-    private int getIMUsage() {
-//        Log.d(TAG, "......... get IM Usage .......");
-        long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-        latestUseIMTime = AppUsageStreamGenerator.getLatestUseIMTime();
-        typingTime = MobileAccessibilityService.getTypingTime();
-        Log.d(TAG, ">> typing time >> " + ScheduleAndSampleManager.getTimeString(typingTime));
-        Log.d(TAG, ">> latest use IM App time >> " + ScheduleAndSampleManager.getTimeString(latestUseIMTime));
-
-        // second
-        typingTime = (currentTime - typingTime) / 1000;
-        latestUseIMTime = (currentTime - latestUseIMTime) / 1000;
-
-        if (latestUseIMTime <= 60) { // < 1 min // 60-100
-            // 區間: 40 20 15 12 6 6 /
-            if (typingTime <= 60) return (int) (Math.random()*16 + 85); // 85-100 // < 1 min
-            else if (typingTime <= 300) return (int) (Math.random()*11 + 75); // 75-85
-            else if (typingTime <= 600) return (int) (Math.random()*6 + 70); // 70-75
-            else if (typingTime <= 1800) return (int) (Math.random()*6 + 65); // 65-70
-            else if (typingTime <= 3600) return (int) (Math.random()*3 + 63); // 63-65
-            else return (int) (Math.random()*3 + 60); // 60-62
-        } else if (latestUseIMTime <= 300) { // < 5 min // 40-60
-            if (typingTime <= 60) return (int) (Math.random()*8 + 53); // 53-60 // < 1 min
-            else if (typingTime <= 300) return (int) (Math.random()*4 + 50); // 50-53
-            else if (typingTime <= 600) return (int) (Math.random()*4 + 47); // 47-50
-            else if (typingTime <= 1800) return (int) (Math.random()*3 + 45); // 45-47
-            else if (typingTime <= 3600) return (int) (Math.random()*3 + 43); // 43-45
-            else return (int) (Math.random()*3 + 40); // 40-42
-        } else if (latestUseIMTime <= 600) { // < 10 min // 25-40
-            if (typingTime <= 60) return (int) (Math.random()*6 + 35); // 35-40 // < 1 min
-            else if (typingTime <= 300) return (int) (Math.random()*4 + 32); // 32-35
-            else if (typingTime <= 600) return (int) (Math.random()*3 + 30); // 30-32
-            else if (typingTime <= 1800) return (int) (Math.random()*3 + 28); // 28-30
-//            else if (typingTime <= 3600) return (int) (Math.random()* + ); // 83-100
-            else return (int) (Math.random()*4 + 25); // 25-28
-        } else if (latestUseIMTime <= 1800) { // < 30 min // 12-25
-            if (typingTime <= 60) return (int) (Math.random()*6 + 20); // 20-25 // < 1 min
-            else if (typingTime <= 300) return (int) (Math.random()*4 + 17); // 17-20
-            else if (typingTime <= 600) return (int) (Math.random()*3 + 15); // 15-17
-//            else if (typingTime <= 1800) return (int) (Math.random()* + ); // 83-100
-            else return (int) (Math.random()*3 + 12); // 12-14
-        } else if (latestUseIMTime <= 3600) { // < 60 min // 6-12
-            if (typingTime <= 60) return (int) (Math.random()*3 + 10); // 10-12 // < 1 min
-            else if (typingTime <= 300) return (int) (Math.random()*3 + 8); // 8-10
-//            else if (typingTime <= 600) return (int) (Math.random()* + ); // 83-100
-            else return (int) (Math.random()*2 + 6); // 6-7
-        } else { // 0-6
-            return (int) (Math.random()*7); // 0-6
-        }
-    }
+//    private int getIMUsage() {
+////        Log.d(TAG, "......... get IM Usage .......");
+//        long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+//        latestUseIMTime = AppUsageStreamGenerator.getLatestUseIMTime();
+//        typingTime = MobileAccessibilityService.getTypingTime();
+//        Log.d(TAG, ">> typing time >> " + ScheduleAndSampleManager.getTimeString(typingTime));
+//        Log.d(TAG, ">> latest use IM App time >> " + ScheduleAndSampleManager.getTimeString(latestUseIMTime));
+//
+//        // second
+//        typingTime = (currentTime - typingTime) / 1000;
+//        latestUseIMTime = (currentTime - latestUseIMTime) / 1000;
+//
+//        if (latestUseIMTime <= 60) { // < 1 min // 60-100
+//            // 區間: 40 20 15 12 6 6 /
+//            if (typingTime <= 60) return (int) (Math.random()*16 + 85); // 85-100 // < 1 min
+//            else if (typingTime <= 300) return (int) (Math.random()*11 + 75); // 75-85
+//            else if (typingTime <= 600) return (int) (Math.random()*6 + 70); // 70-75
+//            else if (typingTime <= 1800) return (int) (Math.random()*6 + 65); // 65-70
+//            else if (typingTime <= 3600) return (int) (Math.random()*3 + 63); // 63-65
+//            else return (int) (Math.random()*3 + 60); // 60-62
+//        } else if (latestUseIMTime <= 300) { // < 5 min // 40-60
+//            if (typingTime <= 60) return (int) (Math.random()*8 + 53); // 53-60 // < 1 min
+//            else if (typingTime <= 300) return (int) (Math.random()*4 + 50); // 50-53
+//            else if (typingTime <= 600) return (int) (Math.random()*4 + 47); // 47-50
+//            else if (typingTime <= 1800) return (int) (Math.random()*3 + 45); // 45-47
+//            else if (typingTime <= 3600) return (int) (Math.random()*3 + 43); // 43-45
+//            else return (int) (Math.random()*3 + 40); // 40-42
+//        } else if (latestUseIMTime <= 600) { // < 10 min // 25-40
+//            if (typingTime <= 60) return (int) (Math.random()*6 + 35); // 35-40 // < 1 min
+//            else if (typingTime <= 300) return (int) (Math.random()*4 + 32); // 32-35
+//            else if (typingTime <= 600) return (int) (Math.random()*3 + 30); // 30-32
+//            else if (typingTime <= 1800) return (int) (Math.random()*3 + 28); // 28-30
+////            else if (typingTime <= 3600) return (int) (Math.random()* + ); // 83-100
+//            else return (int) (Math.random()*4 + 25); // 25-28
+//        } else if (latestUseIMTime <= 1800) { // < 30 min // 12-25
+//            if (typingTime <= 60) return (int) (Math.random()*6 + 20); // 20-25 // < 1 min
+//            else if (typingTime <= 300) return (int) (Math.random()*4 + 17); // 17-20
+//            else if (typingTime <= 600) return (int) (Math.random()*3 + 15); // 15-17
+////            else if (typingTime <= 1800) return (int) (Math.random()* + ); // 83-100
+//            else return (int) (Math.random()*3 + 12); // 12-14
+//        } else if (latestUseIMTime <= 3600) { // < 60 min // 6-12
+//            if (typingTime <= 60) return (int) (Math.random()*3 + 10); // 10-12 // < 1 min
+//            else if (typingTime <= 300) return (int) (Math.random()*3 + 8); // 8-10
+////            else if (typingTime <= 600) return (int) (Math.random()* + ); // 83-100
+//            else return (int) (Math.random()*2 + 6); // 6-7
+//        } else { // 0-6
+//            return (int) (Math.random()*7); // 0-6
+//        }
+//    }
 
     private int getScreenStatus() {
         long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-//        Log.d(TAG, "......... get Screen Status .......");
         screenInteractiveTime = AppUsageStreamGenerator.getScreenInteractiveTime();
         Log.d(TAG, ">> Screen interactive time >> " + ScheduleAndSampleManager.getTimeString(screenInteractiveTime));
 
@@ -563,6 +560,7 @@ public class BackgroundService extends Service {
                 data.put("createdTimeEdit", userShowTimeEdit);
                 data.put("timeStringEdit", userShowTimeStringEdit);
                 data.put("presentWayEdit", userWayEdit);
+                data.put("statusFormEdit", userStatusFormEdit);
                 data.put("statusTextEdit", userStatusTextEdit);
                 data.put("statusColorEdit", userColorEdit);
             }
@@ -571,17 +569,15 @@ public class BackgroundService extends Service {
             data.put("screenInteractiveTime", screenInteractiveTime);
             data.put("ringerMode", ringerMode);
 
-//            data.put("ringerMode", ringerMode);
 //            data.put("networkType", networkType);
-//            data.put("activityRecognition", activityRecognition);
 //            data.put("batteryLevel", batteryLevel);
-//            data.put("batteryChargingState", batteryChargingState);
 //            data.put("sensorProximity", sensorProximity);
 
             data.put("status", userStatus);
             data.put("createdTime", userShowTime);
-            data.put("timeString", userShowTimeString);
+            data.put("createdTimeString", userShowTimeString);
             data.put("presentWay", userWay);
+            data.put("statusForm", userStatusForm);
             data.put("statusText", userStatusText);
             data.put("statusColor", userColor);
 
@@ -634,91 +630,25 @@ public class BackgroundService extends Service {
 //        batteryChargingState = BatteryStreamGenerator.mBatteryChargingState;
 //
 //    }
-//
-//    private void getSensorProximity() {
-////        Log.d(TAG, "Sensor Proximity: " + SensorStreamGenerator.proximity);
-//        if (sensorProximities.size() == Constants.STREAM_DATA_CAPACITY) {
-//            sensorProximities.poll();
-//        }
-////        Log.d(TAG, "size1: " + sensorProximitys.size());
-//        if (sensorProximity == SensorStreamGenerator.proximity) {
-//            sensorProximities.add(sensorProximity);
-////            for (float s : sensorProximitys) {
-////                Log.d(TAG, "count " + count++ + " " + s);
-////            }
-//        } else {
-//            sensorProximities.add(SensorStreamGenerator.proximity);
-////            for (float s : sensorProximitys) {
-////                Log.d(TAG, "count " + count++ + " " + s);
-////            }
-//        }
-//
-////        Log.d(TAG, "size2: " + sensorProximitys.size());
-//        sensorProximity = SensorStreamGenerator.proximity;
-//    }
-
-//    private void getScreenInteraction() {
-////        Log.d(TAG, "Screen Interaction: " + AppUsageStreamGenerator.Screen_Status);
-//
-//        if (AppUsageStreamGenerator.Screen_Status.equals("Interactive")) {
-////            Log.d(TAG, "timestamp: " + ScheduleAndSampleManager.getTimeString(AppUsageStreamGenerator.detectedTime));
-//            timestampOfScreenInteraction = AppUsageStreamGenerator.detectedTime;
-//        }
-//        if (timestampOfScreenInteraction != -1) {
-//            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-//            periodOfScreenInteraction = (currentTime - timestampOfScreenInteraction) / 1000; // seconds
-////            Log.d(TAG, "time period: " + periodOfScreenInteraction);
-//        }
-//        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
-//        if (periodOfScreenInteraction != -1) {
-//            if (periodOfScreenInteraction <= 60) {
-//                isScreenInteractive1 = true;
-//                isScreenInteractive5 = true;
-//                isScreenInteractive10 = true;
-//                isScreenInteractive30 = true;
-//                isScreenInteractive60 = true;
-//            } else if (periodOfScreenInteraction <= 300) {
-//                isScreenInteractive5 = true;
-//                isScreenInteractive10 = true;
-//                isScreenInteractive30 = true;
-//                isScreenInteractive60 = true;
-//            } else if (periodOfScreenInteraction <= 600) {
-//                isScreenInteractive10 = true;
-//                isScreenInteractive30 = true;
-//                isScreenInteractive60 = true;
-//            } else if (periodOfScreenInteraction <= 1800) {
-//                isScreenInteractive30 = true;
-//                isScreenInteractive60 = true;
-//            } else if (periodOfScreenInteraction <= 3600) {
-//                isScreenInteractive60 = true;
-//            }
-//        }
-//
-////        Log.d(TAG, "isScreenInteractive1: " + isScreenInteractive1);
-////        Log.d(TAG, "isScreenInteractive5: " + isScreenInteractive5);
-////        Log.d(TAG, "isScreenInteractive10: " + isScreenInteractive10);
-////        Log.d(TAG, "isScreenInteractive30: " + isScreenInteractive30);
-////        Log.d(TAG, "isScreenInteractive60: " + isScreenInteractive60);
-//    }
 
     private void sendNotification() {
         boolean send = false;
 
         long lastNotiTime = sharedPrefs.getLong("lastNotificationTime", -1);
-        Log.d(TAG, "lastNotiTime: " + lastNotiTime);
+
         Log.d(TAG, "lastNotiTime: " + ScheduleAndSampleManager.getTimeString(lastNotiTime));
 
         Calendar current = Calendar.getInstance();
         int currentHourIn24Format = current.get(Calendar.HOUR_OF_DAY);
         int currentMinute = current.get(Calendar.MINUTE);
 
-        if ((currentHourIn24Format >= 10 && currentHourIn24Format <= 22) ||
+        if ((currentHourIn24Format >= 10 && currentHourIn24Format < 22) ||
             (currentHourIn24Format == 22 && currentMinute <= 30)) {
-            if (lastNotiTime != 0 && ((userShowTime - lastNotiTime) > 1800000)) {
+            if (lastNotiTime != 0 && ((userShowTime - lastNotiTime) > 3600000)) { // 1 hr
                 send = true;
             }
         }
-
+//        send = true; //////////TODO: for test //////////
         if (send) {
             Log.d(TAG, "to send notification");
             sharedPrefs.edit()
@@ -737,10 +667,11 @@ public class BackgroundService extends Service {
             // 紀錄送了多少通知
             JSONObject noti = new JSONObject();
             try {
-                noti.put("notificationSendTime", userShowTime);
-                noti.put("notificationSendTimeString", userShowTimeString);
+                noti.put("createdTime", userShowTime);
+                noti.put("createdTimeString", userShowTimeString);
                 noti.put("id", sharedPrefs.getString("id", "NA"));
                 noti.put("presentWay", userWay);
+                noti.put("statusForm", userStatusForm);
                 noti.put("statusText", userStatusText);
                 noti.put("status", userStatus);
                 noti.put("statusColor", userColor);
@@ -788,6 +719,7 @@ public class BackgroundService extends Service {
         bundle.putLong("showTime", userShowTime);
         bundle.putInt("status", userStatus);
         bundle.putString("way", userWay);
+        bundle.putString("statusForm", userStatusForm);
         bundle.putString("statusString", userStatusText);
         bundle.putInt("color", userColor);
 
@@ -796,14 +728,13 @@ public class BackgroundService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, notifyNotificationCode,
                 resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        long[] v = {500,1000};
         Notification.Builder noti = new Notification.Builder(this)
                 .setContentText(text)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.smile)
                 .setStyle(bigTextStyle)
                 .setAutoCancel(true)
-                .setVibrate(v);
+                .setDefaults(Notification.DEFAULT_ALL);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return noti
@@ -822,7 +753,7 @@ public class BackgroundService extends Service {
         bigTextStyle.setBigContentTitle(Constants.APP_FULL_NAME);
         bigTextStyle.bigText(text);
 
-        Intent resultIntent = new Intent(this, Dispatch.class);
+        Intent resultIntent = new Intent(this, HomePage.class);
         PendingIntent pending = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         Notification.Builder noti = new Notification.Builder(this)
@@ -832,7 +763,6 @@ public class BackgroundService extends Service {
                 .setContentIntent(pending)
                 .setAutoCancel(true)
                 .setOngoing(true);
-
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return noti
@@ -925,21 +855,21 @@ public class BackgroundService extends Service {
 
     }
 
-    private void checkingRemovedFromForeground(){
-
-        Log.d(TAG,"stopForeground");
-
-        stopForeground(true);
-
-        try {
-
-            unregisterReceiver(CheckRunnableReceiver);
-        }catch (IllegalArgumentException e){
-
-        }
-
-        mScheduledExecutorService.shutdown();
-    }
+//    private void checkingRemovedFromForeground(){
+//
+//        Log.d(TAG,"stopForeground");
+//
+//        stopForeground(true);
+//
+//        try {
+//
+//            unregisterReceiver(CheckRunnableReceiver);
+//        }catch (IllegalArgumentException e){
+//
+//        }
+//
+//        mScheduledExecutorService.shutdown();
+//    }
 
 //    private void stopTheSessionByServiceClose(){
 //
@@ -1016,6 +946,20 @@ public class BackgroundService extends Service {
             CharSequence name = Constants.SURVEY_CHANNEL_NAME;
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel(Constants.SURVEY_CHANNEL_ID, name, importance);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+
+    private void createEditNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = Constants.EDIT_CHANNEL_NAME;
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(Constants.EDIT_CHANNEL_ID, name, importance);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
             NotificationManager notificationManager = getSystemService(NotificationManager.class);

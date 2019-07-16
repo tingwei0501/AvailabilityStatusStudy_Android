@@ -110,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="TextView"
@@ -126,7 +126,7 @@
                     android:layout_width="83dp"
                     android:layout_height="83dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="16dp"
                     android:visibility="invisible"
@@ -138,171 +138,251 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/contact_status_statusForm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </android.support.constraint.ConstraintLayout>
             <!-- 對方當時狀態資訊 -->
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/textView19"
-                android:layout_width="300dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/self_edit_context_information_title"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"/>
+            <Spinner
+                android:id="@+id/contact_context_whom"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/location_question"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
-
-            <RadioGroup
-                android:id="@+id/sender_location1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:prompt="@string/context_whom"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/textView19"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintTop_toBottomOf="@+id/textView19"/>
 
-                <RadioButton
-                    android:id="@+id/sender_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/home" />
+            <EditText
+                android:id="@+id/contact_context_whom_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_whom_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/contact_context_whom"
+                app:layout_constraintStart_toEndOf="@+id/contact_context_whom" />
 
-                <RadioButton
-                    android:id="@+id/sender_dorm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/dorm" />
-
-                <RadioButton
-                    android:id="@+id/sender_lab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/lab" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/sender_location2"
+            <Spinner
+                android:id="@+id/contact_context_where"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/sender_location1"
-                app:layout_constraintTop_toBottomOf="@+id/sender_location1">
+                app:layout_constraintStart_toStartOf="@+id/contact_context_whom"
+                app:layout_constraintTop_toBottomOf="@+id/contact_context_whom" />
 
-                <RadioButton
-                    android:id="@+id/sender_classroom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/classroom" />
+            <EditText
+                android:id="@+id/contact_context_where_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_where_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/contact_context_where"
+                app:layout_constraintStart_toEndOf="@+id/contact_context_where" />
 
-                <RadioButton
-                    android:id="@+id/sender_library"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/library" />
-
-                <RadioButton
-                    android:id="@+id/sender_outdoor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/outdoor" />
-
-                <RadioButton
-                    android:id="@+id/sender_restaurant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/restaurant" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/sender_location3"
+            <Spinner
+                android:id="@+id/contact_context_what"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/sender_location2"
-                app:layout_constraintTop_toBottomOf="@+id/sender_location2">
+                app:layout_constraintStart_toStartOf="@+id/contact_context_where"
+                app:layout_constraintTop_toBottomOf="@+id/contact_context_where" />
 
-                <RadioButton
-                    android:id="@+id/sender_transportation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/transportation" />
-
-                <RadioButton
-                    android:id="@+id/sender_mall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/mall" />
-
-                <!--<RadioButton-->
-                <!--android:id="@+id/location_other"-->
-                <!--android:layout_width="match_parent"-->
+            <EditText
+                android:id="@+id/contact_context_what_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_what_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/contact_context_what"
+                app:layout_constraintStart_toEndOf="@+id/contact_context_what" />
+            <!--<TextView-->
+                <!--android:id="@+id/textView19"-->
+                <!--android:layout_width="300dp"-->
                 <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:layout_marginRight="5dp"-->
-                <!--android:text="@string/location_other" />-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="@string/location_question"-->
+                <!--android:textSize="18sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.058"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />-->
 
-                <!--<EditText-->
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_location1"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
-                <!--/>-->
-            </RadioGroup>
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/textView19"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/textView19"-->
+                <!--app:layout_constraintVertical_bias="1.0">-->
 
-            <RadioGroup
-                android:id="@+id/sender_location4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/sender_location1"
-                app:layout_constraintTop_toBottomOf="@+id/sender_location3">
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_home"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/home" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_location_other"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/other" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_dorm"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/dorm" />-->
 
-                <EditText
-                    android:id="@+id/sender_location_other_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:singleLine="true" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_lab"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/lab" />-->
+
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_location2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/sender_location1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/sender_location1">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_classroom"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/classroom" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_library"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/library" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_outdoor"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/outdoor" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_restaurant"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/restaurant" />-->
+
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_location3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@id/sender_location2"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/sender_location2">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_transportation"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/transportation" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_mall"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/mall" />-->
+
+                <!--&lt;!&ndash;<RadioButton&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/location_other"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="5dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="5dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="@string/location_other" />&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;/>&ndash;&gt;-->
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_location4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@id/sender_location1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/sender_location3">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_location_other"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/other" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/sender_location_other_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:imeOptions="actionDone"-->
+                    <!--android:singleLine="true" />-->
+            <!--</RadioGroup>-->
 
             <TextView
                 android:id="@+id/textView20"
@@ -310,9 +390,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:text="@string/sender__question_using_purpose"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/sender_location4" />
+                app:layout_constraintTop_toBottomOf="@+id/contact_context_what" />
 
             <RadioGroup
                 android:id="@+id/using_purpose"
@@ -443,379 +523,595 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/communicationPurposeLayout" />
 
-            <View
-                android:id="@+id/view5"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutA"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/border"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintTop_toBottomOf="@+id/textView10">
 
-            <View
-                android:id="@+id/view6"
+                <TextView
+                    android:id="@+id/contactList_peopleStatus_text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="目前不會看訊息"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/usefulSeekBarA"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_tick_texts_size="9dp"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layoutA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layoutA"
+                app:layout_constraintTop_toTopOf="@+id/layoutA" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutB"
                 android:layout_width="200dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/border"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toBottomOf="@+id/view5" />
+                app:layout_constraintStart_toStartOf="@id/layoutA"
+                app:layout_constraintTop_toBottomOf="@+id/layoutA">
 
-            <View
-                android:id="@+id/view7"
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/contactList_peopleStatus_progressCircle1"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:cpb_background_progressbar_color="@color/colorLightGray"
+                    app:cpb_background_progressbar_width="20dp"
+                    app:cpb_progress="0"
+                    app:cpb_progress_max="100"
+                    app:cpb_progressbar_width="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/contact_status_form_graphic"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/contact_status_form_graphic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="讀訊息率"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/usefulSeekBarB"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_tick_texts_size="9dp"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layoutB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layoutB"
+                app:layout_constraintTop_toTopOf="@+id/layoutB" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layoutC"
                 android:layout_width="200dp"
                 android:layout_height="70dp"
                 android:layout_marginTop="8dp"
                 android:background="@drawable/border"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toBottomOf="@+id/view6" />
+                app:layout_constraintStart_toStartOf="@id/layoutA"
+                app:layout_constraintTop_toBottomOf="@+id/layoutB">
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/contactList_peopleStatus_text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/contact_status_form_digit"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/contact_status_form_digit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="讀訊息率"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.44"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/usefulSeekBarC"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/a"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toTopOf="@+id/view5" />
-
-            <TextView
-                android:id="@+id/contactList_peopleStatus_text1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toBottomOf="@+id/view5"
-                app:layout_constraintEnd_toEndOf="@+id/view5"
-                app:layout_constraintStart_toStartOf="@+id/view5"
-                app:layout_constraintTop_toTopOf="@+id/view5" />
-
-            <TextView
-                android:id="@+id/contactList_peopleStatus_text2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toBottomOf="@+id/view7"
-                app:layout_constraintEnd_toEndOf="@+id/view7"
-                app:layout_constraintStart_toStartOf="@+id/view7"
-                app:layout_constraintTop_toTopOf="@+id/view7" />
-
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/b"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView15"
-                app:layout_constraintTop_toTopOf="@+id/view6" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/c"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toTopOf="@+id/view7" />
-
-            <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/contactList_peopleStatus_progressCircle1"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                app:cpb_background_progressbar_color="@color/colorLightGray"
-                app:cpb_background_progressbar_width="20dp"
-                app:cpb_progress="0"
-                app:cpb_progress_max="100"
-                app:cpb_progressbar_width="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/view6"
-                app:layout_constraintEnd_toEndOf="@+id/view6"
-                app:layout_constraintStart_toStartOf="@+id/view6"
-                app:layout_constraintTop_toTopOf="@+id/view6"
-                app:layout_constraintVertical_bias="0.7" />
-
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_tick_texts_size="9dp"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layoutC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layoutC"
+                app:layout_constraintTop_toTopOf="@+id/layoutC" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/sender_question1"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/view7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
                 android:text="@string/sender_question1_description"
                 android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-            <RadioGroup
-                android:id="@+id/sender_question1_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView10">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_question1_a"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/textView10">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/a"
-                    android:textSize="18dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/a"-->
+                    <!--android:textSize="18dp" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1a_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1a_3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/three" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1a_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1a_2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/two" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1a_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1a_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/one" />-->
+            <!--</RadioGroup>-->
 
-            <RadioGroup
-                android:id="@+id/sender_question1_b"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question1_a">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_question1_b"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/sender_question1_a">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/b"
-                    android:textSize="18dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/b"-->
+                    <!--android:textSize="18dp" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1b_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1b_3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/three" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1b_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1b_2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/two" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1b_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1b_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/one" />-->
+            <!--</RadioGroup>-->
 
-            <RadioGroup
-                android:id="@+id/sender_question1_c"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question1_b">
+            <!--<RadioGroup-->
+                <!--android:id="@+id/sender_question1_c"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/sender_question1_b">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/c"
-                    android:textSize="18dp" />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/c"-->
+                    <!--android:textSize="18dp" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1c_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1c_3"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/three" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1c_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1c_2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/two" />-->
 
-                <RadioButton
-                    android:id="@+id/sender_question1c_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/sender_question1c_1"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/one" />-->
+            <!--</RadioGroup>-->
 
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
                 android:text="@string/sender_question2"
-                android:textSize="18sp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question1_c" />
+                app:layout_constraintTop_toBottomOf="@+id/layoutC" />
 
             <TextView
                 android:id="@+id/textView33"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="@string/sender_question2_description"
                 android:textSize="10dp"
                 app:layout_constraintStart_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-            <RadioGroup
-                android:id="@+id/sender_question2_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout2A"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView18"
+                android:background="@drawable/border"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView33">
 
                 <TextView
+                    android:id="@+id/contactList_peopleStatus_text3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/a"
-                    android:textSize="18dp" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="目前不會看訊息"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
 
-                <RadioButton
-                    android:id="@+id/sender_question2a_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
-
-                <RadioButton
-                    android:id="@+id/sender_question2a_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
-
-                <RadioButton
-                    android:id="@+id/sender_question2a_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/sender_question2_b"
-                android:layout_width="wrap_content"
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/preferSeekBarA"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_tick_texts_size="9dp"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layout2A"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layout2A"
+                app:layout_constraintTop_toTopOf="@+id/layout2A" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout2B"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question2_a">
+                android:background="@drawable/border"
+                app:layout_constraintStart_toStartOf="@id/layout2A"
+                app:layout_constraintTop_toBottomOf="@+id/layout2A">
+
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/contactList_peopleStatus_progressCircle2"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:cpb_background_progressbar_color="@color/colorLightGray"
+                    app:cpb_background_progressbar_width="20dp"
+                    app:cpb_progress="0"
+                    app:cpb_progress_max="100"
+                    app:cpb_progressbar_width="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/contact_status_form_graphic2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/contact_status_form_graphic2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/b"
-                    android:textSize="18dp" />
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="讀訊息率"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
 
-                <RadioButton
-                    android:id="@+id/sender_question2b_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
-
-                <RadioButton
-                    android:id="@+id/sender_question2b_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
-
-                <RadioButton
-                    android:id="@+id/sender_question2b_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/sender_question2_c"
-                android:layout_width="wrap_content"
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/preferSeekBarB"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_tick_texts_size="9dp"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layout2B"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layout2B"
+                app:layout_constraintTop_toTopOf="@+id/layout2B" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/layout2C"
+                android:layout_width="200dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question2_b">
+                android:background="@drawable/border"
+                app:layout_constraintStart_toStartOf="@id/layout2A"
+                app:layout_constraintTop_toBottomOf="@+id/layout2B">
 
                 <TextView
+                    android:id="@+id/contactList_peopleStatus_text4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/c"
-                    android:textSize="18dp" />
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/contact_status_form_digit2"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/sender_question2c_3"
+                <TextView
+                    android:id="@+id/contact_status_form_digit2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/three" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="讀訊息率"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.44"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <RadioButton
-                    android:id="@+id/sender_question2c_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/two" />
+            </android.support.constraint.ConstraintLayout>
 
-                <RadioButton
-                    android:id="@+id/sender_question2c_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/one" />
-            </RadioGroup>
+            <com.warkiz.widget.IndicatorSeekBar
+                android:id="@+id/preferSeekBarC"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:isb_max="3"
+                app:isb_min="1"
+                app:isb_show_tick_texts="true"
+                app:isb_thumb_color="@color/buttonGreen1"
+                app:isb_thumb_text_color="@color/buttonGreen1"
+                app:isb_tick_texts_color="@color/wineBerry"
+                app:isb_tick_texts_size="9dp"
+                app:isb_ticks_count="3"
+                app:layout_constraintBottom_toBottomOf="@+id/layout2C"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layout2C"
+                app:layout_constraintTop_toTopOf="@+id/layout2C" />
+
+
+
+
+
+
+
+
+
+
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/preferLayoutA"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/textView33">-->
+
+                <!--<com.warkiz.widget.IndicatorSeekBar-->
+                    <!--android:id="@+id/preferSeekBarA"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--app:isb_max="3"-->
+                    <!--app:isb_min="1"-->
+                    <!--app:isb_show_tick_texts="true"-->
+                    <!--app:isb_thumb_color="@color/buttonGreen1"-->
+                    <!--app:isb_thumb_text_color="@color/buttonGreen1"-->
+                    <!--app:isb_tick_texts_color="@color/wineBerry"-->
+                    <!--app:isb_tick_texts_size="9dp"-->
+                    <!--app:isb_ticks_count="3"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--tools:layout_editor_absoluteX="43dp" />-->
+            <!--</android.support.constraint.ConstraintLayout>-->
+
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/preferLayoutB"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/preferLayoutA">-->
+
+                <!--<com.warkiz.widget.IndicatorSeekBar-->
+                    <!--android:id="@+id/preferSeekBarB"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--app:isb_max="3"-->
+                    <!--app:isb_min="1"-->
+                    <!--app:isb_show_tick_texts="true"-->
+                    <!--app:isb_thumb_color="@color/buttonGreen1"-->
+                    <!--app:isb_thumb_text_color="@color/buttonGreen1"-->
+                    <!--app:isb_tick_texts_color="@color/wineBerry"-->
+                    <!--app:isb_tick_texts_size="9dp"-->
+                    <!--app:isb_ticks_count="3"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--tools:layout_editor_absoluteX="41dp" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
+            <!---->
+            <!--<android.support.constraint.ConstraintLayout-->
+                <!--android:id="@+id/preferLayoutC"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/preferLayoutB">-->
+
+                <!--<com.warkiz.widget.IndicatorSeekBar-->
+                    <!--android:id="@+id/preferSeekBarC"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--app:isb_max="3"-->
+                    <!--app:isb_min="1"-->
+                    <!--app:isb_show_tick_texts="true"-->
+                    <!--app:isb_thumb_color="@color/buttonGreen1"-->
+                    <!--app:isb_thumb_text_color="@color/buttonGreen1"-->
+                    <!--app:isb_tick_texts_color="@color/wineBerry"-->
+                    <!--app:isb_tick_texts_size="9dp"-->
+                    <!--app:isb_ticks_count="3"-->
+                    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                    <!--tools:layout_editor_absoluteX="43dp" />-->
+
+            <!--</android.support.constraint.ConstraintLayout>-->
 
             <Button
                 android:id="@+id/sender_questionnaire_submit"
@@ -830,7 +1126,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sender_question2_c" />
+                app:layout_constraintTop_toBottomOf="@+id/layout2C" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

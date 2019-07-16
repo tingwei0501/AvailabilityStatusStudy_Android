@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
+    <labelingStudy.nctu.minuku_2.MyScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -53,20 +53,22 @@
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
                 android:layout_height="14dp"
-                android:layout_marginTop="28dp"
                 android:text="@string/self_edit_question_title"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/self_edit_constraintLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_questionnaire_title" />
+                app:layout_constraintBottom_toBottomOf="@+id/self_edit_questionnaire_time"
+                app:layout_constraintStart_toStartOf="@+id/self_edit_constraintLayout3" />
 
             <TextView
                 android:id="@+id/self_edit_questionnaire_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
                 android:text="TextView"
-                android:textSize="12sp"
+                android:textColor="@color/wineBerry"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/self_edit_constraintLayout3"
-                app:layout_constraintTop_toTopOf="@+id/textView32" />
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_questionnaire_title" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/self_edit_constraintLayout3"
@@ -78,23 +80,23 @@
                 android:background="@drawable/border"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView32">
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_questionnaire_time">
 
                 <com.mikhaellopez.circularprogressbar.CircularProgressBar
                     android:id="@+id/self_edit_questionnaire_circle"
                     android:layout_width="83dp"
                     android:layout_height="83dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="48dp"
+                    android:layout_marginBottom="16dp"
                     android:visibility="invisible"
                     app:cpb_background_progressbar_color="@color/colorLightGray"
                     app:cpb_background_progressbar_width="20dp"
                     app:cpb_progress="0"
                     app:cpb_progress_max="100"
                     app:cpb_progressbar_width="15dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/textView39"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -118,13 +120,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="TextView"
                     android:textSize="25sp"
                     android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/self_edit_questionnaire_time_min"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -163,168 +165,248 @@
                     app:layout_constraintStart_toEndOf="@+id/self_edit_questionnaire_time_min"
                     app:layout_constraintTop_toTopOf="@+id/self_edit_questionnaire_time_min" />
 
+                <TextView
+                    android:id="@+id/self_edit_questionnaire_statusForm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="TextView"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
             </android.support.constraint.ConstraintLayout>
 
             <TextView
                 android:id="@+id/self_edit_question1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/self_edit_location_question"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/context_information_title"
+                android:textAlignment="textStart"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.058"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/self_edit_constraintLayout3" />
-
-
-            <RadioGroup
-                android:id="@+id/self_edit_location1"
+            <Spinner
+                android:id="@+id/self_edit_context_whom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:prompt="@string/context_whom"
+                android:spinnerMode="dropdown"
                 app:layout_constraintStart_toStartOf="@+id/self_edit_question1"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_question1"
-                app:layout_constraintVertical_bias="1.0">
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_question1"/>
 
-                <RadioButton
-                    android:id="@+id/self_edit_home"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/home" />
-
-                <RadioButton
-                    android:id="@+id/self_edit_dorm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/dorm" />
-
-                <RadioButton
-                    android:id="@+id/self_edit_lab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/lab" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/self_edit_location2"
+            <EditText
+                android:id="@+id/self_edit_context_whom_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_whom_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/self_edit_context_whom"
+                app:layout_constraintStart_toEndOf="@+id/self_edit_context_whom" />
+            <Spinner
+                android:id="@+id/self_edit_context_where"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/self_edit_location1"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_location1">
+                app:layout_constraintStart_toStartOf="@+id/self_edit_context_whom"
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_context_whom" />
 
-                <RadioButton
-                    android:id="@+id/self_edit_classroom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/classroom" />
-
-                <RadioButton
-                    android:id="@+id/self_edit_library"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/library" />
-
-                <RadioButton
-                    android:id="@+id/self_edit_outdoor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/outdoor" />
-                <RadioButton
-                    android:id="@+id/self_edit_restaurant"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/restaurant" />
-
-            </RadioGroup>
-
-            <RadioGroup
-                android:id="@+id/self_edit_location3"
+            <EditText
+                android:id="@+id/self_edit_context_where_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_where_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/self_edit_context_where"
+                app:layout_constraintStart_toEndOf="@+id/self_edit_context_where" />
+            <Spinner
+                android:id="@+id/self_edit_context_what"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/self_edit_location2"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_location2">
+                app:layout_constraintStart_toStartOf="@+id/self_edit_context_where"
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_context_where" />
 
-                <RadioButton
-                    android:id="@+id/self_edit_transportation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/transportation" />
-
-                <RadioButton
-                    android:id="@+id/self_edit_mall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/mall" />
-
-                <!--<RadioButton-->
-                <!--android:id="@+id/location_other"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginLeft="5dp"-->
-                <!--android:layout_marginRight="5dp"-->
-                <!--android:text="@string/location_other" />-->
-
-                <!--<EditText-->
+            <EditText
+                android:id="@+id/self_edit_context_what_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/context_what_other"
+                android:singleLine="true"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/self_edit_context_what"
+                app:layout_constraintStart_toEndOf="@+id/self_edit_context_what" />
+            <!--<TextView-->
+                <!--android:id="@+id/self_edit_question1"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
-                <!--/>-->
-            </RadioGroup>
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="36dp"-->
+                <!--android:layout_marginEnd="8dp"-->
+                <!--android:text="@string/self_edit_location_question"-->
+                <!--android:textSize="15sp"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintHorizontal_bias="0.058"-->
+                <!--app:layout_constraintStart_toStartOf="parent"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_constraintLayout3" />-->
 
-            <RadioGroup
-                android:id="@+id/self_edit_location4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="@+id/self_edit_location1"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_location3">
 
-                <RadioButton
-                    android:id="@+id/self_edit_location_other"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:text="@string/other" />
+            <!--<RadioGroup-->
+                <!--android:id="@+id/self_edit_location1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_question1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_question1"-->
+                <!--app:layout_constraintVertical_bias="1.0">-->
 
-                <EditText
-                    android:id="@+id/self_edit_location_other_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:singleLine="true" />
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_home"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/home" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_dorm"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/dorm" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_lab"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/lab" />-->
+
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/self_edit_location2"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:layout_marginBottom="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_location1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_location1">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_classroom"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/classroom" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_library"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/library" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_outdoor"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/outdoor" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_restaurant"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/restaurant" />-->
+
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/self_edit_location3"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_location2"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_location2">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_transportation"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/transportation" />-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_mall"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/mall" />-->
+
+                <!--&lt;!&ndash;<RadioButton&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/location_other"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginLeft="5dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginRight="5dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="@string/location_other" />&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;/>&ndash;&gt;-->
+            <!--</RadioGroup>-->
+
+            <!--<RadioGroup-->
+                <!--android:id="@+id/self_edit_location4"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:orientation="horizontal"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_location1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_location3">-->
+
+                <!--<RadioButton-->
+                    <!--android:id="@+id/self_edit_location_other"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="5dp"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="@string/other" />-->
+
+                <!--<EditText-->
+                    <!--android:id="@+id/self_edit_location_other_text"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:imeOptions="actionDone"-->
+                    <!--android:singleLine="true" />-->
+            <!--</RadioGroup>-->
 
             <!-- 使用者覺得不符合: 理由: 文字呈現 -->
             <!--  -->
@@ -335,7 +417,7 @@
                 android:layout_marginTop="40dp"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="@+id/self_edit_question1"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_location4">
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_context_what">
 
                 <TextView
                     android:id="@+id/self_edit_change_question"
@@ -347,6 +429,18 @@
                     app:layout_constraintHorizontal_bias="0.553"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+                <!-- 先用文字欄 -->
+                <!--<EditText-->
+                    <!--android:id="@+id/self_edit_change_reason_editText"-->
+                    <!--android:layout_width="192dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginStart="8dp"-->
+                    <!--android:hint="@string/necessary"-->
+                    <!--android:singleLine="true"-->
+                    <!--android:textSize="14sp"-->
+                    <!--app:layout_constraintStart_toStartOf="@id/self_edit_change_question"-->
+                    <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_change_question" />-->
+                <!-- 先用文字欄 -->
 
                 <!-- 不符合理由: 文字 -->
                 <android.support.constraint.ConstraintLayout
@@ -361,23 +455,32 @@
                     app:layout_constraintTop_toBottomOf="@+id/self_edit_change_question">
 
                     <CheckBox
-                        android:id="@+id/self_edit_notFitReason_way_text"
+                        android:id="@+id/self_edit_notFitReason_less_bother"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
-                        android:text="@string/self_edit_reason1"
+                        android:text="@string/showDifferent_less_bother"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <CheckBox
-                        android:id="@+id/self_edit_notFitReason_ratio_text"
+                        android:id="@+id/self_edit_notFitReason_donot_bother"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
-                        android:text="@string/notFitReason_ratio_text"
+                        android:text="@string/showDifferent_donot_bother"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_way_text" />
+                        app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_less_bother" />
+                    <CheckBox
+                        android:id="@+id/self_edit_notFitReason_bother"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/showDifferent_bother"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_donot_bother" />
                     <CheckBox
                         android:id="@+id/self_edit_notFitReason_accurate"
                         android:layout_width="200dp"
@@ -386,7 +489,7 @@
                         android:layout_marginTop="8dp"
                         android:text="@string/showDifferent_accurate"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_ratio_text"/>
+                        app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_bother" />
 
                     <CheckBox
                         android:id="@+id/self_edit_notFitReason_blurred"
@@ -397,6 +500,7 @@
                         android:text="@string/showDifferent_blurred"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/self_edit_notFitReason_accurate" />
+
                     <CheckBox
                         android:id="@+id/self_edit_notFitReason_hide"
                         android:layout_width="200dp"
@@ -421,270 +525,123 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionDone"
+                        android:inputType=""
                         android:singleLine="true"
                         app:layout_constraintStart_toEndOf="@+id/self_edit_notFitReason_other_text"
-                        app:layout_constraintTop_toTopOf="@+id/self_edit_notFitReason_other_text"
-                        android:inputType="" />
+                        app:layout_constraintTop_toTopOf="@+id/self_edit_notFitReason_other_text" />
                 </android.support.constraint.ConstraintLayout>
-
-                <!-- 不符合理由: 數字 -->
-                <!--<android.support.constraint.ConstraintLayout-->
-                <!--android:id="@+id/notFitReason_digit"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:layout_marginEnd="8dp"-->
-                <!--android:visibility="gone"-->
-                <!--app:layout_constraintEnd_toEndOf="parent"-->
-                <!--app:layout_constraintHorizontal_bias="0.0"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/change_question6-1">-->
-
-                <!--<CheckBox-->
-                <!--android:id="@+id/notFitReason_high_digit"-->
-                <!--android:layout_width="200dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:text="@string/notFitReason_high_digit"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                <!--<CheckBox-->
-                <!--android:id="@+id/notFitReason_low_digit"-->
-                <!--android:layout_width="200dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:text="@string/notFitReason_low_digit"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/notFitReason_high_digit" />-->
-
-                <!--<CheckBox-->
-                <!--android:id="@+id/notFitReason_way_digit"-->
-                <!--android:layout_width="200dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:text="@string/notFitReason_way"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/notFitReason_low_digit" />-->
-
-                <!--<CheckBox-->
-                <!--android:id="@+id/notFitReason_other_digit"-->
-                <!--android:layout_width="60dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginStart="8dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:text="@string/other"-->
-                <!--app:layout_constraintStart_toStartOf="parent"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/notFitReason_way_digit" />-->
-
-                <!--<EditText-->
-                <!--android:id="@+id/notFitReason_otherText_digit"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:imeOptions="actionDone"-->
-                <!--android:singleLine="true"-->
-                <!--app:layout_constraintStart_toEndOf="@+id/notFitReason_other_digit"-->
-                <!--app:layout_constraintTop_toTopOf="@+id/notFitReason_other_digit" />-->
-                <!--</android.support.constraint.ConstraintLayout>-->
-
-
             </android.support.constraint.ConstraintLayout>
 
-            <!-- 你想怎麼呈現 -->
             <!--<android.support.constraint.ConstraintLayout-->
-                <!--android:id="@+id/statusShowOtherLayout"-->
+                <!--android:id="@+id/self_edit_TimePeriodLayout"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
                 <!--android:layout_marginTop="40dp"-->
-                <!--app:layout_constraintStart_toStartOf="@+id/question3"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/statusNotFitLayout">-->
+                <!--android:visibility="visible"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_question1"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_statusNotFitLayout">-->
 
                 <!--<TextView-->
-                    <!--android:id="@+id/question5"-->
+                    <!--android:id="@+id/self_edit_timePeriod_question"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginEnd="8dp"-->
-                    <!--android:text="@string/showOther_question"-->
-                    <!--android:textSize="16sp"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.0"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/statusOriginalCheckbox"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="@string/asOriginal"-->
-                    <!--android:visibility="visible"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/question5"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/question5" />-->
-
-
-                <!--<Spinner-->
-                    <!--android:id="@+id/way_spinner"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="18dp"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--app:layout_constraintStart_toEndOf="@+id/textView30"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/statusOriginalCheckbox" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView30"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="16dp"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:text="@string/editPage_presentWay_title"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/statusOriginalCheckbox"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/way_spinner" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/textView31"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/showOther_status"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/textView30"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/textStatus_spinner" />-->
-
-                <!--<Spinner-->
-                    <!--android:id="@+id/textStatus_spinner"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:visibility="invisible"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/way_spinner"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/way_spinner" />-->
-
-                <!--<com.warkiz.widget.IndicatorSeekBar-->
-                    <!--android:id="@+id/digitStatus_seekbar"-->
-                    <!--android:layout_width="234dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:visibility="invisible"-->
-                    <!--app:isb_max="100"-->
-                    <!--app:isb_show_tick_texts="true"-->
-                    <!--app:isb_thumb_color="@color/colorDarkPink"-->
-                    <!--app:isb_tick_texts_size="9dp"-->
-                    <!--app:isb_ticks_count="11"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/way_spinner"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/way_spinner" />-->
-
-                <!--<com.mikhaellopez.circularprogressbar.CircularProgressBar-->
-                    <!--android:id="@+id/graphStatus_circle"-->
-                    <!--android:layout_width="60dp"-->
-                    <!--android:layout_height="60dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:visibility="invisible"-->
-                    <!--app:cpb_background_progressbar_color="@color/colorGray"-->
-                    <!--app:cpb_background_progressbar_width="16dp"-->
-                    <!--app:cpb_progress="0"-->
-                    <!--app:cpb_progress_max="100"-->
-                    <!--app:cpb_progressbar_width="10dp"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.0"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/way_spinner"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/way_spinner" />-->
-
-                <!--<SeekBar-->
-                    <!--android:id="@+id/graphStatus_circleSeekBar"-->
-                    <!--android:layout_width="159dp"-->
-                    <!--android:layout_height="24dp"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="20dp"-->
-                    <!--android:max="100"-->
-                    <!--android:visibility="invisible"-->
-                    <!--app:layout_constraintEnd_toEndOf="parent"-->
-                    <!--app:layout_constraintHorizontal_bias="0.068"-->
-                    <!--app:layout_constraintStart_toEndOf="@+id/graphStatus_circle"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/textStatus_spinner" />-->
-
-                <!--<View-->
-                    <!--android:id="@+id/view"-->
-                    <!--android:layout_width="313dp"-->
-                    <!--android:layout_height="100dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:clickable="false"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/statusOriginalCheckbox"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/statusOriginalCheckbox" />-->
-            <!--</android.support.constraint.ConstraintLayout>-->
-            <!---->
-            <!-- 如果符合的狀態跟想呈現的不同，問原因 -->
-            <!--<android.support.constraint.ConstraintLayout-->
-                <!--android:id="@+id/showStatusDifferentReasonLayout"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="40dp"-->
-                <!--app:layout_constraintStart_toStartOf="@+id/question3"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/statusShowOtherLayout">-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/showStatusDifferent_question"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/showStatusDifferent_question"-->
+                    <!--android:text="@string/self_edit_timePeriod_question1"-->
                     <!--android:textSize="16sp"-->
                     <!--app:layout_constraintEnd_toEndOf="parent"-->
                     <!--app:layout_constraintHorizontal_bias="0.553"-->
                     <!--app:layout_constraintStart_toStartOf="parent"-->
                     <!--app:layout_constraintTop_toTopOf="parent" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/showDifferent_accurate"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="@string/showDifferent_accurate"-->
-                    <!--app:layout_constraintStart_toStartOf="@+id/showStatusDifferent_question"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/showStatusDifferent_question" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/showDifferent_blurred"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="@string/showDifferent_blurred"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/showDifferent_accurate" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/showDifferent_hide"-->
-                    <!--android:layout_width="200dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="@string/showDifferent_hide"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/showDifferent_blurred" />-->
-
-                <!--<CheckBox-->
-                    <!--android:id="@+id/showDifferent_other"-->
-                    <!--android:layout_width="60dp"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="8dp"-->
-                    <!--android:layout_marginTop="8dp"-->
-                    <!--android:text="@string/other"-->
-                    <!--app:layout_constraintStart_toStartOf="parent"-->
-                    <!--app:layout_constraintTop_toBottomOf="@+id/showDifferent_hide" />-->
-
-                <!--<EditText-->
-                    <!--android:id="@+id/showDifferent_otherText"-->
+                <!--<TextView-->
+                    <!--android:id="@+id/self_edit_timePeriod_hour"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
-                    <!--android:imeOptions="actionDone"-->
-                    <!--android:singleLine="true"-->
-                    <!--app:layout_constraintStart_toEndOf="@+id/showDifferent_other"-->
-                    <!--app:layout_constraintTop_toTopOf="@+id/showDifferent_other"/>-->
-
+                    <!--/>-->
             <!--</android.support.constraint.ConstraintLayout>-->
-            <!--  -->
+            <LinearLayout
+                android:id="@+id/self_edit_showToWho_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="@+id/self_edit_statusNotFitLayout"
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_statusNotFitLayout">
+
+                <TextView
+                    android:id="@+id/textView43"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/self_edit_show_to_who"
+                    android:textSize="16sp" />
+
+                <ListView
+                    android:id="@+id/self_edit_showToWho_list"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp" />
+
+                <EditText
+                    android:id="@+id/self_edit_showToWho_other"
+                    android:layout_width="192dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:hint="@string/other"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/self_edit_blockToWho_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="@+id/self_edit_statusNotFitLayout"
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_showToWho_layout">
+
+                <TextView
+                    android:id="@+id/textView44"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/self_edit_block_to_who"
+                    android:textSize="16sp" />
+
+                <ListView
+                    android:id="@+id/self_edit_blockToWho_list"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp" />
+                <EditText
+                    android:id="@+id/self_edit_blockToWho_other"
+                    android:layout_width="192dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:hint="@string/other"
+                    android:singleLine="true"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!--<TextView-->
+                <!--android:id="@+id/textView36"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40dp"-->
+                <!--android:text="@string/self_edit_describe_your_situation"-->
+                <!--android:textSize="15sp"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/self_edit_statusNotFitLayout"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/self_edit_blockToWho_layout" />-->
+
+            <!--<EditText-->
+                <!--android:id="@+id/self_edit_editText"-->
+                <!--android:layout_width="250dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:layout_marginStart="8dp"-->
+                <!--android:layout_marginTop="8dp"-->
+                <!--android:background="@drawable/bg_edittext"-->
+                <!--android:ems="10"-->
+                <!--android:hint="@string/describe_your_situation_des"-->
+                <!--android:inputType="textPersonName"-->
+                <!--android:textSize="16sp"-->
+                <!--app:layout_constraintStart_toStartOf="@+id/textView36"-->
+                <!--app:layout_constraintTop_toBottomOf="@+id/textView36" />-->
 
             <Button
                 android:id="@+id/self_edit_questionnaire_submit"
@@ -697,8 +654,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.472"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/self_edit_statusNotFitLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/self_edit_blockToWho_layout" />
 
         </android.support.constraint.ConstraintLayout>
-    </ScrollView>
+    </labelingStudy.nctu.minuku_2.MyScrollView>
 </android.support.constraint.ConstraintLayout>

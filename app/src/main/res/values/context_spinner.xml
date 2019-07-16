@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="contextWhat">
+        <item>做什麼</item>
+        <item>工作</item>
+        <item>讀書/寫作業</item>
+        <item>上課/開會</item>
+        <item>吃飯</item>
+        <item>睡覺/休息</item>
+        <item>運動</item>
+        <item>上廁所</item>
+        <item>洗澡</item>
+        <item>玩遊戲</item>
+        <item>看電視/看影片</item>
+        <item>用電腦</item>
+        <item>移動中(交通工具)</item>
+        <item>移動中(開車)</item>
+        <item>移動中(走路)</item>
+        <item>逛街/購物</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="contextWhere">
+        <item>在哪裡</item>
+        <item>家裡</item>
+        <item>宿舍/租屋處</item>
+        <item>實驗室/辦公室</item>
+        <item>教室</item>
+        <item>圖書館</item>
+        <item>室外</item>
+        <item>餐廳</item>
+        <item>交通工具裡</item>
+        <item>商場/百貨</item>
+        <item>其他</item>
+    </string-array>
+
+    <string-array name="contextWhom">
+        <item>與誰</item>
+        <item>男/女朋友</item>
+        <item>朋友</item>
+        <item>同學</item>
+        <item>同事</item>
+        <item>家人</item>
+        <item>老師/教授/上司</item>
+        <item>學生/下屬</item>
+        <item>陌生人</item>
+        <item>自己</item>
+        <item>其他</item>
+    </string-array>
+</resources>

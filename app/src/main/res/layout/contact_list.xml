@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="101dp"
         android:id="@+id/selfBar">
-
         <View
             android:id="@+id/view3"
             android:layout_width="0dp"
@@ -37,7 +35,7 @@
             android:layout_marginBottom="28dp"
             android:text="@string/contactList_profile_row_text"
             android:textColor="@color/colorWhite"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="@+id/view3"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             app:layout_constraintHorizontal_bias="0.053"
@@ -52,7 +50,7 @@
             android:layout_marginBottom="8dp"
             android:text="@string/contactList_profile_update_text"
             android:textColor="@color/colorWhite"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/view3"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintHorizontal_bias="0.0"
@@ -69,6 +67,7 @@
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toTopOf="@+id/textView9" />
 
+        <!-- for partial subject: 先註解調，複製一個在下面 -->
         <TextView
             android:id="@+id/contactList_self_status"
             android:layout_width="wrap_content"
@@ -76,20 +75,40 @@
             android:layout_alignTop="@+id/view3"
             android:layout_alignBottom="@+id/view3"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:layout_toStartOf="@+id/edit_profile_button"
+            android:text="息"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="22sp"
-            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view3"
-            app:layout_constraintHorizontal_bias="0.112"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.529" />
+            app:layout_constraintEnd_toStartOf="@+id/edit_profile_button"
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--<TextView-->
+            <!--android:id="@+id/contactList_self_status"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignTop="@+id/view3"-->
+            <!--android:layout_alignBottom="@+id/view3"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginStart="15dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:layout_marginEnd="8dp"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="22sp"-->
+            <!--android:visibility="invisible"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="@+id/view3"-->
+            <!--app:layout_constraintHorizontal_bias="0.112"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/textView7"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintVertical_bias="0.529" />-->
+        <!-- for partial subject: 先註解調 -->
 
         <TextView
             android:id="@+id/textView28"
@@ -97,23 +116,22 @@
             android:layout_height="wrap_content"
             android:text="@string/contactList_profile_row_description"
             android:textColor="@color/colorWhite"
-            android:textSize="9dp"
+            android:textSize="9sp"
             app:layout_constraintEnd_toEndOf="@+id/textView7"
             app:layout_constraintStart_toStartOf="@+id/textView7"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/contactList_progressCircle_title"
+            android:id="@+id/contactList_statusForm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/editPage_present_digit_title1"
+            android:layout_marginStart="16dp"
+            android:text="TextView"
             android:textColor="@color/colorWhite"
             android:textSize="15sp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/contactList_progressCircle"
-            app:layout_constraintEnd_toStartOf="@+id/contactList_progressCircle" />
+            app:layout_constraintStart_toEndOf="@+id/textView28"
+            app:layout_constraintTop_toTopOf="@+id/textView7" />
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/contactList_progressCircle"
@@ -131,44 +149,11 @@
             app:cpb_progressbar_width="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.647"
+            app:layout_constraintHorizontal_bias="0.72"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!--<Button-->
-            <!--android:id="@+id/edit_profile_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignEnd="@+id/view3"-->
-            <!--android:layout_alignBottom="@+id/view3"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:layout_alignParentTop="true"-->
-            <!--android:layout_marginTop="8dp"-->
-            <!--android:layout_marginEnd="4dp"-->
-            <!--android:layout_marginBottom="8dp"-->
-            <!--android:background="@color/instabug_transparent_color"-->
-            <!--android:text="@string/editProfile"-->
-            <!--app:layout_constraintBottom_toBottomOf="parent"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintVertical_bias="1.0" />-->
-
-        <!--<ImageView-->
-            <!--android:id="@+id/imageView3"-->
-            <!--android:layout_width="32dp"-->
-            <!--android:layout_height="32dp"-->
-            <!--android:layout_marginStart="8dp"-->
-            <!--android:layout_marginEnd="8dp"-->
-            <!--android:adjustViewBounds="false"-->
-            <!--android:background="@drawable/if_ic_keyboard_arrow_right_48px_352468"-->
-            <!--android:cropToPadding="false"-->
-            <!--android:visibility="visible"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/edit_profile_button"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--app:layout_constraintHorizontal_bias="1.0"-->
-            <!--app:layout_constraintStart_toStartOf="@+id/edit_profile_button"-->
-            <!--app:layout_constraintTop_toTopOf="@+id/edit_profile_button"-->
-            <!--app:srcCompat="@drawable/if_ic_keyboard_arrow_right_48px_352468" />-->
+        <!-- for partial subject: 先註解 -->
         <Button
             android:id="@+id/edit_profile_button"
             android:layout_width="57dp"
@@ -187,6 +172,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
+        <!-- for partial subject -->
 
     </android.support.constraint.ConstraintLayout>
 
@@ -229,22 +215,50 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <Button
-        android:id="@+id/questionnaire"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/contact_status_close"
-        android:layout_alignStart="@+id/refresh_layout"
-        android:layout_alignEnd="@+id/refresh_layout"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="167dp"
-        android:text="問卷"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/questionnaire"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignStart="@+id/selfBar"-->
+        <!--android:layout_alignTop="@+id/textView48"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginStart="172dp"-->
+        <!--android:layout_marginTop="-4dp"-->
+        <!--android:layout_marginEnd="151dp"-->
+        <!--android:text="問卷"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintStart_toEndOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!-- TODO: for partial subject only: Main 需註解 -->
+    <!--<TextView-->
+        <!--android:id="@+id/textView48"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignTop="@+id/refresh_layout"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginStart="76dp"-->
+        <!--android:layout_marginTop="320dp"-->
+        <!--android:text="@string/openNotificationOrnot"-->
+        <!--tools:layout_editor_absoluteX="60dp"-->
+        <!--tools:layout_editor_absoluteY="440dp" />-->
+
+    <!--<Switch-->
+        <!--android:id="@+id/openNotificationSwitch"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignTop="@+id/refresh_layout"-->
+        <!--android:layout_marginStart="40dp"-->
+        <!--android:layout_marginTop="320dp"-->
+        <!--android:layout_toEndOf="@+id/textView48"-->
+        <!--android:checked="false"-->
+        <!--android:textColorLink="@color/contactListBar"-->
+        <!--android:textDirection="ltr"-->
+        <!--android:textOff="@string/off"-->
+        <!--android:textOn="@string/on" />-->
+    <!-- TODO: for partial subject only: Main 需註解 -->
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/contactList_cover"
@@ -253,10 +267,7 @@
         android:alpha="0.7"
         android:background="@color/colorDarkGray"
         android:visibility="invisible">
-
     </android.support.constraint.ConstraintLayout>
-
-
     <!-- 對方的狀態 -->
     <android.support.constraint.ConstraintLayout
         android:id="@+id/contact_status"
@@ -277,7 +288,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="8dp"
-            android:textSize="25dp"
+            android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.316"
             app:layout_constraintStart_toStartOf="parent"
@@ -301,20 +312,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
-            android:textSize="20dp"
+            android:text="目前不會看訊息"
+            android:textSize="23sp"
             android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            app:layout_constraintTop_toBottomOf="@+id/contact_status_statusForm" />
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
             android:id="@+id/contact_status_circle"
             android:layout_width="83dp"
             android:layout_height="83dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:visibility="invisible"
             app:cpb_background_progressbar_color="@color/colorAccentLight"
@@ -324,7 +336,7 @@
             app:cpb_progressbar_width="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            app:layout_constraintTop_toBottomOf="@+id/contact_status_statusForm" />
 
         <TextView
             android:id="@+id/textView26"
@@ -334,7 +346,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:text="@string/contactList_profile_update_text"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.345"
             app:layout_constraintStart_toStartOf="parent"
@@ -345,17 +357,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:textSize="8dp"
+            android:textSize="8sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView26"
             app:layout_constraintStart_toEndOf="@+id/textView26"
             app:layout_constraintTop_toTopOf="@+id/textView26" />
 
+        <!-- for partial subject: 先註解調 -->
         <Button
             android:id="@+id/contact_status_ok_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="40dp"
             android:layout_marginRight="8dp"
             android:background="@drawable/corners_pink"
             android:text="@string/contact_status_ok_button_text"
@@ -364,7 +377,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView26" />
+        <!-- for partial subject: 先註解調 -->
 
+        <!-- for partial subject: 下面的 -->
         <Button
             android:id="@+id/contact_status_cancel_button"
             android:layout_width="match_parent"
@@ -380,6 +395,36 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contact_status_ok_button" />
+
+        <TextView
+            android:id="@+id/contact_status_statusForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:text="TextView"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_status_name" />
+        <!--<Button-->
+            <!--android:id="@+id/contact_status_cancel_button"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginRight="8dp"-->
+            <!--android:layout_marginBottom="8dp"-->
+            <!--android:layout_marginTop="44dp"-->
+            <!--android:background="@drawable/corners_pink"-->
+            <!--android:text="@string/editPage_submit"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.0"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textView26" />-->
+        <!-- for partial subject: 先註解調 -->
 
         <!-- no shadow: style="?android:attr/borderlessButtonStyle" -->
     </android.support.constraint.ConstraintLayout>
@@ -399,15 +444,17 @@
         app:backgroundTint="@color/hippiePink"
         app:srcCompat="@drawable/letterq64" />
 
+    <!-- for partial subject: 先註解調 -->
     <Button
         android:id="@+id/contact_status_close"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="165dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="470dp"
         android:background="@drawable/error"
         android:visibility="invisible"
         tools:layout_editor_absoluteX="277dp"
         tools:layout_editor_absoluteY="141dp" />
+    <!-- for partial subject: 先註解調 -->
 
 </RelativeLayout>

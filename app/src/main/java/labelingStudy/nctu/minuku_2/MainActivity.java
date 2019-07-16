@@ -37,10 +37,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
     private String id;
 
     private boolean firstTimeOrNot;
+    private CheckBox IAgree;
+    private Button btn;
 
     private AlertDialog enableNotificationListenerAlertDialog;
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
@@ -76,71 +81,106 @@ public class MainActivity extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         Log.d(TAG, "Creating Main activity");
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.for_partial_subject_inform);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         sharedPrefs = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
         id = sharedPrefs.getString("id", "");
-        if (!isNotificationServiceEnabled()) {
-            android.util.Log.d(TAG, "notification start!!");
-            enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
-            enableNotificationListenerAlertDialog.show();
-        } else {
-            toggleNotificationListenerService();
-        }
-        int sdk_int = Build.VERSION.SDK_INT;
-        if (sdk_int>=23) {
-            checkAndRequestPermissions();
-        } else {
-            startServiceWork();
-        }
-        startService(new Intent(getBaseContext(), BackgroundService.class));
-        startService(new Intent(getBaseContext(), NotificationListenService.class));
 
-        if (id.equals("")) {
-            // 沒loging過
-            Button register = findViewById(R.id.register);
-            register.setOnClickListener(registerListener);
-            Button login = findViewById(R.id.login);
-            login.setOnClickListener(loginListener);
-        } else {
-            // already login
+        // TODO: For Partial Subject: needs to agree
+        IAgree = findViewById(R.id.IAgreeCheckBox);
+        IAgree.setOnCheckedChangeListener(new AgreeListener());
+        btn = findViewById(R.id.button2);
+        btn.setOnClickListener(goOnListener);
+        btn.setEnabled(false);
+
+//        if (!isNotificationServiceEnabled()) {
+//            android.util.Log.d(TAG, "notification start!!");
+//            enableNotificationListenerAlertDialog = buildNotificationServiceAlertDialog();
+//            enableNotificationListenerAlertDialog.show();
+//        } else {
+//            toggleNotificationListenerService();
+//        }
+//        int sdk_int = Build.VERSION.SDK_INT;
+//        if (sdk_int>=23) {
+//            checkAndRequestPermissions();
+//        } else {
+//            startServiceWork();
+//        }
+//        startService(new Intent(getBaseContext(), BackgroundService.class));
+//        startService(new Intent(getBaseContext(), NotificationListenService.class));
+
+        /////////打開////////////////////////////////////////
+        if (!id.equals("")) {
+            // 已經loging過
             Intent intent = new Intent(MainActivity.this, ContactList.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
+            MainActivity.this.finish();
+//            Button btn = findViewById(R.id.button2);
+//            btn.setOnClickListener(goOnListener);
+//            Button register = findViewById(R.id.register);
+//            register.setOnClickListener(registerListener);
+//            Button login = findViewById(R.id.login);
+//            login.setOnClickListener(loginListener);
+        }
+        ///////////////////////////////////////////////
+    }
+
+//    private void PartialSubjectInform() {
+//        View item = LayoutInflater.from(MainActivity.this).inflate(R.layout.for_partial_subject_inform, null);
+////
+//        new AlertDialog.Builder(MainActivity.this)
+//                .setTitle("開啟權限說明")
+//                .setView(item)
+//                .setPositiveButton(R.string.editPage_submit, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        // a value become true, then we can continue
+//                    }
+//                }).show();
+//
+////        if ()
+//    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_deviceid, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_permissions) {
+//            int sdk_int = Build.VERSION.SDK_INT;
+//            if(sdk_int >= Build.VERSION_CODES.M) {
+//                checkAndRequestPermissions();
+//            }
+//            startPermission();
+//            sharedPrefs.edit().putBoolean("firstTimeOrNot", false).apply();
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
+
+    private Button.OnClickListener goOnListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, HomePage.class);
             startActivity(intent);
             MainActivity.this.finish();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_deviceid, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_permissions) {
-            int sdk_int = Build.VERSION.SDK_INT;
-            if(sdk_int >= Build.VERSION_CODES.M) {
-                checkAndRequestPermissions();
-            }
-            startPermission();
-            sharedPrefs.edit().putBoolean("firstTimeOrNot", false).apply();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+    };
 
     private Button.OnClickListener registerListener = new Button.OnClickListener() {
         @Override
@@ -228,6 +268,7 @@ public class MainActivity extends AppCompatActivity {
     private void checkAndRequestPermissions() {
 
         Log.e(TAG,"checkingAndRequestingPermissions");
+//        PartialSubjectInform();
 
         int permissionReadExternalStorage = ContextCompat.checkSelfPermission(this,
                 android.Manifest.permission.READ_EXTERNAL_STORAGE);
@@ -242,10 +283,20 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (permissionReadExternalStorage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                Log.d(TAG, "show explanation");
+            } else {
+                listPermissionsNeeded.add(android.Manifest.permission.READ_EXTERNAL_STORAGE);
+            }
+
         }
         if (permissionWriteExternalStorage != PackageManager.PERMISSION_GRANTED) {
-            listPermissionsNeeded.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                Log.d(TAG, "show explanation2");
+            } else {
+                listPermissionsNeeded.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+            }
+//            listPermissionsNeeded.add(android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
         }
 
         if (permissionFineLocation != PackageManager.PERMISSION_GRANTED) {
@@ -289,45 +340,56 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case REQUEST_ID_MULTIPLE_PERMISSIONS: {
-
-                Map<String, Integer> perms = new HashMap<>();
-
-                // Initialize the map with both permissions
-                perms.put(android.Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
-                perms.put(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
-                perms.put(android.Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
-                perms.put(android.Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
-                perms.put(android.Manifest.permission.READ_PHONE_STATE, PackageManager.PERMISSION_GRANTED);
-                perms.put(android.Manifest.permission.BODY_SENSORS, PackageManager.PERMISSION_GRANTED);
-
-                // Fill with actual results from user
-                if (grantResults.length > 0) {
-                    for (int i = 0; i < permissions.length; i++)
-                        perms.put(permissions[i], grantResults[i]);
-                    // Check for both permissions
-                    if (perms.get(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(android.Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
-                            && perms.get(android.Manifest.permission.BODY_SENSORS) == PackageManager.PERMISSION_GRANTED){
-                        android.util.Log.d("permission", "[permission test]all permission granted");
-                        startServiceWork();
-                    } else {
-                        Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
-                    }
-                }
+    private class AgreeListener implements CompoundButton.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            if (b) {
+                btn.setEnabled(true);
+            } else {
+                btn.setEnabled(false);
             }
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode,
+//                                           String permissions[], int[] grantResults) {
+//        switch (requestCode) {
+//            case REQUEST_ID_MULTIPLE_PERMISSIONS: {
+//
+//                Map<String, Integer> perms = new HashMap<>();
+//
+//                // Initialize the map with both permissions
+//                perms.put(android.Manifest.permission.READ_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+//                perms.put(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, PackageManager.PERMISSION_GRANTED);
+//                perms.put(android.Manifest.permission.ACCESS_FINE_LOCATION, PackageManager.PERMISSION_GRANTED);
+//                perms.put(android.Manifest.permission.ACCESS_COARSE_LOCATION, PackageManager.PERMISSION_GRANTED);
+//                perms.put(android.Manifest.permission.READ_PHONE_STATE, PackageManager.PERMISSION_GRANTED);
+//                perms.put(android.Manifest.permission.BODY_SENSORS, PackageManager.PERMISSION_GRANTED);
+//
+//                // Fill with actual results from user
+//                if (grantResults.length > 0) {
+//                    for (int i = 0; i < permissions.length; i++)
+//                        perms.put(permissions[i], grantResults[i]);
+//                    // Check for both permissions
+//                    if (perms.get(android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+//                            && perms.get(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+//                            && perms.get(android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+//                            && perms.get(android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+//                            && perms.get(android.Manifest.permission.READ_PHONE_STATE) == PackageManager.PERMISSION_GRANTED
+//                            && perms.get(android.Manifest.permission.BODY_SENSORS) == PackageManager.PERMISSION_GRANTED){
+//                        android.util.Log.d("permission", "[permission test]all permission granted");
+//                        startServiceWork();
+//                    } else {
+//                        Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            }
+//        }
+//    }
+//
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//    }
 }

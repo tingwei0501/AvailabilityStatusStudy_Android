@@ -36,6 +36,8 @@ public class Constants {
     public static final String ONGOING_CHANNEL_ID = "AvailabilityStudy_id";
     public static final String SURVEY_CHANNEL_NAME = "【填寫問卷通知】";
     public static final String SURVEY_CHANNEL_ID = "Survey_id";
+    public static final String EDIT_CHANNEL_NAME = "【編輯狀態問卷通知】";
+    public static final String EDIT_CHANNEL_ID = "Edit_id";
 
     public static final String PORT = "8080"; // 8080, 5000
     public static final String loginUrl = "http://13.59.255.194:" + PORT + "/signIn";
@@ -103,6 +105,7 @@ public class Constants {
 
     //sharedPrefs
     public static final String sharedPrefString_User = "user";
+    public static final String sharedPrefString_ContactList = "contact";
     public static final String sharedPrefString = "labelingStudy.nctu.minuku_2";
 
     //file path
@@ -161,20 +164,24 @@ public class Constants {
     public static final int STATUS_CAPACITY = 20; // data in 40 minutes
 
     public static final int GET_AVAILABILITY_FROM_SERVER_DELAY = 60; //TODO 60
-    public static final int GET_AVAILABILITY_FROM_SERVER_FREQUENCY = 120; //TODO 120
+    public static final int GET_AVAILABILITY_FROM_SERVER_FREQUENCY = 120; //TODO 120  test: 40
 
     public static final int ISALIVE_UPDATE_FREQUENCY = 1 * 60 * 60;
     public static final int ISALIVE_UPDATE_DELAY = 0;
 
     public static final String ACTIVITY_CONFIDENCE_CONNECTOR = ":";
 
-    public static final int STATUS_THRESHOLD = 22; //TODO 25
+    public static final int STATUS_THRESHOLD = 22; //TODO 22   test: 5
     public static int NOTIFICATION_UPDATE_THREAD_SIZE = 1;
 
     // present way
     public static final String PRESENT_IN_TEXT = "text";
     public static final String PRESENT_IN_DIGIT = "digit";
     public static final String PRESENT_IN_GRAPHIC = "graphic";
+
+    public static final String STATUS_FORM_READ = "讀訊息率";
+    public static final String STATUS_FORM_REPLY = "回覆率";
+    public static final String STATUS_FORM_DISTURB = "干擾率";
 
     public static final int DEFAULT_COLOR = -13408615;
     public static final int PROGRESS_ANIMATION_RATE = 1500;

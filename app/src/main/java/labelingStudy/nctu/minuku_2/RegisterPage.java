@@ -112,14 +112,28 @@ public class RegisterPage extends Activity {
 
             if (!id.equals("") && !pwd.equals("") && !g.equals("")) {
                 SharedPreferences user = getSharedPreferences(Constants.sharedPrefString_User, MODE_PRIVATE);
+
                 user.edit()
                         .putString("group", g)
+
+                        /** For partial subject only: */
+//                        .putBoolean("openNotification", false)
+                        /** For partial subject only: */
+
                         .commit();
                 JSONObject data = new JSONObject();
                 try {
                     data.put("id", id);
                     data.put("password", pwd);
+
+                    // TODO: For Main
                     data.put("group", g);
+                    // TODO: For Main
+
+                    /** For partial subject only: */
+//                    data.put("code", g);
+                    /** For partial subject only: */
+                    //
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

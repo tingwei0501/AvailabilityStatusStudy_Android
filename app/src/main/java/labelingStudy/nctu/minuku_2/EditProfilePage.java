@@ -1,30 +1,28 @@
 package labelingStudy.nctu.minuku_2;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -47,8 +45,8 @@ import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku_2.Questionnaire.SelfEditQuestionnaire;
 import labelingStudy.nctu.minuku_2.service.BackgroundService;
 
+import static labelingStudy.nctu.minuku_2.manager.renderManager.rateGetText;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetRate;
-import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetText;
 
 public class EditProfilePage extends Activity {
 
@@ -57,40 +55,40 @@ public class EditProfilePage extends Activity {
     private Context mContext;
     private RequestQueue mQueue;
     private JsonObjectRequest mJsonObjectRequest;
+    private int afterEditNotificationID = 13;
+    private int afterEditNotificationCode = 200;
 
     // Tabs
     private TabLayout mTabs;
     private ViewPager mViewPager;
     // present way
-    private RadioGroup radioGroupPresentWay;
     private String selectedPresentWay;
     //
     // Status: text
-    private ConstraintLayout constraintLayoutText;
-    private String selectedTextStatus;
+    private String selectedTextStatus = "";
     private Spinner textSpinner;
     //
-    // Status: digit
-    private ConstraintLayout constraintLayoutDigit;
-    private int selectedDigitStatus;
+    // Status: digit & graphic
+    private int selectedStatusRate;
+    private String selectedStatusForm = "";
     private TextView editPage_digit_rate;
+    private Spinner editPage_digit_form;
     //
     // Status: graphic
-    private ConstraintLayout constraintLayoutGraphic;
     private CircularProgressBar circularProgressBar;
+    private Spinner editPage_graphic_form;
     private float initialProgress;
-    private int selectedGraphicStatus;
     private int selectedColor;
-//    private int selectedBackgroundColor;
     //
     // time period
     private Spinner hourSpinner, minuteSpinner;
     private int hour, minute;
-//    private int timePeriod;
     //
     // done button
     private Button done;
     private Button cancel;
+
+    private long currentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +98,7 @@ public class EditProfilePage extends Activity {
         sharedPreferences = getSharedPreferences("user", MODE_PRIVATE);
         initialProgress = 50;
         selectedPresentWay = "text";
-        selectedGraphicStatus = selectedDigitStatus = (int) initialProgress;
+        selectedStatusRate = (int) initialProgress;
         // choose present way
         mTabs = findViewById(R.id.tabs);
         mViewPager = findViewById(R.id.viewPager);
@@ -108,121 +106,11 @@ public class EditProfilePage extends Activity {
         mTabs.setupWithViewPager(mViewPager);
         initListener();
 
-//        radioGroupPresentWay = findViewById(R.id.editPage_presentWay);
-//        radioGroupPresentWay.setOnCheckedChangeListener(new presentWayListener());
-
         // done button & cancel button
         done = findViewById(R.id.edit_profile_done);
         done.setOnClickListener(doneListener);
         cancel = findViewById(R.id.edit_profile_cancel);
         cancel.setOnClickListener(cancelListener);
-
-//        // time selector
-//        hourSpinner = findViewById(R.id.hour_spinner);
-//        ArrayAdapter<CharSequence> hourLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-//                R.array.hour,
-//                android.R.layout.simple_spinner_dropdown_item);
-//        hourSpinner.setAdapter(hourLunchList);
-//        hourSpinner.setOnItemSelectedListener(new hourSpinnerListener());
-//
-//        minuteSpinner = findViewById(R.id.min_spinner);
-//        ArrayAdapter<CharSequence> minLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-//                R.array.minute,
-//                android.R.layout.simple_spinner_dropdown_item);
-//        minuteSpinner.setAdapter(minLunchList);
-//        minuteSpinner.setOnItemSelectedListener(new minuteSpinnerListener());
-
-        // text:
-//        constraintLayoutText = findViewById(R.id.constraintLayoutText);
-//        textSpinner = findViewById(R.id.editPage_textSpinner);
-//        ArrayAdapter<CharSequence> textLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-//                R.array.textStatus,
-//                android.R.layout.simple_spinner_dropdown_item);
-//        textSpinner.setAdapter(textLunchList);
-//        textSpinner.setOnItemSelectedListener(new textStatusSpinnerListener());
-
-        // digit: progress seek bar
-//        constraintLayoutDigit = findViewById(R.id.constraintLayoutDigit);
-//        editPage_digit_rate = findViewById(R.id.editPage_digit_rate);
-//        editPage_digit_rate.setText(String.valueOf(initialProgress));
-//        IndicatorSeekBar digitSeekBar = findViewById(R.id.seekBarProgressDigit);
-//        digitSeekBar.setProgress((int) initialProgress);
-//        digitSeekBar.setOnSeekChangeListener(new OnSeekChangeListener() {
-//            @Override
-//            public void onSeeking(SeekParams seekParams) {
-//                Log.d(TAG, "test: " + seekParams.progress);
-//                editPage_digit_rate.setText(String.valueOf(seekParams.progress));
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(IndicatorSeekBar seekBar) {}
-//
-//            @Override
-//            public void onStopTrackingTouch(IndicatorSeekBar seekBar) {
-//                Log.d(TAG, "progress: " + seekBar.getProgress());
-//                selectedDigitStatus = seekBar.getProgress();
-//            }
-//        });
-
-        // graphic: progress circle
-//        constraintLayoutGraphic = findViewById(R.id.constraintLayoutGraphic);
-//        circularProgressBar = findViewById(R.id.progressCircle);
-//        circularProgressBar.setProgress(initialProgress);
-
-        // graphic: progress seek bar
-//        SeekBar graphicSeekBar = findViewById(R.id.seekBarProgressGraphic);
-//        graphicSeekBar.setProgress((int) initialProgress);
-//        graphicSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                circularProgressBar.setProgress(progress);
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {}
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                Log.d(TAG, "progress: " + seekBar.getProgress());
-//                selectedGraphicStatus = seekBar.getProgress();
-//            }
-//        });
-//
-//        ((LobsterShadeSlider) findViewById(R.id.shadeslider)).addOnColorListener(new OnColorListener() {
-//            @Override
-//            public void onColorChanged(int color) {
-//                circularProgressBar.setColor(color);
-//////                circularProgressBar.setBackgroundColor(adjustAlpha(color, 0.3f));
-//            }
-//
-//            @Override
-//            public void onColorSelected(int color) {
-//                Log.d(TAG, "selected color: " + color);
-//                selectedColor = color;
-////                selectedBackgroundColor = adjustAlpha(color, 0.3f);
-////                Log.d(TAG, "selectedBackgroundColor: " + selectedBackgroundColor);
-////                switch (color) {
-////                    case -7617718:
-////                        selectedColor = "green";
-////                        break;
-////                    case -16728876:
-////                        selectedColor = "lightBlue";
-////                        break;
-////                    case -5317:
-////                        selectedColor = "yellow";
-////                        break;
-////                    case -2937298:
-////                        selectedColor = "red";
-////                        break;
-////                    case -10011977:
-////                        selectedColor = "purple";
-////                        break;
-////                    case -12627531:
-////                        selectedColor = "darkBlue";
-////                        break;
-////                }
-//            }
-//        });
     }
 
     private void initListener() {
@@ -260,65 +148,184 @@ public class EditProfilePage extends Activity {
         @Override
         public void onClick(View v) {
 
-            // send self_questionnaire
-
             final Intent intent = new Intent(EditProfilePage.this, SelfEditQuestionnaire.class);
 
-            long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+            currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
+            boolean pass = false;
+            // store status to database
+            JSONObject data = new JSONObject();
 
-            // send data to questionnaire activity
+            // send data to notification intent
             Bundle bundle = new Bundle();
             bundle.putString("presentWay", selectedPresentWay);
             bundle.putLong("createdTime", currentTime);
-            int t = hour*60 + minute;
+            final int t = hour*60 + minute;
             bundle.putInt("timePeriod", t);
             Log.d(TAG, "time period: " + t);
+            try {
+                data.put("id", sharedPreferences.getString("id", "NA"));
+                data.put("group", sharedPreferences.getString("group", "NA"));
+                data.put("createdTime", currentTime);
+                data.put("createdTimeString", ScheduleAndSampleManager.getTimeString(currentTime));
+                data.put("timePeriod", t);
+                data.put("presentWay", selectedPresentWay);
+                sharedPreferences.edit().putString("way", selectedPresentWay).commit();
+                if (selectedPresentWay.equals("text") && !selectedTextStatus.equals("")) {
+                    data.put("statusForm", "NA");
+                    data.put("statusText", selectedTextStatus);
+                    data.put("status", statusGetRate(selectedTextStatus));
+                    data.put("statusColor", -1);
 
-            if (selectedPresentWay.equals("text")) {
-                bundle.putInt("status", statusGetRate(selectedTextStatus));
-                bundle.putString("statusText", selectedTextStatus);
-                bundle.putInt("statusColor", -1);
-            } else if (selectedPresentWay.equals("digit")) {
-                bundle.putInt("status", selectedDigitStatus);
-                bundle.putString("statusText", statusGetText(selectedDigitStatus));
-                bundle.putInt("statusColor", -1);
-            } else if (selectedPresentWay.equals("graphic")){
-                bundle.putInt("status", selectedGraphicStatus);
-                bundle.putString("statusText", statusGetText(selectedGraphicStatus));
-                bundle.putInt("statusColor", selectedColor);
+                    bundle.putString("statusForm", "NA");
+                    bundle.putInt("status", statusGetRate(selectedTextStatus));
+                    bundle.putString("statusText", selectedTextStatus);
+                    bundle.putInt("statusColor", -1);
+                    // 改狀態
+                    sharedPreferences.edit()
+                            .putString("statusForm", "NA")
+                            .putInt("status", statusGetRate(selectedTextStatus))
+                            .putString("statusText", selectedTextStatus)
+                            .putLong("updateTime", currentTime)
+                            .putInt("statusColor", -1)
+                            .putBoolean("afterEdit", true)
+                            .commit();
+                    pass = true;
+                } else {
+                    if (selectedStatusForm.equals(Constants.STATUS_FORM_DISTURB)) {
+                        selectedStatusRate = 100 - selectedStatusRate;
+                    }
+                    if (!selectedStatusForm.equals("")) {
+                        data.put("statusForm", selectedStatusForm);
+                        data.put("status", selectedStatusRate);
+                        data.put("statusText", rateGetText(selectedStatusRate));
+
+                        bundle.putString("statusForm", selectedStatusForm);
+                        bundle.putInt("status", selectedStatusRate);
+                        bundle.putString("statusText", rateGetText(selectedStatusRate));
+                        if (selectedPresentWay.equals("digit")) {
+                            data.put("statusColor", -1);
+                            bundle.putInt("statusColor", -1);
+                        } else if (selectedPresentWay.equals("graphic")){
+                            data.put("statusColor", selectedColor);
+                            bundle.putInt("statusColor", selectedColor);
+                        }
+                        sharedPreferences.edit()
+                                .putString("statusForm", selectedStatusForm)
+                                .putInt("status", selectedStatusRate)
+                                .putString("statusText", rateGetText(selectedStatusRate))
+                                .putLong("updateTime", currentTime)
+                                .putInt("statusColor", selectedColor)
+                                .putBoolean("afterEdit", true)
+                                .commit();
+                        pass = true;
+                    }
+                }
+                // contact list 傳來的當下狀態
+                Bundle origin = getIntent().getExtras();
+                String way = origin.getString("presentWay");
+                String form = origin.getString("statusForm");
+                long time = origin.getLong("updateTime");
+                int s = origin.getInt("status");
+                String text = origin.getString("statusText");
+                int color = origin.getInt("statusColor");
+
+//                bundle.putString("presentWayOrigin", way); //TODO 不需要傳這個過去了
+//                bundle.putString("statusFormOrigin", form);
+//                bundle.putLong("updateTimeOrigin", time);
+//                bundle.putInt("statusOrigin", s);
+//                bundle.putString("statusTextOrigin", text);
+//                bundle.putInt("statusColorOrigin", color);
+
+                data.put("OriginPresentWay", way);
+                data.put("OriginStatusForm", form);
+                data.put("OriginUpdateTime", time);
+                data.put("OriginStatus", s);
+                data.put("OriginStatusText", text);
+                data.put("OriginStatusColor", color);
+
+                if (pass) {
+                    intent.putExtras(bundle);
+
+                    // send notification (with questionnaire)
+                    NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    String notificationText = ScheduleAndSampleManager.getMinSecStringFromMillis(currentTime) + " 您編輯了狀態\n請點選通知填寫問卷!";
+                    Notification notification = getNotification(notificationText, bundle);
+                    notification.defaults |= Notification.DEFAULT_VIBRATE;
+                    mNotificationManager.notify(afterEditNotificationID, notification);
+
+                    // store status data to database
+                    mQueue = Volley.newRequestQueue(mContext);
+                    mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfStatusUrl, data,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Log.d(TAG, response.toString());
+                                    // start activity here
+                                    try {
+                                        if (response.getString("response").equals("success insert")) {
+                                            BackgroundService.isHandleAfterEdit = true;
+                                            BackgroundService.afterEditTimePeriod = t;
+                                            Intent intent = new Intent(EditProfilePage.this, ContactList.class);
+                                            Toast.makeText(EditProfilePage.this,
+                                                    "更改成功! 請記得填寫問卷", Toast.LENGTH_SHORT).show();
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //加這行
+                                            startActivity(intent);
+                                            EditProfilePage.this.finish();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d(TAG, "Error: " + error.getMessage());
+                        }
+                    });
+                    mQueue.add(mJsonObjectRequest);
+                } else {
+                    Toast.makeText(EditProfilePage.this,
+                            "請確認您要呈現的狀態!", Toast.LENGTH_SHORT).show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            intent.putExtras(bundle);
-            startActivity(intent);
-//            EditProfilePage.this.finish(); //
-
-//            mQueue = Volley.newRequestQueue(mContext);
-//            mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfStatusUrl, data,
-//                    new Response.Listener<JSONObject>() {
-//                        @Override
-//                        public void onResponse(JSONObject response) {
-//                            Log.d(TAG, response.toString());
-//                            // start activity here
-//                            try {
-//                                if (response.getString("response").equals("success insert")) {
-//                                    startActivity(intent);
-//                                }
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//
-//                        }
-//                    }, new Response.ErrorListener() {
-//                @Override
-//                public void onErrorResponse(VolleyError error) {
-//                    Log.d(TAG, "Error: " + error.getMessage());
-//                    Toast.makeText(EditProfilePage.this,
-//                            "請檢察網路連線!", Toast.LENGTH_SHORT).show();
-//                }
-//            });
-//            mQueue.add(mJsonObjectRequest);
 
         }
     };
+
+    private Notification getNotification(String text, Bundle bundle) {
+        Notification.BigTextStyle bigTextStyle = new Notification.BigTextStyle();
+        bigTextStyle.setBigContentTitle(Constants.EDIT_CHANNEL_NAME);
+        bigTextStyle.bigText(text);
+
+        Intent resultIntent = new Intent();
+        resultIntent.setComponent(new ComponentName(this,SelfEditQuestionnaire.class));
+        resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        resultIntent.putExtras(bundle);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, afterEditNotificationCode,
+                resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification.Builder noti = new Notification.Builder(this)
+                .setContentText(text)
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.edit)
+                .setStyle(bigTextStyle)
+                .setAutoCancel(true)
+                .setDefaults(Notification.DEFAULT_ALL);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return noti
+                    .setChannelId(Constants.SURVEY_CHANNEL_ID)
+                    .build();
+        } else {
+            return noti
+                    .build();
+        }
+    }
 
     private Button.OnClickListener cancelListener = new Button.OnClickListener() {
 
@@ -332,46 +339,15 @@ public class EditProfilePage extends Activity {
         }
     };
 
-    private int adjustAlpha(int color, float factor) {
-        int alpha = Math.round(Color.alpha(color) * factor);
-        int red = Color.red(color);
-        int green = Color.green(color);
-        int blue = Color.blue(color);
-        return Color.argb(alpha, red, green, blue);
-    }
-
-//    private class presentWayListener implements RadioGroup.OnCheckedChangeListener {
-//        @Override
-//        public void onCheckedChanged(RadioGroup group, int checkedId) {
-//            switch (checkedId) {
-//                case R.id.present_text:
-//                    selectedPresentWay = "text";
-//                    constraintLayoutText.setVisibility(View.VISIBLE);
-//                    constraintLayoutDigit.setVisibility(View.INVISIBLE);
-//                    constraintLayoutGraphic.setVisibility(View.INVISIBLE);
-//                    break;
-//                case R.id.present_digit:
-//                    selectedPresentWay = "digit";
-//                    constraintLayoutText.setVisibility(View.INVISIBLE);
-//                    constraintLayoutDigit.setVisibility(View.VISIBLE);
-//                    constraintLayoutGraphic.setVisibility(View.INVISIBLE);
-//                    break;
-//                case R.id.present_graphic:
-//                    selectedPresentWay = "graphic";
-//                    constraintLayoutText.setVisibility(View.INVISIBLE);
-//                    constraintLayoutDigit.setVisibility(View.INVISIBLE);
-//                    constraintLayoutGraphic.setVisibility(View.VISIBLE);
-//                    break;
-//            }
-//        }
-//    }
-
     private class textStatusSpinnerListener implements android.widget.AdapterView.OnItemSelectedListener {
         @Override
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-            selectedTextStatus = textSpinner.getSelectedItem().toString();
-            Log.d(TAG, "selectedTextStatus: " + selectedTextStatus);
+            if (i == 0) {
+                selectedTextStatus = "";
+            } else {
+                selectedTextStatus = textSpinner.getSelectedItem().toString();
+                Log.d(TAG, "selectedTextStatus: " + selectedTextStatus);
+            }
         }
 
         @Override
@@ -402,6 +378,40 @@ public class EditProfilePage extends Activity {
             minute = i*5;
             Log.d(TAG, "selected minute: " + minute);
 //            Log.d(TAG, "i: " + i);
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private class digitFormSpinnerListener implements AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            if (i == 0) {
+                selectedStatusForm = "";
+            } else {
+                selectedStatusForm = adapterView.getItemAtPosition(i).toString();
+                Log.d(TAG, "selectedDigitForm: " + selectedStatusForm);
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private class graphicFormSpinnerListener implements AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            if (i == 0) {
+                selectedStatusForm = "";
+            } else {
+                selectedStatusForm = adapterView.getItemAtPosition(i).toString();
+                Log.d(TAG, "selectedGraphicForm: " + selectedStatusForm);
+            }
         }
 
         @Override
@@ -448,8 +458,17 @@ public class EditProfilePage extends Activity {
         }
 
         private void initGraphicTab(View view) {
+            editPage_graphic_form = view.findViewById(R.id.editPage_form_graphic);
+            ArrayAdapter<CharSequence> graphicFormLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
+                    R.array.showContactForm_withhint,
+                    android.R.layout.simple_spinner_dropdown_item);
+            editPage_graphic_form.setAdapter(graphicFormLunchList);
+            editPage_graphic_form.setOnItemSelectedListener(new graphicFormSpinnerListener());
+
             circularProgressBar = view.findViewById(R.id.progressCircle);
             circularProgressBar.setProgress(initialProgress);
+            circularProgressBar.setColor(Constants.DEFAULT_COLOR);
+            selectedColor = Constants.DEFAULT_COLOR;
 
             SeekBar graphicSeekBar = view.findViewById(R.id.seekBarProgressGraphic);
             graphicSeekBar.setProgress((int) initialProgress);
@@ -465,7 +484,7 @@ public class EditProfilePage extends Activity {
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
                     Log.d(TAG, "progress: " + seekBar.getProgress());
-                    selectedGraphicStatus = seekBar.getProgress();
+                    selectedStatusRate = seekBar.getProgress();
                 }
             });
 
@@ -484,6 +503,13 @@ public class EditProfilePage extends Activity {
         }
 
         private void initDigitTab(View view) {
+            editPage_digit_form = view.findViewById(R.id.editPage_form_digit);
+            ArrayAdapter<CharSequence> digitFormLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
+                    R.array.showContactForm_withhint,
+                    android.R.layout.simple_spinner_dropdown_item);
+            editPage_digit_form.setAdapter(digitFormLunchList);
+            editPage_digit_form.setOnItemSelectedListener(new digitFormSpinnerListener());
+
             editPage_digit_rate = view.findViewById(R.id.editPage_digit_rate);
             editPage_digit_rate.setText(String.valueOf(initialProgress));
             IndicatorSeekBar digitSeekBar = view.findViewById(R.id.seekBarProgressDigit);
@@ -501,33 +527,16 @@ public class EditProfilePage extends Activity {
                 @Override
                 public void onStopTrackingTouch(IndicatorSeekBar seekBar) {
                     Log.d(TAG, "progress: " + seekBar.getProgress());
-                    selectedDigitStatus = seekBar.getProgress();
+                    selectedStatusRate = seekBar.getProgress();
                 }
             });
-//            initTimeSpinner(view);
         }
 
-
-
         private void initTextTab(View view) {
-            // time selector
-//            hourSpinner = view.findViewById(R.id.hour_spinner);
-//            ArrayAdapter<CharSequence> hourLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-//                    R.array.hour,
-//                    android.R.layout.simple_spinner_dropdown_item);
-//            hourSpinner.setAdapter(hourLunchList);
-//            hourSpinner.setOnItemSelectedListener(new hourSpinnerListener());
-//
-//            minuteSpinner = view.findViewById(R.id.min_spinner);
-//            ArrayAdapter<CharSequence> minLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-//                    R.array.minute,
-//                    android.R.layout.simple_spinner_dropdown_item);
-//            minuteSpinner.setAdapter(minLunchList);
-//            minuteSpinner.setOnItemSelectedListener(new minuteSpinnerListener());
 
             textSpinner = view.findViewById(R.id.editPage_textSpinner);
             ArrayAdapter<CharSequence> textLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-                    R.array.textStatus,
+                    R.array.textStatus_withhint,
                     android.R.layout.simple_spinner_dropdown_item);
             textSpinner.setAdapter(textLunchList);
             textSpinner.setOnItemSelectedListener(new textStatusSpinnerListener());
@@ -560,4 +569,5 @@ public class EditProfilePage extends Activity {
             minuteSpinner.setOnItemSelectedListener(new minuteSpinnerListener());
         }
     }
+
 }

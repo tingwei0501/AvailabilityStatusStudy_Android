@@ -6,24 +6,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView12"
+    <Spinner
+        android:id="@+id/editPage_form_digit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginTop="48dp"
-        android:text="@string/editPage_present_digit_title1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView12"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="48dp"-->
+        <!--android:layout_marginTop="48dp"-->
+        <!--android:text="@string/editPage_present_digit_title1"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/editPage_digit_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="8dp"
         android:textSize="40dp"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintStart_toEndOf="@+id/editPage_form_digit"
+        app:layout_constraintTop_toTopOf="@+id/editPage_form_digit" />
 
     <TextView
         android:id="@+id/textView14"
@@ -45,7 +53,7 @@
         app:isb_thumb_color="@color/colorDarkPink"
         app:isb_tick_texts_size="9dp"
         app:isb_ticks_count="11"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/editPage_form_digit"
         app:layout_constraintTop_toBottomOf="@+id/editPage_digit_rate" />
 
     <TextView
@@ -54,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="@string/editPage_timeperiod_title"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="@+id/editPage_form_digit"
         app:layout_constraintTop_toBottomOf="@+id/seekBarProgressDigit" />
     <android.support.constraint.ConstraintLayout
         android:layout_width="wrap_content"

@@ -68,6 +68,8 @@
         <!-- It would -->
 
         <activity android:name="labelingStudy.nctu.minuku_2.controller.DeviceIdPage" />
+        <activity android:name=".HomePage"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity android:name=".RegisterPage"/>
         <activity android:name=".LoginPage"/>
         <activity android:name=".ContactList"
@@ -97,7 +99,6 @@
             </intent-filter>
 
         </activity>
-
 
         <!-- Activities included from third party libraries -->
         <activity android:name="com.desmond.squarecamera.CameraActivity" />

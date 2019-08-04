@@ -75,7 +75,8 @@ public class ContactList extends Activity {
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     // each person: self_questionnaire
-    private View cover;
+    private View bkg_cover;
+    private View status_cover;
     private ConstraintLayout contactStatusLayout;
     private Button contactStatusClose;
     private TextView contactStatusText;
@@ -129,7 +130,8 @@ public class ContactList extends Activity {
         editProfile.setOnClickListener(editProfileListener);
 
         // contact person status
-        cover = findViewById(R.id.contactList_cover);
+        bkg_cover = findViewById(R.id.contactList_cover);
+        status_cover = findViewById(R.id.contact_status__cover);
         contactStatusLayout = findViewById(R.id.contact_status);
 
         contactStatusClose = findViewById(R.id.contact_status_close);
@@ -222,15 +224,6 @@ public class ContactList extends Activity {
         }
     };
 
-//    private Button.OnClickListener questionnaireListener = new Button.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            Intent intent = new Intent();
-//            intent.setClass(ContactList.this, SelfQuestionnaire.class);
-//            startActivity(intent);
-//        }
-//    };
-
     // 去填寫問卷按鈕
     private Button.OnClickListener contactStatusOkListener = new Button.OnClickListener() {
 
@@ -271,15 +264,6 @@ public class ContactList extends Activity {
         startActivity(intent);
 //        ContactList.this.finish();
     }
-
-//    private Button.OnClickListener statusExampleListener = new Button.OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            Intent intent = new Intent();
-//            intent.setClass(ContactList.this, StatusExample.class);
-//            startActivity(intent);
-//        }
-//    };
 
     private Button.OnClickListener editProfileListener = new Button.OnClickListener() {
         @Override
@@ -426,13 +410,12 @@ public class ContactList extends Activity {
     };
 
     private void ContactStatusLayout(boolean click, int visibility) {
-        cover.setVisibility(visibility);
+        bkg_cover.setVisibility(visibility);
+        status_cover.setVisibility(visibility);
         contactStatusLayout.setVisibility(visibility);
-        //TODO for partial: 需註解
         contactStatusClose.setVisibility(visibility);
 
         listView.setEnabled(click);        // 後面聯絡人不能按
-        //TODO for partial: 需註解
         editProfile.setEnabled(click);     // 編輯的按鈕
     }
 

@@ -123,23 +123,6 @@ public class BackgroundService extends Service {
     private ArrayList<Integer> statusList;
     private int index = 0;
 
-//    private String networkType;
-//    private Queue<String> networkTypes;
-//
-//    private int batteryLevel;
-//    private Queue<Integer> batteryLevels;
-//
-//    private float sensorProximity;
-//    private Queue<Float> sensorProximities;
-
-//    private long timestampOfOpenIMApp;
-//    private long periodOfOpenIMApp;
-//    private boolean isOpenIMApp1;
-//    private boolean isOpenIMApp5;
-//    private boolean isOpenIMApp10;
-//    private boolean isOpenIMApp30;
-//    private boolean isOpenIMApp60;
-
     private RequestQueue mQueue;
     private JsonObjectRequest mJsonObjectRequest;
 
@@ -194,15 +177,6 @@ public class BackgroundService extends Service {
 //        ringerMode = Constants.INVALID_STRING_VALUE; // NA
 //        networkTypes = new LinkedList<>();
 //        networkType = Constants.INVALID_STRING_VALUE; // NA
-//        batteryLevels = new LinkedList<>();
-//        batteryLevel = Constants.INVALID_INT_VALUE; // -1
-//        batteryChargingStates = new LinkedList<>();
-//        batteryChargingState = Constants.INVALID_STRING_VALUE; // NA
-//        sensorProximities = new LinkedList<>();
-//        sensorProximity = Constants.INVAILD_FLOAT_VALUE; // -1
-//        timestampOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
-//        periodOfScreenInteraction = Constants.INVALID_TIME_VALUE; // -1
-//        isScreenInteractive1 = isScreenInteractive5 = isScreenInteractive10 = isScreenInteractive30 = isScreenInteractive60 = false;
 
     }
 
@@ -350,7 +324,6 @@ public class BackgroundService extends Service {
                     imUsage -= 0.56;
                 }
             }
-//            Log.d(TAG, "IM Usage: " + imUsage);
         }
     };
 
@@ -379,6 +352,7 @@ public class BackgroundService extends Service {
             userWay = randomPresentWay();
             userStatusForm = randomStatusForm();
             Log.d(TAG, "userStatusForm: " + userStatusForm);
+            Log.d(TAG, "afterEdit: " + afterEdit);
 
 //            if (!userWay.equals(Constants.PRESENT_IN_TEXT) &&
 //                    userStatusForm.equals(Constants.STATUS_FORM_DISTURB)) userStatus = 100 - userStatus;
@@ -485,56 +459,6 @@ public class BackgroundService extends Service {
         else return (int) (Math.random()*11 + 10); // 10-20
     }
 
-//    private int getIMUsage() {
-////        Log.d(TAG, "......... get IM Usage .......");
-//        long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
-//        latestUseIMTime = AppUsageStreamGenerator.getLatestUseIMTime();
-//        typingTime = MobileAccessibilityService.getTypingTime();
-//        Log.d(TAG, ">> typing time >> " + ScheduleAndSampleManager.getTimeString(typingTime));
-//        Log.d(TAG, ">> latest use IM App time >> " + ScheduleAndSampleManager.getTimeString(latestUseIMTime));
-//
-//        // second
-//        typingTime = (currentTime - typingTime) / 1000;
-//        latestUseIMTime = (currentTime - latestUseIMTime) / 1000;
-//
-//        if (latestUseIMTime <= 60) { // < 1 min // 60-100
-//            // 區間: 40 20 15 12 6 6 /
-//            if (typingTime <= 60) return (int) (Math.random()*16 + 85); // 85-100 // < 1 min
-//            else if (typingTime <= 300) return (int) (Math.random()*11 + 75); // 75-85
-//            else if (typingTime <= 600) return (int) (Math.random()*6 + 70); // 70-75
-//            else if (typingTime <= 1800) return (int) (Math.random()*6 + 65); // 65-70
-//            else if (typingTime <= 3600) return (int) (Math.random()*3 + 63); // 63-65
-//            else return (int) (Math.random()*3 + 60); // 60-62
-//        } else if (latestUseIMTime <= 300) { // < 5 min // 40-60
-//            if (typingTime <= 60) return (int) (Math.random()*8 + 53); // 53-60 // < 1 min
-//            else if (typingTime <= 300) return (int) (Math.random()*4 + 50); // 50-53
-//            else if (typingTime <= 600) return (int) (Math.random()*4 + 47); // 47-50
-//            else if (typingTime <= 1800) return (int) (Math.random()*3 + 45); // 45-47
-//            else if (typingTime <= 3600) return (int) (Math.random()*3 + 43); // 43-45
-//            else return (int) (Math.random()*3 + 40); // 40-42
-//        } else if (latestUseIMTime <= 600) { // < 10 min // 25-40
-//            if (typingTime <= 60) return (int) (Math.random()*6 + 35); // 35-40 // < 1 min
-//            else if (typingTime <= 300) return (int) (Math.random()*4 + 32); // 32-35
-//            else if (typingTime <= 600) return (int) (Math.random()*3 + 30); // 30-32
-//            else if (typingTime <= 1800) return (int) (Math.random()*3 + 28); // 28-30
-////            else if (typingTime <= 3600) return (int) (Math.random()* + ); // 83-100
-//            else return (int) (Math.random()*4 + 25); // 25-28
-//        } else if (latestUseIMTime <= 1800) { // < 30 min // 12-25
-//            if (typingTime <= 60) return (int) (Math.random()*6 + 20); // 20-25 // < 1 min
-//            else if (typingTime <= 300) return (int) (Math.random()*4 + 17); // 17-20
-//            else if (typingTime <= 600) return (int) (Math.random()*3 + 15); // 15-17
-////            else if (typingTime <= 1800) return (int) (Math.random()* + ); // 83-100
-//            else return (int) (Math.random()*3 + 12); // 12-14
-//        } else if (latestUseIMTime <= 3600) { // < 60 min // 6-12
-//            if (typingTime <= 60) return (int) (Math.random()*3 + 10); // 10-12 // < 1 min
-//            else if (typingTime <= 300) return (int) (Math.random()*3 + 8); // 8-10
-////            else if (typingTime <= 600) return (int) (Math.random()* + ); // 83-100
-//            else return (int) (Math.random()*2 + 6); // 6-7
-//        } else { // 0-6
-//            return (int) (Math.random()*7); // 0-6
-//        }
-//    }
-
     private int getScreenStatus() {
         long currentTime = ScheduleAndSampleManager.getCurrentTimeInMillis();
         screenInteractiveTime = AppUsageStreamGenerator.getScreenInteractiveTime();
@@ -552,7 +476,7 @@ public class BackgroundService extends Service {
     private JSONObject getDataToServer() {
         JSONObject data = new JSONObject();
         try {
-            data.put("id", sharedPrefs.getString("id", "NA"));
+            data.put("user_id", sharedPrefs.getString("id", "NA"));
             data.put("group", sharedPrefs.getString("group", "NA"));
             data.put("afterEdit", sharedPrefs.getBoolean("afterEdit", false));
             if (afterEdit) {
@@ -669,7 +593,7 @@ public class BackgroundService extends Service {
             try {
                 noti.put("createdTime", userShowTime);
                 noti.put("createdTimeString", userShowTimeString);
-                noti.put("id", sharedPrefs.getString("id", "NA"));
+                noti.put("user_id", sharedPrefs.getString("id", "NA"));
                 noti.put("presentWay", userWay);
                 noti.put("statusForm", userStatusForm);
                 noti.put("statusText", userStatusText);

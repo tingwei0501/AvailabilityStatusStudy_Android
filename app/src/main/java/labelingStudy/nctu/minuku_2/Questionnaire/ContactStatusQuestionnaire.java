@@ -82,6 +82,7 @@ public class ContactStatusQuestionnaire extends Activity {
     private String selectedActivityOther = "";
     private String usingPurpose = "";
     private String communicatePurpose = "";
+    private String oneWordToContact = "";
 
     // 比較的方式
     private CircularProgressBar circularProgressBar1;
@@ -124,6 +125,9 @@ public class ContactStatusQuestionnaire extends Activity {
     private ConstraintLayout communicationPurposeLayout;
     private RadioGroup radioGroupCommunicatePurpose;
 
+    private TextView contactName2;
+    private EditText toContactEditText;
+
     private Button submit;
 
     @Override
@@ -137,6 +141,7 @@ public class ContactStatusQuestionnaire extends Activity {
 
         // 對方的狀態
         contactName = findViewById(R.id.contact_questionnaire_name);
+        contactName2 = findViewById(R.id.textView36);
         checkTime = findViewById(R.id.contact_questionnaire_time);
         contactRateText = findViewById(R.id.contact_questionnaire_rate);
         contactCircle = findViewById(R.id.contact_questionnaire_circle);
@@ -195,26 +200,6 @@ public class ContactStatusQuestionnaire extends Activity {
         contextWhatSpinner.setOnItemSelectedListener(new contextWhatSpinnerListener());
         contextWhatEditText = findViewById(R.id.contact_context_what_other);
         contextWhatEditText.setOnEditorActionListener(new contextWhatOtherListener());
-//        senderLocation1 = findViewById(R.id.sender_location1);
-//        senderLocation2 = findViewById(R.id.sender_location2);
-//        senderLocation3 = findViewById(R.id.sender_location3);
-//        senderLocation4 = findViewById(R.id.sender_location4);
-//        home = findViewById(R.id.sender_home);
-//        dorm = findViewById(R.id.sender_dorm);
-//        lab = findViewById(R.id.sender_lab);
-//        classroom = findViewById(R.id.sender_classroom);
-//        library = findViewById(R.id.sender_library);
-//        outdoor = findViewById(R.id.sender_outdoor);
-//        transportation = findViewById(R.id.sender_transportation);
-//        mall = findViewById(R.id.sender_mall);
-//        locationOther = findViewById(R.id.sender_location_other);
-//        locationOtherText = findViewById(R.id.sender_location_other_text);
-//        locationOtherText.setOnEditorActionListener(new locationEditTextListener());
-//
-//        senderLocation1.setOnCheckedChangeListener(new locationListener1());
-//        senderLocation2.setOnCheckedChangeListener(new locationListener2());
-//        senderLocation3.setOnCheckedChangeListener(new locationListener3());
-//        senderLocation4.setOnCheckedChangeListener(new locationListener4());
         // Q4: 請問你查看對方的狀態的目的是
         usingPurposeOther = findViewById(R.id.using_purpose_other);
         radioGroupUsingPurpose = findViewById(R.id.using_purpose);
@@ -227,6 +212,8 @@ public class ContactStatusQuestionnaire extends Activity {
         radioGroupCommunicatePurpose = findViewById(R.id.communication_purpose);
         radioGroupCommunicatePurpose.setOnCheckedChangeListener(new communicatePurposeListener());
 
+        toContactEditText = findViewById(R.id.toContact_editText);
+        toContactEditText.setOnEditorActionListener(new toContactListener());
         // submit button
         submit = findViewById(R.id.sender_questionnaire_submit);
         submit.setOnClickListener(submitListener);
@@ -292,6 +279,7 @@ public class ContactStatusQuestionnaire extends Activity {
         renderStatus(contactRateText, contactCircle, contactStatusFormText,
                 contactStatusForm, contactStatusRate, contactStatusWay,
                 contactStatusString, contactStatusColor);
+        contactName2.setText(contactId);
 
         renderCompareStatus();
     }
@@ -313,6 +301,7 @@ public class ContactStatusQuestionnaire extends Activity {
             selectedWhomOther = contextWhomEditText.getText().toString();
             selectedLocationOther = contextWhereEditText.getText().toString();
             selectedActivityOther = contextWhatEditText.getText().toString();
+            oneWordToContact = toContactEditText.getText().toString();
 
             JSONObject data = getDataToServer();
 
@@ -375,7 +364,7 @@ public class ContactStatusQuestionnaire extends Activity {
     private JSONObject getDataToServer() {
         JSONObject data = new JSONObject();
         try {
-            data.put("id", sharedPreferences.getString("id", ""));
+            data.put("user_id", sharedPreferences.getString("id", ""));
             data.put("contactId", contactId);
             data.put("contactStatusRate", contactStatusRate);
             data.put("checkContactStatusTime", checkContactStatusTime);
@@ -400,6 +389,8 @@ public class ContactStatusQuestionnaire extends Activity {
             data.put("selectedPreferWayA", selectedPreferWayA);
             data.put("selectedPreferWayB", selectedPreferWayB);
             data.put("selectedPreferWayC", selectedPreferWayC);
+
+            data.put("oneWordToContact", oneWordToContact);
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -545,58 +536,6 @@ public class ContactStatusQuestionnaire extends Activity {
         }
     }
 
-//    private class locationListener1 implements RadioGroup.OnCheckedChangeListener {
-//        @SuppressLint("LongLogTag")
-//        @Override
-//        public void onCheckedChanged(RadioGroup group, int checkedId) {
-////            Log.d(TAG, "checkedId: " + checkedId);
-//
-//            if (checkedId != -1) {
-//                if (home.isChecked()) {
-//                    selectedLocation = "home";
-//                    Log.d(TAG, (String) home.getText()); // 家裡
-//                } else if (dorm.isChecked()) {
-//                    selectedLocation = "dorm";
-//                } else if (lab.isChecked()) {
-//                    selectedLocation = "lab";
-//                }
-//                if (home.isChecked() || dorm.isChecked() || lab.isChecked()) {
-//                    locationOtherText.clearFocus();
-//                    senderLocation2.clearCheck();
-//                    senderLocation3.clearCheck();
-//                    senderLocation4.clearCheck();
-//                }
-//            }
-//        }
-//    }
-
-//    private class locationListener4 implements RadioGroup.OnCheckedChangeListener {
-//        @Override
-//        public void onCheckedChanged(RadioGroup group, int checkedId) {
-//            switch (checkedId) {
-//                case R.id.sender_location_other:
-//                    if (locationOther.isChecked()) {
-//                        locationOtherText.requestFocus();
-//                        // show keyboard
-//                        mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
-//                        senderLocation1.clearCheck();
-//                        senderLocation2.clearCheck();
-//                        senderLocation3.clearCheck();
-//                    }
-//                    break;
-//            }
-//        }
-//    }
-//
-//    private class locationEditTextListener implements EditText.OnEditorActionListener {
-//        @Override
-//        public boolean onEditorAction(final TextView v, final int actionId, final KeyEvent event) {
-//            mInputMethodManager.hideSoftInputFromWindow(ContactStatusQuestionnaire.this.getWindow().getDecorView().getRootView().getWindowToken(), 0);
-//            locationOtherText.clearFocus();
-//            return false;
-//        }
-//    }
-
     // 請問哪種呈現方式較能幫助你判斷「對方現在是否有空」?
     private class Q1aListener implements OnSeekChangeListener {
         @Override
@@ -710,6 +649,15 @@ public class ContactStatusQuestionnaire extends Activity {
         public void onStopTrackingTouch(IndicatorSeekBar seekBar) {
             Log.d(TAG, "pC: " + seekBar.getProgress());
             selectedPreferWayC = seekBar.getProgress();
+        }
+    }
+
+    private class toContactListener implements TextView.OnEditorActionListener {
+        @Override
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            textView.clearFocus();
+            mInputMethodManager.hideSoftInputFromWindow(ContactStatusQuestionnaire.this.getWindow().getDecorView().getRootView().getWindowToken(), 0);
+            return false;
         }
     }
 }

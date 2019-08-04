@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,6 +31,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+import com.warkiz.widget.IndicatorSeekBar;
+import com.warkiz.widget.OnSeekChangeListener;
+import com.warkiz.widget.SeekParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,6 +49,7 @@ import labelingStudy.nctu.minuku_2.service.BackgroundService;
 
 import static android.content.Context.MODE_PRIVATE;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.renderStatus;
+import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetRate;
 
 public class SelfEditQuestionnaire extends Activity {
     private static final String TAG = "SelfEditQuestionnaire";
@@ -62,17 +67,14 @@ public class SelfEditQuestionnaire extends Activity {
     private String selectedLocationOther = "";
     private String selectedActivity = "";
     private String selectedActivityOther = "";
+    private String idealStatusWay = "";
+    private String idealStatusForm = "";
+    private int idealStatusRate = -1;
+    private String idealStatusString = "";
     private String changeStatusOtherReason = "";
 //    private String notFitReason = "";
     private ArrayList<String> showToWhoArray = new ArrayList<>();
     private ArrayList<String> blockToWhoArray = new ArrayList<>();
-    // 原本的狀態
-//    private String originSelfStatusWay;
-//    private String originSelfStatusForm;
-//    private String originSelfStatusString;
-//    private int originSelfStatusRate;
-//    private int originSelfStatusColor;
-//    private long originShowTime;
     private int timePeriod;
 
     // show your status (更改過)
@@ -96,7 +98,17 @@ public class SelfEditQuestionnaire extends Activity {
     private EditText contextWhereEditText;
     private EditText contextWhatEditText;
     //
-    // Q2
+    // Q2 實際狀態
+    private boolean idealShowDifferent = true;
+    private CheckBox asChangedStatusCheckBox;
+    private Spinner waySpinnerIdeal;
+    private Spinner formSpinnerIdeal;
+    private Spinner textSpinnerIdeal;
+    private IndicatorSeekBar digitSeekBarIdeal;
+    private CircularProgressBar graphicCircleIdeal;
+    private SeekBar graphicSeekBarIdeal;
+    //
+    // Q3 修改原因
 //    private EditText notFitReasonEditText;
     private CheckBox notFitReasonLessBother;
     private CheckBox notFitReasonDonotBother;
@@ -162,7 +174,38 @@ public class SelfEditQuestionnaire extends Activity {
         contextWhatSpinner.setOnItemSelectedListener(new contextWhatSpinnerListener());
         contextWhatEditText = findViewById(R.id.self_edit_context_what_other);
         contextWhatEditText.setOnEditorActionListener(new contextWhatOtherListener());
-        // Q2
+        // Q2 實際狀態
+        asChangedStatusCheckBox = findViewById(R.id.self_edit_asIdealStatusCheckbox);
+        asChangedStatusCheckBox.setOnCheckedChangeListener(new asChangedStatusListener());
+        waySpinnerIdeal = findViewById(R.id.self_edit_way_spinner_ideal);
+        ArrayAdapter<CharSequence> wayLunchListShow = ArrayAdapter.createFromResource(SelfEditQuestionnaire.this,
+                R.array.showContactWay_withhint,
+                android.R.layout.simple_spinner_dropdown_item);
+        waySpinnerIdeal.setAdapter(wayLunchListShow);
+        waySpinnerIdeal.setOnItemSelectedListener(new presentWaySpinnerIdealListener());
+
+        formSpinnerIdeal = findViewById(R.id.self_edit_form_spinner_ideal);
+        ArrayAdapter<CharSequence> formLunchListShow = ArrayAdapter.createFromResource(SelfEditQuestionnaire.this,
+                R.array.showContactForm_withhint,
+                android.R.layout.simple_spinner_dropdown_item);
+        formSpinnerIdeal.setAdapter(formLunchListShow);
+        formSpinnerIdeal.setOnItemSelectedListener(new formSpinnerIdealListener());
+
+        textSpinnerIdeal = findViewById(R.id.self_edit_textStatus_spinner_ideal);
+        ArrayAdapter<CharSequence> textLunchListShow = ArrayAdapter.createFromResource(SelfEditQuestionnaire.this,
+                R.array.textStatus_withhint,
+                android.R.layout.simple_spinner_dropdown_item);
+        textSpinnerIdeal.setAdapter(textLunchListShow);
+        textSpinnerIdeal.setOnItemSelectedListener(new textStatusSpinnerIdealListener());
+
+        digitSeekBarIdeal = findViewById(R.id.self_edit_digitStatus_seekbar_ideal);
+        digitSeekBarIdeal.setOnSeekChangeListener(new digitSeekBarIdealListener());
+
+        graphicCircleIdeal = findViewById(R.id.self_edit_graphStatus_circle_ideal);
+        graphicCircleIdeal.setColor(Constants.DEFAULT_COLOR);
+        graphicSeekBarIdeal = findViewById(R.id.self_edit_graphStatus_circleSeekBar_ideal);
+        graphicSeekBarIdeal.setOnSeekBarChangeListener(new graphicSeekBarIdealListener());
+        // Q3
 //        notFitReasonEditText = findViewById(R.id.self_edit_change_reason_editText);
 //        notFitReasonEditText.setOnEditorActionListener(new notFitReasonListener());
         notFitReasonLessBother = findViewById(R.id.self_edit_notFitReason_less_bother);
@@ -218,14 +261,6 @@ public class SelfEditQuestionnaire extends Activity {
     protected void onStart() {
         super.onStart();
         Bundle bundle = getIntent().getExtras();
-        // original status from contactList
-//        originShowTime = bundle.getLong("updateTimeOrigin", 0);
-//        originSelfStatusRate = bundle.getInt("statusOrigin", 0);
-//        originSelfStatusWay = bundle.getString("presentWayOrigin", "NA");
-//        originSelfStatusForm = bundle.getString("statusFormOrigin", "NA");
-//        originSelfStatusColor = bundle.getInt("statusColorOrigin", -1);
-//        originSelfStatusString = bundle.getString("statusTextOrigin", "NA");
-        // 可以註解
 
         showTime = bundle.getLong("createdTime");
         selfStatusRate = bundle.getInt("status");
@@ -279,22 +314,12 @@ public class SelfEditQuestionnaire extends Activity {
                 try {
                     data.put("completeTime", currentTime);
                     data.put("completeTimeString", ScheduleAndSampleManager.getTimeString(currentTime));
-                    data.put("id", sharedPreferences.getString("id", ""));
-                    // 更新前的狀態
-//                    data.put("originPresentWay", originSelfStatusWay);
-//                    data.put("originStatusForm", originSelfStatusForm);
-//                    data.put("originCreatedTime", originShowTime);
-//                    data.put("originStatus", originSelfStatusRate);
-//                    data.put("originStatusText", originSelfStatusString);
-//                    data.put("originStatusColor", originSelfStatusColor);
-                    // 更新後: 只留timeStamp
-//                    data.put("presentWay", selfStatusWay);
-//                    data.put("statusForm", selfStatusForm);
+                    data.put("user_id", sharedPreferences.getString("id", ""));
+
                     data.put("createdTime", showTime);
+                    data.put("changeEventId", showTime); // use timestamp as primary key
                     data.put("createdTimeString", ScheduleAndSampleManager.getTimeString(showTime));
-//                    data.put("status", selfStatusRate);
-//                    data.put("statusText", selfStatusString);
-//                    data.put("statusColor", selfStatusColor);
+
                     // context information
                     data.put("selectedLocation", selectedLocation);
                     data.put("selectedLocationOther", selectedLocationOther);
@@ -349,20 +374,42 @@ public class SelfEditQuestionnaire extends Activity {
                     data.put("changeOtherReason", changeStatusOtherReason);
                     Log.d(TAG, "other reasons: " + changeStatusOtherReason);
                     //////////////////////////////////////////////////////////////
+                    // 存實際狀態
+                    if (idealShowDifferent) { // 沒有勾: 更改的不同於實際狀態，需要抓取spinner的值
+                        idealStatusWay = waySpinnerIdeal.getSelectedItem().toString();
+                        data.put("idealStatueWay", idealStatusWay);
+
+                        if (idealStatusWay.equals("文字顯示")) {
+                            if (!idealStatusString.equals("")) {
+                                idealStatusString = textSpinnerIdeal.getSelectedItem().toString();
+                                data.put("idealStatusForm", "NA");
+                                data.put("idealStatusString", idealStatusString);
+                                data.put("idealStatusRate", statusGetRate(idealStatusString));
+                                if (pass) pass = true;
+                            } else pass = false;
+                        } else {
+                            if (idealStatusRate != -1 && !idealStatusForm.equals("")) {
+                                Log.d(TAG, "idealStatusRate~~~ 0: " + idealStatusRate);
+                                idealStatusForm = formSpinnerIdeal.getSelectedItem().toString();
+                                if (idealStatusForm.equals(Constants.STATUS_FORM_DISTURB)) {
+                                    idealStatusRate = 100 - idealStatusRate;
+                                }
+                                Log.d(TAG, "idealStatusRate~~~ 1: " + idealStatusRate);
+                                data.put("idealStatusRate", idealStatusRate);
+                                data.put("idealStatusForm", idealStatusForm);
+                                data.put("idealStatusString", "NA");
+                                if (pass) pass = true;
+                            } else pass = false;
+                        }
+                        Log.d(TAG, "idealStatusForm~ " + idealStatusForm);
+                        Log.d(TAG, "idealStatusWay~ " + idealStatusWay);
+                        Log.d(TAG, "idealStatusRate~ " + idealStatusRate);
+                        Log.d(TAG, "idealStatusString~ " + idealStatusString);
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-//                sharedPreferences.edit()
-//                        .putString("way", selfStatusWay)
-//                        .putString("statusForm", selfStatusForm)
-//                        .putInt("status", selfStatusRate)
-//                        .putString("statusText", selfStatusString)
-//                        .putLong("updateTime", showTime)
-//                        .putInt("statusColor", selfStatusColor)
-//                        .putBoolean("afterEdit", true)
-//                        .commit();
             }
 
             if (pass) {
@@ -563,6 +610,142 @@ public class SelfEditQuestionnaire extends Activity {
             textView.clearFocus();
             mInputMethodManager.hideSoftInputFromWindow(SelfEditQuestionnaire.this.getWindow().getDecorView().getRootView().getWindowToken(), 0);
             return false;
+        }
+    }
+
+    private class asChangedStatusListener implements CompoundButton.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            if (b) {
+                idealShowDifferent = false;
+                reviseStatusOrNotShow(false);
+            } else {
+                // 與實際不同
+                idealShowDifferent = true;
+                reviseStatusOrNotShow(true);
+            }
+        }
+    }
+
+    private void reviseStatusOrNotShow(boolean revise) {
+        waySpinnerIdeal.setEnabled(revise);
+        textSpinnerIdeal.setEnabled(revise);
+        digitSeekBarIdeal.setEnabled(revise);
+        graphicSeekBarIdeal.setEnabled(revise);
+        formSpinnerIdeal.setEnabled(revise);
+    }
+
+    private class presentWaySpinnerIdealListener implements AdapterView.OnItemSelectedListener {
+
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            Log.d(TAG, "presentWaySpinnerIdeal position: " + i);
+            switch (i) {
+                case 0:
+                    idealStatusWay = "";
+                    break;
+                case 1:
+                    idealStatusWay = "文字顯示";
+                    textSpinnerIdeal.setVisibility(View.VISIBLE);
+                    formSpinnerIdeal.setVisibility(View.GONE);
+                    digitSeekBarIdeal.setVisibility(View.GONE);
+                    graphicCircleIdeal.setVisibility(View.GONE);
+                    graphicSeekBarIdeal.setVisibility(View.GONE);
+                    break;
+                case 2:
+                    idealStatusWay = "數字顯示";
+                    textSpinnerIdeal.setVisibility(View.GONE);
+                    formSpinnerIdeal.setVisibility(View.VISIBLE);
+                    digitSeekBarIdeal.setVisibility(View.VISIBLE);
+                    graphicCircleIdeal.setVisibility(View.GONE);
+                    graphicSeekBarIdeal.setVisibility(View.GONE);
+                    break;
+                case 3:
+                    idealStatusWay = "圖像顯示";
+                    textSpinnerIdeal.setVisibility(View.GONE);
+                    formSpinnerIdeal.setVisibility(View.VISIBLE);
+                    digitSeekBarIdeal.setVisibility(View.GONE);
+                    graphicCircleIdeal.setVisibility(View.VISIBLE);
+                    graphicSeekBarIdeal.setVisibility(View.VISIBLE);
+                    break;
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private class formSpinnerIdealListener implements AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            if (i == 0) {
+                idealStatusForm = "";
+            } else {
+                idealStatusForm = adapterView.getItemAtPosition(i).toString();
+                Log.d(TAG, "idealStatusForm: " + idealStatusForm);
+            }
+
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private class textStatusSpinnerIdealListener implements AdapterView.OnItemSelectedListener {
+        @Override
+        public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+            Log.d(TAG, "textStatusSpinnerIdeal position: " + position);
+            if (position == 0) idealStatusString = "";
+            else {
+                idealStatusString = adapterView.getItemAtPosition(position).toString();
+            }
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> adapterView) {
+
+        }
+    }
+
+    private class digitSeekBarIdealListener implements OnSeekChangeListener {
+        @Override
+        public void onSeeking(SeekParams seekParams) {
+
+        }
+
+        @Override
+        public void onStartTrackingTouch(IndicatorSeekBar indicatorSeekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(IndicatorSeekBar indicatorSeekBar) {
+            // 存值
+            idealStatusRate = indicatorSeekBar.getProgress();
+//            showStatusWay = Constants.PRESENT_IN_DIGIT;
+        }
+    }
+
+    private class graphicSeekBarIdealListener implements SeekBar.OnSeekBarChangeListener {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+            graphicCircleIdeal.setProgress(i);
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+            // 存值
+            idealStatusRate = seekBar.getProgress();
+//            showStatusWay = Constants.PRESENT_IN_GRAPHIC;
         }
     }
 }

@@ -710,126 +710,6 @@
                 app:layout_constraintStart_toStartOf="@+id/textView17"
                 app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-            <!--<RadioGroup-->
-                <!--android:id="@+id/sender_question1_a"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:orientation="horizontal"-->
-                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/textView10">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/a"-->
-                    <!--android:textSize="18dp" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1a_3"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="15dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/three" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1a_2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/two" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1a_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/one" />-->
-            <!--</RadioGroup>-->
-
-            <!--<RadioGroup-->
-                <!--android:id="@+id/sender_question1_b"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:orientation="horizontal"-->
-                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/sender_question1_a">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/b"-->
-                    <!--android:textSize="18dp" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1b_3"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="15dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/three" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1b_2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/two" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1b_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/one" />-->
-            <!--</RadioGroup>-->
-
-            <!--<RadioGroup-->
-                <!--android:id="@+id/sender_question1_c"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:orientation="horizontal"-->
-                <!--app:layout_constraintStart_toStartOf="@id/textView17"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/sender_question1_b">-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="@string/c"-->
-                    <!--android:textSize="18dp" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1c_3"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="15dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/three" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1c_2"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/two" />-->
-
-                <!--<RadioButton-->
-                    <!--android:id="@+id/sender_question1c_1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginLeft="5dp"-->
-                    <!--android:layout_marginRight="5dp"-->
-                    <!--android:text="@string/one" />-->
-            <!--</RadioGroup>-->
-
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="300dp"
@@ -1018,15 +898,6 @@
                 app:layout_constraintTop_toTopOf="@+id/layout2C" />
 
 
-
-
-
-
-
-
-
-
-
             <!--<android.support.constraint.ConstraintLayout-->
                 <!--android:id="@+id/preferLayoutA"-->
                 <!--android:layout_width="wrap_content"-->
@@ -1126,7 +997,46 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.505"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toContact_editText" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/to_contact1"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/textView18"
                 app:layout_constraintTop_toBottomOf="@+id/layout2C" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="TextView"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintStart_toEndOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:text="@string/to_contact2"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView16"
+                app:layout_constraintStart_toEndOf="@+id/textView36" />
+
+            <EditText
+                android:id="@+id/toContact_editText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:singleLine="true"
+                android:background="@drawable/bg_edittext"
+                app:layout_constraintStart_toStartOf="@+id/textView16"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

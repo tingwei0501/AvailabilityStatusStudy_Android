@@ -45,6 +45,7 @@ import labelingStudy.nctu.minuku.config.Constants;
 import labelingStudy.nctu.minuku_2.Questionnaire.SelfEditQuestionnaire;
 import labelingStudy.nctu.minuku_2.service.BackgroundService;
 
+import static labelingStudy.nctu.minuku_2.manager.renderManager.randomStatusForm;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.rateGetText;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetRate;
 
@@ -163,26 +164,29 @@ public class EditProfilePage extends Activity {
             bundle.putInt("timePeriod", t);
             Log.d(TAG, "time period: " + t);
             try {
-                data.put("id", sharedPreferences.getString("id", "NA"));
+                data.put("user_id", sharedPreferences.getString("id", "NA"));
+                data.put("id", currentTime); // use Questionnaire to query dump data id(self edit data)
                 data.put("group", sharedPreferences.getString("group", "NA"));
                 data.put("createdTime", currentTime);
                 data.put("createdTimeString", ScheduleAndSampleManager.getTimeString(currentTime));
                 data.put("timePeriod", t);
                 data.put("presentWay", selectedPresentWay);
+                data.put("afterEdit", true);
                 sharedPreferences.edit().putString("way", selectedPresentWay).commit();
                 if (selectedPresentWay.equals("text") && !selectedTextStatus.equals("")) {
-                    data.put("statusForm", "NA");
+                    String randomForm = randomStatusForm();
+                    data.put("statusForm", randomForm);
                     data.put("statusText", selectedTextStatus);
                     data.put("status", statusGetRate(selectedTextStatus));
-                    data.put("statusColor", -1);
+                    data.put("statusColor", Constants.DEFAULT_COLOR);
 
-                    bundle.putString("statusForm", "NA");
+                    bundle.putString("statusForm", randomForm);
                     bundle.putInt("status", statusGetRate(selectedTextStatus));
                     bundle.putString("statusText", selectedTextStatus);
-                    bundle.putInt("statusColor", -1);
+                    bundle.putInt("statusColor", Constants.DEFAULT_COLOR);
                     // 改狀態
                     sharedPreferences.edit()
-                            .putString("statusForm", "NA")
+                            .putString("statusForm", randomForm)
                             .putInt("status", statusGetRate(selectedTextStatus))
                             .putString("statusText", selectedTextStatus)
                             .putLong("updateTime", currentTime)
@@ -203,7 +207,7 @@ public class EditProfilePage extends Activity {
                         bundle.putInt("status", selectedStatusRate);
                         bundle.putString("statusText", rateGetText(selectedStatusRate));
                         if (selectedPresentWay.equals("digit")) {
-                            data.put("statusColor", -1);
+                            data.put("statusColor", Constants.DEFAULT_COLOR);
                             bundle.putInt("statusColor", -1);
                         } else if (selectedPresentWay.equals("graphic")){
                             data.put("statusColor", selectedColor);
@@ -460,7 +464,7 @@ public class EditProfilePage extends Activity {
         private void initGraphicTab(View view) {
             editPage_graphic_form = view.findViewById(R.id.editPage_form_graphic);
             ArrayAdapter<CharSequence> graphicFormLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-                    R.array.showContactForm_withhint,
+                    R.array.editPage_showContactForm_withhint,
                     android.R.layout.simple_spinner_dropdown_item);
             editPage_graphic_form.setAdapter(graphicFormLunchList);
             editPage_graphic_form.setOnItemSelectedListener(new graphicFormSpinnerListener());
@@ -505,7 +509,7 @@ public class EditProfilePage extends Activity {
         private void initDigitTab(View view) {
             editPage_digit_form = view.findViewById(R.id.editPage_form_digit);
             ArrayAdapter<CharSequence> digitFormLunchList = ArrayAdapter.createFromResource(EditProfilePage.this,
-                    R.array.showContactForm_withhint,
+                    R.array.editPage_showContactForm_withhint,
                     android.R.layout.simple_spinner_dropdown_item);
             editPage_digit_form.setAdapter(digitFormLunchList);
             editPage_digit_form.setOnItemSelectedListener(new digitFormSpinnerListener());

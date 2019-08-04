@@ -47,6 +47,7 @@ import labelingStudy.nctu.minuku_2.R;
 import labelingStudy.nctu.minuku_2.service.BackgroundService;
 
 import static labelingStudy.nctu.minuku_2.manager.renderManager.formGetIndex;
+import static labelingStudy.nctu.minuku_2.manager.renderManager.randomStatusForm;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.rateGetText;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.renderStatus;
 import static labelingStudy.nctu.minuku_2.manager.renderManager.statusGetIndex;
@@ -376,7 +377,7 @@ public class SelfQuestionnaire extends Activity {
                 (!selectedLocation.equals("") || !selectedLocationOther.equals("")) &&
                 (!selectedActivity.equals("") || !selectedActivityOther.equals(""))) {
                 try {
-                    data.put("id", sharedPreferences.getString("id", ""));
+                    data.put("user_id", sharedPreferences.getString("id", ""));
                     data.put("createdTime", showTime);
                     data.put("createdTimeString", ScheduleAndSampleManager.getTimeString(showTime));
                     data.put("completeTimeString", ScheduleAndSampleManager.getTimeString(currentTime));
@@ -451,11 +452,11 @@ public class SelfQuestionnaire extends Activity {
 
                             sharedPreferences.edit()
                                     .putString("way", "text")
-                                    .putString("statusForm", "NA")
+                                    .putString("statusForm", randomStatusForm())  //TODO: 7/20 改 測試Contact Questionnaire會不會呈現"NA"
                                     .putInt("status", statusGetRate(showStatusString))
                                     .putString("statusText", showStatusString)
                                     .putLong("updateTime", currentTime)
-                                    .putInt("statusColor", -1)
+                                    .putInt("statusColor", Constants.DEFAULT_COLOR)
                                     .commit();
                             // 確保前面有通過，才能給true //
                             if (pass) pass = true;
@@ -528,7 +529,7 @@ public class SelfQuestionnaire extends Activity {
                     if (idealStatueWay.equals("文字顯示")) {
                         sharedPreferences.edit()
                                 .putString("way", "text")
-                                .putString("statusForm", "NA")
+                                .putString("statusForm", randomStatusForm())  //TODO: 7/20 改
                                 .putInt("status", statusGetRate(idealStatusString))
                                 .putString("statusText", idealStatusString)
                                 .putLong("updateTime", currentTime)
@@ -587,7 +588,7 @@ public class SelfQuestionnaire extends Activity {
                                         // 填問卷後，暫時不改狀態(5 min)
                                         BackgroundService.isHandleAfterEdit = true;
                                         BackgroundService.afterEditTimePeriod = 5;
-                                        sharedPreferences.edit().putBoolean("afterEdit", true);
+                                        sharedPreferences.edit().putBoolean("afterEdit", true).commit();
                                         Intent intent = new Intent();
                                         intent.setClass(SelfQuestionnaire.this, ContactList.class);
                                         Toast.makeText(SelfQuestionnaire.this,
@@ -621,20 +622,12 @@ public class SelfQuestionnaire extends Activity {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             if (asIdealStatusCheckBox.isChecked()) {
-//                showStatusForm = formSpinnerIdeal.getSelectedItem().toString();
-//                showStatusWay = waySpinnerIdeal.getSelectedItem().toString();
-//                showStatusRate = idealStatusRate;
-//                showStatusString = idealStatusString;
                 idealShowDifferent = false;
-
                 showStatusDifferentReasonLayout.setVisibility(View.GONE);
                 reviseStatusOrNotShow(false);
             } else {
                 // 與實際不同
                 idealShowDifferent = true;
-//                showStatusForm = "";
-//                showStatusWay = "";
-//                showStatusString = "";
                 reviseStatusOrNotShow(true);
                 showStatusDifferentReasonLayout.setVisibility(View.VISIBLE);
             }
@@ -647,20 +640,6 @@ public class SelfQuestionnaire extends Activity {
         digitSeekBarShow.setEnabled(revise);
         graphicSeekBarShow.setEnabled(revise);
         formSpinnerShow.setEnabled(revise);
-    }
-
-    private void checkShowDifferentQuestion() {
-        Log.d(TAG, "!!!!!in check!!!!!");
-
-        if (!idealStatueWay.equals(showStatusWay)) {
-            idealShowDifferent = true;
-        }
-
-        if (idealShowDifferent) {
-            showStatusDifferentReasonLayout.setVisibility(View.VISIBLE);
-        } else {
-            showStatusDifferentReasonLayout.setVisibility(View.GONE);
-        }
     }
 
     // Ideal
@@ -695,7 +674,6 @@ public class SelfQuestionnaire extends Activity {
                     graphicSeekBarIdeal.setVisibility(View.VISIBLE);
                     break;
             }
-//            checkShowDifferentQuestion();
         }
 
         @Override
@@ -708,7 +686,6 @@ public class SelfQuestionnaire extends Activity {
         public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
             Log.d(TAG, "textStatusSpinnerIdeal position: " + position);
             idealStatusString = textSpinnerIdeal.getSelectedItem().toString();
-//            idealStatueWay = Constants.PRESENT_IN_TEXT;
         }
 
         @Override
@@ -736,8 +713,6 @@ public class SelfQuestionnaire extends Activity {
             } else {
                 idealStatusRate = indicatorSeekBar.getProgress();
             }
-
-//            idealStatueWay = Constants.PRESENT_IN_DIGIT;
         }
     }
 
@@ -760,7 +735,6 @@ public class SelfQuestionnaire extends Activity {
             } else {
                 idealStatusRate = seekBar.getProgress();
             }
-//            idealStatueWay = Constants.PRESENT_IN_GRAPHIC;
         }
     }
 
@@ -799,7 +773,6 @@ public class SelfQuestionnaire extends Activity {
                     graphicSeekBarShow.setVisibility(View.VISIBLE);
                     break;
             }
-//            checkShowDifferentQuestion();
         }
 
         @Override

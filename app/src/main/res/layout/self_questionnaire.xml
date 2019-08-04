@@ -486,15 +486,6 @@
                     app:layout_constraintHorizontal_bias="0.068"
                     app:layout_constraintStart_toEndOf="@+id/graphStatus_circle_show"
                     app:layout_constraintTop_toTopOf="@+id/textStatus_spinner_show" />
-
-                <!--<View-->
-                <!--android:id="@+id/view_show"-->
-                <!--android:layout_width="313dp"-->
-                <!--android:layout_height="100dp"-->
-                <!--android:layout_marginTop="8dp"-->
-                <!--android:clickable="false"-->
-                <!--app:layout_constraintStart_toStartOf="@+id/statusOriginalCheckbox_show"-->
-                <!--app:layout_constraintTop_toBottomOf="@+id/statusOriginalCheckbox_show" />-->
             </android.support.constraint.ConstraintLayout>
             <!---->
 
@@ -621,10 +612,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/self_show_to_who"
                     android:textSize="16sp" />
+
                 <ListView
                     android:id="@+id/self_showToWho_list"
                     android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="8dp" />
                 <EditText
                     android:id="@+id/self_showToWho_other"
@@ -650,10 +642,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/self_block_to_who"
                     android:textSize="16sp" />
+
                 <ListView
                     android:id="@+id/self_blockToWho_list"
                     android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_height="150dp"
                     android:layout_marginTop="8dp" />
                 <EditText
                     android:id="@+id/self_blockToWho_other"

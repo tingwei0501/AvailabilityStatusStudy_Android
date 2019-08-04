@@ -170,11 +170,12 @@
 
     <!-- self edit Questionnaire start -->
     <string name="self_edit_question_title">你的狀態為</string>
-    <string name="self_edit_location_question">1. 請問你主要的地點在哪裡?</string>
     <string name="self_edit_context_information_title">1. 請描述你目前主要的情境</string>
-    <string name="self_edit_notFitReason">2. 請問你改變呈現狀態的原因是?</string>
-    <string name="self_edit_timePeriod_question1">3. 請問你改變狀態持續</string>
-    <string name="self_edit_timePeriod_question2">的原因是?</string>
+    <!--<string name="self_edit_idealStatus">2. 請問你覺得當時你</string>-->
+    <string name="asChanged">同修改後狀態</string>
+    <string name="self_edit_notFitReason">3. 請問你改變呈現狀態的原因是?</string>
+    <!--<string name="self_edit_timePeriod_question1">3. 請問你改變狀態持續</string>-->
+    <!--<string name="self_edit_timePeriod_question2">的原因是?</string>-->
     <string name="self_edit_show_to_who">4. 你有限定你的狀態只想給哪些聯絡人看到嗎?\n沒有則不用勾選 </string>
     <string name="self_edit_block_to_who">5. 你的狀態有不想給誰看到嗎? </string>
     <string name="self_edit_describe_your_situation">5. 請用一句話形容你現在的情境(狀態)</string>
@@ -271,21 +272,14 @@
     <string name="sender_status_question_title2">的狀態為</string>
     <string name="sender_question_title">假設對方的狀態呈現方式如下</string>
     <!-- Question1 start -->
-    <!--<string name="sender_question1">> 請問哪種呈現方式較能幫助你判斷\n「對方現在有空或是沒空」?</string>-->
     <string name="sender_question1">4. 請你根據能幫助你判斷「對方現在有空或是沒空」給予排序評分</string>
     <string name="sender_question1_description">最能幫助你的給3分，依序給2分及1分(若覺得相同可給同分)</string>
     <string name="a">A</string>
     <string name="b">B</string>
     <string name="c">C</string>
-    <!--<string name="three">3</string>-->
-    <!--<string name="two">2</string>-->
-    <!--<string name="one">1</string>-->
-    <!--<string name="both_ab">兩者皆可以</string>-->
-    <!--<string name="neither_ab">兩者皆不行</string>-->
     <!-- Question1 end -->
 
     <!-- Question2 start -->
-    <!--<string name="sender_question2">5. 請問哪種能幫助你判斷「現在傳訊息給對方是否會打擾到他」?</string>-->
     <string name="sender_question2">5. 你比較想要看到哪種呈現方式?\n請排序評分</string>
     <string name="sender_question2_description">最想看到的給3分，依序給2分及1分(若覺得相同可給同分)</string>
     <!-- Question2 end -->
@@ -308,5 +302,9 @@
     <string name="short_answer">僅需要對方簡短的回覆</string>
     <string name="long_time">要長時間與他溝通(聊天、討論...)</string>
     <!-- Question5: want to communicate end -->
+    <!-- Q6 -->
+    <string name="to_contact1">有沒有想要對</string>
+    <string name="to_contact2">說的話</string>
+
 
 </resources>

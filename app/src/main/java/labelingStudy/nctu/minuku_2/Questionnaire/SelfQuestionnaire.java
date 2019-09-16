@@ -71,7 +71,7 @@ public class SelfQuestionnaire extends Activity {
     private String selectedLocationOther = "";
     private String selectedActivity = "";
     private String selectedActivityOther = "";
-    private String idealStatueWay;
+    private String idealStatusWay;
     private String showStatusWay = "";
     private String idealStatusForm = "";
     private String showStatusForm = "";
@@ -347,10 +347,10 @@ public class SelfQuestionnaire extends Activity {
                 graphicSeekBarIdeal.setProgress(showRate);
                 idealStatusForm = selfStatusForm;
             }
-            idealStatueWay = selfStatusWay;
+            idealStatusWay = selfStatusWay;
             idealStatusString = selfStatusString;
             idealStatusRate = selfStatusRate;
-            Log.d(TAG, "onStart idealStatueWay: " + idealStatueWay);
+            Log.d(TAG, "onStart idealStatusWay: " + idealStatusWay);
             Log.d(TAG, "onStart idealStatusRate: " + idealStatusRate);
         }
     }
@@ -417,10 +417,10 @@ public class SelfQuestionnaire extends Activity {
                 }
             }
             try {
-                idealStatueWay = waySpinnerIdeal.getSelectedItem().toString();
-                data.put("idealStatueWay", idealStatueWay);
+                idealStatusWay = waySpinnerIdeal.getSelectedItem().toString();
+                data.put("idealStatusWay", idealStatusWay);
                 // ideal
-                if (idealStatueWay.equals("文字顯示")) {
+                if (idealStatusWay.equals("文字顯示")) {
                     idealStatusString = textSpinnerIdeal.getSelectedItem().toString();
                     data.put("idealStatusForm", "NA");
                     data.put("idealStatusString", idealStatusString);
@@ -432,7 +432,7 @@ public class SelfQuestionnaire extends Activity {
                     data.put("idealStatusString", rateGetText(idealStatusRate));
                     data.put("idealStatusRate", idealStatusRate);
                 }
-                Log.d(TAG, ">>1>> idealStatueWay: " + idealStatueWay);
+                Log.d(TAG, ">>1>> idealStatusWay: " + idealStatusWay);
                 Log.d(TAG, ">>1>> idealStatusForm: " + idealStatusForm);
                 Log.d(TAG, ">>1>> idealStatusRate: " + idealStatusRate);
                 Log.d(TAG, ">>1>> idealStatusString: " + idealStatusString);
@@ -526,7 +526,7 @@ public class SelfQuestionnaire extends Activity {
                     data.put("showStatusDifferentReasons", showStatusDifferentReasonArr);
                 } else {
                     // 直接顯示ideal的狀態
-                    if (idealStatueWay.equals("文字顯示")) {
+                    if (idealStatusWay.equals("文字顯示")) {
                         sharedPreferences.edit()
                                 .putString("way", "text")
                                 .putString("statusForm", randomStatusForm())  //TODO: 7/20 改
@@ -536,7 +536,7 @@ public class SelfQuestionnaire extends Activity {
                                 .putInt("statusColor", -1)
                                 .commit();
                     } else {
-                        if (idealStatueWay.equals("數字顯示")) {
+                        if (idealStatusWay.equals("數字顯示")) {
                             sharedPreferences.edit()
                                     .putString("way", "digit")
                                     .commit();
@@ -553,7 +553,7 @@ public class SelfQuestionnaire extends Activity {
                                 .putInt("statusColor", Constants.DEFAULT_COLOR)
                                 .commit();
                     }
-                    Log.d(TAG, ">>2>> idealStatueWay: " + idealStatueWay);
+                    Log.d(TAG, ">>2>> idealStatusWay: " + idealStatusWay);
                     Log.d(TAG, ">>2>> idealStatusForm: " + idealStatusForm);
                     Log.d(TAG, ">>2>> idealStatusRate: " + idealStatusRate);
                     Log.d(TAG, ">>2>> idealStatusString: " + idealStatusString);
@@ -650,7 +650,7 @@ public class SelfQuestionnaire extends Activity {
             Log.d(TAG, "presentWaySpinnerIdeal position: " + position);
             switch (position) {
                 case 0: // 文字
-                    idealStatueWay = "文字顯示";
+                    idealStatusWay = "文字顯示";
                     textSpinnerIdeal.setVisibility(View.VISIBLE);
                     formSpinnerIdeal.setVisibility(View.GONE);
                     digitSeekBarIdeal.setVisibility(View.GONE);
@@ -658,7 +658,7 @@ public class SelfQuestionnaire extends Activity {
                     graphicSeekBarIdeal.setVisibility(View.GONE);
                     break;
                 case 1: // 數字
-                    idealStatueWay = "數字顯示";
+                    idealStatusWay = "數字顯示";
                     textSpinnerIdeal.setVisibility(View.GONE);
                     digitSeekBarIdeal.setVisibility(View.VISIBLE);
                     formSpinnerIdeal.setVisibility(View.VISIBLE);
@@ -666,7 +666,7 @@ public class SelfQuestionnaire extends Activity {
                     graphicSeekBarIdeal.setVisibility(View.GONE);
                     break;
                 case 2:
-                    idealStatueWay = "圖像顯示";
+                    idealStatusWay = "圖像顯示";
                     textSpinnerIdeal.setVisibility(View.GONE);
                     digitSeekBarIdeal.setVisibility(View.GONE);
                     formSpinnerIdeal.setVisibility(View.VISIBLE);
@@ -989,7 +989,7 @@ public class SelfQuestionnaire extends Activity {
         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
             idealStatusForm = adapterView.getItemAtPosition(i).toString();
             if (idealStatusForm.equals(Constants.STATUS_FORM_DISTURB)) {
-                if (idealStatueWay.equals("數字顯示")) {
+                if (idealStatusWay.equals("數字顯示")) {
                     idealStatusRate = 100 - digitSeekBarIdeal.getProgress();
                 } else {
                     idealStatusRate = 100 - graphicSeekBarIdeal.getProgress();

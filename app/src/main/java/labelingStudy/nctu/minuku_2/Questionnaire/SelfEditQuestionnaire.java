@@ -377,7 +377,7 @@ public class SelfEditQuestionnaire extends Activity {
                     // 存實際狀態
                     if (idealShowDifferent) { // 沒有勾: 更改的不同於實際狀態，需要抓取spinner的值
                         idealStatusWay = waySpinnerIdeal.getSelectedItem().toString();
-                        data.put("idealStatueWay", idealStatusWay);
+                        data.put("idealStatusWay", idealStatusWay);
 
                         if (idealStatusWay.equals("文字顯示")) {
                             if (!idealStatusString.equals("")) {

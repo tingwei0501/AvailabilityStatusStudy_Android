@@ -18,6 +18,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -81,6 +83,7 @@ public class SelfQuestionnaire extends Activity {
     private String showStatusString = ""; // text
     private String idealStatusString = "";
     private String showDifferentReason = "";
+    private String changeStatusOrNot = "";
     private ArrayList<String> showToWhoArray = new ArrayList<>();
     private ArrayList<String> blockToWhoArray = new ArrayList<>();
 
@@ -134,6 +137,11 @@ public class SelfQuestionnaire extends Activity {
     private CheckBox showStatusDifferentOther;
     private EditText showStatusDifferentOtherText;
     //
+    // +Q: 要不要直接改狀態
+    private RadioGroup changeStatus;
+    private RadioButton change;
+    private RadioButton notChange;
+    //
     // Q7 特別想給誰看到嗎 & Q8 不想給誰看到
     private ArrayList<String> contactList;
     private ListView showToWho;
@@ -141,8 +149,6 @@ public class SelfQuestionnaire extends Activity {
     private ListView blockToWho;
     private EditText blockToWhoOtherEditText;
     //
-    // Q9: 一句話形容
-//    private EditText mySituationEditText;
 
     private Button submit;
 
@@ -264,6 +270,11 @@ public class SelfQuestionnaire extends Activity {
         showStatusDifferentOther = findViewById(R.id.showDifferent_other);
         showStatusDifferentOtherText = findViewById(R.id.showDifferent_otherText);
         showStatusDifferentOtherText.setOnEditorActionListener(new showStatusDifferentEditListener());
+        // +Q
+        changeStatus = findViewById(R.id.changeStatus_RadioGroup);
+        changeStatus.setOnCheckedChangeListener(new changeStatusOrNotListener());
+        change = findViewById(R.id.change_radioButton);
+        notChange = findViewById(R.id.notChange_radioButton);
         // Q7 Q8
         initContact();
         showToWhoOtherEditText = findViewById(R.id.self_showToWho_other);
@@ -375,7 +386,8 @@ public class SelfQuestionnaire extends Activity {
 
             if ((!selectedWhom.equals("") || !selectedWhomOther.equals("")) &&
                 (!selectedLocation.equals("") || !selectedLocationOther.equals("")) &&
-                (!selectedActivity.equals("") || !selectedActivityOther.equals(""))) {
+                (!selectedActivity.equals("") || !selectedActivityOther.equals("")) &&
+                !changeStatusOrNot.equals("")) {
                 try {
                     data.put("user_id", sharedPreferences.getString("id", ""));
                     data.put("createdTime", showTime);
@@ -388,6 +400,8 @@ public class SelfQuestionnaire extends Activity {
                     data.put("selectedLocationOther", selectedLocationOther);
                     data.put("selectedActivity", selectedActivity);
                     data.put("selectedActivityOther", selectedActivityOther);
+                    data.put("changeStatusOrNot", changeStatusOrNot);
+                    Log.d(TAG, "changeStatusOrNot: "+changeStatusOrNot);
 
                     // 想要給誰看
                     if (showToWhoArray.size() != 0) {
@@ -450,14 +464,16 @@ public class SelfQuestionnaire extends Activity {
                             data.put("showStatusString", showStatusString);
                             data.put("showStatusRate", statusGetRate(showStatusString));
 
-                            sharedPreferences.edit()
-                                    .putString("way", "text")
-                                    .putString("statusForm", randomStatusForm())  //TODO: 7/20 改 測試Contact Questionnaire會不會呈現"NA"
-                                    .putInt("status", statusGetRate(showStatusString))
-                                    .putString("statusText", showStatusString)
-                                    .putLong("updateTime", currentTime)
-                                    .putInt("statusColor", Constants.DEFAULT_COLOR)
-                                    .commit();
+                            if (changeStatusOrNot.equals(Constants.CHANGE)) {
+                                sharedPreferences.edit()
+                                        .putString("way", "text")
+                                        .putString("statusForm", randomStatusForm())  //TODO: 7/20 改 測試Contact Questionnaire會不會呈現"NA"
+                                        .putInt("status", statusGetRate(showStatusString))
+                                        .putString("statusText", showStatusString)
+                                        .putLong("updateTime", currentTime)
+                                        .putInt("statusColor", Constants.DEFAULT_COLOR)
+                                        .commit();
+                            }
                             // 確保前面有通過，才能給true //
                             if (pass) pass = true;
                         } else pass = false;
@@ -469,24 +485,24 @@ public class SelfQuestionnaire extends Activity {
                                 showStatusRate = 100 - showStatusRate;
                             }
                             Log.d(TAG, "showStatusRate~~~ 1: " + showStatusRate);
-                            if (showStatusWay.equals("數字顯示")) {
-//                                showStatusRate = digitSeekBarShow.getProgress();
+                            if (changeStatusOrNot.equals(Constants.CHANGE)) {
+                                if (showStatusWay.equals("數字顯示")) {
+                                    sharedPreferences.edit()
+                                            .putString("way", "digit")
+                                            .commit();
+                                } else {
+                                    sharedPreferences.edit()
+                                            .putString("way", "graphic")
+                                            .commit();
+                                }
                                 sharedPreferences.edit()
-                                        .putString("way", "digit")
-                                        .commit();
-                            } else {
-//                                showStatusRate = graphicSeekBarShow.getProgress();
-                                sharedPreferences.edit()
-                                        .putString("way", "graphic")
+                                        .putString("statusForm", showStatusForm)
+                                        .putInt("status", showStatusRate)
+                                        .putString("statusText", rateGetText(showStatusRate))
+                                        .putLong("updateTime", currentTime)
+                                        .putInt("statusColor", Constants.DEFAULT_COLOR)
                                         .commit();
                             }
-                            sharedPreferences.edit()
-                                    .putString("statusForm", showStatusForm)
-                                    .putInt("status", showStatusRate)
-                                    .putString("statusText", rateGetText(showStatusRate))
-                                    .putLong("updateTime", currentTime)
-                                    .putInt("statusColor", Constants.DEFAULT_COLOR)
-                                    .commit();
                             if (pass) pass = true;
                             data.put("showStatusForm", showStatusForm);
                             data.put("showStatusString", rateGetText(showStatusRate));
@@ -504,6 +520,7 @@ public class SelfQuestionnaire extends Activity {
 //                        data.put("showDifferentReason", showDifferentReason);
 //                        if (pass) pass = true;
 //                    } else pass = false;
+
                     // save show different reasons: CheckBox
                     JSONArray showStatusDifferentReasonArr = new JSONArray();
                     CheckBox[] id = {showStatusDifferentLessBother, showStatusDifferentDonotBother,
@@ -526,32 +543,34 @@ public class SelfQuestionnaire extends Activity {
                     data.put("showStatusDifferentReasons", showStatusDifferentReasonArr);
                 } else {
                     // 直接顯示ideal的狀態
-                    if (idealStatusWay.equals("文字顯示")) {
-                        sharedPreferences.edit()
-                                .putString("way", "text")
-                                .putString("statusForm", randomStatusForm())  //TODO: 7/20 改
-                                .putInt("status", statusGetRate(idealStatusString))
-                                .putString("statusText", idealStatusString)
-                                .putLong("updateTime", currentTime)
-                                .putInt("statusColor", -1)
-                                .commit();
-                    } else {
-                        if (idealStatusWay.equals("數字顯示")) {
+                    if (changeStatusOrNot.equals(Constants.CHANGE)) {
+                        if (idealStatusWay.equals("文字顯示")) {
                             sharedPreferences.edit()
-                                    .putString("way", "digit")
+                                    .putString("way", "text")
+                                    .putString("statusForm", randomStatusForm())  //TODO: 7/20 改
+                                    .putInt("status", statusGetRate(idealStatusString))
+                                    .putString("statusText", idealStatusString)
+                                    .putLong("updateTime", currentTime)
+                                    .putInt("statusColor", -1)
                                     .commit();
                         } else {
+                            if (idealStatusWay.equals("數字顯示")) {
+                                sharedPreferences.edit()
+                                        .putString("way", "digit")
+                                        .commit();
+                            } else {
+                                sharedPreferences.edit()
+                                        .putString("way", "graphic")
+                                        .commit();
+                            }
                             sharedPreferences.edit()
-                                    .putString("way", "graphic")
+                                    .putString("statusForm", idealStatusForm)
+                                    .putInt("status", idealStatusRate)
+                                    .putString("statusText", rateGetText(idealStatusRate))
+                                    .putLong("updateTime", currentTime)
+                                    .putInt("statusColor", Constants.DEFAULT_COLOR)
                                     .commit();
                         }
-                        sharedPreferences.edit()
-                                .putString("statusForm", idealStatusForm)
-                                .putInt("status", idealStatusRate)
-                                .putString("statusText", rateGetText(idealStatusRate))
-                                .putLong("updateTime", currentTime)
-                                .putInt("statusColor", Constants.DEFAULT_COLOR)
-                                .commit();
                     }
                     Log.d(TAG, ">>2>> idealStatusWay: " + idealStatusWay);
                     Log.d(TAG, ">>2>> idealStatusForm: " + idealStatusForm);
@@ -1028,6 +1047,18 @@ public class SelfQuestionnaire extends Activity {
             textView.clearFocus();
             mInputMethodManager.hideSoftInputFromWindow(SelfQuestionnaire.this.getWindow().getDecorView().getRootView().getWindowToken(), 0);
             return false;
+        }
+    }
+
+    private class changeStatusOrNotListener implements RadioGroup.OnCheckedChangeListener {
+        @Override
+        public void onCheckedChanged(RadioGroup radioGroup, int i) {
+            if (change.isChecked()) {
+                changeStatusOrNot = "change";
+            } else if (notChange.isChecked()) {
+                changeStatusOrNot = "notChange";
+            }
+            Log.d(TAG, "changeStatusOrNot: "+changeStatusOrNot);
         }
     }
 }

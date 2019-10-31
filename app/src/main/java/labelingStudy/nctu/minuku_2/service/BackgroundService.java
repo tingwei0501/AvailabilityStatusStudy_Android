@@ -438,7 +438,7 @@ public class BackgroundService extends Service {
             /** For Partial Subject */
 
             /** For Main Subject */
-            if ((max-min) >= Constants.STATUS_THRESHOLD || userStatus < 20 || userStatus > 90) { // 25
+            if ((max-min) >= Constants.STATUS_THRESHOLD || userStatus < 20 || userStatus > 90) { // 22
                 Log.d(TAG, "in send Notification");
                 statusList.clear();
                 statusList = new ArrayList<>(Collections.nCopies(Constants.STATUS_CAPACITY, userStatus));

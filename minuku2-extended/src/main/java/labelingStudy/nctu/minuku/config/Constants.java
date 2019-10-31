@@ -183,6 +183,9 @@ public class Constants {
     public static final String STATUS_FORM_REPLY = "回覆率";
     public static final String STATUS_FORM_DISTURB = "干擾率";
 
+    public static final String CHANGE = "change";
+    public static final String NOT_CHANGE = "notChange";
+
     public static final int DEFAULT_COLOR = -13408615;
     public static final int PROGRESS_ANIMATION_RATE = 1500;
 }

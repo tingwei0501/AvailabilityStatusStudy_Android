@@ -6,13 +6,14 @@
         <item>讀書/寫作業</item>
         <item>上課/開會</item>
         <item>吃飯</item>
-        <item>睡覺/休息</item>
+        <item>睡覺</item>
         <item>運動</item>
         <item>上廁所</item>
         <item>洗澡</item>
         <item>玩遊戲</item>
         <item>看電視/看影片</item>
         <item>用電腦</item>
+        <item>聊天</item>
         <item>滑手機(消磨時間)</item>
         <item>移動中(交通工具)</item>
         <item>移動中(開車)</item>
@@ -27,7 +28,9 @@
         <item>宿舍/租屋處</item>
         <item>實驗室/辦公室</item>
         <item>教室</item>
+        <item>會議室</item>
         <item>圖書館</item>
+        <item>健身房</item>
         <item>室外</item>
         <item>餐廳</item>
         <item>交通工具裡</item>

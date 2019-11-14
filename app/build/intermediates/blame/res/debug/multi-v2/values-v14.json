@@ -1,0 +1,39 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\wizardpager-1.0.0.aar\\9a25b593a5ad4001978b216600138da2\\res\\values-v14\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "188",
+                        "endLines": "14",
+                        "endColumns": "12",
+                        "endOffsets": "771"
+                    },
+                    "to": {
+                        "startLines": "21",
+                        "startColumns": "4",
+                        "startOffsets": "1317",
+                        "endLines": "31",
+                        "endColumns": "12",
+                        "endOffsets": "1900"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c2f87ed88bb768f46a3ce4924ec8d316\\res\\values-v14\\values-v14.xml",
+                    "from": {
+                        "startLines": "2,7,8,9,15",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,331,402,485,895",
+                        "endLines": "6,7,8,14,20",
+                        "endColumns": "12,70,82,12,12",
+                        "endOffsets": "326,397,480,890,1312"
+                    }
+                }
+            ]
+        }
+    ]
+}

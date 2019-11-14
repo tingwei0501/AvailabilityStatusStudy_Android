@@ -239,9 +239,9 @@
     <string name="showDifferent_hide">不想讓別人知道我的狀態</string>
 
     <!-- Question: change status or not start -->
-    <string name="changeStatus_question">> 你想要直接更改你目前呈現的狀態嗎?</string>
-    <string name="changeStatus_change">好，更改為上述「想要呈現給聯絡人的狀態」</string>
-    <string name="changeStatus_noChange">不用更改</string>
+    <string name="changeStatus_question">> 你想要把上述「想要呈現給聯絡人的狀態」變成你目前的狀態嗎?</string>
+    <string name="changeStatus_change">是</string>
+    <string name="changeStatus_noChange">否</string>
     <!-- Question: change status or not end -->
 
     <string name="self_show_to_who">> 你有限定你的狀態只想給哪些聯絡人看到嗎?\n沒有則不用勾選 </string>

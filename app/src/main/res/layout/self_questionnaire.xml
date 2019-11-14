@@ -607,12 +607,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
-                app:layout_constraintStart_toStartOf="@+id/showStatusDifferentReasonLayout"
+                app:layout_constraintStart_toStartOf="@+id/statusShowOtherLayout"
                 app:layout_constraintTop_toBottomOf="@+id/showStatusDifferentReasonLayout">
 
                 <TextView
                     android:id="@+id/changeStatus_question"
-                    android:layout_width="wrap_content"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:text="@string/changeStatus_question"
                     android:textSize="16sp"

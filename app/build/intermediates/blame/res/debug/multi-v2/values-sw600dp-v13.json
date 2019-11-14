@@ -1,0 +1,79 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c2f87ed88bb768f46a3ce4924ec8d316\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "93,162,231,301,375,451,510,581",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "157,226,296,370,446,505,576,644"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\a5d70d896763362344f4bd9a2b014e77\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,185,256,328,386,444,550,614,677",
+                        "endLines": "2,3,4,5,6,7,8,9,10,14",
+                        "endColumns": "59,69,70,71,57,57,105,63,62,12",
+                        "endOffsets": "110,180,251,323,381,439,545,609,672,854"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "649,709,779,850,922,980,1038,1144,1338,1401",
+                        "endLines": "11,12,13,14,15,16,17,18,21,25",
+                        "endColumns": "59,69,70,71,57,57,105,63,62,12",
+                        "endOffsets": "704,774,845,917,975,1033,1139,1203,1396,1578"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\instabug-2.6.2.aar\\8d89834c769278b4f81dad42f6c0ced7\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,93",
+                        "endColumns": "37,56",
+                        "endOffsets": "88,145"
+                    },
+                    "to": {
+                        "startLines": "2,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,1208",
+                        "endColumns": "37,56",
+                        "endOffsets": "88,1260"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-23.0.0.aar\\0881a0f63d9dee65817a1eb5ded771b2\\res\\values-sw600dp\\values-sw600dp.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "282",
+                        "endColumns": "72",
+                        "endOffsets": "350"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "1265",
+                        "endColumns": "72",
+                        "endOffsets": "1333"
+                    }
+                }
+            ]
+        }
+    ]
+}

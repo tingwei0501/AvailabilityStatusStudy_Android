@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016.
+  ~
+  ~ DReflect and Minuku Libraries by Shriti Raj (shritir@umich.edu) and Neeraj Kumar(neerajk@uci.edu) is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+  ~ Based on a work at https://github.com/Shriti-UCI/Minuku-2.
+  ~
+  ~
+  ~ You are free to (only if you meet the terms mentioned below) :
+  ~
+  ~ Share — copy and redistribute the material in any medium or format
+  ~ Adapt — remix, transform, and build upon the material
+  ~
+  ~ The licensor cannot revoke these freedoms as long as you follow the license terms.
+  ~
+  ~ Under the following terms:
+  ~
+  ~ Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+  ~ NonCommercial — You may not use the material for commercial purposes.
+  ~ ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+  ~ No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="labelingStudy.nctu.minuku_2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="21"
+        android:targetSdkVersion="26" />
+
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" /> <!-- Optional permission for Analytics to run. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="labelingStudy.nctu.minuku_2.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="labelingStudy.nctu.minuku_2.permission.C2D_MESSAGE" />
+
+    <application
+        android:name="labelingStudy.nctu.minuku_2.MinukuApp"
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/muilab_icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+
+        <!-- API KEY FOR PLACES -->
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDNWjTqYe9J1Nvse0IbVLciBycQGouZtUQ" />
+        <!-- It would -->
+
+        <activity android:name="labelingStudy.nctu.minuku_2.controller.DeviceIdPage" />
+        <activity
+            android:name="labelingStudy.nctu.minuku_2.HomePage"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity android:name="labelingStudy.nctu.minuku_2.RegisterPage" />
+        <activity android:name="labelingStudy.nctu.minuku_2.LoginPage" />
+        <activity
+            android:name="labelingStudy.nctu.minuku_2.ContactList"
+            android:launchMode="singleTop" />
+        <activity android:name="labelingStudy.nctu.minuku_2.EditProfilePage" />
+        <activity android:name="labelingStudy.nctu.minuku_2.Questionnaire.SelfQuestionnaire" />
+        <activity android:name="labelingStudy.nctu.minuku_2.Questionnaire.ContactStatusQuestionnaire" />
+        <activity android:name="labelingStudy.nctu.minuku_2.Questionnaire.SelfEditQuestionnaire" />
+
+        <!-- <activity -->
+        <!-- android:name="labelingStudy.nctu.minuku_2.controller.Dispatch" -->
+        <!-- android:theme="@android:style/Theme.NoDisplay"> -->
+
+
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity
+            android:name="labelingStudy.nctu.minuku_2.MainActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Activities included from third party libraries -->
+        <activity android:name="com.desmond.squarecamera.CameraActivity" />
+
+        <service
+            android:name="labelingStudy.nctu.minuku_2.service.BackgroundService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name="labelingStudy.nctu.minuku.service.NotificationListenService"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="labelingStudy.nctu.minuku_2.BootCompleteReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="labelingStudy.nctu.minuku_2.Receiver.RestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="checkService" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- <activity android:name="labelingStudy.nctu.minuku_2.MainActivity" /> -->
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="7775757835d86d0c4fd4919bc7ed0c20248549c6" />
+
+        <service
+            android:name="labelingStudy.nctu.minuku.service.ActivityRecognitionService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+        <service
+            android:name="labelingStudy.nctu.minuku.service.MobileAccessibilityService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.desmond.squarecamera.RuntimePermissionActivity"
+            android:theme="@style/squarecamera__CameraFullScreenTheme.NoUI" >
+        </activity>
+
+        <meta-data
+            android:name="android.support.VERSION"
+            android:value="26.1.0" />
+
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver" />
+
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService" />
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService" />
+
+        <activity
+            android:name="com.instabug.library.InstabugFeedbackActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/InstabugSdkTheme"
+            android:windowSoftInputMode="adjustResize" />
+
+        <service android:name="com.instabug.library.InstabugSessionUploaderService" />
+        <service android:name="com.instabug.library.InstabugIssueUploaderService" />
+        <service android:name="com.instabug.library.InstabugMessageUploaderService" />
+        <service android:name="com.instabug.library.InstabugFeaturesFetcherService" />
+        <service android:name="com.instabug.library.gcm.InstabugGcmRegistrationIntentService" />
+
+        <receiver android:name="com.instabug.library.InstabugNetworkReceiver" >
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="com.crashlytics.android.CrashlyticsInitProvider"
+            android:authorities="labelingStudy.nctu.minuku_2.crashlyticsinitprovider"
+            android:exported="false"
+            android:initOrder="90" />
+
+        <activity
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--
+Service handling Google Sign-In user revocation. For apps that do not integrate with
+            Google Sign-In, this service will never be started.
+        -->
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+
+        <meta-data
+            android:name="android.arch.persistence.room.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+
+        <activity
+            android:name="com.google.android.gms.appinvite.PreviewActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppInvite.Preview" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.appinvite.ACTION_PREVIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.google.firebase.crash.internal.service.FirebaseCrashReceiverService"
+            android:process=":background_crash" />
+        <service
+            android:name="com.google.firebase.crash.internal.service.FirebaseCrashSenderService"
+            android:process=":background_crash" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.google.android.gms.tagmanager.TagManagerService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.tagmanager.TagManagerPreviewActivity"
+            android:noHistory="true" > <!-- optional, removes the previewActivity from the activity stack. -->
+            <intent-filter>
+                <data android:scheme="tagmanager.c.labelingStudy.nctu.minuku_2" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.google.android.gms.measurement.UPLOAD" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" /> <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity"
+            android:theme="@style/Theme.IAPTheme" />
+        <!--
+ FirebaseMessagingService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="labelingStudy.nctu.minuku_2" />
+            </intent-filter>
+        </receiver>
+        <!--
+ Internal (not exported) receiver used by the app to start its own exported services
+             without risk of being spoofed.
+        -->
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver"
+            android:exported="false" />
+        <!--
+ FirebaseInstanceIdService performs security checks at runtime,
+             no need for explicit permissions despite exported="true"
+        -->
+        <service
+            android:name="com.google.firebase.iid.FirebaseInstanceIdService"
+            android:exported="true" >
+            <intent-filter android:priority="-500" >
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="labelingStudy.nctu.minuku_2.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <meta-data
+            android:name="android.arch.persistence.db.framework.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+        <meta-data
+            android:name="android.arch.persistence.db.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+        <meta-data
+            android:name="android.arch.core.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+        <meta-data
+            android:name="android.arch.lifecycle.VERSION"
+            android:value="27.0.0-SNAPSHOT" />
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="labelingStudy.nctu.minuku_2.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>

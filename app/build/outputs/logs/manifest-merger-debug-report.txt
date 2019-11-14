@@ -1,0 +1,1182 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:23:1-57:12
+MERGED from [:minukucore] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minukucore\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:2:1-18:12
+MERGED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:17:1-31:12
+MERGED from [com.github.dkharrat.nexusdialog:nexusdialog:0.4.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\nexusdialog-0.4.0.aar\2cb638b21acbad85304cd05e8de25e10\AndroidManifest.xml:2:1-11:12
+MERGED from [me.itangqi.waveloadingview:library:0.3.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-0.3.5.aar\0cf4dba4b175eb2ff5b9546b81ccedb5\AndroidManifest.xml:2:1-17:12
+MERGED from [com.google.android.gms:play-services:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-9.2.1.aar\bb55f5c3cc9b860de4ef964e5a4276fd\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-cast:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-9.2.1.aar\2537b326cf7c56e684d7c628947af5c4\AndroidManifest.xml:16:1-20:12
+MERGED from [com.android.support:mediarouter-v7:23.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-23.0.0.aar\0881a0f63d9dee65817a1eb5ded771b2\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:17:1-31:12
+MERGED from [com.h6ah4i.android.compat:mulsellistprefcompat:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mulsellistprefcompat-1.0.0.aar\6455d5df2c7e64f288556329c71adea9\AndroidManifest.xml:2:1-11:12
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\346db6b1f04af5b0a6a24e442e356644\AndroidManifest.xml:2:1-11:12
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:2:1-36:12
+MERGED from [me.gujun.android.taggroup:library:1.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-1.4.aar\7ebbdcb64c92084466797bc95055db86\AndroidManifest.xml:2:1-10:12
+MERGED from [com.github.techfreak:wizardpager:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\wizardpager-1.0.0.aar\9a25b593a5ad4001978b216600138da2\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:cardview-v7:24.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\cardview-v7-24.0.0.aar\bf81226379e71b4558ac5d0b0aa8da6e\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-contextmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-contextmanager-9.2.1.aar\0ae595fbd899adbd4e06e42939093c1b\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-places:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-places-9.2.1.aar\3c61416351201c5d04b0e29f796bab8b\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-wallet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wallet-9.2.1.aar\4143acab34fa2a1b30f3fdc2abbfc8d3\AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:16:1-28:12
+MERGED from [com.android.support:multidex-instrumentation:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-instrumentation-1.0.2.aar\a6374709675463721c6fe29e0484f1dc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.vipulasri:timelineview:1.0.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\timelineview-1.0.5.aar\2ee285938a788b4cf37b6aab54abfea8\AndroidManifest.xml:2:1-17:12
+MERGED from [com.crashlytics.sdk.android:crashlytics-ndk:2.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-ndk-2.0.2.aar\5cebd9637ed06f7c050cef2bfb390b7e\AndroidManifest.xml:23:1-33:12
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:2:1-19:12
+MERGED from [com.google.firebase:firebase-core:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-core-9.2.1.aar\189eeef112409c753101d6279b8c6678\AndroidManifest.xml:2:1-6:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\b77e5b2f65781152d16b54202565c344\AndroidManifest.xml:2:1-11:12
+MERGED from [com.larswerkman:lobsterpicker:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\lobsterpicker-1.0.1.aar\2c1e12eac88590f209c7faaa58c2432e\AndroidManifest.xml:17:1-26:12
+MERGED from [com.github.warkiz.widget:indicatorseekbar:2.0.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\indicatorseekbar-2.0.9.aar\63628438509bbc9170f1c395d5d523d7\AndroidManifest.xml:2:1-11:12
+MERGED from [com.mikhaellopez:circularprogressbar:2.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circularprogressbar-2.0.0.aar\20126ea9e287bd32141bbd31b8d94fcf\AndroidManifest.xml:2:1-11:12
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:2:1-18:12
+MERGED from [com.google.android.gms:play-services-safetynet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-safetynet-9.2.1.aar\00f25ac87a7b85a9e07f5566b37706c0\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:16:1-33:12
+MERGED from [com.google.android.gms:play-services-fitness:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-fitness-9.2.1.aar\1248ec0028f02469f008c5737bb532d1\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-location:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-location-9.2.1.aar\d98224aa2bb1d7f70929afbe1baf05d2\AndroidManifest.xml:16:1-20:12
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:2:1-16:12
+MERGED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-auth-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-9.2.1.aar\c68f8b661aead1675ffb0bab9525c996\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-ads:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-9.2.1.aar\eceb596dc83909f170d55329cc84967b\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:16:1-28:12
+MERGED from [com.google.android.gms:play-services-tagmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-9.2.1.aar\08d7fc9c9a68c865c2feeb947f0b08e0\AndroidManifest.xml:16:1-19:12
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:16:1-28:12
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:16:1-31:12
+MERGED from [com.google.android.gms:play-services-clearcut:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-clearcut-9.2.1.aar\75e3d98bf3bdf41b4cf5e5fd9a96bdd7\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.firebase:firebase-config:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-config-9.2.1.aar\9edfc34daf234b3c2dc47cac920b1f0d\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:16:1-34:12
+MERGED from [com.google.android.gms:play-services-games:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-games-9.2.1.aar\92840a2482a6e9b8f8c028ef96d1f70e\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-drive:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-drive-9.2.1.aar\258f3d18a1607b331f58ea3dfd43cdd4\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.firebase:firebase-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-9.2.1.aar\eeaae7b672bc13bf644ea2e17192d204\AndroidManifest.xml:16:1-22:12
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-common-9.2.1.aar\a8f4b27d5fbd128c91bdeb94f190d8e9\AndroidManifest.xml:16:1-22:12
+MERGED from [com.google.firebase:firebase-auth-module:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-module-9.2.1.aar\3cf0cfa337b4066da5de5fc7b6dfb21b\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-database:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-9.2.1.aar\5e23058a1d2dc161bb2151195d64097b\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-database-connection:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-connection-9.2.1.aar\79f6e072ba5ec8ff30b128c9bccc0386\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-storage:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-9.2.1.aar\04104db6c305db34cc02bc46021dc7ca\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.firebase:firebase-storage-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-common-9.2.1.aar\299a661ab977c273663edba09cb26640\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-appindexing:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appindexing-9.2.1.aar\fdfb2d1e3594e8e5ffcfec07e2c8eea3\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-identity:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-identity-9.2.1.aar\68cacf90d6986062de6d59ac88028ae4\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:16:1-25:12
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.gms:play-services-panorama:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-panorama-9.2.1.aar\6a500f245e15843ffd8aad166a80e807\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-plus:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-plus-9.2.1.aar\1f77f953e8bc3ae378daee236748636a\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-vision:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-vision-9.2.1.aar\eb5cbe6079f03a7abf3f8fb8565503c8\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-wearable:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wearable-9.2.1.aar\00846b935e01673a9f8f18ce9bfe496a\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:16:1-39:12
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:16:1-42:12
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:16:1-33:12
+MERGED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:16:1-33:12
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:16:1-42:12
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:16:1-60:12
+MERGED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-gass:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gass-9.2.1.aar\f8d6f82a0a9c5fbfdc85ad6e2a919018\AndroidManifest.xml:16:1-20:12
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.2.1.aar\2024e773005b280add8484fab92686fb\AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:16:1-26:12
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:17:1-31:12
+MERGED from [io.reactivex:rxandroid:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\rxandroid-1.0.1.aar\43cb99cab44b6bfa6ce06b35d1076b9c\AndroidManifest.xml:15:1-21:12
+MERGED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:17:1-30:12
+MERGED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:17:1-30:12
+MERGED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:17:1-30:12
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\daa66b5a83d159ef7e33bf61af9f39b8\AndroidManifest.xml:17:1-22:12
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:45:1-56:12
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:2:1-13:12
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:22:1-33:12
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+	package
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:24:5-42
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:23:5-51
+	android:versionCode
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:1-148:12
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:22:11-69
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:26:5-28:47
+	tools:ignore
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:28:9-44
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:27:9-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:29:5-67
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:14:5-67
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:14:5-67
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:21:5-66
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:9:5-67
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:11:5-67
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:11:5-67
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:11:5-67
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:19:5-67
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:19:5-67
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:21:5-67
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:21:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:9:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:29:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:29:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:9:5-67
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:29:22-64
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:30:5-65
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:30:22-62
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:31:5-66
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:31:22-63
+uses-permission#android.permission.BODY_SENSORS
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:32:5-71
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:32:22-68
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:33:5-71
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:33:22-68
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:34:5-74
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:34:22-71
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:35:5-81
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:33:5-81
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:33:5-81
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:35:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:36:5-79
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:34:5-79
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:34:5-79
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:36:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:37:5-81
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:10:5-81
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:37:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:38:5-80
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:11:5-80
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:11:5-80
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:38:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:39:5-75
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:39:22-72
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:40:5-76
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:12:5-76
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:12:5-76
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:40:22-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:41:5-79
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:35:5-79
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:35:5-79
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:9:5-79
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:9:5-79
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:20:5-78
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:20:5-78
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:12:5-79
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:12:5-79
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:5:5-79
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:5:5-79
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:20:5-79
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:20:5-79
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:41:22-76
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:42:5-94
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:36:5-94
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:36:5-94
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:42:22-91
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:43:5-81
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:43:22-78
+uses-permission#com.android.launcher.permission.INSTALL_SHORTCUT
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:44:5-88
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:44:22-85
+uses-permission#com.google.android.providers.gsf.permisson.READ_GSERVICES
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:45:5-97
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:45:22-94
+uses-feature#android.hardware.camera
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:47:5-49:35
+	android:required
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:49:9-32
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:48:9-47
+application
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:53:5-146:19
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:38:5-55:19
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:38:5-55:19
+MERGED from [:minukucore] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minukucore\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-15:19
+MERGED from [:minukucore] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minukucore\build\intermediates\manifests\full\debug\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:11:5-16:19
+MERGED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:11:5-16:19
+MERGED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:25:5-29:19
+MERGED from [com.github.dkharrat.nexusdialog:nexusdialog:0.4.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\nexusdialog-0.4.0.aar\2cb638b21acbad85304cd05e8de25e10\AndroidManifest.xml:9:5-20
+MERGED from [com.github.dkharrat.nexusdialog:nexusdialog:0.4.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\nexusdialog-0.4.0.aar\2cb638b21acbad85304cd05e8de25e10\AndroidManifest.xml:9:5-20
+MERGED from [me.itangqi.waveloadingview:library:0.3.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-0.3.5.aar\0cf4dba4b175eb2ff5b9546b81ccedb5\AndroidManifest.xml:11:5-15:19
+MERGED from [me.itangqi.waveloadingview:library:0.3.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-0.3.5.aar\0cf4dba4b175eb2ff5b9546b81ccedb5\AndroidManifest.xml:11:5-15:19
+MERGED from [com.google.android.gms:play-services:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-9.2.1.aar\bb55f5c3cc9b860de4ef964e5a4276fd\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-9.2.1.aar\bb55f5c3cc9b860de4ef964e5a4276fd\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:5:5-9:19
+MERGED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:5:5-9:19
+MERGED from [com.google.android.gms:play-services-cast:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-9.2.1.aar\2537b326cf7c56e684d7c628947af5c4\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-cast:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-9.2.1.aar\2537b326cf7c56e684d7c628947af5c4\AndroidManifest.xml:19:5-20
+MERGED from [com.android.support:mediarouter-v7:23.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-23.0.0.aar\0881a0f63d9dee65817a1eb5ded771b2\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:mediarouter-v7:23.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-23.0.0.aar\0881a0f63d9dee65817a1eb5ded771b2\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:25:5-29:19
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\346db6b1f04af5b0a6a24e442e356644\AndroidManifest.xml:9:5-20
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\346db6b1f04af5b0a6a24e442e356644\AndroidManifest.xml:9:5-20
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:16:5-34:19
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:16:5-34:19
+MERGED from [com.github.techfreak:wizardpager:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\wizardpager-1.0.0.aar\9a25b593a5ad4001978b216600138da2\AndroidManifest.xml:11:5-12:19
+MERGED from [com.github.techfreak:wizardpager:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\wizardpager-1.0.0.aar\9a25b593a5ad4001978b216600138da2\AndroidManifest.xml:11:5-12:19
+MERGED from [com.android.support:cardview-v7:24.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\cardview-v7-24.0.0.aar\bf81226379e71b4558ac5d0b0aa8da6e\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:24.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\cardview-v7-24.0.0.aar\bf81226379e71b4558ac5d0b0aa8da6e\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-contextmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-contextmanager-9.2.1.aar\0ae595fbd899adbd4e06e42939093c1b\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-contextmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-contextmanager-9.2.1.aar\0ae595fbd899adbd4e06e42939093c1b\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-places:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-places-9.2.1.aar\3c61416351201c5d04b0e29f796bab8b\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-places:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-places-9.2.1.aar\3c61416351201c5d04b0e29f796bab8b\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:27:5-20
+MERGED from [com.github.vipulasri:timelineview:1.0.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\timelineview-1.0.5.aar\2ee285938a788b4cf37b6aab54abfea8\AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.vipulasri:timelineview:1.0.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\timelineview-1.0.5.aar\2ee285938a788b4cf37b6aab54abfea8\AndroidManifest.xml:11:5-15:19
+MERGED from [com.crashlytics.sdk.android:crashlytics-ndk:2.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-ndk-2.0.2.aar\5cebd9637ed06f7c050cef2bfb390b7e\AndroidManifest.xml:31:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-ndk:2.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-ndk-2.0.2.aar\5cebd9637ed06f7c050cef2bfb390b7e\AndroidManifest.xml:31:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:11:5-17:19
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:11:5-17:19
+MERGED from [com.google.firebase:firebase-core:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-core-9.2.1.aar\189eeef112409c753101d6279b8c6678\AndroidManifest.xml:5:5-20
+MERGED from [com.google.firebase:firebase-core:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-core-9.2.1.aar\189eeef112409c753101d6279b8c6678\AndroidManifest.xml:5:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\b77e5b2f65781152d16b54202565c344\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\b77e5b2f65781152d16b54202565c344\AndroidManifest.xml:9:5-20
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:13:5-16:19
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:13:5-16:19
+MERGED from [com.google.android.gms:play-services-safetynet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-safetynet-9.2.1.aar\00f25ac87a7b85a9e07f5566b37706c0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-safetynet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-safetynet-9.2.1.aar\00f25ac87a7b85a9e07f5566b37706c0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.android.gms:play-services-fitness:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-fitness-9.2.1.aar\1248ec0028f02469f008c5737bb532d1\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-fitness:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-fitness-9.2.1.aar\1248ec0028f02469f008c5737bb532d1\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-location:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-location-9.2.1.aar\d98224aa2bb1d7f70929afbe1baf05d2\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-location:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-location-9.2.1.aar\d98224aa2bb1d7f70929afbe1baf05d2\AndroidManifest.xml:19:5-20
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:14:5-20
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:14:5-20
+MERGED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:24:5-28:19
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:20:5-30:19
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:20:5-30:19
+MERGED from [com.google.android.gms:play-services-clearcut:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-clearcut-9.2.1.aar\75e3d98bf3bdf41b4cf5e5fd9a96bdd7\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-clearcut-9.2.1.aar\75e3d98bf3bdf41b4cf5e5fd9a96bdd7\AndroidManifest.xml:19:5-20
+MERGED from [com.google.firebase:firebase-config:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-config-9.2.1.aar\9edfc34daf234b3c2dc47cac920b1f0d\AndroidManifest.xml:19:5-20
+MERGED from [com.google.firebase:firebase-config:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-config-9.2.1.aar\9edfc34daf234b3c2dc47cac920b1f0d\AndroidManifest.xml:19:5-20
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.android.gms:play-services-games:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-games-9.2.1.aar\92840a2482a6e9b8f8c028ef96d1f70e\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-games:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-games-9.2.1.aar\92840a2482a6e9b8f8c028ef96d1f70e\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-drive:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-drive-9.2.1.aar\258f3d18a1607b331f58ea3dfd43cdd4\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-drive:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-drive-9.2.1.aar\258f3d18a1607b331f58ea3dfd43cdd4\AndroidManifest.xml:19:5-20
+MERGED from [com.google.firebase:firebase-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-9.2.1.aar\eeaae7b672bc13bf644ea2e17192d204\AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-9.2.1.aar\eeaae7b672bc13bf644ea2e17192d204\AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-common-9.2.1.aar\a8f4b27d5fbd128c91bdeb94f190d8e9\AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-common-9.2.1.aar\a8f4b27d5fbd128c91bdeb94f190d8e9\AndroidManifest.xml:20:5-21:19
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-appindexing:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appindexing-9.2.1.aar\fdfb2d1e3594e8e5ffcfec07e2c8eea3\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-appindexing:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appindexing-9.2.1.aar\fdfb2d1e3594e8e5ffcfec07e2c8eea3\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-identity:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-identity-9.2.1.aar\68cacf90d6986062de6d59ac88028ae4\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-identity:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-identity-9.2.1.aar\68cacf90d6986062de6d59ac88028ae4\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:6:5-20
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:6:5-20
+MERGED from [com.google.android.gms:play-services-panorama:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-panorama-9.2.1.aar\6a500f245e15843ffd8aad166a80e807\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-panorama:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-panorama-9.2.1.aar\6a500f245e15843ffd8aad166a80e807\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-plus:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-plus-9.2.1.aar\1f77f953e8bc3ae378daee236748636a\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-plus:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-plus-9.2.1.aar\1f77f953e8bc3ae378daee236748636a\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-vision:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-vision-9.2.1.aar\eb5cbe6079f03a7abf3f8fb8565503c8\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-vision:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-vision-9.2.1.aar\eb5cbe6079f03a7abf3f8fb8565503c8\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-wearable:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wearable-9.2.1.aar\00846b935e01673a9f8f18ce9bfe496a\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-wearable:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wearable-9.2.1.aar\00846b935e01673a9f8f18ce9bfe496a\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:24:5-38:19
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:24:5-38:19
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:24:5-32:19
+MERGED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:20:5-32:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:26:5-41:19
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:30:5-59:19
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:30:5-59:19
+MERGED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:5:5-12:19
+MERGED from [com.google.android.gms:play-services-gass:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gass-9.2.1.aar\f8d6f82a0a9c5fbfdc85ad6e2a919018\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-gass:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gass-9.2.1.aar\f8d6f82a0a9c5fbfdc85ad6e2a919018\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.2.1.aar\2024e773005b280add8484fab92686fb\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.2.1.aar\2024e773005b280add8484fab92686fb\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:24:5-28:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:24:5-28:19
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:11:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:31:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:31:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:11:5-20
+	android:supportsRtl
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:59:9-35
+	android:label
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:57:9-41
+	xmlns:tools
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:53:18-64
+	android:largeHeap
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:58:9-33
+	android:icon
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:56:9-45
+	android:allowBackup
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:55:9-35
+	android:theme
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:60:9-40
+		REJECTED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:42:9-40
+		REJECTED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:11:18-76
+	tools:replace
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:61:9-38
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:54:9-61
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:65:9-67:71
+	android:value
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:67:13-68
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:66:13-58
+activity#labelingStudy.nctu.minuku_2.controller.DeviceIdPage
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:70:9-88
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:70:19-85
+activity#labelingStudy.nctu.minuku_2.HomePage
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:71:9-72:74
+	android:theme
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:72:13-72
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:71:19-43
+activity#labelingStudy.nctu.minuku_2.RegisterPage
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:73:9-49
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:73:19-47
+activity#labelingStudy.nctu.minuku_2.LoginPage
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:74:9-46
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:74:19-44
+activity#labelingStudy.nctu.minuku_2.ContactList
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:75:9-76:45
+	android:launchMode
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:76:13-43
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:75:19-46
+activity#labelingStudy.nctu.minuku_2.EditProfilePage
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:77:9-52
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:77:19-50
+activity#labelingStudy.nctu.minuku_2.Questionnaire.SelfQuestionnaire
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:78:9-68
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:78:19-66
+activity#labelingStudy.nctu.minuku_2.Questionnaire.ContactStatusQuestionnaire
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:79:9-77
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:79:19-75
+activity#labelingStudy.nctu.minuku_2.Questionnaire.SelfEditQuestionnaire
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:80:9-72
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:80:19-70
+activity#labelingStudy.nctu.minuku_2.MainActivity
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:91:9-101:20
+	android:launchMode
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:94:13-43
+	android:theme
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:93:13-72
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:92:13-68
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:95:13-99:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:96:17-69
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:96:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:97:17-77
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:97:27-74
+activity#com.desmond.squarecamera.CameraActivity
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:104:9-76
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:104:19-73
+service#labelingStudy.nctu.minuku_2.service.BackgroundService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:106:9-109:39
+	android:enabled
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:108:13-35
+	android:exported
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:109:13-36
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:107:13-81
+service#labelingStudy.nctu.minuku.service.NotificationListenService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:111:9-118:19
+	android:permission
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:113:13-87
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:112:13-87
+intent-filter#action:name:android.service.notification.NotificationListenerService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:115:13-117:29
+action#android.service.notification.NotificationListenerService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:116:17-99
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:116:25-96
+receiver#labelingStudy.nctu.minuku_2.BootCompleteReceiver
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:120:9-127:20
+	android:enabled
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:122:13-35
+	android:exported
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:123:13-36
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:121:13-76
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:124:13-126:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:125:17-79
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:125:25-76
+receiver#labelingStudy.nctu.minuku_2.Receiver.RestarterBroadcastReceiver
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:129:9-136:20
+	android:enabled
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:131:13-35
+	android:exported
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:132:13-36
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:130:13-64
+intent-filter#action:name:checkService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:133:13-135:29
+action#checkService
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:134:17-54
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:134:25-52
+meta-data#com.google.android.gms.version
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:138:9-140:69
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:140:13-66
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:139:13-58
+meta-data#io.fabric.ApiKey
+ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:143:9-145:72
+	android:value
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:145:13-69
+	android:name
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml:144:13-44
+uses-sdk
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:28:5-30:41
+MERGED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:28:5-30:41
+MERGED from [:minukucore] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minukucore\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:minukucore] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minukucore\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:21:5-23:62
+MERGED from [com.github.dkharrat.nexusdialog:nexusdialog:0.4.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\nexusdialog-0.4.0.aar\2cb638b21acbad85304cd05e8de25e10\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.dkharrat.nexusdialog:nexusdialog:0.4.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\nexusdialog-0.4.0.aar\2cb638b21acbad85304cd05e8de25e10\AndroidManifest.xml:5:5-7:41
+MERGED from [me.itangqi.waveloadingview:library:0.3.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-0.3.5.aar\0cf4dba4b175eb2ff5b9546b81ccedb5\AndroidManifest.xml:7:5-9:41
+MERGED from [me.itangqi.waveloadingview:library:0.3.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-0.3.5.aar\0cf4dba4b175eb2ff5b9546b81ccedb5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-9.2.1.aar\bb55f5c3cc9b860de4ef964e5a4276fd\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-9.2.1.aar\bb55f5c3cc9b860de4ef964e5a4276fd\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-cast:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-9.2.1.aar\2537b326cf7c56e684d7c628947af5c4\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-cast:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-9.2.1.aar\2537b326cf7c56e684d7c628947af5c4\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:mediarouter-v7:23.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-23.0.0.aar\0881a0f63d9dee65817a1eb5ded771b2\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:mediarouter-v7:23.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mediarouter-v7-23.0.0.aar\0881a0f63d9dee65817a1eb5ded771b2\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:21:5-23:78
+MERGED from [com.h6ah4i.android.compat:mulsellistprefcompat:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mulsellistprefcompat-1.0.0.aar\6455d5df2c7e64f288556329c71adea9\AndroidManifest.xml:7:5-9:41
+MERGED from [com.h6ah4i.android.compat:mulsellistprefcompat:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\mulsellistprefcompat-1.0.0.aar\6455d5df2c7e64f288556329c71adea9\AndroidManifest.xml:7:5-9:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\346db6b1f04af5b0a6a24e442e356644\AndroidManifest.xml:5:5-7:41
+MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circleimageview-2.1.0.aar\346db6b1f04af5b0a6a24e442e356644\AndroidManifest.xml:5:5-7:41
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:5:5-7:41
+MERGED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:5:5-7:41
+MERGED from [me.gujun.android.taggroup:library:1.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-1.4.aar\7ebbdcb64c92084466797bc95055db86\AndroidManifest.xml:6:5-8:41
+MERGED from [me.gujun.android.taggroup:library:1.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\library-1.4.aar\7ebbdcb64c92084466797bc95055db86\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.techfreak:wizardpager:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\wizardpager-1.0.0.aar\9a25b593a5ad4001978b216600138da2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.techfreak:wizardpager:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\wizardpager-1.0.0.aar\9a25b593a5ad4001978b216600138da2\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:cardview-v7:24.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\cardview-v7-24.0.0.aar\bf81226379e71b4558ac5d0b0aa8da6e\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:24.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\cardview-v7-24.0.0.aar\bf81226379e71b4558ac5d0b0aa8da6e\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-contextmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-contextmanager-9.2.1.aar\0ae595fbd899adbd4e06e42939093c1b\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-contextmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-contextmanager-9.2.1.aar\0ae595fbd899adbd4e06e42939093c1b\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-places:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-places-9.2.1.aar\3c61416351201c5d04b0e29f796bab8b\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-places:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-places-9.2.1.aar\3c61416351201c5d04b0e29f796bab8b\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-wallet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wallet-9.2.1.aar\4143acab34fa2a1b30f3fdc2abbfc8d3\AndroidManifest.xml:19:5-42
+MERGED from [com.google.android.gms:play-services-wallet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wallet-9.2.1.aar\4143acab34fa2a1b30f3fdc2abbfc8d3\AndroidManifest.xml:19:5-42
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:26:5-42
+MERGED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:26:5-42
+MERGED from [com.android.support:multidex-instrumentation:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-instrumentation-1.0.2.aar\a6374709675463721c6fe29e0484f1dc\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex-instrumentation:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-instrumentation-1.0.2.aar\a6374709675463721c6fe29e0484f1dc\AndroidManifest.xml:20:5-43
+MERGED from [com.github.vipulasri:timelineview:1.0.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\timelineview-1.0.5.aar\2ee285938a788b4cf37b6aab54abfea8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.vipulasri:timelineview:1.0.5] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\timelineview-1.0.5.aar\2ee285938a788b4cf37b6aab54abfea8\AndroidManifest.xml:7:5-9:41
+MERGED from [com.crashlytics.sdk.android:crashlytics-ndk:2.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-ndk-2.0.2.aar\5cebd9637ed06f7c050cef2bfb390b7e\AndroidManifest.xml:29:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics-ndk:2.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-ndk-2.0.2.aar\5cebd9637ed06f7c050cef2bfb390b7e\AndroidManifest.xml:29:5-44
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:7:5-43
+MERGED from [com.google.firebase:firebase-core:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-core-9.2.1.aar\189eeef112409c753101d6279b8c6678\AndroidManifest.xml:4:5-42
+MERGED from [com.google.firebase:firebase-core:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-core-9.2.1.aar\189eeef112409c753101d6279b8c6678\AndroidManifest.xml:4:5-42
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\b77e5b2f65781152d16b54202565c344\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\b77e5b2f65781152d16b54202565c344\AndroidManifest.xml:5:5-7:41
+MERGED from [com.larswerkman:lobsterpicker:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\lobsterpicker-1.0.1.aar\2c1e12eac88590f209c7faaa58c2432e\AndroidManifest.xml:22:5-24:41
+MERGED from [com.larswerkman:lobsterpicker:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\lobsterpicker-1.0.1.aar\2c1e12eac88590f209c7faaa58c2432e\AndroidManifest.xml:22:5-24:41
+MERGED from [com.github.warkiz.widget:indicatorseekbar:2.0.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\indicatorseekbar-2.0.9.aar\63628438509bbc9170f1c395d5d523d7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.warkiz.widget:indicatorseekbar:2.0.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\indicatorseekbar-2.0.9.aar\63628438509bbc9170f1c395d5d523d7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikhaellopez:circularprogressbar:2.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circularprogressbar-2.0.0.aar\20126ea9e287bd32141bbd31b8d94fcf\AndroidManifest.xml:7:5-9:41
+MERGED from [com.mikhaellopez:circularprogressbar:2.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\circularprogressbar-2.0.0.aar\20126ea9e287bd32141bbd31b8d94fcf\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.firebaseui:firebase-ui:0.2.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-ui-0.2.2.aar\9cec41122bfa1dd938cca65c26e5c9e7\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-safetynet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-safetynet-9.2.1.aar\00f25ac87a7b85a9e07f5566b37706c0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-safetynet:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-safetynet-9.2.1.aar\00f25ac87a7b85a9e07f5566b37706c0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-fitness:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-fitness-9.2.1.aar\1248ec0028f02469f008c5737bb532d1\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-fitness:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-fitness-9.2.1.aar\1248ec0028f02469f008c5737bb532d1\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-location:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-location-9.2.1.aar\d98224aa2bb1d7f70929afbe1baf05d2\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-location:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-location-9.2.1.aar\d98224aa2bb1d7f70929afbe1baf05d2\AndroidManifest.xml:18:5-42
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.bugfender.sdk:android:0.8.4] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\android-0.8.4.aar\e3b6b53f88b63d4c9c0aa2f9a431a43d\AndroidManifest.xml:7:5-9:41
+MERGED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-auth-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-9.2.1.aar\c68f8b661aead1675ffb0bab9525c996\AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-base-9.2.1.aar\c68f8b661aead1675ffb0bab9525c996\AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.gms:play-services-ads:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-9.2.1.aar\eceb596dc83909f170d55329cc84967b\AndroidManifest.xml:19:5-42
+MERGED from [com.google.android.gms:play-services-ads:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-9.2.1.aar\eceb596dc83909f170d55329cc84967b\AndroidManifest.xml:19:5-42
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tagmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-9.2.1.aar\08d7fc9c9a68c865c2feeb947f0b08e0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tagmanager:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-9.2.1.aar\08d7fc9c9a68c865c2feeb947f0b08e0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-clearcut:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-clearcut-9.2.1.aar\75e3d98bf3bdf41b4cf5e5fd9a96bdd7\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-clearcut:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-clearcut-9.2.1.aar\75e3d98bf3bdf41b4cf5e5fd9a96bdd7\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-config:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-config-9.2.1.aar\9edfc34daf234b3c2dc47cac920b1f0d\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-config:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-config-9.2.1.aar\9edfc34daf234b3c2dc47cac920b1f0d\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:22:5-42
+MERGED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:22:5-42
+MERGED from [com.google.android.gms:play-services-games:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-games-9.2.1.aar\92840a2482a6e9b8f8c028ef96d1f70e\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-games:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-games-9.2.1.aar\92840a2482a6e9b8f8c028ef96d1f70e\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-drive:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-drive-9.2.1.aar\258f3d18a1607b331f58ea3dfd43cdd4\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-drive:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-drive-9.2.1.aar\258f3d18a1607b331f58ea3dfd43cdd4\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-9.2.1.aar\eeaae7b672bc13bf644ea2e17192d204\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-9.2.1.aar\eeaae7b672bc13bf644ea2e17192d204\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-common-9.2.1.aar\a8f4b27d5fbd128c91bdeb94f190d8e9\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-common-9.2.1.aar\a8f4b27d5fbd128c91bdeb94f190d8e9\AndroidManifest.xml:18:5-43
+MERGED from [com.google.firebase:firebase-auth-module:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-module-9.2.1.aar\3cf0cfa337b4066da5de5fc7b6dfb21b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-auth-module:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-auth-module-9.2.1.aar\3cf0cfa337b4066da5de5fc7b6dfb21b\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-database:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-9.2.1.aar\5e23058a1d2dc161bb2151195d64097b\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-9.2.1.aar\5e23058a1d2dc161bb2151195d64097b\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database-connection:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-connection-9.2.1.aar\79f6e072ba5ec8ff30b128c9bccc0386\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-database-connection:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-database-connection-9.2.1.aar\79f6e072ba5ec8ff30b128c9bccc0386\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-storage:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-9.2.1.aar\04104db6c305db34cc02bc46021dc7ca\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-storage:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-9.2.1.aar\04104db6c305db34cc02bc46021dc7ca\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-storage-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-common-9.2.1.aar\299a661ab977c273663edba09cb26640\AndroidManifest.xml:5:5-43
+MERGED from [com.google.firebase:firebase-storage-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-storage-common-9.2.1.aar\299a661ab977c273663edba09cb26640\AndroidManifest.xml:5:5-43
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appindexing:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appindexing-9.2.1.aar\fdfb2d1e3594e8e5ffcfec07e2c8eea3\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-appindexing:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appindexing-9.2.1.aar\fdfb2d1e3594e8e5ffcfec07e2c8eea3\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-identity:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-identity-9.2.1.aar\68cacf90d6986062de6d59ac88028ae4\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-identity:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-identity-9.2.1.aar\68cacf90d6986062de6d59ac88028ae4\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-nearby:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-nearby-9.2.1.aar\c6bc6a5532c49d036a1da80d75843dbf\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-panorama:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-panorama-9.2.1.aar\6a500f245e15843ffd8aad166a80e807\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-panorama:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-panorama-9.2.1.aar\6a500f245e15843ffd8aad166a80e807\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-plus:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-plus-9.2.1.aar\1f77f953e8bc3ae378daee236748636a\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-plus:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-plus-9.2.1.aar\1f77f953e8bc3ae378daee236748636a\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-vision:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-vision-9.2.1.aar\eb5cbe6079f03a7abf3f8fb8565503c8\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-vision:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-vision-9.2.1.aar\eb5cbe6079f03a7abf3f8fb8565503c8\AndroidManifest.xml:4:5-42
+MERGED from [com.google.android.gms:play-services-wearable:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wearable-9.2.1.aar\00846b935e01673a9f8f18ce9bfe496a\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-wearable:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-wearable-9.2.1.aar\00846b935e01673a9f8f18ce9bfe496a\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:23:5-42
+MERGED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:23:5-42
+MERGED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:18:5-42
+MERGED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:4:5-43
+MERGED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-gass:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gass-9.2.1.aar\f8d6f82a0a9c5fbfdc85ad6e2a919018\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-gass:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gass-9.2.1.aar\f8d6f82a0a9c5fbfdc85ad6e2a919018\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.2.1.aar\2024e773005b280add8484fab92686fb\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tasks-9.2.1.aar\2024e773005b280add8484fab92686fb\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-basement-9.2.1.aar\c748d837edba77796a717460467d1bf7\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:21:5-23:54
+MERGED from [io.reactivex:rxandroid:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\rxandroid-1.0.1.aar\43cb99cab44b6bfa6ce06b35d1076b9c\AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex:rxandroid:1.0.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\rxandroid-1.0.1.aar\43cb99cab44b6bfa6ce06b35d1076b9c\AndroidManifest.xml:19:5-43
+MERGED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\daa66b5a83d159ef7e33bf61af9f39b8\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\multidex-1.0.2.aar\daa66b5a83d159ef7e33bf61af9f39b8\AndroidManifest.xml:20:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-core-2.6.8.aar\7ebcb4beba42c7e110a84c9b463c31c6\AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.7] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\answers-1.4.7.aar\fbe4ba8acf677218a54b47bff98b6bae\AndroidManifest.xml:7:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:27:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.8] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\fabric-1.4.8.aar\11b31ed5fd5026316eae019ebf93d5d5\AndroidManifest.xml:27:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.10] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\beta-1.2.10.aar\c6f5539f547410d34f6f81b2782efc0a\AndroidManifest.xml:7:5-43
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\app\src\main\AndroidManifest.xml
+service#labelingStudy.nctu.minuku.service.ActivityRecognitionService
+ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:43:9-47:19
+	android:enabled
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:45:13-35
+	android:exported
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:46:13-36
+	android:name
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:44:13-88
+service#labelingStudy.nctu.minuku.service.MobileAccessibilityService
+ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:48:9-54:19
+	android:permission
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:50:13-79
+	android:name
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:49:13-88
+intent-filter#action:name:android.accessibilityservice.AccessibilityService
+ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:51:13-53:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:52:17-92
+	android:name
+		ADDED from [:minuku2-extended] C:\Users\Lucy\Documents\MUI_Lab\Availability status\minuku-android-master\minuku2-extended\build\intermediates\manifests\full\debug\AndroidManifest.xml:52:25-89
+activity#com.desmond.squarecamera.RuntimePermissionActivity
+ADDED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:12:9-15:20
+	android:theme
+		ADDED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:14:13-76
+	android:name
+		ADDED from [com.github.boxme:squarecamera:1.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\squarecamera-1.1.0.aar\0925eb19af0abc031b72e3f4f1fc1d29\AndroidManifest.xml:13:13-78
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\c2f87ed88bb768f46a3ce4924ec8d316\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\a51f195f14b840edde3fcfa7093f91f6\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\transition-26.1.0.aar\5d313ce3bc133aada0f55fc9c1307a82\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\88983a641a5caf01fd0589cda0bbcd44\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-fragment-26.1.0.aar\f9fc789f43d02c50bf9271314ebaaf81\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\00d16d00d8122271b3869a122cbb47be\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-26.1.0.aar\b63bc51380f0feedf1a4c2683b79976e\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-26.1.0.aar\af6c28c1579ef9f92fede2c110646070\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-core-ui-26.1.0.aar\85341beb7561a671d78e773822774f02\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-media-compat-26.1.0.aar\4efbcdbf4aa1cd75e48894e62563abb4\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\12b4a965b4688b95b552a1897a1d5619\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:26.1.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\a5d70d896763362344f4bd9a2b014e77\AndroidManifest.xml:27:13-51
+receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
+ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:6:9-100
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:6:19-97
+service#com.google.android.gms.cast.framework.media.MediaNotificationService
+ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:7:9-104
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:7:18-101
+service#com.google.android.gms.cast.framework.ReconnectionService
+ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:8:9-92
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-9.2.1.aar\0763a9b2f8488a7e72fc4a3663863561\AndroidManifest.xml:8:18-90
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:13:22-68
+activity#com.instabug.library.InstabugFeedbackActivity
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:17:9-21:58
+	android:launchMode
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:19:13-43
+	android:windowSoftInputMode
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:21:13-55
+	android:theme
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:20:13-52
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:18:13-73
+service#com.instabug.library.InstabugSessionUploaderService
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:23:9-87
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:23:18-84
+service#com.instabug.library.InstabugIssueUploaderService
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:24:9-85
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:24:18-82
+service#com.instabug.library.InstabugMessageUploaderService
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:25:9-87
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:25:18-84
+service#com.instabug.library.InstabugFeaturesFetcherService
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:26:9-87
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:26:18-84
+service#com.instabug.library.gcm.InstabugGcmRegistrationIntentService
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:27:9-97
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:27:18-94
+receiver#com.instabug.library.InstabugNetworkReceiver
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:29:9-33:20
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:29:19-78
+intent-filter#action:name:android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:30:13-32:29
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:31:17-79
+	android:name
+		ADDED from [com.instabug.library:instabug:2.6.2] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\instabug-2.6.2.aar\8d89834c769278b4f81dad42f6c0ced7\AndroidManifest.xml:31:25-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:22:5-24:33
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:23:8-40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-maps-9.2.1.aar\cdda653864fa118eb2fe96e1cd258999\AndroidManifest.xml:24:8-31
+provider#com.crashlytics.android.CrashlyticsInitProvider
+ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:12:9-16:38
+	android:authorities
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:14:13-75
+	android:exported
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:16:13-35
+	android:name
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.9] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\crashlytics-2.9.9.aar\a7f2cb20519a97fad9892658ef106d5c\AndroidManifest.xml:13:13-75
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:21:9-24:46
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:23:19-52
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:24:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:22:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:21:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:28:9-31:110
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:30:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:31:13-107
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-auth-9.2.1.aar\1c4a4d5980fd018b7cb6001a6464adae\AndroidManifest.xml:29:13-58
+meta-data#android.arch.persistence.room.VERSION
+ADDED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.persistence.room:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\b6e67ac7cbe2e8b174976fd897f382c2\AndroidManifest.xml:26:13-65
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:25:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-impl-9.2.1.aar\a33f80a191b1c45e0edf878bc7a8bd64\AndroidManifest.xml:25:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:22:5-68
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-analytics-9.2.1.aar\3203d8f908f441cf4286e5b580c188c0\AndroidManifest.xml:25:22-65
+activity#com.google.android.gms.appinvite.PreviewActivity
+ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:21:9-29:20
+	android:exported
+		ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:23:17-40
+	android:theme
+		ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:24:17-63
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:22:17-48
+intent-filter#action:name:com.google.android.gms.appinvite.ACTION_PREVIEW+category:name:android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:25:13-28:29
+action#com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:26:17-89
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:26:25-87
+category#android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:27:17-75
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-appinvite-9.2.1.aar\8d7b04ace871dac4373db35fbb50edfa\AndroidManifest.xml:27:27-73
+service#com.google.firebase.crash.internal.service.FirebaseCrashReceiverService
+ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:26:9-27:50
+	android:process
+		ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:27:13-48
+	android:name
+		ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:26:18-79
+service#com.google.firebase.crash.internal.service.FirebaseCrashSenderService
+ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:29:9-30:50
+	android:process
+		ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:30:13-48
+	android:name
+		ADDED from [com.google.firebase:firebase-crash:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-crash-9.2.1.aar\38eedb5c00b052cab76388beaa364a30\AndroidManifest.xml:29:18-77
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:21:5-82
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:21:5-82
+MERGED from [com.google.android.gms:play-services-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-iid-9.2.1.aar\a23ee4c36564d7899b0d5a25da3b3a40\AndroidManifest.xml:21:5-82
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:23:5-82
+MERGED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:23:5-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-gcm-9.2.1.aar\a6f1783e6cd5d8de05ede90bb57754fd\AndroidManifest.xml:21:22-79
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-base-9.2.1.aar\2d42b5f4b910b69fbd8e8cd1055326de\AndroidManifest.xml:20:19-85
+service#com.google.android.gms.tagmanager.TagManagerService
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:25:9-27:42
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:27:17-39
+	android:exported
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:26:17-41
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:25:18-84
+activity#com.google.android.gms.tagmanager.TagManagerPreviewActivity
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:28:9-37:20
+	android:noHistory
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:30:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:29:13-87
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:tagmanager.c.${applicationId}
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:31:13-36:29
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:tagmanager.c.labelingStudy.nctu.minuku_2
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:31:13-36:29
+data
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:32:17-72
+	android:scheme
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:32:23-69
+action#android.intent.action.VIEW
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:33:17-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:33:25-66
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:35:17-77
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-tagmanager-api-9.2.1.aar\baaba1021bb23ef94b61084946d6c17d\AndroidManifest.xml:35:27-75
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:28:7-34:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:28:7-34:18
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:28:7-34:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:30:11-33
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:29:11-83
+intent-filter#action:name:com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:31:9-33:25
+action#com.google.android.gms.measurement.UPLOAD
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:32:11-77
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:32:19-75
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:36:7-39:37
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:36:7-39:37
+MERGED from [com.google.firebase:firebase-analytics-impl:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-9.2.1.aar\129a17cde055b377d82b8207d4a9d029\AndroidManifest.xml:36:7-39:37
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:38:11-33
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:39:11-35
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-analytics-9.2.1.aar\2379414476b10142f7f9971e12451d22\AndroidManifest.xml:37:11-82
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:26:9-29:64
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:28:13-122
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:29:13-61
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:27:13-65
+activity#com.google.android.gms.ads.purchase.InAppPurchaseActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:30:9-31:52
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:31:13-50
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-9.2.1.aar\e3654f31a4cc651edb7e5885b98682f7\AndroidManifest.xml:30:19-91
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:24:9-30:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:26:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:25:13-82
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:27:13-29:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:27:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:28:17-78
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-messaging-9.2.1.aar\e55f943f5bda933ce935dd42cbc0cc61\AndroidManifest.xml:28:25-75
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:25:5-26:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:26:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:25:17-71
+permission#labelingStudy.nctu.minuku_2.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:25:5-26:47
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:26:9-44
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:25:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:28:22-76
+uses-permission#labelingStudy.nctu.minuku_2.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:28:5-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:28:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:32:9-41:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:34:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:35:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:33:13-78
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:${applicationId}
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:36:13-40:29
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+action:name:com.google.android.c2dm.intent.REGISTRATION+category:name:labelingStudy.nctu.minuku_2
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:36:13-40:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:37:17-81
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:37:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:38:17-86
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:38:25-83
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:39:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:39:27-58
+category#labelingStudy.nctu.minuku_2
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:39:17-61
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:39:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:45:9-47:40
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:46:13-86
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:51:9-57:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:53:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:52:13-77
+intent-filter#action:name:com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:54:13-56:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:54:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:55:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-iid-9.2.1.aar\0ad52d9cf351d99ede741f6b2abba442\AndroidManifest.xml:55:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:7:9-11:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:8:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:10:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:11:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:9.2.1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\firebase-common-9.2.1.aar\11cef693badf228afe6cd20d9b0cd9e5\AndroidManifest.xml:9:13-58
+meta-data#android.arch.persistence.db.framework.VERSION
+ADDED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.persistence:db-framework:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0-beta1.aar\3728cb3aa1a44e1c4e40c618663efb28\AndroidManifest.xml:26:13-73
+meta-data#android.arch.persistence.db.VERSION
+ADDED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.persistence:db:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\db-1.0.0-beta1.aar\d4d8e9b8d65af3eea40edd09c08cfd04\AndroidManifest.xml:26:13-63
+meta-data#android.arch.core.VERSION
+ADDED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.core:runtime:1.0.0-beta1] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0-beta1.aar\c3ff1385ba6536bd30d18a09063aaefd\AndroidManifest.xml:26:13-53
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Lucy\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\261c1d7f160fbc973cb7b679721dd800\AndroidManifest.xml:26:13-58

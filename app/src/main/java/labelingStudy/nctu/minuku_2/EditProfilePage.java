@@ -155,6 +155,7 @@ public class EditProfilePage extends Activity {
             boolean pass = false;
             // store status to database
             JSONObject data = new JSONObject();
+            JSONObject dataSelfQ = new JSONObject();
 
             // send data to notification intent
             Bundle bundle = new Bundle();
@@ -164,6 +165,11 @@ public class EditProfilePage extends Activity {
             bundle.putInt("timePeriod", t);
             Log.d(TAG, "time period: " + t);
             try {
+                dataSelfQ.put("user_id", sharedPreferences.getString("id", "NA"));
+                dataSelfQ.put("createdTime", currentTime);
+                dataSelfQ.put("createdTimeString", ScheduleAndSampleManager.getTimeString(currentTime));
+                dataSelfQ.put("changeEventId", currentTime);
+
                 data.put("user_id", sharedPreferences.getString("id", "NA"));
                 data.put("id", currentTime); // use Questionnaire to query dump data id(self edit data)
                 data.put("group", sharedPreferences.getString("group", "NA"));
@@ -257,6 +263,37 @@ public class EditProfilePage extends Activity {
                     notification.defaults |= Notification.DEFAULT_VIBRATE;
                     mNotificationManager.notify(afterEditNotificationID, notification);
 
+                    // store to self questionnaire to track he revise
+                    mQueue = Volley.newRequestQueue(mContext);
+                    mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfQuestionnaire, dataSelfQ,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    Log.d(TAG, response.toString());
+                                    // start activity here
+                                    try {
+                                        if (response.getString("response").equals("success insert")) {
+                                            Log.d(TAG, "insert successfully");
+//                                            BackgroundService.isHandleAfterEdit = true;
+//                                            BackgroundService.afterEditTimePeriod = t;
+//                                            Intent intent = new Intent(EditProfilePage.this, ContactList.class);
+//                                            Toast.makeText(EditProfilePage.this,
+//                                                    "更改成功! 請記得填寫問卷", Toast.LENGTH_SHORT).show();
+//                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP); //加這行
+//                                            startActivity(intent);
+//                                            EditProfilePage.this.finish();
+                                        }
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d(TAG, "Error: " + error.getMessage());
+                        }
+                    });
+                    mQueue.add(mJsonObjectRequest);
                     // store status data to database
                     mQueue = Volley.newRequestQueue(mContext);
                     mJsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.storeSelfStatusUrl, data,

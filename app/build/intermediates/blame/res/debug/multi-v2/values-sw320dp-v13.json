@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw320dp-v13\\values-sw320dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\instabug-2.6.2.aar\\8d89834c769278b4f81dad42f6c0ced7\\res\\values-sw320dp-v13\\values-sw320dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,112,167,224",
+                        "endColumns": "56,54,56,55",
+                        "endOffsets": "107,162,219,275"
+                    }
+                }
+            ]
+        }
+    ]
+}

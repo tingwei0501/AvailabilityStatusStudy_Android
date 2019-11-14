@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-zh\\values-zh.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\library-1.4.aar\\7ebbdcb64c92084466797bc95055db86\\res\\values-zh\\values-zh.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "193",
+                        "endColumns": "40",
+                        "endOffsets": "229"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "40",
+                        "endOffsets": "91"
+                    }
+                }
+            ]
+        }
+    ]
+}

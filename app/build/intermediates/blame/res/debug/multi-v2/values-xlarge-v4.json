@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-xlarge-v4\\values-xlarge-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c2f87ed88bb768f46a3ce4924ec8d316\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "55,126,197,267,337,405",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "121,192,262,332,400,468"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "93,164,235,305,375,443",
+                        "endColumns": "70,70,69,69,67,67",
+                        "endOffsets": "159,230,300,370,438,506"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\instabug-2.6.2.aar\\8d89834c769278b4f81dad42f6c0ced7\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "37",
+                        "endOffsets": "88"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,57 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\Users\\Lucy\\Documents\\MUI_Lab\\Availability status\\minuku-android-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\12b4a965b4688b95b552a1897a1d5619\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\wizardpager-1.0.0.aar\\9a25b593a5ad4001978b216600138da2\\res\\values-v16\\values.xml",
+                    "from": {
+                        "startLines": "4,13",
+                        "startColumns": "4,4",
+                        "startOffsets": "188,683",
+                        "endLines": "12,22",
+                        "endColumns": "12,12",
+                        "endOffsets": "678,1228"
+                    },
+                    "to": {
+                        "startLines": "7,16",
+                        "startColumns": "4,4",
+                        "startOffsets": "294,789",
+                        "endLines": "15,25",
+                        "endColumns": "12,12",
+                        "endOffsets": "784,1334"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Lucy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\c2f87ed88bb768f46a3ce4924ec8d316\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        }
+    ]
+}
